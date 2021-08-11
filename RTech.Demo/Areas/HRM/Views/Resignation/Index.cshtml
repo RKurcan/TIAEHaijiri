@@ -1,0 +1,358 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Layout_Adminlte.cshtml";
+}
+<section class="content-header">
+    <h1>
+        @T("Bank")
+        <sup class="text-green">@T("Creation")</sup>
+
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> @T("Home")</a></li>
+        <li class="active">@T("Bank")</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <div class="modal" id="contractViewModel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-green" data-bind="text:'Contract For: '+SelectedContract().EmployeeName()"></h4> </header>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal" data-bind="with:Contract">
+                        <div class="form-group col-lg-12">
+                            <label class="col-lg-4 control-label" for="Number">@T("Code") :</label>
+                            <div class="col-lg-6">
+                                <label class=" control-label " data-bind="text:Code"></label>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-12">
+                            <label class="col-lg-4 control-label" for="Number">@T("Employee") :</label>
+                            <div class="col-lg-6">
+                                <label class=" control-label " data-bind="text:EmployeeName"></label>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-12">
+                            <label class="col-lg-4 control-label" for="Number">@T("EmploymentStatus") :</label>
+                            <div class="col-lg-6">
+                                <label class=" control-label " data-bind="text:EmploymentStatusName"></label>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-12">
+                            <label class="col-lg-4 control-label" for="Number">@T("Period"):</label>
+                            <div class="col-lg-6">
+                                <label class=" control-label " data-bind="text:Period"></label>
+                            </div>
+                        </div>
+                    </div>
+                    &nbsp;
+                    <div class="form-group col-lg-12 text-center">
+                        <input type="submit" data-bind="click:$root.Approve,actionVisibility:'7110'" name="Save" class="btn btn-success action" value=@T("Approve") />
+                        <input type="button" data-bind="click:$root.CloseModal" value=@T("Back") class="btn btn-default" />
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="resignationViewModel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-green" data-bind="text:'Resignation For: '+SelectedResignation().EmployeeName()"></h4> </header>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal" data-bind="with:Resignation">
+                        <div class="form-group col-lg-12">
+                            <label class="col-lg-4 control-label" for="Number">@T("Code") :</label>
+                            <div class="col-lg-6">
+                                <label class=" control-label " data-bind="text:Code"></label>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-12">
+                            <label class="col-lg-4 control-label" for="Number">@T("Employee") :</label>
+                            <div class="col-lg-6">
+                                <label class=" control-label " data-bind="text:EmployeeName"></label>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-12">
+                            <label class="col-lg-4 control-label" for="Number">@T("NoticeDate") :</label>
+                            <div class="col-lg-6">
+                                <label class=" control-label " data-bind="text:NoticeDate"></label>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-12">
+                            <label class="col-lg-4 control-label" for="Number">@T("DesiredResignDate"):</label>
+                            <div class="col-lg-6">
+                                <label class=" control-label " data-bind="text:DesiredResignDate"></label>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-12">
+                            <label class="col-lg-4 control-label" for="Number">@T("Reason"):</label>
+                            <div class="col-lg-6">
+                                <label class=" control-label " data-bind="text:Reason"></label>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-12">
+                            <label class="col-lg-4 control-label" for="Number">@T("Details"):</label>
+                            <div class="col-lg-6">
+                                <label class=" control-label " data-bind="text:Details"></label>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-12">
+                            <label class="col-lg-4 control-label" for="Number">@T("ForwardTo"):</label>
+                            <div class="col-lg-6">
+                                <label class=" control-label " data-bind="text:ForwardToName"></label>
+                            </div>
+                        </div>
+                    </div>
+                    &nbsp;
+                    <div class="form-group text-center">
+                        <input type="submit" data-bind="click:$root.ResignationApprove,actionVisibility:'7116'" name="Save" class="btn btn-success action" value=@T("Approve") />
+                        <input type="button" data-bind="click:$root.ResignationCloseModal" value=@T("Back") class="btn btn-default" />
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="terminationViewModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-green" data-bind="text:'Termination For: '+SelectedTermination().EmployeeName()"></h4> </header>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal" data-bind="with:Termination">
+                        <div class="form-group col-lg-12">
+                            <label class="col-lg-4 control-label" for="Number">@T("Code") :</label>
+                            <div class="col-lg-6">
+                                <label class=" control-label " data-bind="text:Code"></label>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-12">
+                            <label class="col-lg-4 control-label" for="Number">@T("Employee") :</label>
+                            <div class="col-lg-6">
+                                <label class=" control-label " data-bind="text:EmployeeName"></label>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-12">
+                            <label class="col-lg-4 control-label" for="Number">@T("NoticeDate") :</label>
+                            <div class="col-lg-6">
+                                <label class=" control-label " data-bind="text:NoticeDate"></label>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-12">
+                            <label class="col-lg-4 control-label" for="Number">@T("Service End Date"):</label>
+                            <div class="col-lg-6">
+                                <label class=" control-label " data-bind="text:ServiceEndDate"></label>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-12">
+                            <label class="col-lg-4 control-label" for="Number">@T("Reason"):</label>
+                            <div class="col-lg-6">
+                                <label class=" control-label " data-bind="text:Reason"></label>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-12">
+                            <label class="col-lg-4 control-label" for="Number">@T("Details"):</label>
+                            <div class="col-lg-6">
+                                <label class=" control-label " data-bind="text:Details"></label>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-12">
+                            <label class="col-lg-4 control-label" for="Number">@T("ForwardTo"):</label>
+                            <div class="col-lg-6">
+                                <label class=" control-label " data-bind="text:ForwardToName"></label>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-12">
+                            <label class="col-lg-4 control-label" for="Number">@T("Change Status"):</label>
+                            <div class="col-lg-6">
+                                <label class=" control-label " data-bind="text:ChangeStatusName"></label>
+                            </div>
+                        </div>
+                    </div>
+                    &nbsp;
+                    <div class="form-group text-center">
+                        <input type="submit" data-bind="click:$root.TerminationApprove,actionVisibility:'7113'" name="Save" class="btn btn-success action" value=@T("Approve") />
+                        <input type="button" data-bind="click:$root.TerminationCloseModal" value=@T("Back") class="btn btn-default" />
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Info boxes -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box box-success">
+                <div class="box-header with-border">
+                    &nbsp;
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-wrench"></i>
+                            </button>
+                            <ul class="dropdown-menu" role="menu"></ul>
+                        </div>
+                        <button type="button" class="btn btn-box-tool text-red" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="box-body ">
+                    <ul id="tabList" class="nav nav-tabs">
+                        <li class="active"><a href="#contract" data-toggle="tab">@T("Contract")</a></li>
+                        <li><a href="#resignation" data-toggle="tab">@T("Resignation")</a></li>
+                        <li><a href="#termination" data-toggle="tab">@T("Termination")</a></li>
+                        <li><a href="#Employeelicense" data-toggle="tab">@T("License")</a></li>
+                        <li><a href="#membership" data-toggle="tab">@T("Membership")</a></li>
+                        <li><a href="#language" data-toggle="tab">@T("Language")</a></li>
+                    </ul>
+                    <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane fade active in " id="contract" >
+                            <br />
+                            <div class="col-lg-12">
+                                <div class="box box-default">
+                                    <div class="box-header with-border">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-default action" data-bind="click:ShowModal,actionVisibility:'7109'"><i class="fa fa-eye text-blue">&nbsp;@T("View")</i></button>
+                                            <button type="button" class="btn btn-default action" data-bind="click:Approve,actionVisibility:'7110'"><i class="fa fa-check text-green">&nbsp;@T("Approve")</i></button>
+                                        </div>
+                                    </div>
+                                    <div class="box-body">
+                                        <div class="row">
+                                            <div class="col-lg-12" data-bind="kendoGrid:KendoGridOptionForContracts">
+                                                <div id="contractKendoGrid">
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade  " id="resignation" >
+                            <br />
+                            <div class="col-lg-12">
+                                <div class="box box-default">
+                                    <div class="box-header with-border">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-default action" data-bind="click:ResignationShowModal,actionVisibility:'7115'"><i class="fa fa-eye text-blue">&nbsp;@T("View")</i></button>
+                                            <button type="button" class="btn btn-default action" data-bind="click:ResignationApprove,actionVisibility:'7116'"><i class="fa fa-check text-green">&nbsp;@T("Approve")</i></button>
+                                        </div>
+                                    </div>
+                                    <div class="box-body">
+                                        <div class="row">
+                                            <div class="col-lg-12" data-bind="kendoGrid:KendoGridOptionForResignations">
+                                                <div id="resignationKendoGrid">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade " id="termination" >
+                            <br />
+                            <div class="col-lg-12">
+                                <div class="box box-default">
+                                    <div class="box-header with-border">
+                                        <button type="button" class="btn btn-default action" data-bind="click:TerminationShowModal,actionVisibility:'7112'"><i class="fa fa-eye text-blue">&nbsp;@T("View")</i></button>
+                                        <button type="button" class="btn btn-default action" data-bind="click:TerminationApprove,actionVisibility:'7113'"><i class="fa fa-check text-green">&nbsp;@T("Approve")</i></button>
+                                    </div>
+                                    <div class="box-body ">
+                                        <div class="row">
+                                            <div class="col-lg-12" data-bind="kendoGrid:KendoGridOptionForTerminations">
+                                                <div id="terminationKendoGrid">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade " id="Employeelicense">
+                            <div class="col-lg-12">
+                                <br />
+                                lic
+                            </div>
+                        </div>
+                        <div class="tab-pane fade " id="membership">
+                            <div class="col-lg-12">
+                                <br />
+                                mem
+                            </div>
+                        </div>
+                        <div class="tab-pane fade " id="language">
+                            <div class="col-lg-12">
+                                <br />
+                                lang
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/html" id="mode-button-add-template">
+        <span class="glyphicon glyphicon-plus"></span>
+    </script>
+    <script type="text/html" id="mode-button-update-template">
+        <span class="glyphicon glyphicon-arrow-up"></span>
+    </script>
+    <!-- /.row -->
+    <!-- /.row -->
+    <!-- Main row -->
+    <!-- /.row -->
+</section>
+
+@if (Request.IsAjaxRequest())
+{
+    <script src="~/Areas/HRM/Scripts/Riddha.Script.HRM.Model.js"></script>
+    <script src="~/Areas/HRM/Scripts/Riddha.Script.HRM.Controller.js"></script>
+    <script type="text/javascript">
+        var obj = {};
+        Riddha.global.permission.action('7002').done(function (data) {
+            Riddha.global.permission.actions = data.Data;
+            ko.cleanNode(document.getElementById("partial-render"));
+            obj = new verificationController();
+            ko.applyBindings(obj, document.getElementById("partial-render"));
+        });
+    </script>
+}
+else
+{
+    @section scripts
+    {
+        <script src="~/Areas/HRM/Scripts/Riddha.Script.HRM.Model.js"></script>
+        <script src="~/Areas/HRM/Scripts/Riddha.Script.HRM.Controller.js"></script>
+        <script type="text/javascript">
+            var obj = {};
+            Riddha.global.permission.action('7002').done(function (data) {
+                Riddha.global.permission.actions = data.Data;
+                ko.cleanNode(document.getElementById("partial-render"));
+                obj = new verificationController();
+
+                ko.applyBindings(obj, document.getElementById("partial-render"));
+            });
+        </script>
+    }
+}
+
+

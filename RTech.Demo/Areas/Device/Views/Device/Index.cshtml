@@ -1,0 +1,289 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Layout_Adminlte.cshtml";
+}
+
+<section class="content-header">
+    <h1>
+        Device
+        <sup class="text-green">Creation</sup>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Device</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <!-- Company Modal -->
+    <div class="modal" id="deviceEditModel">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-success">Device Creation</h4></header>
+                </div>
+                <div class="modal-body">
+                    <div class="row" data-bind="with:Device">
+                        <div class="col-lg-12">
+                            <div class="form-group col-lg-4">
+                                <label class="col-lg-4 control-label" for="Number">Model</label>
+                                <div class="col-lg-8 date">
+                                    <select class="form-control" data-bind="options:$root.Models,optionsText:'Name',optionsValue:'Id',value:ModelId,optionsCaption:'Select'"></select>
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-4">
+                                <label class="col-lg-4 control-label" for="Number">Device Type</label>
+                                <div class="col-lg-8 date">
+                                    <select class="form-control" data-bind="options:$root.DeviceTypeList,optionsText:'Name',optionsValue:'Id',value:DeviceType"></select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    &nbsp;
+                    <div class="modal-footer">
+                        <input type="button" data-bind="click:$root.CreateUpdate,template:{name:$root.ModeOfButton()=='Create'?'mode-button-add-template':'mode-button-update-template'},value:$root.ModeOfButton" name="Save" class="btn btn-success" value="Save" />
+                        <input type="button" data-bind="click:$root.Reset" name="Reset" value="Reset" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="deviceCreationModel">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-success">Device Creation</h4></header>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="box box-default">
+                                <div class="box-header">
+                                    <div class="box-tools pull-right">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-box-tool dropdown-toggle" data-bind="click:trigerFileBrowse,enable:(Device().ModelId()!=undefined && Quantity()>0)">
+                                                <i class="fa fa-upload"></i> Upload Excel File
+                                            </button>
+                                            <input class="hidden" type="file" name="UploadedFile" id="UploadedFile" data-bind="event:{change:UploadClick}" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" hidden />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box-body">
+                                    <div class="row" data-bind="with:Device">
+                                        <div class="col-lg-12">
+                                            <div class="form-group col-lg-4">
+                                                <div class="required">
+                                                    <label class="col-lg-4 control-label" for="Number">Model</label>
+                                                    <div class="col-lg-7 date">
+                                                        <select class="form-control" data-bind="options:$root.Models,optionsText:'Name',optionsValue:'Id',value:ModelId,optionsCaption:'Select'"></select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-lg-4">
+                                                <label class="col-lg-4 control-label" for="Number">Quantity</label>
+                                                <div class="col-lg-8">
+                                                    <input type="text" class="form-control" data-bind="value:$root.Quantity" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-lg-2">
+                                                <button class="btn btn-default btn-sm" data-bind="click:$root.ShowGrid">Show <span class="glyphicon glyphicon-arrow-right"></span></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    &nbsp;
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <table class="table table-condensed table-bordered table-striped no-padding riddha-condensed-table">
+                                                <thead class="success bg-green">
+                                                    <tr>
+                                                        <th class="col-lg-1">S.No.</th>
+                                                        <th class="col-lg-5 ">SerialNumber</th>
+                                                        <th class="col-lg-6">DeviceType</th>
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody data-bind="foreach:$root.Devices">
+                                                    <tr class="text-center">
+                                                        <td data-bind="text:$index()+1"></td>
+                                                        <td>
+                                                            <input type="text" class="form-control" data-bind="value:SerialNumber,event:{change:$root.CheckDuplicateSNo}" />
+                                                        </td>
+                                                        <td>
+                                                            <select class="form-control" data-bind="options:$root.DeviceTypeList,optionsText:'Name',optionsValue:'Id',value:DeviceType"></select>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                                <tfoot>
+                                                    <tr>
+                                                        <td colspan="3">
+                                                            <input type="button" data-bind="click:$root.CreateUpdate,template:{name:$root.ModeOfButton()=='Create'?'mode-button-add-template':'mode-button-update-template'}" name="Save" class="btn btn-success" value="Save" />
+                                                            <input type="button" data-bind="click:$root.Reset" name="Reset" value="Reset" class="btn btn-default" />
+                                                        </td>
+                                                    </tr>
+                                                </tfoot>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Info boxes -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box box-success">
+                <div class="box-header with-border">
+                    &nbsp;
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool text-red" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default " data-bind="click:ShowModal" style="display: inline-block;"><i class="fa fa-plus-square text-green">&nbsp;@T("Create")</i></button>
+                        <button type="button" class="btn btn-default " data-bind="click:Select" style="display: inline-block;"><i class="fa fa-pencil text-blue">&nbsp;@T("Edit")</i></button>
+                        <button type="button" class="btn btn-default " data-bind="click:Delete" style="display: inline-block;"><i class="fa fa-trash text-red">&nbsp;@T("Delete")</i></button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-lg-12" data-bind="kendoGrid:KendoGridOptions">
+                            <div id="deviceKendoGrid">
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    @*<div class="row">
+            <div class="col-lg-12">
+                <div class="box box-success">
+                    <div class="box-header">
+                        <p data-bind="" class="text-green"></p>
+                        <div class="">
+                            <button type="button" class="btn btn-app " data-bind="click:function(){ShowModal('deviceCreationModel')}">
+                                <i class="fa fa-plus-square text-green"></i> Create
+                            </button>
+
+                            <button type="button" class="btn btn-app " data-bind="click:Select">
+                                <i class="fa fa-pencil text-green"></i> Edit
+                            </button>
+                            <button type="button" class="btn btn-app " data-bind="click:Delete">
+                                <i class="fa fa-trash text-red"></i> Delete
+                            </button>
+                        </div>
+                        <div class="box-tools pull-right">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-wrench"></i>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="~/Files/Device.xlsx">Download Excel Format</a></li>
+                                </ul>
+                            </div>
+                            <button type="button" class="btn btn-box-tool text-red" data-widget="remove"><i class="fa fa-times"></i></button>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <div class="box-tools pull-right">
+                            <div class="has-feedback ">
+                                <input type="text" class="form-control input-sm" placeholder="Search" data-bind="value: filterText, valueUpdate: 'keyup'" onclick="searchClick();">
+                                <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                                <script>
+                                    function searchClick() {
+                                        $('.kgHeaderButton').click();
+                                    }
+                                </script>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="gridStyle" data-bind="koGrid:$root.gridOptions">
+                                </div>
+                            </div>
+                        </div>
+                        <table class="table table-condensed table-bordered table-striped no-padding">
+                                <thead class="success bg-success">
+                                    <tr>
+                                        <th>SN</th>
+                                        <th>Model</th>
+                                        <th>Serial Number</th>
+                                        <th>Device Type</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody data-bind="foreach:DeviceList">
+                                    <tr>
+                                        <td data-bind="text:$index()+1"></td>
+                                        <td data-bind="text:Model"></td>
+                                        <td data-bind="text:SerialNumber"></td>
+                                        <td data-bind="text:$root.GetDeviceTypeName(DeviceType)"></td>
+                                        <td data-bind="text:$root.GetStatusName(Status)"></td>
+                                        <td>
+                                            <button type="button" data-bind="click:$root.Delete" class="btn btn-xs text-danger" title="Remove"><span class="glyphicon glyphicon-remove"></span></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                </tfoot>
+                            </table>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+    <script type="text/html" id="mode-button-add-template">
+        <span class="glyphicon glyphicon-plus"></span>
+    </script>
+    <script type="text/html" id="mode-button-update-template">
+        <span class="glyphicon glyphicon-arrow-up"></span>
+    </script>
+    <!-- /.row -->
+    <!-- /.row -->
+    <!-- Main row -->
+    <!-- /.row -->
+</section>
+
+@if (Request.IsAjaxRequest())
+{
+    <script src = "~/Areas/Device/Scripts/Riddha.Script.Device.Model.js" ></script>
+    <script src = "~/Areas/Device/Scripts/Riddha.Script.Device.Controller.js"></script>
+    <script type="text/javascript">
+        var obj = {};
+        ko.cleanNode(document.getElementById("partial-render"));
+        obj = new deviceController();
+        ko.applyBindings(obj, document.getElementById("partial-render"));
+    </script>
+}
+else
+{
+    @section scripts
+    {
+        <script src="~/Areas/Device/Scripts/Riddha.Script.Device.Model.js"></script>
+        <script src="~/Areas/Device/Scripts/Riddha.Script.Device.Controller.js"></script>
+        <script type="text/javascript">
+            var obj = {};
+            ko.cleanNode(document.getElementById("partial-render"));
+            obj = new deviceController();
+            ko.applyBindings(obj, document.getElementById("partial-render"));
+        </script>
+    }
+}
+
+
+
+

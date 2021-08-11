@@ -1,0 +1,204 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Layout_Adminlte.cshtml";
+}
+
+<section class="content-header">
+    <h1>
+        Device
+        <sup class="text-green">Assignment</sup>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">DeviceAssignment</li>
+    </ol>
+
+
+</section>
+<!-- Main content -->
+<section class="content">
+    <!-- Bank Modal -->
+    <div class="modal" id="deviceAssignCreationModel">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-success">Device Assignment</h4></header>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal" data-bind="with:DeviceAssignment">
+                        <div class="form-group col-lg-12">
+                            <div class="required">
+                                <label class=" col-lg-1" for="Number">Partner</label>
+                                <div class="col-lg-4">
+                                    <select class="form-control" data-bind="options:$root.Resellers,
+                                optionsValue:'Id',optionsText:'Name',
+                                optionsCaption:'Select',value:ResellerId"></select>
+                                </div>
+                            </div>
+                        </div>
+                        @*<div class="form-group col-lg-12">
+                                <label class=" col-lg-1" for="Number">IsPrivate</label>
+                                <div class="col-lg-4">
+                                    <input type="checkbox" data-bind="checked:IsPrivate" />
+                                </div>
+                            </div>*@
+                        <div class="box-body">
+                            <table class="table table-condensed table-bordered table-striped no-padding table-hover">
+                                <thead class="success bg-green">
+                                    <tr>
+                                        <th> SN</th>
+
+                                        <th class="col-lg-5"> Model</th>
+
+                                        <th class="col-lg-5"> Device Serial No. </th>
+
+
+                                    </tr>
+                                </thead>
+
+                                <tfoot data-bind="with:$root.DeviceAssignment">
+                                    <tr>
+                                        <td></td>
+                                        <td>
+                                            <div>
+                                                <select class="form-control " data-bind="options:$root.Models,
+                                    optionsText:'Name',optionsValue:'Id',value:$root.ModelId,
+                                    optionsCaption:'Select',
+    CascadeTo:{id:$root.ModelId,childs:$root.AllDevices,online:false,property:'ModelId',childBindList:$root.Devices }"></select>
+                                            </div>
+                                            <br />
+                                            <div class="form-group col-lg-12">
+                                                <label class=" col-lg-5" for="Number">IsPrivate</label>
+                                                <div class="col-lg-7">
+                                                    <input type="checkbox" data-bind="checked:IsPrivate" />
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+
+                                            <div class="panel panel-success">
+
+                                                <div class="panel-body" data-bind="" style="overflow-y:scroll; height:150px; width:400px;" id="kryesore">
+                                                    <ul data-bind="foreach:$root.Devices" class="list-group list list-group-unbordered">
+                                                        <li class="list-group-item">
+                                                            <input type="checkbox" data-bind="checked :$root.DeviceAssignment().DeviceIds,value:Id" class="pull-right" />&nbsp;&nbsp;<span data-bind="text:SerialNumber"></span>
+
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+
+
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="col-lg-6">
+                            <input type="button" data-bind="click:$root.CreateUpdate" name="Save" class="btn btn-success" value="Save" />
+                            <input type="button" data-bind="click:$root.Reset" name="Reset" value="Reset" class="btn btn-default" />
+                            <input type="button" id="close" data-bind="click:$root.CloseModal" value="Back" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Info boxes -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box box-success">
+                <div class="box-header with-border">
+
+
+                    <p data-bind="" class="text-green"></p>
+                    <div class="">
+                        <button type="button" class="btn btn-app " data-bind="click:$root.ShowModal">
+                            <i class="fa fa-plus-square text-green"></i> Assign
+                        </button>
+
+                        <button type="button" class="btn btn-app " data-bind="click:$root.Delete">
+                            <i class="fa fa-trash text-red"></i> Delete
+                        </button>
+                        &nbsp;
+                        <div class="box-tools pull-right">
+
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-wrench"></i>
+                                </button>
+
+                            </div>
+                            <button type="button" class="btn btn-box-tool text-red" data-widget="remove"><i class="fa fa-times"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="box-body ">
+                        <div class="box-tools pull-right ">
+                            <div class="has-feedback ">
+                                <input type="text" class="form-control input-sm" placeholder="Search" data-bind="value: filterText, valueUpdate: 'keyup'" onclick="searchClick();">
+                                <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                                <script>
+                                    function searchClick() {
+                                        $('.kgHeaderButton').click();
+                                    }
+                                </script>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="gridStyle" data-bind="koGrid:$root.gridOptions">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/html" id="mode-button-add-template">
+            <span class="glyphicon glyphicon-plus"></span>
+        </script>
+        <script type="text/html" id="mode-button-update-template">
+            <span class="glyphicon glyphicon-arrow-up"></span>
+        </script>
+        <!-- /.row -->
+        <!-- /.row -->
+        <!-- Main row -->
+        <!-- /.row -->
+</section>
+
+@if (Request.IsAjaxRequest())
+{
+    <script src="~/Scripts/moment.min.js"></script>
+    <script src="~/Scripts/App/Globals/Riddha.Globals.ko.js"></script>
+    <script src="~/Areas/Device/Scripts/Riddha.Script.Device.Model.js"></script>
+    <script src="~/Areas/Office/Scripts/Riddha.Script.Reseller.Model.js"></script>
+    <script src="~/Areas/Device/Scripts/Riddha.Script.DeviceAssignment.Model.js"></script>
+    <script src="~/Areas/Device/Scripts/Riddha.Script.DeviceAssignment.Controller.js"></script>
+    <script type="text/javascript">
+        ko.cleanNode(document.getElementById("partial-render"));
+        var obj = new deviceAssignmentController();
+        ko.applyBindings(obj, document.getElementById("partial-render"));
+    </script>
+}
+else
+{
+    @section scripts
+    {
+        <script src="~/Scripts/moment.min.js"></script>
+        <script src="~/Scripts/App/Globals/Riddha.Globals.ko.js"></script>
+        <script src="~/Areas/Device/Scripts/Riddha.Script.Device.Model.js"></script>
+        <script src="~/Areas/Office/Scripts/Riddha.Script.Reseller.Model.js"></script>
+        <script src="~/Areas/Device/Scripts/Riddha.Script.DeviceAssignment.Model.js"></script>
+        <script src="~/Areas/Device/Scripts/Riddha.Script.DeviceAssignment.Controller.js"></script>
+        <script type="text/javascript">
+            var obj = new deviceAssignmentController();
+            ko.applyBindings(obj);
+        </script>
+    }
+}

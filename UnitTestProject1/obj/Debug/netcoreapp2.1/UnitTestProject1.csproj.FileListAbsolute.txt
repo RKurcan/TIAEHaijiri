@@ -1,0 +1,34 @@
+D:\project\Hamro-Hajiri\trunk\UnitTestProject1\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+D:\project\Hamro-Hajiri\trunk\UnitTestProject1\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+D:\project\Hamro-Hajiri\trunk\UnitTestProject1\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+D:\project\Hamro-Hajiri\trunk\UnitTestProject1\bin\Debug\netcoreapp2.1\UnitTestProject1.deps.json
+D:\project\Hamro-Hajiri\trunk\UnitTestProject1\bin\Debug\netcoreapp2.1\UnitTestProject1.runtimeconfig.json
+D:\project\Hamro-Hajiri\trunk\UnitTestProject1\bin\Debug\netcoreapp2.1\UnitTestProject1.runtimeconfig.dev.json
+D:\project\Hamro-Hajiri\trunk\UnitTestProject1\bin\Debug\netcoreapp2.1\UnitTestProject1.dll
+D:\project\Hamro-Hajiri\trunk\UnitTestProject1\bin\Debug\netcoreapp2.1\UnitTestProject1.pdb
+D:\project\Hamro-Hajiri\trunk\UnitTestProject1\bin\Debug\netcoreapp2.1\RTech.Lib.ProductKey.dll
+D:\project\Hamro-Hajiri\trunk\UnitTestProject1\bin\Debug\netcoreapp2.1\RTech.Lib.ProductKey.pdb
+D:\project\Hamro-Hajiri\trunk\UnitTestProject1\obj\Debug\netcoreapp2.1\UnitTestProject1.csprojAssemblyReference.cache
+D:\project\Hamro-Hajiri\trunk\UnitTestProject1\obj\Debug\netcoreapp2.1\UnitTestProject1.csproj.CoreCompileInputs.cache
+D:\project\Hamro-Hajiri\trunk\UnitTestProject1\obj\Debug\netcoreapp2.1\UnitTestProject1.AssemblyInfoInputs.cache
+D:\project\Hamro-Hajiri\trunk\UnitTestProject1\obj\Debug\netcoreapp2.1\UnitTestProject1.AssemblyInfo.cs
+D:\project\Hamro-Hajiri\trunk\UnitTestProject1\obj\Debug\netcoreapp2.1\UnitTestProject1.csproj.CopyComplete
+D:\project\Hamro-Hajiri\trunk\UnitTestProject1\obj\Debug\netcoreapp2.1\UnitTestProject1.dll
+D:\project\Hamro-Hajiri\trunk\UnitTestProject1\obj\Debug\netcoreapp2.1\UnitTestProject1.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\UnitTestProject1\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+D:\SVN Server\Hamro-Hajiri\trunk\UnitTestProject1\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+D:\SVN Server\Hamro-Hajiri\trunk\UnitTestProject1\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+D:\SVN Server\Hamro-Hajiri\trunk\UnitTestProject1\bin\Debug\netcoreapp2.1\UnitTestProject1.deps.json
+D:\SVN Server\Hamro-Hajiri\trunk\UnitTestProject1\bin\Debug\netcoreapp2.1\UnitTestProject1.runtimeconfig.json
+D:\SVN Server\Hamro-Hajiri\trunk\UnitTestProject1\bin\Debug\netcoreapp2.1\UnitTestProject1.runtimeconfig.dev.json
+D:\SVN Server\Hamro-Hajiri\trunk\UnitTestProject1\bin\Debug\netcoreapp2.1\UnitTestProject1.dll
+D:\SVN Server\Hamro-Hajiri\trunk\UnitTestProject1\bin\Debug\netcoreapp2.1\UnitTestProject1.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\UnitTestProject1\bin\Debug\netcoreapp2.1\RTech.Lib.ProductKey.dll
+D:\SVN Server\Hamro-Hajiri\trunk\UnitTestProject1\bin\Debug\netcoreapp2.1\RTech.Lib.ProductKey.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\UnitTestProject1\obj\Debug\netcoreapp2.1\UnitTestProject1.csprojAssemblyReference.cache
+D:\SVN Server\Hamro-Hajiri\trunk\UnitTestProject1\obj\Debug\netcoreapp2.1\UnitTestProject1.csproj.CoreCompileInputs.cache
+D:\SVN Server\Hamro-Hajiri\trunk\UnitTestProject1\obj\Debug\netcoreapp2.1\UnitTestProject1.AssemblyInfoInputs.cache
+D:\SVN Server\Hamro-Hajiri\trunk\UnitTestProject1\obj\Debug\netcoreapp2.1\UnitTestProject1.AssemblyInfo.cs
+D:\SVN Server\Hamro-Hajiri\trunk\UnitTestProject1\obj\Debug\netcoreapp2.1\UnitTestProject1.csproj.CopyComplete
+D:\SVN Server\Hamro-Hajiri\trunk\UnitTestProject1\obj\Debug\netcoreapp2.1\UnitTestProject1.dll
+D:\SVN Server\Hamro-Hajiri\trunk\UnitTestProject1\obj\Debug\netcoreapp2.1\UnitTestProject1.pdb

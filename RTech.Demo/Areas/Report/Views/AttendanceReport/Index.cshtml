@@ -1,0 +1,2665 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Layout_Adminlte.cshtml";
+}
+<style>
+    .panel-body {
+        padding: 7.5px;
+    }
+
+    .list-group-item {
+        position: relative;
+        display: block;
+        padding: 4px;
+        margin-bottom: -1px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+    }
+
+        .list-group-item:first-child {
+            margin-top: 0;
+            border-top: 0px;
+            border-bottom-right-radius: 4px;
+            /* border-bottom-left-radius: 4px; */
+        }
+
+    .modal.bootstrap-dialog.type-primary.fade.size-large.in > .modal-dialog {
+        width: 90%;
+        overflow-x: scroll;
+    }
+
+    .modal-custom {
+        width: 1200px;
+    }
+
+    .appbtn {
+        /*display: inline-block;
+        padding: 8px 8px;
+        margin-bottom: 0;
+        font-size: 13px;
+        font-weight: normal;
+        line-height: 1.428571429;*/
+        border-radius: 3px;
+        position: relative;
+        padding: 15px 5px;
+        margin: 0 0 10px 10px;
+        min-width: 80px;
+        height: 60px;
+        text-align: center;
+        color: #666;
+        border: 1px solid #ddd;
+        background-color: #f4f4f4;
+        font-size: 12px;
+    }
+
+    input[type="checkbox"] {
+        margin: 3px;
+        padding: 0;
+    }
+
+    .scrollit {
+        overflow: scroll;
+        height: 100px;
+    }
+</style>
+<section class="content-header">
+    <h1>
+        @T("AttendanceReport")
+        <sup class="text-green">@T("Report")</sup>
+    </h1>
+
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> @T("Home")</a></li>
+        <li class="active">@T("AttendanceReport")</li>
+    </ol>
+</section>
+<section class="content">
+    <!-- Report Modal -->
+    <div class="modal" id="auditTrialReportModal" style="">
+        <div class="modal-dialog modal-md ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-success" data-bind="text:$root.Report"></h4></header>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal" data-bind="">
+                        <div class="row" data-bind="visible:VisibleEndDate" style="display:none;">
+                            <div class="form-group col-lg-4">
+                                <label class="col-lg-4 control-label" for="OnDate">@T("Year")</label>
+                                <div class="col-lg-5">
+                                    <input type="text" class="form-control" data-bind="value:Year,mask:'number'" maxlength="4">
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-4">
+                                <label class="col-lg-4 control-label">@T("Month")</label>
+                                <div class="col-lg-8">
+                                    <select class="form-control" data-bind="options:Months,optionsText:'Name',optionsValue:'Id',value:MonthId,event:{change:$root.DateDiffrence}"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-lg-4">
+                                <label class="col-lg-4 control-label" for="OnDate">@T("OnDate")</label>
+                                <div class="col-lg-8">
+                                    <input type="text" class="form-control" data-nepdate="#nepaliDate" data-bind="mask:'date',value:OnDate,visible:DateVisibility('en')">
+                                    <input class="form-control nepDate" data-format="yyyy/MM/dd" name="date" type="text" id="nepaliOnDate" data-bind="dateNp:{engDate:OnDate},visible:DateVisibility('ne')">
+                                </div>
+                            </div>
+                            <div class="form-group row col-md-4" data-bind="visible:!VisibleEndDate() && PackageId()>0" style="display:none;">
+                                <div class="form-group col-lg-5">
+                                    <p><input type="radio" name="daily-active-inactive" value="0" data-bind="checked:ActiveInactiveMode"> &nbsp; @T("Active")</p>
+                                </div>
+                                <div class="form-group col-lg-7">
+                                    <p><input type="radio" name="daily-active-inactive" value="1" data-bind="checked:ActiveInactiveMode">&nbsp; @T("IncludeInactive")</p>
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-4" data-bind="visible:VisibleEndDate" style="display:none;">
+                                <label class="col-lg-4 control-label" for="OnDate">@T("EndDate")</label>
+                                <div class="col-lg-8">
+                                    <input type="text" class="form-control" data-nepdate="#nepaliDate" data-bind="mask:'date',value:EndDate,visible:DateVisibility('en')">
+                                    <input class="form-control nepDate" data-format="yyyy/MM/dd" name="date" type="text" id="nepaliEndDate" data-bind="dateNp:{engDate:EndDate},visible:DateVisibility('ne')">
+                                </div>
+                            </div>
+                            <div class="form-group row col-md-4" data-bind="visible:ReportId()==16" style="display:none;">
+                                <div class="form-group col-lg-6">
+                                    <p><input type="radio" name="time-wise" value="1" data-bind="checked:Daywise"> &nbsp; @T("DayWise")</p>
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <p><input type="radio" name="time-wise" value="0" data-bind="checked:Daywise">&nbsp; @T("HourWise")</p>
+                                    <p><input type="checkbox" data-bind="checked:IsLeaveWiseSummary">&nbsp; @T("IncludeLeave")</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="col-lg-7">
+                            <input type="button" data-bind="kendoWindowGrid:$root.KendoGridOptionsForAuditTrial('@T("MonthlyAuditTrialReport")'),visible:$root.ReportId()==60" name="Save" class="btn btn-success" value=@T("Generate") />
+                            <input type="button" data-bind="click:$root.Reset" name="Reset" value=@T("Reset") class="btn btn-default" />
+                            <input type="button" id="close" data-bind="click:$root.AuditTrialCloseModal" value=@T("Back") class="btn btn-default" />
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="reportModel" style="">
+        <div class="modal-dialog modal-custom ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-success" data-bind="text:$root.Report"></h4></header>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal" data-bind="">
+                        <div class="row" data-bind="visible:VisibleEndDate" style="display:none;">
+                            <div class="form-group col-lg-4">
+                                <label class="col-lg-4 control-label" for="OnDate">@T("Year")</label>
+                                <div class="col-lg-5">
+                                    <input type="text" class="form-control" data-bind="value:Year,mask:'number'" maxlength="4">
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-4">
+                                <label class="col-lg-4 control-label">@T("Month")</label>
+                                <div class="col-lg-8">
+                                    <select class="form-control" data-bind="options:Months,optionsText:'Name',optionsValue:'Id',value:MonthId,event:{change:$root.DateDiffrence}"></select>
+                                </div>
+                            </div>
+                            <div class="form-group row col-md-4" data-bind="visible:PackageId()>0" style="display:none;">
+                                <div class="form-group col-lg-5">
+                                    <p><input type="radio" name="monthly-active-inactive" value="0" data-bind="checked:ActiveInactiveMode"> &nbsp; @T("Active")</p>
+                                </div>
+                                <div class="form-group col-lg-8">
+                                    <p><input type="radio" name="monthly-active-inactive" value="1" data-bind="checked:ActiveInactiveMode">&nbsp; @T("IncludeInactive")</p>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-lg-4">
+                                <label class="col-lg-4 control-label" for="OnDate">@T("OnDate")</label>
+                                <div class="col-lg-8">
+                                    <input type="text" class="form-control" data-nepdate="#nepaliGBDate" data-bind="mask:'date',value:OnDate,visible:DateVisibility('en')">
+                                    <input class="form-control nepDate" data-format="yyyy/MM/dd" name="date" type="text" id="nepaliOnGBDate" data-bind="dateNp:{engDate:OnDate},visible:DateVisibility('ne')">
+                                </div>
+                            </div>
+                            <div class="form-group row col-md-4" data-bind="visible:!VisibleEndDate() && PackageId()>0" style="display:none;">
+                                <div class="form-group col-lg-5">
+                                    <p><input type="radio" name="daily-active-inactive" value="0" data-bind="checked:ActiveInactiveMode"> &nbsp; @T("Active")</p>
+                                </div>
+                                <div class="form-group col-lg-7">
+                                    <p><input type="radio" name="daily-active-inactive" value="1" data-bind="checked:ActiveInactiveMode">&nbsp; @T("IncludeInactive")</p>
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-4" data-bind="visible:VisibleEndDate" style="display:none;">
+                                <label class="col-lg-4 control-label" for="OnDate">@T("EndDate")</label>
+                                <div class="col-lg-8">
+                                    <input type="text" class="form-control" data-nepdate="#nepaliGIDate" data-bind="mask:'date',value:EndDate,visible:DateVisibility('en')">
+                                    <input class="form-control nepDate" data-format="yyyy/MM/dd" name="date" type="text" id="nepaliGIEndDate" data-bind="dateNp:{engDate:EndDate},visible:DateVisibility('ne')">
+                                </div>
+                            </div>
+                            <div class="form-group row col-md-4" data-bind="visible:$root.ReportId()==10 || $root.ReportId()==16 || $root.ReportId()==43" style="display:none;">
+                                <div class="form-group col-lg-4">
+                                    <p><input type="checkbox" data-bind="checked:OTV2"> &nbsp; @T("Ot V2")</p>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div data-bind="visible:$root.ReportId()==16">
+                                <div class="form-group col-lg-4" data-bind="visible:PackageId()>0" style="display:none;">
+                                    <label class="col-lg-4 control-label" for="OnDate">@T("DayWise")</label>
+                                    <div class="col-lg-4">
+                                        <input type="radio" name="time-wise" value="1" data-bind="checked:Daywise">
+                                    </div>
+                                </div>
+                                <div class="form-group col-lg-4" data-bind="visible:PackageId()>0" style="display:none;">
+                                    <label class="col-lg-6 control-label" for="OnDate">@T("HourWise")</label>
+                                    <div class="col-lg-6">
+                                        <input type="radio" name="time-wise" value="0" data-bind="checked:Daywise">
+                                    </div>
+                                </div>
+                                <div class="form-group col-lg-4" data-bind="visible:PackageId()>0" style="display:none;">
+                                    <label class="col-lg-6 control-label" for="OnDate">@T("IncludeLeave")</label>
+                                    <div class="col-lg-6">
+                                        <input type="checkbox" data-bind="checked:IsLeaveWiseSummary">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <div class="panel panel-success">
+                                    <div class="box-header bg-green ">@T("Branch") <input class="pull-right" type="checkbox" data-bind="checked:CheckAllBranches" /><input type="text" name="name" data-bind="value:$root.SearchDepartmentText,valueUpdate:'keyup',visible:langVisibility('en')" class="form-control pull-right custom-dep" placeholder="Search" /><input type="text" data-bind="PreetiToUnicode:SearchDepartmentText,visible:langVisibility('ne')" class="form-control  pull-right custom-dep" placeholder="खोज्नुहोस्" /></div>
+                                    <div class="panel-body" style="height:250px; overflow-y:auto">
+                                        <ul data-bind="foreach:Branches" class="list-group list list-group-unbordered">
+                                            <li class="list-group-item">
+                                                <span data-bind="text:Name"></span>   <a class="pull-right"><input type="checkbox" data-bind="checked:Checked,event:{change:$root.GetDepartments}" /></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="panel panel-success">
+                                    <div class="box-header bg-green ">@T("Department") <input class="pull-right" type="checkbox" data-bind="checked:CheckAllDepartments" /><input type="text" name="name" data-bind="value:$root.SearchDepartmentText,valueUpdate:'keyup',visible:langVisibility('en')" class="form-control pull-right custom-dep" placeholder="Search" /><input type="text" data-bind="PreetiToUnicode:SearchDepartmentText,visible:langVisibility('ne')" class="form-control  pull-right custom-dep" placeholder="खोज्नुहोस्" /></div>
+                                    <div class="panel-body" style="height:250px; overflow-y:auto">
+                                        <ul data-bind="foreach:FilteredDepartment" class="list-group list list-group-unbordered">
+                                            <li class="list-group-item">
+                                                @*<span data-bind="text:Name"></span>   <a class="pull-right"><input type="checkbox" data-bind="checked:Checked,event:{change:$root.GetSections}" /></a>*@
+                                                <span data-bind="text:Name"></span>   <a class="pull-right"><input type="checkbox" data-bind="checkedValue: Id, checked: $parent.CheckedDepartments,event:{change:$root.GetSections}" /></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="panel panel-success">
+                                    <div class="box-header bg-green ">@T("Section") <input class="pull-right" type="checkbox" data-bind="checked:CheckAllSections" /><input type="text" name="name" data-bind="value:$root.SearchSectionText,valueUpdate:'keyup',visible:langVisibility('en')" class="form-control pull-right custom-dep" placeholder="Search" /><input type="text" data-bind="PreetiToUnicode:SearchSectionText,visible:langVisibility('ne')" class="form-control  pull-right custom-dep" placeholder="खोज्नुहोस्" /></div>
+                                    <div class="panel-body" style="height:250px; overflow-y:auto">
+                                        <ul data-bind="foreach:FilteredSection" class="list-group list list-group-unbordered">
+                                            <li class="list-group-item">
+                                                <span data-bind="text:Name"></span>   <a class="pull-right"><input type="checkbox" data-bind="checkedValue: Id, checked: $parent.CheckedSections,event:{change:$root.GetEmployee}" /></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="panel panel-success">
+                                    <div class="box-header bg-green ">@T("Employee")<input type="text" name="name" data-bind="value:$root.SearchEmployeeText,valueUpdate:'keyup',visible:langVisibility('en')" class="form-control pull-right custom-dep" placeholder="Search" /><input type="text" data-bind="PreetiToUnicode:SearchEmployeeText,visible:langVisibility('ne')" class="form-control  pull-right custom-dep" placeholder="खोज्नुहोस्" /></div>
+                                    <div class="panel-body" data-bind="" style="height:250px; overflow-y:auto">
+                                        <ul data-bind="foreach:FilteredEmployee" class="list-group list list-group-unbordered">
+                                            <li class="list-group-item">
+                                                <span data-bind="text:Name"></span>   <input class="pull-right" type="checkbox" data-bind="value:Id,checked:Checked" />
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="col-lg-7">
+                            <input type="button" data-bind="kendoWindowGrid:$root.KendoGridOptionsForDailyEmployeeAttendance('@T("DailyEmployeeAttendanceReport")'),visible:$root.ReportId()==2" name="Save" class="btn btn-success" value=@T("Generate") />
+                            <input type="button" data-bind="kendoWindowGrid:$root.KendoGridOptionsForDailyEarlyIn('@T("DailyEarlyInReport")'),visible:$root.ReportId()==4" name="Save" class="btn btn-success" value=@T("Generate") />
+                            <input type="button" data-bind="kendoWindowGrid:$root.KendoGridOptionsForDailyEarlyOut('@T("DailyEarlyOutReport")'),visible:$root.ReportId()==5" name="Save" class="btn btn-success" value=@T("Generate") />
+                            <input type="button" data-bind="kendoWindowGrid:$root.KendoGridOptionsForEmployeeAbsent('@T("DailyEmployeeAbsentReport")'),visible:$root.ReportId()==6" name="Save" class="btn btn-success" value=@T("Generate") />
+                            <input type="button" data-bind="kendoWindowGrid:$root.KendoGridOptionsForDailyLateIn('@T("DailyLateInReport")'),visible:$root.ReportId()==7" name="Save" class="btn btn-success" value=@T("Generate") />
+                            <input type="button" data-bind="kendoWindowGrid:$root.KendoGridOptionsForDailyLateOut('@T("DailyLateOutReport")'),visible:$root.ReportId()==8" name="Save" class="btn btn-success" value=@T("Generate") />
+                            <input type="button" data-bind="kendoWindowGrid:$root.KendoGridOptionsForDailyMissingPunches('@T("DailyMissingPunchesReport")'),visible:$root.ReportId()==9" name="Save" class="btn btn-success" value=@T("Generate") />
+                            <input type="button" data-bind="kendoWindowGrid:$root.KendoGridOptionsForDailyLeave('@T("DailyEmployeeLeaveReport")'),visible:$root.ReportId()==11" name="Save" class="btn btn-success" value=@T("Generate") />
+                            <input type="button" data-bind="kendoWindowGrid:$root.KendoGridOptionsForDailyOt('@T("DailyOtReport")'),visible:$root.ReportId()==12" name="Save" class="btn btn-success" value=@T("Generate") />
+                            <input type="button" data-bind="click:function(){Generate('MonthlyAttendancereport','0')},visible:$root.ReportId()==10" name="Save" class="btn btn-success" value=@T("PDF") />
+                            <input type="button" data-bind="click:function(){Generate('MonthlyAttendancereport','1')},visible:$root.ReportId()==10" name="Save" class="btn btn-success" value=@T("Excel") />
+                            <input type="button" data-bind="click:function(){HtmlReportForMonthlyAttendance('@T("MonthlyAttendancereport")')},visible:$root.ReportId()==10" name="Save" class="btn btn-success" value=@T("Generate") />
+                            <input type="button" data-bind="click:function(){HtmlReportForMonthlyMultiPunchReport('@T("MultiPunchAttendanceDetailReport")')},visible:$root.ReportId()==5012" name="Save" class="btn btn-success" value=@T("Generate") />
+                            <input type="button" data-bind="kendoWindowGrid:$root.KendoGridOptionsForEmployeeLateInEarlyOut('@T("EmployeeLateInEarlyOut")'),visible:$root.ReportId()==56" name="Save" class="btn btn-success" value=@T("Generate") />
+                            <input type="button" data-bind="kendoWindowGrid:$root.KendoGridOptionsForEmployeePunchRequest('@T("EmployeePunchRequest")'),visible:$root.ReportId()==57" name="Save" class="btn btn-success" value=@T("Generate") />
+                            <input type="button" data-bind="kendoWindowGrid:$root.KendoGridOptionsForEmployeeOfficeVisitRequest('@T("EmployeeOfficeVisitRequest")'),visible:$root.ReportId()==58" name="Save" class="btn btn-success" value=@T("Generate") />
+
+
+
+                            @*<input type="button" data-bind="kendoWindowGrid:$root.KendoGridOptionsForMonthlySummaryDaywise('@T("MonthlyEmployeeSummaryReportDayWise")'),visible:$root.ReportId()==16 && $root.Daywise()=='1'" name="Save" class="btn btn-success" value=@T("Generate") />*@
+                            <input type="button" data-bind="click:GenerateEmployeeSummaryReport,visible:$root.ReportId()==16 && $root.Daywise()=='1'" name="Save" class="btn btn-success" value=@T("Generate") />
+                            @*<input type="button" data-bind="kendoWindowGrid:$root.KendoGridOptionsForMonthlySummaryHourwise('@T("MonthlyEmployeeSummaryReportHourWise")'),visible:$root.ReportId()==16 && $root.Daywise()=='0'" name="Save" class="btn btn-success" value=@T("Generate") />*@
+                            <input type="button" data-bind="click:GenerateEmployeesSummaryHourwiseReport,visible:$root.ReportId()==16 && $root.Daywise()=='0'" name="Save" class="btn btn-success" value=@T("Generate") />
+                            <input type="button" data-bind="kendoWindowGrid:$root.KendoGridOptionsForPayroll('@T("Employees PayRoll Summary")'),visible:$root.ReportId()==21" name="Save" class="btn btn-success" value=@T("Generate") />
+                            @*<input type="button" data-bind="kendoWindowGrid:$root.KendoGridOptionsForMonthlyEarlyIn('@T("MonthlyEarlyInReport")'),visible:$root.ReportId()==36" name="Save" class="btn btn-success" value=@T("Generate") />*@
+                            <input type="button" data-bind="click:GenerateMonthlyEarlyInReport,visible:$root.ReportId()==36" name="Save" class="btn btn-success" value=@T("Generate") />
+                            @*<input type="button" data-bind="kendoWindowGrid:$root.KendoGridOptionsForMonthlyEarlyOut('@T("MonthlyEarlyOutReport")'),visible:$root.ReportId()==37" name="Save" class="btn btn-success" value=@T("Generate") />*@
+                            <input type="button" data-bind="click:GenerateMonthlyEarlyOutReport,visible:$root.ReportId()==37" name="Save" class="btn btn-success" value=@T("Generate") />
+                            @*<input type="button" data-bind="kendoWindowGrid:$root.KendoGridOptionsForMonthlyLateIn('@T("MonthlyLateInReport")'),visible:$root.ReportId()==38" name="Save" class="btn btn-success" value=@T("Generate") />*@
+                            <input type="button" data-bind="click:GenerateMonthlyLateInReport,visible:$root.ReportId()==38" name="Save" class="btn btn-success" value=@T("Generate") />
+                            @*<input type="button" data-bind="kendoWindowGrid:$root.KendoGridOptionsForMonthlyLateOut('@T("MonthlyLateOutReport")'),visible:$root.ReportId()==39" name="Save" class="btn btn-success" value=@T("Generate") />*@
+                            <input type="button" data-bind="click:GenerateMonthlyLateOutReport,visible:$root.ReportId()==39" name="Save" class="btn btn-success" value=@T("Generate") />
+                            @*<input type="button" data-bind="kendoWindowGrid:$root.KendoGridOptionsForMonthlyAbsent('@T("MonthlyAbsentReport")'),visible:$root.ReportId()==40" name="Save" class="btn btn-success" value=@T("Generate") />*@
+                            <input type="button" data-bind="click:GenerateMonthlyAbsentReport,visible:$root.ReportId()==40" name="Save" class="btn btn-success" value=@T("Generate") />
+                            @*<input type="button" data-bind="kendoWindowGrid:$root.KendoGridOptionsForMonthlyMissingPunches('@T("MonthlyMissingPunchesReport")'),visible:$root.ReportId()==41" name="Save" class="btn btn-success" value=@T("Generate") />*@
+                            <input type="button" data-bind="click:GenerateMonthlyMissingPunchesReport,visible:$root.ReportId()==41" name="Save" class="btn btn-success" value=@T("Generate") />
+                            @*<input type="button" data-bind="kendoWindowGrid:$root.KendoGridOptionsForMonthlyLeave('@T("MonthlyLeaveReport")'),visible:$root.ReportId()==42" name="Save" class="btn btn-success" value=@T("Generate") />*@
+                            <input type="button" data-bind="click:GenerateMonthlyLeaveReport,visible:$root.ReportId()==42" name="Save" class="btn btn-success" value=@T("Generate") />
+                            @*<input type="button" data-bind="kendoWindowGrid:$root.KendoGridOptionsForMonthlyOt('@T("MonthlyOtReport")'),visible:$root.ReportId()==43" name="Save" class="btn btn-success" value=@T("Generate") />*@
+                            <input type="button" data-bind="click:GenerateMonthlyOTReport,visible:$root.ReportId()==43" name="Save" class="btn btn-success" value=@T("Generate") />
+                            <input type="button" data-bind="kendoPivotGridInDialog:$root.KendoGridOptionsForEmployeeAllowance('@T("MonthlyAllowanceReport")'),visible:$root.ReportId()==22" name="Save" class="btn btn-success" value=@T("Generate") />
+                            <input type="button" data-bind="kendoWindowGrid:$root.KendoGridOptionsForDailyManualPunch('@T("DailyManualPunchReport")'),visible:$root.ReportId()==51" name="Save" class="btn btn-success" value=@T("Generate") />
+                            @*<input type="button" data-bind="kendoWindowGrid:$root.KendoGridOptionsForMonthlyManualPunch('@T("MonthlyManualPunchReport")'),visible:$root.ReportId()==52" name="Save" class="btn btn-success" value=@T("Generate") />*@
+                            <input type="button" data-bind="click:GenerateMonthlyManualPunchReport,visible:$root.ReportId()==52" name="Save" class="btn btn-success" value=@T("Generate") />
+                            <input type="button" data-bind="kendoWindowGrid:$root.KendoGridOptionsForMonthlyOfficeVisit('@T("MonthlyOfficeVisitReport")'),visible:$root.ReportId()==53" name="Save" class="btn btn-success" value=@T("Generate") />
+                            <input type="button" data-bind="kendoWindowGrid:$root.KendoGridOptionsForDailyOfficeVisit('@T("DailyOfficeVisitReport")'),visible:$root.ReportId()==54" name="Save" class="btn btn-success" value=@T("Generate") />
+
+                            @*<input type="button" data-bind="kendoWindowGrid:$root.KendoGridOptionsForMonthlyMultiPunch('@T("MultiPunchReport")'),visible:$root.ReportId()==55" name="Save" class="btn btn-success" value=@T("Generate") />*@
+                            <input type="button" data-bind="click:$root.Reset" name="Reset" value=@T("Reset") class="btn btn-default" />
+                            <input type="button" id="close" data-bind="click:$root.CloseModal" value=@T("Back") class="btn btn-default" />
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="MASModel" style="">
+        <div class="modal-dialog modal-lg ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-success" data-bind="text:$root.Report"></h4></header>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal" data-bind="">
+                        <div class="row">
+                            <div class="form-group col-lg-4">
+                                <label class="col-lg-4 control-label" for="OnDate">@T("Year")</label>
+                                <div class="col-lg-5">
+                                    <input type="text" class="form-control" data-bind="value:Year,mask:'number'" maxlength="4">
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-4">
+                                <label class="col-lg-4 control-label">@T("Month")</label>
+                                <div class="col-lg-8">
+                                    <select class="form-control" data-bind="options:Months,optionsText:'Name',optionsValue:'Id',value:MonthId"></select>
+                                </div>
+                            </div>
+                            <div class="form-group row col-md-4">
+                                <div data-bind="visible:PackageId()>0" style="display:none;">
+                                    <div class="form-group col-lg-5">
+                                        <p><input type="radio" name="stat-active-inactive" value="0" data-bind="checked:ActiveInactiveMode"> &nbsp; @T("Active")</p>
+                                    </div>
+                                    <div class="form-group col-lg-7">
+                                        <p><input type="radio" name="stat-active-inactive" value="1" data-bind="checked:ActiveInactiveMode">&nbsp; @T("IncludeInactive")</p>
+                                    </div>
+                                </div>
+                                <div class="form-group col-lg-8">
+                                    <p><input type="checkbox" name="stat-active-inactive" value="0" data-bind="checked:IncludePunchTime">&nbsp; @T("IncludePunchTime")</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <div class="panel panel-success">
+                                    <div class="box-header bg-green ">@T("Branch") <input class="pull-right" type="checkbox" data-bind="checked:CheckAllBranches" /></div>
+                                    <div class="panel-body" style="height:250px; overflow-y:auto">
+                                        <ul data-bind="foreach:Branches" class="list-group list list-group-unbordered">
+                                            <li class="list-group-item">
+                                                <span data-bind="text:Name"></span>   <a class="pull-right"><input type="checkbox" data-bind="checked:Checked,event:{change:$root.GetDepartments}" /></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="panel panel-success">
+                                    <div class="box-header bg-green ">@T("Department") <input class="pull-right" type="checkbox" data-bind="checked:CheckAllDepartments" /></div>
+                                    <div class="panel-body" style="height:250px; overflow-y:auto">
+                                        <ul data-bind="foreach:Departments" class="list-group list list-group-unbordered">
+                                            <li class="list-group-item">
+                                                @*<span data-bind="text:Name"></span>   <a class="pull-right"><input type="checkbox" data-bind="checked:Checked,event:{change:$root.GetSections}" /></a>*@
+                                                <span data-bind="text:Name"></span>   <a class="pull-right"><input type="checkbox" data-bind="checkedValue: Id, checked: $parent.CheckedDepartments,event:{change:$root.GetSections}" /></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="panel panel-success">
+                                    <div class="box-header bg-green ">@T("Section") <input class="pull-right" type="checkbox" data-bind="checked:CheckAllSections" /></div>
+                                    <div class="panel-body" style="height:250px; overflow-y:auto">
+                                        <ul data-bind="foreach:Sections" class="list-group list list-group-unbordered">
+                                            <li class="list-group-item">
+                                                @*<span data-bind="text:Name"></span>   <a class="pull-right"><input type="checkbox" data-bind="checked:Checked,event:{change:$root.GetEmployee}" /></a>*@
+                                                <span data-bind="text:Name"></span>   <a class="pull-right"><input type="checkbox" data-bind="checkedValue: Id, checked: $parent.CheckedSections,event:{change:$root.GetEmployee}" /></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="panel panel-success">
+                                    <div class="box-header bg-green ">@T("Employee") @*<input class="pull-right" type="checkbox" data-bind="checked:CheckAllEmployees" />*@</div>
+                                    <div class="panel-body" data-bind="" style="height:250px; overflow-y:auto">
+                                        <ul data-bind="foreach:Employees" class="list-group list list-group-unbordered">
+                                            <li class="list-group-item">
+                                                <span data-bind="text:Name"></span>   <input class="pull-right" type="checkbox" data-bind="value:Id,checked:Checked,enable:$root.CheckAllEmployees()==false" />
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="col-lg-7">
+                            <input type="button" data-bind="kendoWindowGrid:$root.KendoGridOptionsForMonthlyAttendanceStat('@T("MonthlyAttendanceStatistic")')" name="Save" class="btn btn-success" value=@T("Generate") />
+                            <input type="button" data-bind="click:$root.Reset" name="Reset" value=@T("Reset") class="btn btn-default" />
+                            <input type="button" id="close" data-bind="click:$root.MasCloseModal" value=@T("Back") class="btn btn-default" />
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="monthlyRosterModal" style="">
+        <div class="modal-dialog modal-lg ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-success" data-bind="text:$root.Report"></h4></header>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal" data-bind="">
+                        <div class="row">
+                            <div class="form-group col-lg-4">
+                                <label class="col-lg-4 control-label" for="OnDate">@T("Year")</label>
+                                <div class="col-lg-5">
+                                    <input type="text" class="form-control" data-bind="value:Year,mask:'number'" maxlength="4">
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-4">
+                                <label class="col-lg-4 control-label">@T("Month")</label>
+                                <div class="col-lg-8">
+                                    <select class="form-control" data-bind="options:Months,optionsText:'Name',optionsValue:'Id',value:MonthId"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <div class="panel panel-success">
+                                    <div class="box-header bg-green ">@T("Branch") <input class="pull-right" type="checkbox" data-bind="checked:CheckAllBranches" /></div>
+                                    <div class="panel-body" style="height:250px; overflow-y:auto">
+                                        <ul data-bind="foreach:Branches" class="list-group list list-group-unbordered">
+                                            <li class="list-group-item">
+                                                <span data-bind="text:Name"></span>   <a class="pull-right"><input type="checkbox" data-bind="checked:Checked,event:{change:$root.GetDepartments}" /></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="panel panel-success">
+                                    <div class="box-header bg-green ">@T("Department") <input class="pull-right" type="checkbox" data-bind="checked:CheckAllDepartments" /><input type="text" name="name" data-bind="value:$root.SearchDepartmentText,valueUpdate:'keyup',visible:langVisibility('en')" class="form-control pull-right custom-dep" placeholder="Search" /><input type="text" data-bind="PreetiToUnicode:SearchDepartmentText,visible:langVisibility('ne')" class="form-control  pull-right custom-dep" placeholder="खोज्नुहोस्" /></div>
+                                    <div class="panel-body" style="height:250px; overflow-y:auto">
+                                        <ul data-bind="foreach:FilteredDepartment" class="list-group list list-group-unbordered">
+                                            <li class="list-group-item">
+                                                @*<span data-bind="text:Name"></span>   <a class="pull-right"><input type="checkbox" data-bind="checked:Checked,event:{change:$root.GetSections}" /></a>*@
+                                                <span data-bind="text:Name"></span>   <a class="pull-right"><input type="checkbox" data-bind="checkedValue: Id, checked: $parent.CheckedDepartments,event:{change:$root.GetSections}" /></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="panel panel-success">
+                                    <div class="box-header bg-green ">@T("Section") <input class="pull-right" type="checkbox" data-bind="checked:CheckAllSections" /><input type="text" name="name" data-bind="value:$root.SearchSectionText,valueUpdate:'keyup',visible:langVisibility('en')" class="form-control pull-right custom-dep" placeholder="Search" /><input type="text" data-bind="PreetiToUnicode:SearchSectionText,visible:langVisibility('ne')" class="form-control  pull-right custom-dep" placeholder="खोज्नुहोस्" /></div>
+                                    <div class="panel-body" style="height:250px; overflow-y:auto">
+                                        <ul data-bind="foreach:FilteredSection" class="list-group list list-group-unbordered">
+                                            <li class="list-group-item">
+                                                <span data-bind="text:Name"></span>   <a class="pull-right"><input type="checkbox" data-bind="checkedValue: Id, checked: $parent.CheckedSections,event:{change:$root.GetEmployee}" /></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="panel panel-success">
+                                    <div class="box-header bg-green ">@T("Employee")<input type="text" name="name" data-bind="value:$root.SearchEmployeeText,valueUpdate:'keyup',visible:langVisibility('en')" class="form-control pull-right custom-dep" placeholder="Search" /><input type="text" data-bind="PreetiToUnicode:SearchEmployeeText,visible:langVisibility('ne')" class="form-control  pull-right custom-dep" placeholder="खोज्नुहोस्" /></div>
+                                    <div class="panel-body" data-bind="" style="height:250px; overflow-y:auto">
+                                        <ul data-bind="foreach:FilteredEmployee" class="list-group list list-group-unbordered">
+                                            <li class="list-group-item">
+                                                <span data-bind="text:Name"></span>   <input class="pull-right" type="checkbox" data-bind="value:Id,checked:Checked" />
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="col-lg-7">
+                            <input type="button" data-bind="kendoWindowGrid:$root.KendoGridOptionsForMonthlyRosterRpt('@T("MonthlyRosterReport")')" name="Save" class="btn btn-success" value=@T("Generate") />
+                            <input type="button" data-bind="click:$root.Reset" name="Reset" value=@T("Reset") class="btn btn-default" />
+                            <input type="button" id="close" data-bind="click:$root.RosterCloseModal" value=@T("Back") class="btn btn-default" />
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal" id="monthlyOtModal" style="">
+        <div class="modal-dialog modal-lg ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-success" data-bind="text:$root.Report"></h4></header>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal" data-bind="">
+                        <div class="row">
+                            <div class="form-group col-lg-4">
+                                <label class="col-lg-4 control-label" for="OnDate">@T("Year")</label>
+                                <div class="col-lg-5">
+                                    <input type="text" class="form-control" data-bind="value:Year,mask:'number'" maxlength="4">
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-4">
+                                <label class="col-lg-4 control-label">@T("Month")</label>
+                                <div class="col-lg-8">
+                                    <select class="form-control" data-bind="options:Months,optionsText:'Name',optionsValue:'Id',value:MonthId"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            @*<div class="col-lg-3">
+                                    <div class="panel panel-success">
+                                        <div class="box-header bg-green ">@T("Branch") <input class="pull-right" type="checkbox" data-bind="checked:CheckAllBranches" /></div>
+                                        <div class="panel-body" style="height:250px; overflow-y:auto">
+                                            <ul data-bind="foreach:Branches" class="list-group list list-group-unbordered">
+                                                <li class="list-group-item">
+                                                    <span data-bind="text:Name"></span>   <a class="pull-right"><input type="checkbox" data-bind="checked:Checked,event:{change:$root.GetDepartments}" /></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="panel panel-success">
+                                        <div class="box-header bg-green ">@T("Department") <input class="pull-right" type="checkbox" data-bind="checked:CheckAllDepartments" /></div>
+                                        <div class="panel-body" style="height:250px; overflow-y:auto">
+                                            <ul data-bind="foreach:Departments" class="list-group list list-group-unbordered">
+                                                <li class="list-group-item">
+                                                    <span data-bind="text:Name"></span>   <a class="pull-right"><input type="checkbox" data-bind="checked:Checked,event:{change:$root.GetSections}" /></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="panel panel-success">
+                                        <div class="box-header bg-green ">@T("Section") <input class="pull-right" type="checkbox" data-bind="checked:CheckAllSections" /></div>
+                                        <div class="panel-body" style="height:250px; overflow-y:auto">
+                                            <ul data-bind="foreach:Sections" class="list-group list list-group-unbordered">
+                                                <li class="list-group-item">
+
+                                                    <span data-bind="text:Name"></span>   <a class="pull-right"><input type="checkbox" data-bind="checkedValue: Id, checked: $parent.CheckedSections,event:{change:$root.GetEmployee}" /></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="panel panel-success">
+                                        <div class="box-header bg-green ">@T("Employee") </div>
+                                        <div class="panel-body" data-bind="" style="height:250px; overflow-y:auto">
+                                            <ul data-bind="foreach:Employees" class="list-group list list-group-unbordered">
+                                                <li class="list-group-item">
+                                                    <span data-bind="text:Name"></span>   <input class="pull-right" type="checkbox" data-bind="value:Id,checked:Checked,enable:$root.CheckAllEmployees()==false" />
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>*@
+                            <div class="col-lg-3">
+                                <div class="panel panel-success">
+                                    <div class="box-header bg-green ">@T("Branch") <input class="pull-right" type="checkbox" data-bind="checked:CheckAllBranches" /><input type="text" name="name" data-bind="value:$root.SearchDepartmentText,valueUpdate:'keyup',visible:langVisibility('en')" class="form-control pull-right custom-dep" placeholder="Search" /><input type="text" data-bind="PreetiToUnicode:SearchDepartmentText,visible:langVisibility('ne')" class="form-control  pull-right custom-dep" placeholder="खोज्नुहोस्" /></div>
+                                    <div class="panel-body" style="height:250px; overflow-y:auto">
+                                        <ul data-bind="foreach:Branches" class="list-group list list-group-unbordered">
+                                            <li class="list-group-item">
+                                                <span data-bind="text:Name"></span>   <a class="pull-right"><input type="checkbox" data-bind="checked:Checked,event:{change:$root.GetDepartments}" /></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="panel panel-success">
+                                    <div class="box-header bg-green ">@T("Department") <input class="pull-right" type="checkbox" data-bind="checked:CheckAllDepartments" /><input type="text" name="name" data-bind="value:$root.SearchDepartmentText,valueUpdate:'keyup',visible:langVisibility('en')" class="form-control pull-right custom-dep" placeholder="Search" /><input type="text" data-bind="PreetiToUnicode:SearchDepartmentText,visible:langVisibility('ne')" class="form-control  pull-right custom-dep" placeholder="खोज्नुहोस्" /></div>
+                                    <div class="panel-body" style="height:250px; overflow-y:auto">
+                                        <ul data-bind="foreach:FilteredDepartment" class="list-group list list-group-unbordered">
+                                            <li class="list-group-item">
+                                                @*<span data-bind="text:Name"></span>   <a class="pull-right"><input type="checkbox" data-bind="checked:Checked,event:{change:$root.GetSections}" /></a>*@
+                                                <span data-bind="text:Name"></span>   <a class="pull-right"><input type="checkbox" data-bind="checkedValue: Id, checked: $parent.CheckedDepartments,event:{change:$root.GetSections}" /></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="panel panel-success">
+                                    <div class="box-header bg-green ">@T("Section") <input class="pull-right" type="checkbox" data-bind="checked:CheckAllSections" /><input type="text" name="name" data-bind="value:$root.SearchSectionText,valueUpdate:'keyup',visible:langVisibility('en')" class="form-control pull-right custom-dep" placeholder="Search" /><input type="text" data-bind="PreetiToUnicode:SearchSectionText,visible:langVisibility('ne')" class="form-control  pull-right custom-dep" placeholder="खोज्नुहोस्" /></div>
+                                    <div class="panel-body" style="height:250px; overflow-y:auto">
+                                        <ul data-bind="foreach:FilteredSection" class="list-group list list-group-unbordered">
+                                            <li class="list-group-item">
+                                                <span data-bind="text:Name"></span>   <a class="pull-right"><input type="checkbox" data-bind="checkedValue: Id, checked: $parent.CheckedSections,event:{change:$root.GetEmployee}" /></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="panel panel-success">
+                                    <div class="box-header bg-green ">@T("Employee")<input type="text" name="name" data-bind="value:$root.SearchEmployeeText,valueUpdate:'keyup',visible:langVisibility('en')" class="form-control pull-right custom-dep" placeholder="Search" /><input type="text" data-bind="PreetiToUnicode:SearchEmployeeText,visible:langVisibility('ne')" class="form-control  pull-right custom-dep" placeholder="खोज्नुहोस्" /></div>
+                                    <div class="panel-body" data-bind="" style="height:250px; overflow-y:auto">
+                                        <ul data-bind="foreach:FilteredEmployee" class="list-group list list-group-unbordered">
+                                            <li class="list-group-item">
+                                                <span data-bind="text:Name"></span>   <input class="pull-right" type="checkbox" data-bind="value:Id,checked:Checked" />
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="col-lg-7">
+                            <input type="button" data-bind="kendoWindowGrid:$root.KendoGridOptionsForMonthlyOtRpt('@T("MonthlyOtReport")')" name="Save" class="btn btn-success" value=@T("Generate") />
+                            <input type="button" data-bind="click:$root.Reset" name="Reset" value=@T("Reset") class="btn btn-default" />
+                            <input type="button" id="close" data-bind="click:$root.RosterCloseModal" value=@T("Back") class="btn btn-default" />
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box box-success">
+                <div class="box-header with-border">
+                    &nbsp;<p data-bind="text:$root.Report,visible:$root.ReportVisible()"></p>
+                    <div class="box-tools pull-right">
+                        @*<div class="btn-group btn-group-sm">
+                                <button type="button" class="btn btn-default  dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-filter  text-warning"></i>  Column Filter <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><input data-report="MonthlyAttendanceReport" data-colname="Mlatein" onchange="setColumFilter(this)" type="checkbox" id="Mlatein" name="name" value="Mlatein" /> Late In</li>
+                                    <li><input data-report="MonthlyAttendanceReport" data-colname="Mlateout" onchange="setColumFilter(this)" type="checkbox" id="Mlateout" name="name" value="Mlateout" /> Late Out</li>
+                                    <li><input data-report="MonthlyAttendanceReport" data-colname="Mearlyin" onchange="setColumFilter(this)" type="checkbox" id="Mearlyin" name="name" value="Mearlyin" /> Early In</li>
+                                    <li><input data-report="MonthlyAttendanceReport" data-colname="Mearlyout" onchange="setColumFilter(this)" type="checkbox" id="Mearlyout" name="name" value="Mearlyout" /> Early Out</li>
+                                    <li><input data-report="MonthlyAttendanceReport" data-colname="Mremark" onchange="setColumFilter(this)" type="checkbox" id="Mremark" name="name" value="Mremark" /> Remark</li>
+                                </ul>
+                            </div>*@
+                        <button type="button" class="btn btn-box-tool dropdown-toggle" data-bind="visible:$root.ReportVisible(),click:$root.BackToReportGrid" data-toggle="dropdown">
+                            <i class="fa fa-backward"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <div class="btn-group" style="cursor:help">
+                            <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-wrench"></i>
+                            </button>
+                            <ul class="dropdown-menu" role="menu"></ul>
+                        </div>
+                        <button type="button" class="btn btn-box-tool text-red" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div class="modal" id="ReportView" style="">
+                        <div class="modal-dialog modal-lg ">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    <header><h4 class="text-success" data-bind="text:$root.Report"></h4></header>
+                                </div>
+                                <div class="modal-body">
+                                    <div data-bind="html:$root.ReportView" class="col-lg-12" style=""></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="box">
+                            <div class="box-header">
+                                <h3 class="box-title">@T("Daily") @T("Attendance") @T("Report")</h3>
+                            </div>
+                            <div class="box-body">
+                                <a data-toggle="tooltip" title='@T("DailyEmployeeAttendanceReportDesc")' class="btn btn-app appbtn  " data-bind="click:function(){ShowModal(2,'@T("DailyEmployeeAttendanceReport")')},actionVisibility:'5011'"><i class="fa fa-2x fa-clock-o text-info"></i>@T("Attendance")</a>
+                                <a data-toggle="tooltip" title='@T("DailyEarlyInDesc")' class="btn btn-app appbtn  " data-bind="click:function(){ShowModal(4,'@T("DailyEarlyInReport")')},actionVisibility:'5002'"><i class="fa fa-2x fa-arrow-left text-warning"></i>@T("EarlyIn")</a>
+                                <a data-toggle="tooltip" title='@T("DailyEarlyOutDesc")' class="btn btn-app appbtn " data-bind="click:function(){ShowModal(5,'@T("DailyEarlyOutReport")')},actionVisibility:'5003'"><i class=" fa fa-2x fa-arrow-right text-danger"></i>@T("EarlyOut")</a>
+                                <a data-toggle="tooltip" title='@T("DailyLateInDesc")' class="btn btn-app appbtn " data-bind="click:function(){ShowModal(7,'@T("DailyLateInReport")')},actionVisibility:'5005'"><i class=" fa fa-2x fa-clock-o text-danger"></i>@T("LateIn")</a>
+                                <a data-toggle="tooltip" title='@T("DailyLateOutDesc")' class="btn btn-app appbtn" data-bind="click:function(){ShowModal(8,'@T("DailyLateOutReport")')},actionVisibility:'5006'"><i class=" fa fa-2x fa-blind text-warning"></i>@T("LateOut")</a>
+                                <a data-toggle="tooltip" title='@T("DailyEmployeeAbsentReportDesc")' class="btn btn-app appbtn" data-bind="click:function(){ShowModal(6,'@T("DailyEmployeeAbsentReport")')},actionVisibility:'5004'"><i class=" fa fa-2x fa-home text-info"></i>@T("Absent")</a>
+                                <a data-toggle="tooltip" title='@T("DailyMissingPunchesReportDesc")' class="btn btn-app appbtn " data-bind="click:function(){ShowModal(9,'@T("DailyMissingPunchesReport")')},actionVisibility:'5007'"><i class=" fa fa-2x fa-question text-warning "></i>@T("MissingPunch")</a>
+                                <a data-toggle="tooltip" title='@T("DailyEmployeeLeaveReportDesc")' class="btn btn-app appbtn " data-bind="click:function(){ShowModal(11,'@T("DailyEmployeeLeaveReport")')},actionVisibility:'5010'"><i class=" fa fa-2x fa-bed text-danger"></i>@T("Leave")</a>
+                                <a data-toggle="tooltip" title='@T("DailyEmployeeOtDesc")' class="btn btn-app appbtn " data-bind="click:function(){ShowModal(12,'@T("DailyEmployeeOtReport")')},actionVisibility:'7222'"><i class=" fa fa-2x fa-male text-primary"></i>@T("OT")</a>
+                                <a data-toggle="tooltip" title='@T("DailyManualPunchReport")' class="btn btn-app appbtn  " data-bind="click:function(){ShowModal(51,'@T("DailyManualPunchReport")')},actionVisibility:'7218'"><i class="fa fa-2x fa-thumbs-up text-info"></i>@T("ManualPunch")</a>
+                                <a data-toggle="tooltip" title='@T("DailyOfficeVisitReport")' class="btn btn-app appbtn  " data-bind="click:function(){ShowModal(54,'@T("DailyOfficeVisitReport")')},actionVisibility:'7220'"><i class="fa fa-2x fa-bookmark text-info"></i>@T("OfficeVisit")</a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="box">
+                            <div class="box-header">
+                                <h3 class="box-title">@T("Monthly") @T("Attendance") @T("Report")</h3>
+                            </div>
+                            <div class="box-body">
+
+                                <a data-toggle="tooltip" title='@T("AttendanceReportDesc")' class="btn btn-app appbtn" data-bind="click:function(){ShowModal(10,'@T("AttendanceDetailReport")')},actionVisibility:'5008'"><i class="fa fa-2x text-info fa-clock-o"></i>@T("Attendance")</a>
+                                <a data-toggle="tooltip" title='@T("EmployeeSummaryReportDesc")' class="btn btn-app appbtn" data-bind="click:function(){ShowModal(16,'@T("EmployeeSummaryReport")')},actionVisibility:'5009'"><i class="fa fa-2x text-warning fa-book"></i>@T("Summary")</a>
+                                <a data-toggle="tooltip" title='@T("MonthlyAttendanceStatistic")' class="btn btn-app appbtn" data-bind="click:function(){ShowModal(13,'@T("MonthlyAttendanceStatistic")')},actionVisibility:'7124'"><i class="fa fa-3x text-danger fa-pie-chart"></i>@T("Statics")</a>
+                                <a data-toggle="tooltip" title='@T("MultiPunchAttendanceDetailReport")' class="btn btn-app appbtn" data-bind="click:function(){ShowModal(5012,'@T("MultiPunchAttendanceDetailReport")')}"> @*5012*@ <i class="fa fa-2x text-info fa-clock-o"></i>@T("MultiPunch")</a>
+                                <a data-toggle="tooltip" title='@T("MonthlyRosterReport") ' class="btn btn-app appbtn" data-bind="click:function(){ShowMonthlyRosterModal(55,'@T("MonthlyRosterReport")')},actionVisibility:'7178'"><i class="fa fa-2x fa-calendar text-info"></i>@T("Roaster")</a>
+                                <a data-toggle="tooltip" title='@T("MonthlyEarlyInReport") ' class="btn btn-app appbtn" data-bind="click:function(){ShowModal(36,'@T("MonthlyEarlyInReport")')},actionVisibility:'7171'"><i class="fa fa-2x fa-arrow-left text-warning"></i>@T("EarlyIn")</a>
+                                <a data-toggle="tooltip" title='@T("MonthlyEarlyOutReport")' class="btn btn-app appbtn" data-bind="click:function(){ShowModal(37,'@T("MonthlyEarlyOutReport")')},actionVisibility:'7172'"><i class="fa fa-2x fa-arrow-right text-danger"></i>@T("EarlyOut")</a>
+                                <a data-toggle="tooltip" title='@T("MonthlyLateInReport") ' class="btn btn-app appbtn" data-bind="click:function(){ShowModal(38,'@T("MonthlyLateInReport")')},actionVisibility:'7173'"><i class="fa fa-2x fa-clock-o text-danger"></i>@T("LateIn")</a>
+                                <a data-toggle="tooltip" title='@T("MonthlyLateOutReport")' class="btn btn-app appbtn" data-bind="click:function(){ShowModal(39,'@T("MonthlyLateOutReport")')},actionVisibility:'7174'"><i class="fa fa-2x fa-blind text-warning"></i>@T("LateOut")</a>
+                                <a data-toggle="tooltip" title='@T("MonthlyAbsentReport")' class="btn btn-app appbtn" data-bind="click:function(){ShowModal(40,'@T("MonthlyAbsentReport")')},actionVisibility:'7175'"><i class="fa fa-2x fa-home text-info"></i>@T("Absent")</a>
+                                <a data-toggle="tooltip" title='@T("MonthlyMissingPunchesReport")' class="btn btn-app appbtn" data-bind="click:function(){ShowModal(41,'@T("MonthlyMissingPunchesReport")')},actionVisibility:'7176'"><i class="fa fa-2x fa-question text-warning"></i>@T("MissingPunch")</a>
+                                <a data-toggle="tooltip" title='@T("MonthlyLeaveReport")' class="btn btn-app appbtn" data-bind="click:function(){ShowModal(42,'@T("MonthlyLeaveReport")')},actionVisibility:'7177'"><i class="fa fa-2x fa-bed text-danger"></i>@T("Leave")</a>
+                                <a data-toggle="tooltip" title='@T("MonthlyOtReport")' class="btn btn-app appbtn" data-bind="click:function(){ShowModal(43,'@T("MonthlyOtReport")')},actionVisibility:'7194'"><i class="fa fa-2x fa-male text-success"></i>@T("OT")</a>
+                                @*<a data-toggle="tooltip" title='@T("MonthlyOtClaimReport") ' class="btn btn-app appbtn" data-bind="click:ShowMonthlyOtModal,actionVisibility:'7195'"><i class="fa fa-2x text-info fa-newspaper-o"></i>@T("OtClaim")</a>*@
+                                <a data-toggle="tooltip" title='@T("MonthlyOtClaimReport") ' class="btn btn-app appbtn" data-bind="click:function(){ShowMonthlyOtModal(54,'@T("MonthlyOtReport")')},actionVisibility:'7195'"><i class="fa fa-2x text-info fa-newspaper-o"></i>@T("OtClaim")</a>
+                                <a data-toggle="tooltip" title='@T("MonthlyManualPunchReport") ' class="btn btn-app appbtn" data-bind="click:function(){ShowModal(52,'@T("MonthlyManualPunchReport")')},actionVisibility:'7219'"><i class="fa fa-2x text-info fa-thumbs-up"></i>@T("ManualPunch")</a>
+                                <a data-toggle="tooltip" title='@T("MonthlyOfficeVisitReport") ' class="btn btn-app appbtn" data-bind="click:function(){ShowModal(53,'@T("MonthlyOfficeVisitReport")')},actionVisibility:'7221'"><i class="fa fa-2x text-info fa  fa-bookmark"></i>@T("OfficeVisit")</a>
+                                <a data-toggle="tooltip" title='@T("MonthlyAuditTrialReport") ' class="btn btn-app appbtn" data-bind="click:function(){AuditTrialShowModal(60,'@T("MonthlyAuditTrialReport")')}"><i class="fa fa-2x text-info fa  fa-bookmark"></i>@T("AuditTrial")</a>
+                                @*<a data-toggle="tooltip" title='@T("MultiPunchReport") ' class="btn btn-app appbtn" data-bind="click:function(){ShowModal(55,'@T("MultiPunchReport")')},actionVisibility:'7221'"><i class="fa fa-2x text-info fa  fa-bookmark"></i>@T("MultiPunch")</a>*@
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="box">
+                            <div class="box-header">
+                                <h3 class="box-title">@T("Employee") @T("Self-Service") @T("Report")</h3>
+                            </div>
+                            <div class="box-body">
+
+                                <a data-toggle="tooltip" title='@T("LateIn/EarlyOut")' class="btn btn-app appbtn" data-bind="click:function(){ShowModal(56,'@T("LateIn/EarlyOut")')},actionVisibility:'5008'"><i class="fa fa-2x text-info fa-clock-o"></i>@T("LateIn/EarlyOut")</a>
+                                <a data-toggle="tooltip" title='@T("Punch Request")' class="btn btn-app appbtn" data-bind="click:function(){ShowModal(57,'@T("Punch Request")')},actionVisibility:'5009'"><i class="fa fa-2x text-warning fa-thumbs-up"></i>@T("Punch Request")</a>
+                                <a data-toggle="tooltip" title='@T("Office Visit Request")' class="btn btn-app appbtn" data-bind="click:function(){ShowModal(58,'@T("Office Visit Request")')},actionVisibility:'7124'"><i class="fa fa-3x text-danger fa-pie-chart"></i>@T("Office Visit Request")</a>
+                            </div>
+                        </div>
+                    </div>
+                    @*<div class="col-lg-4" data-bind="visible:PackageId()=='2'" style="display:none;">
+                            <div class="box">
+                                <div class="box-header">
+                                    <h3 class="box-title">@T("Payroll") @T("Report")</h3>
+                                </div>
+                                <div class="box-body">
+                                    <a data-toggle="tooltip" title='@T("EmployeePayRollSummaryReportDesc")' class="btn btn-app appbtn" data-bind="click:function(){ShowModal(21,'@T("EmployeePayRollSummaryReport")')}"><i class="fa fa-2x text-info fa-money"></i>@T("SalarySummary")</a>
+                                    <a data-toggle="tooltip" title='@T("EmployeeAllowanceReportDesc")' class="btn btn-app appbtn" data-bind="click:function(){ShowModal(22,'@T("EmployeeAllowanceReport")')}"><i class="fa fa-2x text-info fa-money"></i>@T("Allowance")</a>
+                                    <a class="btn btn-app appbtn" data-bind="click:function(){ShowModal(16,'Employee Summary Report')}"><i class="fa fa-file-o"></i> Salary Slip</a>
+                                </div>
+                            </div>
+                        </div>*@
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="kendoDailyEmpAttendanceReportWindow">
+        <div>
+
+        </div>
+    </div>
+    <div id="kendoEarlyInReportWindow">
+        <div>
+
+        </div>
+    </div>
+    <div id="kendoEarlyOutReportWindow">
+        <div>
+
+        </div>
+    </div>
+    <div id="kendoEmployeeAbesntReportWindow">
+        <div>
+
+        </div>
+    </div>
+    <div id="kendoLateInReportWindow">
+        <div>
+
+        </div>
+    </div>
+    <div id="kendoLateOutReportWindow">
+        <div>
+
+        </div>
+    </div>
+    <div id="kendoMissingPunchesReportWindow">
+        <div>
+
+        </div>
+    </div>
+    <div id="kendoDailyLeaveReportWindow">
+        <div>
+
+        </div>
+    </div>
+    <div id="kendoMonthlyAttendanceReportWindow">
+        <div>
+
+        </div>
+    </div>
+    <div id="kendoMonthlySummaryReportWindowDaywise">
+        <div>
+
+        </div>
+    </div>
+    <div id="kendoMonthlySummaryReportWindowHourwise">
+        <div>
+
+        </div>
+    </div>
+    <div id="kendoMonthlyAttendanceStatisticWindow">
+        <div>
+
+        </div>
+        <div class="row" style="display:none;">
+            <div class="col-lg-12">
+                <span class="badge bg-orange">A</span> &nbsp;=&nbsp;<b>Absent</b>&nbsp;&nbsp;
+                <span class="badge bg-green">P</span> &nbsp;=&nbsp;<b>Present</b>&nbsp;&nbsp;
+                <span class="badge bg-blue">L</span> &nbsp;=&nbsp;<b>Leave</b>&nbsp;&nbsp;
+                <span class="badge bg-aqua">M</span> &nbsp;=&nbsp;<b>Miscellenaous</b>&nbsp;&nbsp;
+                <b>H</b> &nbsp;=&nbsp;<b>Holiday</b>&nbsp;&nbsp;
+                <b>W</b> &nbsp;=&nbsp;<b>Weekend</b>&nbsp;&nbsp;
+            </div>
+        </div>
+    </div>
+    <div id="kendoPayrollReportWindow">
+        <div>
+
+        </div>
+    </div>
+    <div id="kendoMonthlyRosterReportWindow">
+        <div>
+
+        </div>
+    </div>
+    <div id="kendoMonthlyEarlyInReportWindow">
+        <div>
+
+        </div>
+    </div>
+    <div id="kendoMonthlyEarlyOutReportWindow">
+        <div>
+
+        </div>
+    </div>
+    <div id="kendoMonthlylateInReportWindow">
+        <div>
+
+        </div>
+    </div>
+    <div id="kendoMonthlylateOutReportWindow">
+        <div>
+
+        </div>
+    </div>
+    <div id="kendoMonthlyAbsentReportWindow">
+        <div>
+
+        </div>
+    </div>
+    <div id="kendoMonthlyMissingPunchesReportWindow">
+        <div>
+
+        </div>
+    </div>
+    <div id="kendoMonthlyLeaveReportWindow">
+        <div>
+
+        </div>
+    </div>
+    <div id="kendoMonthlyOtReportWindow">
+        <div>
+
+        </div>
+    </div>
+
+    <div id="kendoDailyOtReportWindow">
+        <div>
+
+        </div>
+    </div>
+    <div id="kendoMonthlyOtClaimReportWindow">
+        <div>
+
+        </div>
+    </div>
+
+    <div id="kendoAllowanceReportWindow">
+        <div>
+
+        </div>
+    </div>
+    <div id="kendoManualPunchReportWindow">
+        <div>
+
+        </div>
+    </div>
+    <div id="kendoOfficeVisitReportWindow">
+        <div>
+
+        </div>
+    </div>
+    <div id="kendoAuditTrialReportWindow">
+        <div>
+
+        </div>
+    </div>
+    <div id="kendoEmployeeLateInEarlyOutReportWindow">
+        <div>
+
+        </div>
+    </div>
+    <div id="kendoEmployeePunchRequestReportWindow">
+        <div>
+
+        </div>
+    </div>
+    <div id="kendoEmployeeOfficeVisitRequestReportWindow">
+        <div>
+
+        </div>
+    </div>
+    <!-- /.row -->
+    <!-- /.row -->
+    <!-- Main row -->
+    <!-- /.row -->
+    <div class="modal " id="monthlyAttendanceReportModal" style="">
+        <div class="modal-dialog  " style="width:100%;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <div class="btn-group btn-group-sm">
+                        <button type="button" class="btn btn-default  dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-filter  text-warning"></i>  Column Filter <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><input data-report="MonthlyAttendanceReport" data-colname="Mplanned" onchange="setColumFilter(this)" type="checkbox" id="Mplanned" name="name" value="Mplanned" /> Planned Time</li>
+                            <li><input data-report="MonthlyAttendanceReport" data-colname="Mbreak" onchange="setColumFilter(this)" type="checkbox" id="Mbreak" name="name" value="Mbreak" /> Break</li>
+                            <li><input data-report="MonthlyAttendanceReport" data-colname="Mot" onchange="setColumFilter(this)" type="checkbox" id="Mot" name="name" value="Mot" /> OT</li>
+                            <li><input data-report="MonthlyAttendanceReport" data-colname="Mlate" onchange="setColumFilter(this)" type="checkbox" id="Mlate" name="name" value="Mlate" /> Late</li>
+                            @* <li><input data-report="MonthlyAttendanceReport" data-colname="Mlateout" onchange="setColumFilter(this)" type="checkbox" id="Mlateout" name="name" value="Mlateout" /> Late Out</li>*@
+                            <li><input data-report="MonthlyAttendanceReport" data-colname="Mearly" onchange="setColumFilter(this)" type="checkbox" id="Mearly" name="name" value="Mearly" /> Early</li>
+                            @* <li><input data-report="MonthlyAttendanceReport" data-colname="Mearlyout" onchange="setColumFilter(this)" type="checkbox" id="Mearlyout" name="name" value="Mearlyout" /> Early Out</li>*@
+                           @* <li><input data-report="MonthlyAttendanceReport" data-colname="Mremark" onchange="setColumFilter(this)" type="checkbox" id="Mremark" name="name" value="Mremark" /> Remark</li>*@
+                        </ul>
+                        <button type="button" class="btn btn-default " data-bind="click:function(){Print('#monthlyAttendanceReportId')}"><i class="fa fa-print text-green">&nbsp;@T("Print")</i></button>
+                        <button type="button" class="btn btn-default " data-bind="click:function(){Generate('MonthlyAttendancereport','0')},visible:$root.ReportId()==10"><i class="fa fa-file-pdf-o text-green">&nbsp;@T("PDF")</i></button>
+                        @*<button id="btnExport" type="button" class="btn btn-default " data-bind="click:function(){Generate('MonthlyAttendancereport','1')},visible:$root.ReportId()==10"><i class="fa fa-file-excel-o text-blue">&nbsp; Excel</i></button>
+                            <button type="button" class="btn btn-default " data-bind="click:function(){Print('#monthlyAttendanceReportId')}"><i class="fa fa-plus-square text-green">&nbsp;@T("Print")</i></button>*@
+                        <button id="btnExport" type="button" class="btn btn-default " data-bind="click:function(){ExportExcel('monthlyAttendanceReportTable')}"><i class="fa fa-pencil text-blue">&nbsp; Excel</i></button>
+
+                    </div>
+                </div>
+                <div class="modal-body" id="monthlyAttendanceReportId">
+                    <style>
+                        @@media all {
+                            .page-break {
+                                display: none;
+                            }
+                        }
+
+                        @@media print {
+                            .page-break {
+                                display: block;
+                                page-break-inside: auto;
+                            }
+                        }
+                    </style>
+                    <div class="text-center" data-bind="visible:$root.showLoading()==true">
+                        <img src="~/Images/200.gif" />
+                    </div>
+                    <div data-bind="visible:$root.showLoading()==false">
+                        <div class="form-horizontal">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="box-body table-responsive table-bordered table-condensed table-striped" style="overflow-x:auto;">
+                                        <table id="monthlyAttendanceReportTable" class="scrollit table table-condensed table-bordered  no-padding table-hover table-responsive">
+                                            <tbody class="text-center">
+                                                <tr class="bg-gray text-center">
+                                                    @*<td colspan="2">
+                                                            <img class="companyImage" src="" height="100" />
+                                                        </td>*@
+
+                                                    <td colspan="16">
+                                                        <strong class="companyName text-info text-bold text-xlarge"></strong>
+                                                        <br />
+                                                        <strong>@T("Contact") <span class="companyPhone"></span>, &nbsp; <span class="companyEmail"></span></strong>
+                                                        <br />
+                                                        <strong id="monthlyAttendanceReportTitle"> @T("ReportTitle")</strong>
+                                                    </td>
+
+                                                </tr>
+                                            </tbody>
+                                            <tbody>
+                                                <tr class="bg-gray">
+                                                    <th>@T("Date")</th>
+                                                    <th>@T("Day")</th>
+                                                    <!--ko if:$root.MonthlyAttendanceReport.Mplanned()-->
+                                                    <th colspan="3">@T("PlannedTime")</th>
+                                                    <!--/ko-->
+                                                    <!--ko ifnot:$root.MonthlyAttendanceReport.Mbreak()-->
+                                                    <th colspan="3">@T("ActualTime")</th>
+                                                    <!--/ko-->
+                                                    <!--ko if:$root.MonthlyAttendanceReport.Mbreak()-->
+                                                    <th colspan="5">@T("ActualTime")</th>
+                                                    <!--/ko-->
+                                                    <!--ko if:$root.MonthlyAttendanceReport.Mot()-->
+                                                    <th> @T("OT")</th>
+                                                    <!--/ko-->
+                                                    <!--ko if:$root.MonthlyAttendanceReport.Mlate()-->
+                                                    <th colspan="2">@T("Late")</th>
+                                                    <!--/ko-->
+                                                    <!--ko if:$root.MonthlyAttendanceReport.Mearly()-->
+                                                    <th colspan="2">@T("Early")</th>
+                                                    <!--/ko-->
+                                                    <th>@T("Remark")</th>
+                                                </tr>
+                                                <tr class="bg-gray">
+                                                    <th></th>
+                                                    <th></th>
+                                                    <!--ko if:$root.MonthlyAttendanceReport.Mplanned()==true-->
+                                                    <th>@T("In")</th>
+                                                    <th>@T("Out")</th>
+                                                    <th>@T("WorkTime")</th>
+                                                    <!--/ko-->
+                                                    <th>@T("In")</th>
+                                                    <th>@T("Out")</th>
+                                                    <th data-bind="visible:$root.MonthlyAttendanceReport.Mbreak()">@T("BreakOut")</th>
+                                                    <th data-bind="visible:$root.MonthlyAttendanceReport.Mbreak()">@T("BreakIn")</th>
+                                                    <th>@T("Actual")</th>
+                                                    <th data-bind="visible:$root.MonthlyAttendanceReport.Mot()"></th>
+                                                    <!--ko if:$root.MonthlyAttendanceReport.Mlate()==true-->
+                                                    <th>@T("In")</th>
+                                                    <th>@T("Out")</th>
+                                                    <!--/ko-->
+                                                    <!--ko if:$root.MonthlyAttendanceReport.Mearly()==true-->
+                                                    <th>@T("In")</th>
+                                                    <th>@T("Out")</th>
+                                                    <!--/ko-->
+                                                    <th>@T("")</th>
+                                                </tr>
+                                            </tbody>
+                                            <tbody data-bind="foreach:$root.MonthlyAttendanceReportData">
+                                                <tr class="bg-gray">
+                                                    <th id="depGroupColspan" colspan="16" data-bind="text:'Deparment  : ' +  DepartmentName(),click:$root.toggle"></th>
+                                                </tr>
+                                                <!--ko foreach:MOnthWiseEmployeeGroupReportVm-->
+                                                <tr class="bg-gray" data-bind="attr:{'toggle-id':$parent.DepartmentName()}">
+                                                    <th id="empGroupColspan" colspan="16" data-bind="text:'Employee   : ' +  EmployeeName"></th>
+                                                </tr>
+                                                <!--ko foreach:monthlyWiseReports-->
+                                                <!-- ko if:(Remark=='Present'||Remark=='Misc'||Remark=='Absent')-->
+                                                <tr data-bind="attr:{'toggle-id':$parents[1].DepartmentName()},visible:(Remark=='Present'||Remark=='Misc'||Remark=='Absent')">
+                                                    <td data-bind="text:SuitableDate(WorkDate)"></td>
+                                                    <td data-bind="text:DayName.substr(0,3)"></td>
+                                                    <!--ko if:$root.MonthlyAttendanceReport.Mplanned()==true-->
+                                                    <td data-bind="text:SuitableNumber(PlannedTimeIn)"></td>
+                                                    <td data-bind="text:SuitableNumber(PlannedTimeOut)"></td>
+                                                    <td data-bind="text:SuitableNumber(Standard)"></td>
+                                                    <!--/ko-->
+                                                    <td data-bind="text:SuitableNumber(ActualTimeIn)"></td>
+                                                    <td data-bind="text:SuitableNumber(ActualTimeOut)"></td>
+                                                    <td data-bind="visible:$root.MonthlyAttendanceReport.Mbreak(),text:SuitableNumber(ActualLunchOut)"></td>
+                                                    <td data-bind="visible:$root.MonthlyAttendanceReport.Mbreak(),text:SuitableNumber(ActualLunchIn)"></td>
+                                                    <td data-bind="text:SuitableNumber(Actual)"></td>
+                                                    <td data-bind="visible:$root.MonthlyAttendanceReport.Mot(),text:SuitableNumber(Ot),attr:{'data-sum-col-ot':$parents[0].EmployeeName},style: { 'backgroundColor': Ot != '' ? '#D2D6DE' : null }"></td>
+                                                    <!--ko if:$root.MonthlyAttendanceReport.Mlate()==true-->
+                                                    <td data-bind="text:SuitableNumber(LateIn),attr:{'data-sum-col-LateIn':$parents[0].EmployeeName},style: { 'backgroundColor': LateIn != '' ? '#D2D6DE' : null }"></td>
+                                                    <td data-bind="text:SuitableNumber(LateOut),attr:{'data-sum-col-Lateout':$parents[0].EmployeeName},style: { 'backgroundColor': LateOut != '' ? '#D2D6DE' : null }"></td>
+                                                    <!--/ko-->
+                                                    <!--ko if:$root.MonthlyAttendanceReport.Mearly()==true-->
+                                                    <td data-bind="text:SuitableNumber(EarlyIn),attr:{'data-sum-col-EarlyIn':$parents[0].EmployeeName},style: { 'backgroundColor': EarlyIn != '' ? '#D2D6DE' : null }"></td>
+                                                    <td data-bind="text:SuitableNumber(EarlyOut),attr:{'data-sum-col-EarlyOut':$parents[0].EmployeeName},style: { 'backgroundColor': EarlyOut != '' ? '#D2D6DE' : null }"></td>
+                                                    <!--/ko-->
+                                                    <td data-bind="text:Remark"></td>
+                                                </tr>
+                                                <!--/ko-->
+                                                <!-- ko if:(Remark=='Present'||Remark=='Misc'||Remark=='Absent')==false-->
+                                                <tr class="bg-warning" data-bind="attr:{'toggle-id':$parents[1].DepartmentName()}">
+                                                    <td data-bind="text:SuitableDate(WorkDate)"></td>
+                                                    <td data-bind="text:DayName.substr(0,3)"></td>
+
+                                                    <td colspan="14" class=" text-center text-bold" data-bind="text:Remark"></td>
+                                                </tr>
+                                                <!--/ko-->
+                                                <!--/ko-->
+                                                <tr>
+                                                    <td colspan="2"><b>@T("")</b></td>
+                                                    <!--ko if:$root.MonthlyAttendanceReport.Mplanned()==true-->
+                                                    <td colspan="3"><b>@T("")</b></td>
+                                                    <!--/ko-->
+                                                    <!--ko if:$root.MonthlyAttendanceReport.Mbreak()==true-->
+                                                    <td colspan="5"><b>@T("Summary")</b></td>
+                                                    <!--/ko-->
+                                                    <!--ko if:$root.MonthlyAttendanceReport.Mbreak()==false-->
+                                                    <td colspan="3"><b>@T("Summary")</b></td>
+                                                    <!--/ko-->
+                                                    <!--ko if:$root.MonthlyAttendanceReport.Mot()==true-->
+                                                    <td class="text-bold" data-bind="attr:{'data-result-col-ot':EmployeeName}"></td>
+                                                    <!--/ko-->
+                                                    <!--ko if:$root.MonthlyAttendanceReport.Mlate()==true-->
+                                                    <td class="text-bold" data-bind="attr:{'data-result-col-LateIn':EmployeeName}"></td>
+                                                    <td class="text-bold" data-bind="attr:{'data-result-col-LateOut':EmployeeName}"></td>
+                                                    <!--/ko-->
+                                                    <!--ko if:$root.MonthlyAttendanceReport.Mearly()==true-->
+                                                    <td class="text-bold" data-bind="attr:{'data-result-col-EarlyIn':EmployeeName}"></td>
+                                                    <td class="text-bold" data-bind="attr:{'data-result-col-EarlyOut':EmployeeName}"></td>
+                                                    <!--/ko-->
+                                                  
+                                                    <td></td>
+                                                   
+
+                                                </tr>
+                                                <tr class="page-break">
+                                                    <td colspan="16"></td>
+                                                </tr>
+                                                <!--/ko-->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="editor"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal " id="multiPunchReportModal" style="">
+        <div class="modal-dialog  " style="width:100%;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <header class="text-center"><h4 class="text-success" id=""></h4></header>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default " data-bind="click:function(){Print('#multiPunchReportId')}"><i class="fa fa-print text-green">&nbsp;@T("Print")</i></button>
+                        <button id="btnExport" type="button" class="btn btn-default " data-bind="click:function(){ExportExcel('multiPunchReportTable')}"><i class="fa fa-pencil text-blue">&nbsp; Excel</i></button>
+                    </div>
+                </div>
+                <div class="modal-body" id="multiPunchReportId">
+                    <table style="width:100%;overflow-y:scroll;">
+                        <tbody>
+                            <tr>
+                                <td style="width:150px;">
+
+                                    <img class="companyImage" src="" width="100" height="100" />
+                                </td>
+                                <td>
+                                    <table style="width:100%; " class="text-center">
+                                        <tbody>
+                                            <tr>
+
+                                                <td><strong class="companyName text-info text-bold text-xlarge"></strong></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <strong>@T("Contact") :<span class="companyPhone"></span>, &nbsp; <span class="companyEmail">valey@gmail.com</span></strong>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <strong style="margin:35px;"><strong id="multiPunchReportTitle"></strong></strong>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                    <table id="multiPunchReportTable" class=" table table-condensed table-striped table-bordered  table-hover" style="width:100%;">
+                        <thead class="bg-default-header">
+
+                            <tr>
+                                <th class="col-lg-1">@T("Date")</th>
+                                <th class="col-lg-1">@T("Day")</th>
+                                <th class=""> @T("PunchTime")</th>
+                            </tr>
+                        </thead>
+                        <tbody data-bind="foreach:$root.MonthlyMultiPunchReportDataGroupBy">
+
+                            <tr class="bg-actual" data-bind="with : header">
+                                <th colspan="3" data-bind="text:'Employee : '+Name()">Lot</th>
+                            </tr>
+                            <!-- ko foreach:detail -->
+                            <tr>
+                                <td data-bind="text:SuitableDate(Date())"></td>
+                                <td data-bind="text:SuitableDay(Day())"></td>
+                                <td title="" data-bind="text:PunchTime"></td>
+                            </tr>
+                            <!--/ko-->
+                        </tbody>
+                    </table>
+
+                </div>
+                <div id="editor"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="modal " id="viewEmployeeSummaryReport" style="">
+        <div class="modal-dialog" style="width:100%;">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <div class="btn-group btn-group-sm">
+                        <button type="button" class="btn btn-default  dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-filter  text-warning"></i>  Column Filter <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu text-right" role="menu">
+                            <li><input data-report="EmployeeSummaryReportTable" data-colname="TotalDays" onchange="setColumFilter(this)" type="checkbox" id="TotalDays" name="name" value="TotalDays" /> @T("TotalDays")</li>
+                            <li><input data-report="EmployeeSummaryReportTable" data-colname="DutyDays" onchange="setColumFilter(this)" type="checkbox" id="DutyDays" name="name" value="DutyDays" /> @T("DutyDays")</li>
+                            <li><input data-report="EmployeeSummaryReportTable" data-colname="WeekendDays" onchange="setColumFilter(this)" type="checkbox" id="WeekendDays" name="name" value="WeekendDays" /> @T("WeekendDays")</li>
+                            <li><input data-report="EmployeeSummaryReportTable" data-colname="HolidayDays" onchange="setColumFilter(this)" type="checkbox" id="HolidayDays" name="name" value="HolidayDays" /> @T("HolidayDays")</li>
+                            <li><input data-report="EmployeeSummaryReportTable" data-colname="PresentDays" onchange="setColumFilter(this)" type="checkbox" id="PresentDays" name="name" value="PresentDays" /> @T("PresentDays")</li>
+                            <li><input data-report="EmployeeSummaryReportTable" data-colname="PresentOnHoliday" onchange="setColumFilter(this)" type="checkbox" id="PresentOnHoliday" name="name" value="PresentOnHoliday" /> @T("PresentOnHoliday")</li>
+                            <li><input data-report="EmployeeSummaryReportTable" data-colname="PresentOnDayOff" onchange="setColumFilter(this)" type="checkbox" id="PresentOnDayOff" name="name" value="PresentOnDayOff" />@T("PresentOnDayOff")</li>
+                            <li><input data-report="EmployeeSummaryReportTable" data-colname="AbsentDays" onchange="setColumFilter(this)" type="checkbox" id="AbsentDays" name="name" value="AbsentDays" />@T("AbsentDays") </li>
+                            <li><input data-report="EmployeeSummaryReportTable" data-colname="MiscDays" onchange="setColumFilter(this)" type="checkbox" id="MiscDays" name="name" value="MiscDays" />@T("MiscDays") </li>
+                            <li><input data-report="EmployeeSummaryReportTable" data-colname="LeaveDays" onchange="setColumFilter(this)" type="checkbox" id="LeaveDays" name="name" value="LeaveDays" />@T("LeaveDays") </li>
+                            <li><input data-report="EmployeeSummaryReportTable" data-colname="WorkedHours" onchange="setColumFilter(this)" type="checkbox" id="WorkedHours" name="name" value="WorkedHours" />@T("WorkedHours") </li>
+                            <li><input data-report="EmployeeSummaryReportTable" data-colname="OTHours" onchange="setColumFilter(this)" type="checkbox" id="OTHours" name="name" value="OTHours" />@T("OTHours") </li>
+                            <li><input data-report="EmployeeSummaryReportTable" data-colname="latein" onchange="setColumFilter(this)" type="checkbox" id="latein" name="name" value="latein" />@T("LateIn") </li>
+                            <li><input data-report="EmployeeSummaryReportTable" data-colname="lateout" onchange="setColumFilter(this)" type="checkbox" id="lateout" name="name" value="lateout" />@T("LateOut") </li>
+                            <li><input data-report="EmployeeSummaryReportTable" data-colname="earlyin" onchange="setColumFilter(this)" type="checkbox" id="earlyin" name="name" value="earlyin" />@T("EarlyIn") </li>
+                            <li><input data-report="EmployeeSummaryReportTable" data-colname="earlyout" onchange="setColumFilter(this)" type="checkbox" id="earlyout" name="name" value="earlyout" />@T("EarlyOut") </li>
+                            <li><input data-report="EmployeeSummaryReportTable" data-colname="OfficeVisit" onchange="setColumFilter(this)" type="checkbox" id="OfficeVisit" name="name" value="OfficeVisit" />@T("OfficeVisit") </li>
+                            <li><input data-report="EmployeeSummaryReportTable" data-colname="Kaj" onchange="setColumFilter(this)" type="checkbox" id="Kaj" name="name" value="Kaj" />@T("Kaj") </li>
+                            <li><input data-report="EmployeeSummaryReportTable" data-colname="remark" onchange="setColumFilter(this)" type="checkbox" id="remark" name="name" value="remark" />@T("Remarks") </li>
+                        </ul>
+                        <button type="button" class="btn btn-default " data-bind="click:function(){Print('#EmployeeSummaryReportId')}"><i class="fa fa-plus-square text-green">&nbsp;@T("Print")</i></button>
+                        <button id="btnExport" type="button" class="btn btn-default " data-bind="click:function(){ExportExcel('EmployeeSummaryReportTable')}"><i class="fa fa-pencil text-blue">&nbsp;@T("Excel")</i></button>
+                    </div>
+                </div>
+                <div class="modal-body" id="EmployeeSummaryReportId">
+                    <style>
+                        @@media all {
+                            .page-break {
+                                display: none;
+                            }
+                        }
+
+                        @@media print {
+                            .page-break {
+                                display: block;
+                                page-break-inside: auto;
+                            }
+                        }
+                    </style>
+                    <div class="text-center" data-bind="visible:$root.showLoading()==true">
+                        <img src="~/Images/200.gif" />
+                    </div>
+                    <div data-bind="visible:$root.showLoading()==false" style="overflow-x:auto;">
+                        <table id="EmployeeSummaryReportTable" class="text-center table table-condensed table-striped table-bordered " style="width:100%;overflow-y:scroll;">
+                            <thead>
+                                <tr>
+                                    <td colspan="2">
+                                        <img class="companyImage" src="" width="100" height="100" />
+                                    </td>
+                                    <td colspan="25">
+                                        <strong class="companyName"></strong>
+                                        <br />
+                                        <strong>@T("Contact") <span class="companyPhone"></span>, &nbsp; <span class="companyEmail"></span></strong>
+                                        <br />
+                                        <strong><span id="ReportTitle"></span></strong>
+                                    </td>
+                                </tr>
+                            </thead>
+                            <thead class="bg-gray">
+                                <tr>
+                                    <th colspan="2">@T("Employee")</th>
+                                    <th data-bind="attr:{'colspan':19   +  $root.LeaveCodes().length}"></th>
+                                </tr>
+                                <tr>
+                                    <th>@T("Code")</th>
+                                    <th>@T("Name")</th>
+                                    <th data-bind="visible:$root.EmployeeSummaryReportTable.TotalDays">@T("TotalDays")</th>
+                                    <th data-bind="visible:$root.EmployeeSummaryReportTable.DutyDays">@T("DutyDays")</th>
+                                    <th data-bind="visible:$root.EmployeeSummaryReportTable.WeekendDays">@T("WeekendDays")</th>
+                                    <th data-bind="visible:$root.EmployeeSummaryReportTable.HolidayDays">@T("HolidayDays")</th>
+                                    <th data-bind="visible:$root.EmployeeSummaryReportTable.PresentDays">@T("PresentDays")</th>
+                                    <th data-bind="visible:$root.EmployeeSummaryReportTable.PresentOnHoliday">@T("PresentOnHoliday")</th>
+                                    <th data-bind="visible:$root.EmployeeSummaryReportTable.PresentOnDayOff">@T("PresentOnDayOff")</th>
+                                    <th data-bind="visible:$root.EmployeeSummaryReportTable.AbsentDays">@T("AbsentDays")</th>
+                                    <th data-bind="visible:$root.EmployeeSummaryReportTable.MiscDays">@T("MiscDays")</th>
+                                    <th data-bind="visible:$root.EmployeeSummaryReportTable.LeaveDays">@T("LeaveDays")</th>
+                                    <th data-bind="visible:$root.EmployeeSummaryReportTable.WorkedHours">@T("WorkedHours")</th>
+                                    <th data-bind="visible:$root.EmployeeSummaryReportTable.OTHours">@T("OTHours")</th>
+                                    <th data-bind="visible:$root.EmployeeSummaryReportTable.latein">@T("LateIn")</th>
+                                    <th data-bind="visible:$root.EmployeeSummaryReportTable.lateout">@T("LateOut")</th>
+                                    <th data-bind="visible:$root.EmployeeSummaryReportTable.earlyin">@T("EarlyIn")</th>
+                                    <th data-bind="visible:$root.EmployeeSummaryReportTable.earlyout">@T("EarlyOut")</th>
+                                    <th data-bind="visible:$root.EmployeeSummaryReportTable.OfficeVisit">@T("OfficeVisit")</th>
+                                    <th data-bind="visible:$root.EmployeeSummaryReportTable.Kaj">@T("Kaj")</th>
+                                    <th data-bind="visible:$root.EmployeeSummaryReportTable.remark">@T("Remarks")</th>
+                                    <!--ko  foreach : $root.LeaveCodes -->
+                                    <th data-bind="text:Code"></th>
+                                    <!--/ko -->
+                                </tr>
+                            </thead>
+                            <tbody data-bind="foreach:$root.EmployeeSummaryDataGroupBy">
+                                <tr class="bg-gray" data-bind="with : header">
+                                    <th data-bind="attr:{'colspan':21   +  $root.LeaveCodes().length},text:'Department : '+ DepartmentName()" class="text-left">Farm</th>
+                                </tr>
+                                <!-- ko foreach:detail -->
+                                <tr>
+                                    <td data-bind="text:EmployeeCode"></td>
+                                    <td data-bind="text:EmployeeName"></td>
+                                    <td data-bind="visible:$root.EmployeeSummaryReportTable.TotalDays,text:TotalDays"></td>
+                                    <td data-bind="visible:$root.EmployeeSummaryReportTable.DutyDays,text:DutyDay"></td>
+                                    <td data-bind="visible:$root.EmployeeSummaryReportTable.WeekendDays,text:Weekend"></td>
+                                    <td data-bind="visible:$root.EmployeeSummaryReportTable.HolidayDays,text:Holiday"></td>
+                                    <td data-bind="visible:$root.EmployeeSummaryReportTable.PresentDays,text:Present"></td>
+                                    <td data-bind="visible:$root.EmployeeSummaryReportTable.PresentOnHoliday,text:PresentInHoliday"></td>
+                                    <td data-bind="visible:$root.EmployeeSummaryReportTable.PresentOnDayOff,text:PresentInDayOff"></td>
+                                    <td data-bind="visible:$root.EmployeeSummaryReportTable.AbsentDays,text:Absent"></td>
+                                    <td data-bind="visible:$root.EmployeeSummaryReportTable.MiscDays,text:Misc"></td>
+                                    <td data-bind="visible:$root.EmployeeSummaryReportTable.LeaveDays,text:Leave"></td>
+                                    <td data-bind="visible:$root.EmployeeSummaryReportTable.WorkedHours,text:Worked"></td>
+                                    <td data-bind="visible:$root.EmployeeSummaryReportTable.OTHours,text:Ot"></td>
+                                    <td data-bind="visible:$root.EmployeeSummaryReportTable.latein,text:LateIn"></td>
+                                    <td data-bind="visible:$root.EmployeeSummaryReportTable.lateout,text:LateOut"></td>
+                                    <td data-bind="visible:$root.EmployeeSummaryReportTable.earlyin,text:EarlyIn"></td>
+                                    <td data-bind="visible:$root.EmployeeSummaryReportTable.earlyout,text:EarlyOut"></td>
+                                    <td data-bind="visible:$root.EmployeeSummaryReportTable.OfficeVisit,text:OfficeOut"></td>
+                                    <td data-bind="visible:$root.EmployeeSummaryReportTable.Kaj,text:KajOut"></td>
+                                    <td data-bind="visible:$root.EmployeeSummaryReportTable.remark,text:Remarks"></td>
+                                    <!--ko  foreach : $root.LeaveCodes -->
+                                    <th data-bind="text:$parents[0][Code]"></th>
+                                    <!--/ko -->
+                                </tr>
+                                <!--/ko-->
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+                <div id="editor"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="modal " id="viewEmployeeHourWiseSummaryReport" style="">
+
+        <div class="modal-dialog  " style="width:100%;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default " data-bind="click:function(){Print('#EmployeeHourWiseSummaryReportId')}"><i class="fa fa-plus-square text-green">&nbsp;@T("Print")</i></button>
+                        <button id="btnExport" type="button" class="btn btn-default " data-bind="click:function(){ExportExcel('EmployeeHourWiseSummaryReportTable')}"><i class="fa fa-pencil text-blue">&nbsp;@T("Excel")</i></button>
+                    </div>
+                </div>
+                <div class="modal-body" id="EmployeeHourWiseSummaryReportId">
+
+
+                    <style>
+                        @@media all {
+                            .page-break {
+                                display: none;
+                            }
+                        }
+
+                        @@media print {
+                            .page-break {
+                                display: block;
+                                page-break-inside: auto;
+                            }
+                        }
+                    </style>
+                    <div class="text-center" data-bind="visible:$root.showLoading()==true">
+                        <img src="~/Images/200.gif" />
+                    </div>
+                    <div data-bind="visible:$root.showLoading()==false">
+                        <table id="EmployeeHourWiseSummaryReportTable" class="text-center table table-condensed table-striped table-bordered" style="width:100%;">
+                            <thead>
+                                <tr>
+                                    <td colspan="1">
+                                        <img class="companyImage" src="" width="100" height="100" />
+                                    </td>
+                                    <td colspan="8">
+                                        <strong class="companyName"></strong>
+                                        <br />
+                                        <strong>@T("Contact") <span class="companyPhone"></span>, &nbsp; <span class="companyEmail"></span></strong>
+                                        <br />
+                                        <strong><span class="ReportTitle"></span></strong>
+                                    </td>
+                                </tr>
+                            </thead>
+                            <thead class="bg-gray">
+                                <tr>
+                                    <th colspan="2">Employee</th>
+                                    <th colspan="3"></th>
+                                    <th colspan="2">Late</th>
+                                    <th colspan="2">Early</th>
+                                </tr>
+                                <tr>
+                                    <th>Code</th>
+                                    <th>Name</th>
+                                    <th>Work Time</th>
+                                    <th>Actual Time</th>
+                                    <th>OT</th>
+                                    <th>In</th>
+                                    <th>Out</th>
+                                    <th>In</th>
+                                    <th>Out</th>
+                                </tr>
+
+
+                            </thead>
+                            <tbody data-bind="foreach:$root.EmployeeSummaryHourWiseDataGroupBy">
+                                <tr class="bg-gray" data-bind="with:header">
+                                    <th colspan="19" class="text-left" data-bind="text:'Department : '+ DepartmentName()"></th>
+
+                                </tr>
+                                <!-- ko foreach:detail -->
+                                <tr>
+                                    <td data-bind="text:EmployeeCode"></td>
+                                    <td data-bind="text:EmployeeName"></td>
+                                    <td data-bind="text:ShiftWorkedTime"></td>
+                                    <td data-bind="text:Worked"></td>
+                                    <td data-bind="text:Ot"></td>
+                                    <td data-bind="text:LateIn"></td>
+                                    <td data-bind="text:LateOut"></td>
+                                    <td data-bind="text:EarlyIn"></td>
+                                    <td data-bind="text:EarlyOut"></td>
+                                </tr>
+                                <!--/ko-->
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+                <div id="editor"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="modal " id="viewMonthlyInReport" style="">
+
+        <div class="modal-dialog  " style="width:100%;">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <div class="btn-group">
+
+                        <button type="button" class="btn btn-default " data-bind="click:function(){Print('#MonthlyInReportId')}"><i class="fa fa-plus-square text-green">&nbsp;@T("Print")</i></button>
+                        <button id="btnExport" type="button" class="btn btn-default " data-bind="click:function(){ExportExcel('MonthlyInReportTable')}"><i class="fa fa-pencil text-blue">&nbsp;@T("Excel")</i></button>
+
+
+
+                    </div>
+                </div>
+                <div class="modal-body" id="MonthlyInReportId">
+
+
+                    <style>
+                        @@media all {
+                            .page-break {
+                                display: none;
+                            }
+                        }
+
+                        @@media print {
+                            .page-break {
+                                display: block;
+                                page-break-inside: auto;
+                            }
+                        }
+                    </style>
+                    <div class="text-center" data-bind="visible:$root.showLoading()==true">
+                        <img src="~/Images/200.gif" />
+                    </div>
+                    <div data-bind="visible:$root.showLoading()==false">
+                        <table id="MonthlyInReportTable" class="text-center table table-condensed table-striped table-bordered" style="width:100%;">
+                            <thead>
+                                <tr>
+                                    <td colspan="1">
+                                        <img class="companyImage" src="" width="100" height="100" />
+                                    </td>
+                                    <td colspan="11">
+                                        <strong class="companyName"></strong>
+                                        <br />
+                                        <strong>@T("Contact") <span class="companyPhone"></span>, &nbsp; <span class="companyEmail"></span></strong>
+                                        <br />
+                                        <strong><span class="ReportTitle"></span></strong>
+                                    </td>
+                                </tr>
+                            </thead>
+                            <thead class="bg-gray">
+                                <tr>
+                                    <th colspan="2"></th>
+                                    <th colspan="2">Employee</th>
+                                    <th colspan="3">Planned Time</th>
+                                    <th colspan="3">Actual Time</th>
+                                    <th>Early</th>
+                                    <th></th>
+                                </tr>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Day</th>
+                                    <th>Code</th>
+                                    <th>Name</th>
+                                    <th>In</th>
+                                    <th>Out</th>
+                                    <th>Work Time</th>
+                                    <th>In</th>
+                                    <th>Out</th>
+                                    <th>Actual</th>
+                                    <th>In</th>
+                                    <th>Remark</th>
+                                </tr>
+                            </thead>
+                            <tbody data-bind="foreach:$root.MonthlyEarlyInDataGroupBy">
+                                <tr class="bg-gray" data-bind="with : header">
+                                    <th colspan="19" class="text-left" data-bind="text:'Department : '+ DepartmentName()">Farm</th>
+                                </tr>
+                                <!-- ko foreach:detail -->
+                                <tr>
+                                    <td data-bind="text:SuitableDate(WorkDate())"></td>
+                                    <td data-bind="text:DayName"></td>
+                                    <td data-bind="text:EmployeeCode"></td>
+                                    <td data-bind="text:EmployeeName"></td>
+                                    <td data-bind="text:PlannedTimeIn"></td>
+                                    <td data-bind="text:PlannedTimeOut"></td>
+                                    <td data-bind="text:Standard"></td>
+                                    <td data-bind="text:ActualTimeIn"></td>
+                                    <td data-bind="text:ActualTimeOut"></td>
+                                    <td data-bind="text:Actual"></td>
+                                    <td data-bind="text:EarlyIn,style: { 'backgroundColor': EarlyIn != '' ? '#D2D6DE' : null }"></td>
+                                    <td data-bind="text:Remark"></td>
+
+
+                                </tr>
+                                <!--/ko-->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div id="editor"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="modal " id="viewMonthlyOutReport" style="">
+
+        <div class="modal-dialog  " style="width:100%;">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <div class="btn-group">
+
+                        <button type="button" class="btn btn-default " data-bind="click:function(){Print('#MonthlyOutReportId')}"><i class="fa fa-plus-square text-green">&nbsp;@T("Print")</i></button>
+                        <button id="btnExport" type="button" class="btn btn-default " data-bind="click:function(){ExportExcel('MonthlyOutReportTable')}"><i class="fa fa-pencil text-blue">&nbsp;@T("Excel")</i></button>
+
+
+
+                    </div>
+                </div>
+                <div class="modal-body" id="MonthlyOutReportId">
+                    <style>
+                        @@media all {
+                            .page-break {
+                                display: none;
+                            }
+                        }
+
+                        @@media print {
+                            .page-break {
+                                display: block;
+                                page-break-inside: auto;
+                            }
+                        }
+                    </style>
+                    <div class="text-center" data-bind="visible:$root.showLoading()==true">
+                        <img src="~/Images/200.gif" />
+                    </div>
+                    <div data-bind="visible:$root.showLoading()==false">
+                        <table id="MonthlyOutReportTable" class="text-center table table-condensed table-striped table-bordered" style="width:100%;">
+                            <thead>
+                                <tr>
+                                    <td colspan="1">
+                                        <img class="companyImage" src="" width="100" height="100" />
+                                    </td>
+                                    <td colspan="11">
+                                        <strong class="companyName"></strong>
+                                        <br />
+                                        <strong>@T("Contact") <span class="companyPhone"></span>, &nbsp; <span class="companyEmail"></span></strong>
+                                        <br />
+                                        <strong><span class="ReportTitle"></span></strong>
+                                    </td>
+                                </tr>
+                            </thead>
+                            <thead class="bg-gray">
+                                <tr>
+                                    <th colspan="2"></th>
+                                    <th colspan="2">Employee</th>
+                                    <th colspan="3">Planned Time</th>
+                                    <th colspan="3">Actual Time</th>
+                                    <th>Early</th>
+                                    <th></th>
+                                </tr>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Day</th>
+                                    <th>Code</th>
+                                    <th>Name</th>
+                                    <th>In</th>
+                                    <th>Out</th>
+                                    <th>Work Time</th>
+                                    <th>In</th>
+                                    <th>Out</th>
+                                    <th>Actual</th>
+                                    <th>Out</th>
+                                    <th>Remark</th>
+                                </tr>
+                            </thead>
+                            <tbody data-bind="foreach:$root.MonthlyEarlyOutDataGroupBy">
+                                <tr class="bg-gray" data-bind="with : header">
+                                    <th colspan="19" class="text-left" data-bind="text:'Department : '+ DepartmentName()">Farm</th>
+
+                                </tr>
+                                <!-- ko foreach:detail -->
+                                <tr>
+                                    <td data-bind="text:SuitableDate(WorkDate())"></td>
+                                    <td data-bind="text:DayName"></td>
+                                    <td data-bind="text:EmployeeCode"></td>
+                                    <td data-bind="text:EmployeeName"></td>
+                                    <td data-bind="text:PlannedTimeIn"></td>
+                                    <td data-bind="text:PlannedTimeOut"></td>
+                                    <td data-bind="text:Standard"></td>
+                                    <td data-bind="text:ActualTimeIn"></td>
+                                    <td data-bind="text:ActualTimeOut"></td>
+                                    <td data-bind="text:Actual"></td>
+                                    <td data-bind="text:EarlyOut,style: { 'backgroundColor': EarlyOut != '' ? '#D2D6DE' : null }"></td>
+                                    <td data-bind="text:Remark"></td>
+                                </tr>
+                                <!--/ko-->
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+                <div id="editor"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="modal " id="viewMonthlyLateInReport" style="">
+
+        <div class="modal-dialog  " style="width:100%;">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default " data-bind="click:function(){Print('#MonthlyLateInReportId')}"><i class="fa fa-plus-square text-green">&nbsp;@T("Print")</i></button>
+                        <button id="btnExport" type="button" class="btn btn-default " data-bind="click:function(){ExportExcel('MonthlyLateInReportTable')}"><i class="fa fa-pencil text-blue">&nbsp;@T("Excel")</i></button>
+                    </div>
+                </div>
+                <div class="modal-body" id="MonthlyLateInReportId">
+                    <style>
+                        @@media all {
+                            .page-break {
+                                display: none;
+                            }
+                        }
+
+                        @@media print {
+                            .page-break {
+                                display: block;
+                                page-break-inside: auto;
+                            }
+                        }
+                    </style>
+                    <div class="text-center" data-bind="visible:$root.showLoading()==true">
+                        <img src="~/Images/200.gif" />
+                    </div>
+                    <div data-bind="visible:$root.showLoading()==false">
+                        <table id="MonthlyLateInReportTable" class="text-center table table-condensed table-striped table-bordered" style="width:100%;">
+                            <thead>
+                                <tr>
+                                    <td colspan="1">
+                                        <img class="companyImage" src="" width="100" height="100" />
+                                    </td>
+                                    <td colspan="11">
+                                        <strong class="companyName"></strong>
+                                        <br />
+                                        <strong>@T("Contact") <span class="companyPhone"></span>, &nbsp; <span class="companyEmail"></span></strong>
+                                        <br />
+                                        <strong><span class="ReportTitle"></span></strong>
+                                    </td>
+                                </tr>
+                            </thead>
+                            <thead class="bg-gray">
+                                <tr>
+                                    <th colspan="2"></th>
+                                    <th colspan="2">Employee</th>
+                                    <th colspan="3">Planned Time</th>
+                                    <th colspan="3">Actual Time</th>
+                                    <th>Late</th>
+                                    <th></th>
+                                </tr>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Day</th>
+                                    <th>Code</th>
+                                    <th>Name</th>
+                                    <th>In</th>
+                                    <th>Out</th>
+                                    <th>Work Time</th>
+                                    <th>In</th>
+                                    <th>Out</th>
+                                    <th>Actual</th>
+                                    <th>In</th>
+                                    <th>Remark</th>
+
+                                </tr>
+
+
+                            </thead>
+                            <tbody data-bind="foreach:$root.MonthlyLateInDataGroupBy">
+                                <tr class="bg-gray" data-bind="with : header">
+                                    <th colspan="19" class="text-left" data-bind="text:'Department : '+ DepartmentName()">Farm</th>
+                                </tr>
+                                <!-- ko foreach:detail -->
+                                <tr>
+                                    <td data-bind="text:SuitableDate(WorkDate())"></td>
+                                    <td data-bind="text:DayName"></td>
+                                    <td data-bind="text:EmployeeCode"></td>
+                                    <td data-bind="text:EmployeeName"></td>
+                                    <td data-bind="text:PlannedTimeIn"></td>
+                                    <td data-bind="text:PlannedTimeOut"></td>
+                                    <td data-bind="text:Standard"></td>
+                                    <td data-bind="text:ActualTimeIn"></td>
+                                    <td data-bind="text:ActualTimeOut"></td>
+                                    <td data-bind="text:Actual"></td>
+                                    <td data-bind="text:LateIn,style: { 'backgroundColor': LateIn != '' ? '#D2D6DE' : null }"></td>
+                                    <td data-bind="text:Remark"></td>
+                                </tr>
+                                <!--/ko-->
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+                <div id="editor"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="modal " id="viewMonthlyLateOutReport" style="">
+        <div class="modal-dialog  " style="width:100%;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default " data-bind="click:function(){Print('#MonthlyLateOutReportId')}"><i class="fa fa-plus-square text-green">&nbsp;@T("Print")</i></button>
+                        <button id="btnExport" type="button" class="btn btn-default " data-bind="click:function(){ExportExcel('MonthlyLateOutReportTable')}"><i class="fa fa-pencil text-blue">&nbsp;@T("Excel")</i></button>
+                    </div>
+                </div>
+                <div class="modal-body" id="MonthlyLateOutReportId">
+                    <style>
+                        @@media all {
+                            .page-break {
+                                display: none;
+                            }
+                        }
+
+                        @@media print {
+                            .page-break {
+                                display: block;
+                                page-break-inside: auto;
+                            }
+                        }
+                    </style>
+                    <div class="text-center" data-bind="visible:$root.showLoading()==true">
+                        <img src="~/Images/200.gif" />
+                    </div>
+                    <div data-bind="visible:$root.showLoading()==false">
+                        <table id="MonthlyLateOutReportTable" class="text-center table table-condensed table-striped table-bordered" style="width:100%;">
+                            <thead>
+                                <tr>
+                                    <td colspan="1">
+                                        <img class="companyImage" src="" width="100" height="100" />
+                                    </td>
+                                    <td colspan="11">
+                                        <strong class="companyName"></strong>
+                                        <br />
+                                        <strong>@T("Contact") <span class="companyPhone"></span>, &nbsp; <span class="companyEmail"></span></strong>
+                                        <br />
+                                        <strong><span class="ReportTitle"></span></strong>
+                                    </td>
+                                </tr>
+                            </thead>
+                            <thead class="bg-gray">
+                                <tr>
+                                    <th colspan="2"></th>
+                                    <th colspan="2">Employee</th>
+                                    <th colspan="3">Planned Time</th>
+                                    <th colspan="3">Actual Time</th>
+                                    <th>Late</th>
+                                    <th></th>
+                                </tr>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Day</th>
+                                    <th>Code</th>
+                                    <th>Name</th>
+                                    <th>In</th>
+                                    <th>Out</th>
+                                    <th>Work Time</th>
+                                    <th>In</th>
+                                    <th>Out</th>
+                                    <th>Actual</th>
+                                    <th>Out</th>
+                                    <th>Remark</th>
+                                </tr>
+                            </thead>
+                            <tbody data-bind="foreach:$root.MonthlyLateOutDataGroupBy">
+                                <tr class="bg-gray" data-bind="with : header">
+                                    <th colspan="19" class="text-left" data-bind="text:'Department : '+ DepartmentName()">Farm</th>
+                                </tr>
+                                <!-- ko foreach:detail -->
+                                <tr>
+                                    <td data-bind="text:SuitableDate(WorkDate())"></td>
+                                    <td data-bind="text:DayName"></td>
+                                    <td data-bind="text:EmployeeCode"></td>
+                                    <td data-bind="text:EmployeeName"></td>
+                                    <td data-bind="text:PlannedTimeIn"></td>
+                                    <td data-bind="text:PlannedTimeOut"></td>
+                                    <td data-bind="text:Standard"></td>
+                                    <td data-bind="text:ActualTimeIn"></td>
+                                    <td data-bind="text:ActualTimeOut"></td>
+                                    <td data-bind="text:Actual"></td>
+                                    <td data-bind="text:LateOut,style: { 'backgroundColor': LateOut != '' ? '#D2D6DE' : null }"></td>
+                                    <td data-bind="text:Remark"></td>
+                                </tr>
+                                <!--/ko-->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div id="editor"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="modal " id="viewMonthlyAbsentReport" style="">
+
+        <div class="modal-dialog  " style="width:100%;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default " data-bind="click:function(){Print('#MonthlyAbsentReportId')}"><i class="fa fa-plus-square text-green">&nbsp;@T("Print")</i></button>
+                        <button id="btnExport" type="button" class="btn btn-default " data-bind="click:function(){ExportExcel('MonthlyAbsentReportTable')}"><i class="fa fa-pencil text-blue">&nbsp;@T("Excel")</i></button>
+                    </div>
+                </div>
+                <div class="modal-body" id="MonthlyAbsentReportId">
+                    <style>
+                        @@media all {
+                            .page-break {
+                                display: none;
+                            }
+                        }
+
+                        @@media print {
+                            .page-break {
+                                display: block;
+                                page-break-inside: auto;
+                            }
+                        }
+                    </style>
+                    <div class="text-center" data-bind="visible:$root.showLoading()==true">
+                        <img src="~/Images/200.gif" />
+                    </div>
+                    <div data-bind="visible:$root.showLoading()==false">
+                        <table id="MonthlyAbsentReportTable" class="text-center table table-condensed table-striped table-bordered" style="width:100%;">
+                            <thead>
+                                <tr>
+                                    <td colspan="1">
+                                        <img class="companyImage" src="" width="100" height="100" />
+                                    </td>
+                                    <td colspan="8">
+                                        <strong class="companyName text-info text-bold text-xlarge"></strong>
+                                        <br />
+                                        <strong>@T("Contact") <span class="companyPhone"></span>, &nbsp; <span class="companyEmail"></span></strong>
+                                        <br />
+                                        <strong><span class="ReportTitle"></span></strong>
+                                    </td>
+                                </tr>
+                            </thead>
+                            <thead class="bg-gray">
+                                <tr>
+                                    <th colspan="2"></th>
+                                    <th colspan="3">Planned Time</th>
+                                    <th colspan="3">Actual Time</th>
+                                    <th></th>
+                                </tr>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Day</th>
+                                    <th>In</th>
+                                    <th>Out</th>
+                                    <th>Work Time</th>
+                                    <th>In</th>
+                                    <th>Out</th>
+                                    <th>Actual</th>
+                                    <th>Remark</th>
+                                </tr>
+
+                            </thead>
+                            <tbody data-bind="foreach:$root.MonthlyAbsentDataGroupBy">
+                                <tr class="bg-gray" data-bind="with : header">
+                                    <th colspan="9" class="text-left" data-bind="text:'Department : '+ DepartmentName()"></th>
+
+                                </tr>
+                                <!-- ko foreach:detail -->
+                                <tr class="bg-gray" data-bind="with : header">
+                                    <th colspan="1" class="text-left" data-bind="text:'EmployeeCode : '+ EmployeeCode()"></th>
+                                    <th colspan="1" class="text-left" data-bind="text:'EmployeeName : '+ EmployeeName()"></th>
+                                    <th colspan="7"></th>
+                                </tr>
+                                <!-- ko foreach:detail -->
+                                <tr>
+                                    <td data-bind="text:SuitableDate(WorkDate())"></td>
+                                    <td data-bind="text:DayName"></td>
+                                    <td data-bind="text:PlannedTimeIn"></td>
+                                    <td data-bind="text:PlannedTimeOut"></td>
+                                    <td data-bind="text:Standard"></td>
+                                    <td data-bind="text:ActualTimeIn"></td>
+                                    <td data-bind="text:ActualTimeOut"></td>
+                                    <td data-bind="text:Actual"></td>
+                                    <td data-bind="text:Remark"></td>
+                                </tr>
+                                <!--/ko-->
+                                <!--/ko-->
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+                <div id="editor"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="modal " id="viewMonthlyLeaveReport" style="">
+
+        <div class="modal-dialog  " style="width:100%;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default " data-bind="click:function(){Print('#MonthlyLeaveReportId')}"><i class="fa fa-plus-square text-green">&nbsp;@T("Print")</i></button>
+                        <button id="btnExport" type="button" class="btn btn-default " data-bind="click:function(){ExportExcel('MonthlyLeaveReportTable')}"><i class="fa fa-pencil text-blue">&nbsp;@T("Excel")</i></button>
+                    </div>
+                </div>
+                <div class="modal-body" id="MonthlyLeaveReportId">
+                    <style>
+                        @@media all {
+                            .page-break {
+                                display: none;
+                            }
+                        }
+
+                        @@media print {
+                            .page-break {
+                                display: block;
+                                page-break-inside: auto;
+                            }
+                        }
+                    </style>
+                    <div class="text-center" data-bind="visible:$root.showLoading()==true">
+                        <img src="~/Images/200.gif" />
+                    </div>
+                    <div data-bind="visible:$root.showLoading()==false">
+                        <table id="MonthlyLeaveReportTable" class="text-center table table-condensed table-striped table-bordered" style="width:100%;">
+                            <thead>
+                                <tr>
+                                    <td colspan="1">
+                                        <img class="companyImage" src="" width="100" height="100" />
+                                    </td>
+                                    <td colspan="10">
+                                        <strong class="companyName text-info text-bold text-xlarge"></strong>
+                                        <br />
+                                        <strong>@T("Contact") <span class="companyPhone"></span>, &nbsp; <span class="companyEmail"></span></strong>
+                                        <br />
+                                        <strong><span class="ReportTitle"></span></strong>
+                                    </td>
+                                </tr>
+                            </thead>
+                            <thead class="bg-gray">
+                                <tr>
+                                    <th colspan="2"></th>
+                                    <th colspan="2">Employee</th>
+                                    <th colspan="3">Planned Time</th>
+                                    <th colspan="3">Actual Time</th>
+
+                                    <th></th>
+                                </tr>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Day</th>
+                                    <th>Code</th>
+                                    <th>Name</th>
+                                    <th>In</th>
+                                    <th>Out</th>
+                                    <th>Work Time</th>
+                                    <th>In</th>
+                                    <th>Out</th>
+                                    <th>Actual</th>
+                                    <th>Remark</th>
+                                </tr>
+                            </thead>
+                            <tbody data-bind="foreach:$root.MonthlyLeaveDataGroupBy">
+                                <tr class="bg-gray" data-bind="with : header">
+                                    <th colspan="19" class="text-left" data-bind="text:'Department : '+ DepartmentName()"></th>
+                                </tr>
+                                <!-- ko foreach:detail -->
+                                <tr>
+                                    <td data-bind="text:SuitableDate(WorkDate())"></td>
+                                    <td data-bind="text:DayName"></td>
+                                    <td data-bind="text:EmployeeCode"></td>
+                                    <td data-bind="text:EmployeeName"></td>
+                                    <td data-bind="text:PlannedTimeIn"></td>
+                                    <td data-bind="text:PlannedTimeOut"></td>
+                                    <td data-bind="text:Standard"></td>
+                                    <td data-bind="text:ActualTimeIn"></td>
+                                    <td data-bind="text:ActualTimeOut"></td>
+                                    <td data-bind="text:Actual"></td>
+                                    <td data-bind="text:Remark"></td>
+                                </tr>
+                                <!--/ko-->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div id="editor"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal " id="viewMonthlyMissingPunchReport" style="">
+
+        <div class="modal-dialog  " style="width:100%;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default " data-bind="click:function(){Print('#MonthlyMissingPunchReportId')}"><i class="fa fa-plus-square text-green">&nbsp;@T("Print")</i></button>
+                        <button id="btnExport" type="button" class="btn btn-default " data-bind="click:function(){ExportExcel('MonthlyMissingPunchReportTable')}"><i class="fa fa-pencil text-blue">&nbsp;@T("Excel")</i></button>
+                    </div>
+                </div>
+                <div class="modal-body" id="MonthlyMissingPunchReportId">
+                    <style>
+                        @@media all {
+                            .page-break {
+                                display: none;
+                            }
+                        }
+
+                        @@media print {
+                            .page-break {
+                                display: block;
+                                page-break-inside: auto;
+                            }
+                        }
+                    </style>
+
+                    <div class="text-center" data-bind="visible:$root.showLoading()==true">
+                        <img src="~/Images/200.gif" />
+                    </div>
+                    <div data-bind="visible:$root.showLoading()==false">
+                        <table id="MonthlyMissingPunchReportTable" class="text-center table table-condensed table-striped table-bordered" style="width:100%;">
+                            <thead>
+                                <tr>
+                                    <td colspan="1">
+                                        <img class="companyImage" src="" width="100" height="100" />
+                                    </td>
+                                    <td colspan="8">
+                                        <strong class="companyName text-info text-bold text-xlarge"></strong>
+                                        <br />
+                                        <strong>@T("Contact") <span class="companyPhone"></span>, &nbsp; <span class="companyEmail"></span></strong>
+                                        <br />
+                                        <strong><span class="ReportTitle"></span></strong>
+                                    </td>
+                                </tr>
+                            </thead>
+                            <thead class="bg-gray">
+                                <tr>
+                                    <th colspan="2"></th>
+                                    <th colspan="3">Planned Time</th>
+                                    <th colspan="3">Actual Time</th>
+                                    <th></th>
+                                </tr>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Day</th>
+                                    <th>In</th>
+                                    <th>Out</th>
+                                    <th>Work Time</th>
+                                    <th>In</th>
+                                    <th>Out</th>
+                                    <th>Actual</th>
+                                    <th>Remark</th>
+                                </tr>
+                            </thead>
+                            <tbody data-bind="foreach:$root.MonthlyMissingPunchDataGroupBy">
+                                <tr class="bg-gray" data-bind="with : header">
+                                    <th colspan="9" class="text-left" data-bind="text:'Department : '+ DepartmentName()"></th>
+                                </tr>
+                                <!-- ko foreach:detail -->
+                                <tr class="bg-gray" data-bind="with : header">
+                                    <th colspan="1" class="text-left" data-bind="text:'EmployeeCode : '+ EmployeeCode()"></th>
+                                    <th colspan="1" class="text-left" data-bind="text:'EmployeeName : '+ EmployeeName()"></th>
+                                    <th colspan="7"></th>
+                                </tr>
+                                <!-- ko foreach:detail -->
+                                <tr>
+                                    <td data-bind="text:SuitableDate(WorkDate())"></td>
+                                    <td data-bind="text:DayName"></td>
+                                    <td data-bind="text:PlannedTimeIn"></td>
+                                    <td data-bind="text:PlannedTimeOut"></td>
+                                    <td data-bind="text:Standard"></td>
+                                    <td data-bind="text:ActualTimeIn,style: { 'backgroundColor': ActualTimeIn != '' ? '#D2D6DE' : null }"></td>
+                                    <td data-bind="text:ActualTimeOut"></td>
+                                    <td data-bind="text:Actual"></td>
+                                    <td data-bind="text:Remark"></td>
+                                </tr>
+                                <!--/ko-->
+                                <!--/ko-->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div id="editor"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="modal " id="viewMonthlyOTReport" style="">
+
+        <div class="modal-dialog  " style="width:100%;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default " data-bind="click:function(){Print('#MonthlyOTReportId')}"><i class="fa fa-plus-square text-green">&nbsp;@T("Print")</i></button>
+                        <button id="btnExport" type="button" class="btn btn-default " data-bind="click:function(){ExportExcel('MonthlyOTReportTable')}"><i class="fa fa-pencil text-blue">&nbsp;@T("Excel")</i></button>
+                    </div>
+                </div>
+                <div class="modal-body" id="MonthlyOTReportId">
+                    <style>
+                        @@media all {
+                            .page-break {
+                                display: none;
+                            }
+                        }
+
+                        @@media print {
+                            .page-break {
+                                display: block;
+                                page-break-inside: auto;
+                            }
+                        }
+                    </style>
+                    <div class="text-center" data-bind="visible:$root.showLoading()==true">
+                        <img src="~/Images/200.gif" />
+                    </div>
+                    <div data-bind="visible:$root.showLoading()==false">
+                        <table id="MonthlyOTReportTable" class="text-center table table-condensed table-striped table-bordered" style="width:100%;">
+                            <thead>
+                                <tr>
+                                    <td colspan="1">
+                                        <img class="companyImage" src="" width="100" height="100" />
+                                    </td>
+                                    <td colspan="8">
+                                        <strong class="companyName text-info text-bold text-xlarge"></strong>
+                                        <br />
+                                        <strong>@T("Contact") <span class="companyPhone"></span>, &nbsp; <span class="companyEmail"></span></strong>
+                                        <br />
+                                        <strong><span class="ReportTitle"></span></strong>
+                                    </td>
+                                </tr>
+                            </thead>
+                            <thead class="bg-gray">
+                                <tr>
+                                    <th colspan="2"></th>
+                                    <th colspan="3">Planned Time</th>
+                                    <th colspan="3">Actual Time</th>
+                                    <th></th>
+                                </tr>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Day</th>
+                                    <th>In</th>
+                                    <th>Out</th>
+                                    <th>Work Time</th>
+                                    <th>In</th>
+                                    <th>Out</th>
+                                    <th>Actual</th>
+                                    <th>OT</th>
+                                </tr>
+                            </thead>
+                            <tbody data-bind="foreach:$root.MonthlyOTDataGroupBy">
+                                <tr class="bg-gray" data-bind="with : header">
+                                    <th colspan="9" class="text-left" data-bind="text:'Department : '+ DepartmentName()"></th>
+
+                                </tr>
+                                <!-- ko foreach:detail -->
+                                <tr class="bg-gray" data-bind="with : header">
+                                    <th colspan="1" class="text-left" data-bind="text:'EmployeeCode : '+ EmployeeCode()"></th>
+                                    <th colspan="1" class="text-left" data-bind="text:'EmployeeName : '+ EmployeeName()"></th>
+                                    <th colspan="7"></th>
+                                </tr>
+                                <!-- ko foreach:detail -->
+                                <tr>
+                                    <td data-bind="text:SuitableDate(WorkDate())"></td>
+                                    <td data-bind="text:DayName"></td>
+                                    <td data-bind="text:PlannedTimeIn"></td>
+                                    <td data-bind="text:PlannedTimeOut"></td>
+                                    <td data-bind="text:Standard"></td>
+                                    <td data-bind="text:ActualTimeIn"></td>
+                                    <td data-bind="text:ActualTimeOut"></td>
+                                    <td data-bind="text:Actual"></td>
+                                    <td data-bind="text:Ot,style: { 'backgroundColor': Ot != '' ? '#D2D6DE' : null }"></td>
+                                </tr>
+                                <!--/ko-->
+                                <!--/ko-->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div id="editor"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="modal " id="viewMonthlyManualPunchReport" style="">
+
+        <div class="modal-dialog  " style="width:100%;">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <div class="btn-group">
+
+                        <button type="button" class="btn btn-default " data-bind="click:function(){Print('#MonthlyManualPunchReportId')}"><i class="fa fa-plus-square text-green">&nbsp;@T("Print")</i></button>
+                        <button id="btnExport" type="button" class="btn btn-default " data-bind="click:function(){ExportExcel('MonthlyManualPunchReportTable')}"><i class="fa fa-pencil text-blue">&nbsp;@T("Excel")</i></button>
+
+
+
+                    </div>
+                </div>
+                <div class="modal-body" id="MonthlyManualPunchReportId">
+
+
+                    <style>
+                        @@media all {
+                            .page-break {
+                                display: none;
+                            }
+                        }
+
+                        @@media print {
+                            .page-break {
+                                display: block;
+                                page-break-inside: auto;
+                            }
+                        }
+                    </style>
+                    <table style="width:100%;">
+                        <tbody>
+                            <tr>
+                                <td style="width:150px;">
+
+                                    <img class="companyImage" src="" width="100" height="100" />
+                                </td>
+                                <td>
+                                    <table style="width:100%; " class="text-center">
+                                        <tbody>
+                                            <tr>
+
+                                                <td><strong class="companyName text-info text-bold text-xlarge"></strong></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <strong>Contact: <span class="companyPhone"></span>, &nbsp; <span class="companyEmail"></span></strong>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <strong><span class="ReportTitle" style="margin:35px;"> Report Title</span></strong>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+
+
+                    <table id="MonthlyManualPunchReportTable" class="text-center table table-condensed table-striped table-bordered" style="width:100%;">
+                        <thead class="bg-gray">
+                            <tr>
+
+                                <th colspan="2">Employee</th>
+                                <th colspan="3">Manual Punch</th>
+
+                            </tr>
+                            <tr>
+                                <th>Code</th>
+                                <th>Name</th>
+
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Remark</th>
+                            </tr>
+
+
+                        </thead>
+                        <tbody data-bind="foreach:$root.MonthlyManualPunchDataGroupBy">
+                            <tr class="bg-gray" data-bind="with : header">
+                                <th colspan="19" class="text-left" data-bind="text:'Employee : '+ EmployeeName()"></th>
+
+                            </tr>
+                            <!-- ko foreach:detail -->
+                            <tr>
+                                <td data-bind="text:EmployeeCode"></td>
+                                <td data-bind="text:EmployeeName"></td>
+                                <td data-bind="text:SuitableDate(Date())"></td>
+                                <td data-bind="text:Time"></td>
+                                <td data-bind="text:Remarks"></td>
+
+
+
+
+
+                            </tr>
+                            <!--/ko-->
+                            @*<tr class="bg-gray" data-bind="with : header">
+                                    <th colspan="4" class="text-right" data-bind="text:'Department ' + DepartmentName() +' Total: '">Lot</th>
+                                    <th data-bind="text:PlannedTimeIn"></th>
+                                    <th data-bind="text:PlannedTimeOut"></th>
+                                    <th data-bind="text:Standard"></th>
+                                    <th data-bind="text:ActualTimeIn"></th>
+                                    <th data-bind="text:ActualTimeOut"></th>
+                                    <th data-bind="text:Actual"></th>
+                                    <th data-bind="text:EarlyOut"></th>
+                                    <th></th>
+                                </tr>*@
+                        </tbody>
+                    </table>
+                </div>
+                <div id="editor"></div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+@if (Request.IsAjaxRequest())
+{
+
+    <script type="text/javascript">
+
+        function setColumnVisible(reportTitle, colName, visible) {
+            var reportFromStorage = {};
+            if (localStorage.reportVisibility) {
+                reportFromStorage = JSON.parse(localStorage.reportVisibility);
+            }
+
+            if (reportFromStorage[reportTitle]) {
+                if (reportFromStorage[reportTitle][colName]) {
+                    reportFromStorage[reportTitle][colName] = visible || false;
+                }
+            }
+            else {
+                reportFromStorage[reportTitle] = {
+                };
+            }
+            reportFromStorage[reportTitle][colName] = visible;
+            localStorage.reportVisibility = JSON.stringify(reportFromStorage);
+        }
+
+        function setColumFilter(item) {
+
+            if (item.checked == true) {
+                setColumnVisible(item.dataset.report, item.dataset.colname, true);
+            }
+            else {
+                setColumnVisible(item.dataset.report, item.dataset.colname, false);
+            }
+            obj[item.dataset.report][item.dataset.colname](item.checked);
+        }
+
+        var obj = {};
+        attendanceReportInit();
+        function attendanceReportInit() {
+
+            ko.cleanNode(document.getElementById("partial-render"));
+            var config = new Riddha.config();
+            var companyName = config.CurrentLanguage == "ne" && '@RTech.Demo.Utilities.RiddhaSession.CurrentUser.Branch.NameNp' != null ? '@RTech.Demo.Utilities.RiddhaSession.CurrentUser.Branch.NameNp' : '@RTech.Demo.Utilities.RiddhaSession.CurrentUser.Branch.Name';
+            ko.cleanNode(document.getElementById("partial-render"));
+            function reportObservableCreator(reportTitle, viewModel) {
+                obj[reportTitle] = ko.observable({});
+                for (var key in viewModel) {
+                    obj[reportTitle][viewModel[key]] = ko.observable(obj.getColumnVisible(reportTitle, viewModel[key]));
+                }
+            }
+            Riddha.global.permission.action('5001').done(function (data) {
+                Riddha.global.permission.actions = data.Data;
+                obj = new attendanceReportController('@DateTime.Now.ToString("yyyy/MM/dd")', companyName);
+                obj['getColumnVisible'] = function getColumnVisible(reportTitle, colName) {
+                    var reportFromStorage = {};
+                    if (localStorage.reportVisibility) {
+                        reportFromStorage = JSON.parse(localStorage.reportVisibility);
+                    }
+                    if (reportFromStorage[reportTitle]) {
+                        if (reportFromStorage[reportTitle][colName] != undefined) {
+                            if (reportFromStorage[reportTitle][colName]) {
+                                return reportFromStorage[reportTitle][colName];
+                            }
+                        }
+                        else {
+                            setColumnVisible(reportTitle, colName, true);
+                        }
+                    }
+                    else {
+                        setColumnVisible(reportTitle, colName, true);
+                        return true;
+                    }
+                };
+
+                reportObservableCreator('EmployeeSummaryReportTable', [
+                    'AbsentDays',
+                    'DutyDays',
+                    'HolidayDays',
+                    'Kaj',
+                    'LeaveDays',
+                    'MiscDays',
+                    'OTHours',
+                    'OfficeVisit',
+                    'PresentDays',
+                    'PresentOnDayOff',
+                    'PresentOnHoliday',
+                    'Remarks',
+                    'TotalDays',
+                    'WeekendDays',
+                    'WorkedHours',
+                    'earlyin',
+                    'earlyout',
+                    'latein',
+                    'lateout',
+                    'remark']);
+
+                reportObservableCreator('MonthlyAttendanceReport', [
+                    'Mplanned',
+                    'Mbreak',
+                    'Mot',
+                    'Mearlyin',
+                    'Mearlyout',
+                    'Mlatein',
+                    'Mlateout',
+                    'Mremark']);
+
+                $('[data-report]').each(function () {
+                    var item = $(this)[0];
+                    item.checked = obj.getColumnVisible(item.dataset.report, item.dataset.colname);
+                });
+                ko.applyBindings(obj, document.getElementById("partial-render"));
+            });
+        }
+    </script>
+}
+else
+{
+    @section scripts
+    {
+
+        <script type="text/javascript">
+            var obj = {};
+            var config = new Riddha.config();
+            var companyName = config.CurrentLanguage == "ne" && '@RTech.Demo.Utilities.RiddhaSession.CurrentUser.Branch.NameNp' != null ? '@RTech.Demo.Utilities.RiddhaSession.CurrentUser.Branch.NameNp' : '@RTech.Demo.Utilities.RiddhaSession.CurrentUser.Branch.Name';
+            ko.cleanNode(document.getElementById("partial-render"));
+
+            function setColumnVisible(reportTitle, colName, visible) {
+                var reportFromStorage = {};
+                if (localStorage.reportVisibility) {
+                    reportFromStorage = JSON.parse(localStorage.reportVisibility);
+                }
+                if (reportFromStorage[reportTitle]) {
+                    if (reportFromStorage[reportTitle][colName]) {
+                        reportFromStorage[reportTitle][colName] = visible || false;
+                    }
+                }
+                else {
+                    reportFromStorage[reportTitle] = {
+                    };
+                }
+                reportFromStorage[reportTitle][colName] = visible;
+                localStorage.reportVisibility = JSON.stringify(reportFromStorage);
+
+            }
+
+
+
+            function setColumFilter(item) {
+                if (item.checked == true) {
+                    setColumnVisible(item.dataset.report, item.dataset.colname, true);
+                 
+                }
+                else {
+                    setColumnVisible(item.dataset.report, item.dataset.colname, false);
+                }
+                obj[item.dataset.report][item.dataset.colname](item.checked);
+            }
+            function reportObservableCreator(reportTitle, viewModel) {
+                obj[reportTitle] = ko.observable({});
+                for (var key in viewModel) {
+                    obj[reportTitle][viewModel[key]] = ko.observable(obj.getColumnVisible(reportTitle, viewModel[key]));
+                }
+            }
+            Riddha.global.permission.action('5001').done(function (data) {
+                Riddha.global.permission.actions = data.Data;
+                obj = new attendanceReportController('@DateTime.Now.ToString("yyyy/MM/dd")', companyName);
+
+                obj['getColumnVisible'] = function getColumnVisible(reportTitle, colName) {
+                    var reportFromStorage = {};
+                    if (localStorage.reportVisibility) {
+                        reportFromStorage = JSON.parse(localStorage.reportVisibility);
+                    }
+                    if (reportFromStorage[reportTitle]) {
+                        if (reportFromStorage[reportTitle][colName] != undefined) {
+                            if (reportFromStorage[reportTitle][colName]) {
+                                return reportFromStorage[reportTitle][colName];
+                            }
+                        }
+                        else {
+                            setColumnVisible(reportTitle, colName, true);
+
+                        }
+                    }
+                    else {
+                        setColumnVisible(reportTitle, colName, true);
+
+                        return true;
+                    }
+                };
+
+                reportObservableCreator('EmployeeSummaryReportTable', [
+                    'AbsentDays',
+                    'DutyDays',
+                    'HolidayDays',
+                    'Kaj',
+                    'LeaveDays',
+                    'MiscDays',
+                    'OTHours',
+                    'OfficeVisit',
+                    'PresentDays',
+                    'PresentOnDayOff',
+                    'PresentOnHoliday',
+                    'Remarks',
+                    'TotalDays',
+                    'WeekendDays',
+                    'WorkedHours',
+                    'earlyin',
+                    'earlyout',
+                    'latein',
+                    'lateout',
+                    'remark']);
+
+                reportObservableCreator('MonthlyAttendanceReport', [
+                    'Mplanned',
+                    'Mbreak',
+                    'Mot',
+                    'Mearlyin',
+                    'Mearly',
+                  'Mearlyout',
+                    'Mlatein',
+                    'Mlate',
+                    'Mlateout',
+                    'Mremark',
+                    'Colspan',
+                ]);
+
+                $('[data-report]').each(function () {
+                    var item = $(this)[0];
+                    item.checked = obj.getColumnVisible(item.dataset.report, item.dataset.colname);
+                });
+
+
+                ko.applyBindings(obj, document.getElementById("partial-render"));
+            });
+        </script>
+    }
+}
+

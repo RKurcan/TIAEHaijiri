@@ -1,0 +1,113 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Layout_Adminlte.cshtml";
+}
+
+<section class="content">
+    <!-- Info boxes -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box box-success">
+                <div class="box-header with-border">
+                    &nbsp;
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-wrench"></i>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Add New Partner</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                            </ul>
+                        </div>
+                        <button type="button" class="btn btn-box-tool text-red" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="box-body table-responsive ">
+                    <div class="row">
+                        <div class="col-sm-9">
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="dataTables_filter">
+                                <div class="input-group col-lg-12">
+                                    <input type="search" class="form-control input-sm" placeholder="Search " aria-controls="example1">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default bg-gray form-control fa fa-search" type="button" ></button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="table table-condensed table-bordered table-striped no-padding table-hover">
+                        <thead class="success bg-green">
+                            <tr>
+                                <th class="col-lg-1"> SN</th>
+                                <th class="col-lg-2">Name </th>
+                                <th class="col-lg-2">Address</th>
+                                <th class="col-lg-1">Contact</th>
+                                <th class="col-lg-1">Contact Person</th>
+                                <th class="col-lg-1">Email</th>
+                                <th class="col-lg-1">Web</th>
+                                <th class="col-lg-3">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody data-bind="foreach:DemoRequests">
+                            <tr>
+                                <td class="hidden"><input type="hidden" data-bind="value:Id" /></td>
+                                <td data-bind="text:$index()+1"></td>
+                                <td data-bind="text:Name"></td>
+                                <td data-bind="text:Address"></td>
+                                <td data-bind="text:ContactNo"></td>
+                                <td data-bind="text:ContactPerson"></td>
+                                <td data-bind="text:Email"></td>
+                                <td data-bind="text:WebUrl"></td>
+                                <td>
+                                    <div class="btn-group btn-group-sm">
+                                        <button type="button" class="btn btn-xs text-danger" data-toggle="tooltip" data-bind="click:$root.Remove" data-placement="left" data-original-title="Remove" title="Remove"><span class="glyphicon glyphicon-trash"></span></button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/html" id="mode-button-template">
+        <span class="glyphicon glyphicon-plus" data-bind="text:$root.ModeOfButton"></span>
+    </script>
+    <!-- /.row -->
+    <!-- /.row -->
+    <!-- Main row -->
+    <!-- /.row -->
+</section>
+
+@if (Request.IsAjaxRequest())
+{
+    <script src="~/Areas/Office/Scripts/Riddha.Script.DemoRequest.Model.js"></script>
+    <script src="~/Areas/Office/Scripts/Riddha.Script.DemoRequest.Controller.js"></script>
+    <script type="text/javascript">
+        ko.cleanNode(document.getElementById("partial-render"));
+        var obj = new demoRequestController();
+        ko.applyBindings(obj, document.getElementById("partial-render"));
+    </script>
+}
+else
+{
+    @section scripts
+    {
+        <script src="~/Areas/Office/Scripts/Riddha.Script.DemoRequest.Model.js"></script>
+        <script src="~/Areas/Office/Scripts/Riddha.Script.DemoRequest.Controller.js"></script>
+        <script type="text/javascript">
+            ko.cleanNode(document.getElementById("partial-render"));
+            var obj = new demoRequestController();
+            ko.applyBindings(obj, document.getElementById("partial-render"));
+        </script>
+    }
+}

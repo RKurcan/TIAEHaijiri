@@ -1,0 +1,154 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Layout_Adminlte.cshtml";
+}
+
+<style>
+    #custom {
+        padding: 2px 12px;
+    }
+</style>
+<section class="content-header">
+    <h1>
+        @T("Leave")
+        <sup class="text-blue">@T("Balance")</sup>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> @T("Employee")</a></li>
+        <li class="active">@T("LeaveBalance")</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    &nbsp;
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool dropdown-toggle text-blue" data-toggle="dropdown" data-bind="" style="">
+                            <i class="fa fa-plus-square"></i> @T("Save")
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <div class="btn-group">
+
+                            <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-wrench"></i>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Add New Holiday</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                            </ul>
+                        </div>
+                        <button type="button" class="btn btn-box-tool text-red" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="box-body box-primary">
+                    <div class="row">
+                        <div class="col-lg-6" data-bind="with:Employee">
+                            <div class="col-lg-12 form-group">
+                                <label class="col-lg-4 control-label" for="Number">@T("EmployeeCode")</label>
+                                <div class="col-lg-8">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" data-bind="value:Code" />
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default bg-blue fa fa-search form-control" type="button" data-bind="click:$root.GetEmployee" id="custom"></button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 form-group">
+                                <label class="col-lg-4 control-label" for="Number">@T("EmployeeName")  </label>
+                                <div class="col-lg-8">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" data-bind="value:Name" />
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default bg-blue fa fa-search form-control" type="button" data-bind="click:$root.GetEmployee" id="custom"></button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 form-group">
+                                <label class="col-lg-4 control-label" for="Number">@T("Designation") </label>
+                                <div class="col-lg-8">
+                                    <input type="text" disabled class="form-control" data-bind="value:Designation" />
+                                </div>
+                            </div>
+                            <div class="col-lg-12 form-group">
+                                <label class="col-lg-4 control-label" for="Number">@T("Department") </label>
+                                <div class="col-lg-8">
+                                    <input type="text" disabled class="form-control" data-bind="value:Department" />
+                                </div>
+                            </div>
+                            <div class="col-lg-12 form-group">
+                                <label class="col-lg-4 control-label" for="Number">@T("Section") </label>
+                                <div class="col-lg-8">
+                                    <input type="text" disabled class="form-control" data-bind="value:Section" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="col-lg-12 form-group">
+                                <img class="img-rounded " style="cursor:pointer" width="110" height="110" data-bind="attr: {src: Employee().Photo() || '/Images/men3.png'}" />
+                            </div>
+                            <div class="col-lg-8 form-group">
+                                <table class="table table-condensed table-bordered table-striped no-padding">
+                                    <thead class="primary bg-primary">
+                                        <tr>
+                                            <th>@T("Leave")</th>
+                                            <th>@T("OpeningBalance")</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody data-bind="foreach:LeaveMasters">
+                                        <tr>
+                                            <td data-bind="text:Name"></td>
+                                            <td>
+                                                <input type="text" class="form-control" data-bind="value:OpeningBal" />
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-footer box-primary">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="col-lg-12">
+                                    <button type="button" class="btn btn-primary" data-bind="click:Create,createUpdateText:ModeOfButton"><span class="glyphicon glyphicon-save"></span> @T("Save") </button>
+                                    <button type="button" class="btn btn-default" data-bind="click:Reset"><span class="glyphicon glyphicon-refresh"></span> @T("Reset") </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@if (Request.IsAjaxRequest())
+{
+    
+    <script type="text/javascript">
+        ko.cleanNode(document.getElementById("partial-render"));
+        var obj = new leaveBalanceController();
+        ko.applyBindings(obj, document.getElementById("partial-render"));
+    </script>
+}
+else
+{
+    @section scripts
+    {
+        
+        <script type="text/javascript">
+            var obj = new leaveBalanceController();
+            ko.applyBindings(obj);
+        </script>
+    }
+}
+
+

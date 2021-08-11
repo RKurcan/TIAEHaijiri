@@ -1,0 +1,518 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Layout_Adminlte.cshtml";
+}
+<section class="content-header">
+    <h1>
+        @T("TaxSetup")
+        <sup class="text-green">@T("Creation")</sup>
+
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> @T("Home")</a></li>
+        <li class="active">@T("TaxSetup")</li>
+    </ol>
+</section>
+<!-- Main content -->
+
+<section class="content">
+    <div class="modal" id="taxSetupCreationModel" data-backdrop="static">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-bind="click:$root.CloseModal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-success">@T("TaxSetup")</h4></header>
+                </div>
+                <div class="modal-body">
+                    <div class="row" data-bind="with:TaxSetupMaster">
+                        <div class="col-lg-6 form-group">
+                            <label class="col-lg-5 control-label" for="Number">@T("FiscalYear")</label>
+                            <div class="col-lg-4">
+                                <select class="dropdown-toggle form-control" style="width:100px;" required
+                                        data-bind="options:$root.FiscalYears,
+                                      optionsText:'Name',optionsValue:'Id',value:FiscalYearId ,optionsCaption:Riddha.UI.getOptionCaption(), event:{ change: $root.CheckIfFiscalYearSetupAlreadyExist}"></select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 form-group">
+                            <div class="col-lg-8">
+                                <input type="button" data-bind="click:$root.CopyFromLastFiscalYear"  value="@T("CopyFromLastFiscalYear")" class="btn btn-info" />
+                            </div>
+                        </div>
+
+                        <div class="clearfix"></div>
+                        <hr>
+                        <!-- Tax Slab Region-->
+                        <div class="col-lg-12 text-center">
+                            <h4 class="text-aqua"> <u> @T("TaxSlab")</u></h4>
+                        </div>
+                        <hr>
+                        <div class="col-lg-12">
+                            <table class="table table-condensed table-bordered table-striped no-padding table-hover">
+                                <thead class="success bg-success">
+                                    <tr>
+                                        <th> @T("SerialNo")</th>
+                                        <th> @T("TaxPercent") </th>
+                                        <th> @T("Individual") </th>
+                                        <th>@T("Couple")</th>
+                                        <th>@T("Action")</th>
+                                    </tr>
+                                </thead>
+                                <tbody data-bind="foreach:$root.TaxSlabDetails">
+                                    <tr>
+                                        <td data-bind="text:SN"></td>
+                                        <td data-bind="text:TaxPerc"></td>
+                                        <td data-bind="text:IndividualAmount"></td>
+                                        <td data-bind="text:CoupleAmount"></td>
+
+                                        <td>
+                                            <button type="button" data-bind="click:$root.EditTaxSlabDetails" class="btn btn-xs btn-default" title=@T("Edit")><span class="glyphicon glyphicon-pencil text-green "></span> </button>
+                                            <button type="button" data-bind="click:$root.RemoveTaxSlabDetails" class="btn btn-xs btn-default" title=@T("Remove")><span class="glyphicon glyphicon-trash text-red"></span></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <tfoot data-bind="with:$root.TaxSlab">
+                                    <tr>
+                                        <td></td>
+                                        <td>
+                                            <input type="text" class="form-control text-right" data-bind="value:TaxPerc,mask:'amount'">
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control text-right" data-bind="value:IndividualAmount,mask:'amount'">
+                                        </td>
+
+                                        <td>
+                                            <input type="text" class="form-control text-right" data-bind="value:CoupleAmount,mask:'amount'">
+                                        </td>
+
+                                        <td>
+                                            <input type="submit" data-bind="click:$root.AddTaxSlabDetails,createUpdateText:$root.TaxSlabModeOfButton" name="Save" class="btn btn-success" />
+                                            <input type="button" data-bind="click:$root.ResetTaxSlabDetails" name="Reset" value=@T("Reset") class="btn btn-default" />
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+
+                            <div class="col-lg-12 form-group">
+                                <label class="col-lg-5 control-label" for="Number">@T("TaxAboveFinalValuePercent")</label>
+                                <div class="col-lg-4">
+                                    <input type="text" class="form-control" data-bind="value:TaxPercAboveFinalValue" />
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="clearfix"></div>
+                        <hr>
+                        <!-- Tax Slab  END Region-->
+                        <!-- Maximum Deduction Limit Region-->
+                        <div class="col-lg-12 text-center">
+
+                            <h4 class="text-aqua"> <u>@T("MaximumDeductionLimit")</u></h4>
+                            <hr>
+                        </div>
+                        <div class="col-lg-12">
+
+                            <div class="row">
+
+                                <div class="col-lg-12">
+                                    <div class="col-lg-12 form-group">
+                                        @*<label class="col-lg-5 control-label" for="Number">@T("IN+PF+CIT(Rs)")</label>*@
+                                        <label class="col-lg-5 control-label" for="Number">@T("INPFCITRuppes")</label>
+                                        <div class="col-lg-4">
+                                            <input type="text" class="form-control" data-bind="value:DeductionLimitAmount" />
+
+                                        </div>
+
+                                    </div>
+                                    <div class="col-lg-12 form-group">
+                                        <label class="col-lg-5 control-label col-lg-offset-6" for="Number">@T("OR")</label>
+
+                                    </div>
+                                    <div class="col-lg-12 form-group">
+
+                                        <div class="col-lg-4 col-lg-offset-5">
+                                            <div class="col-lg-5">
+                                                <input type="text" class="form-control" data-bind="value:$root.DeductionLimitRatioDividened" />
+                                            </div>
+                                            <div class="col-lg-2">
+                                                <label> / </label>
+                                            </div>
+                                            <div class="col-lg-5">
+                                                <input type="text" class="form-control" data-bind="value:$root.DeductionLimitRatioDivisor" />
+                                            </div>
+                                        </div>
+
+
+
+
+                                        <label class="col-lg-3 control-label" for="Number">@T("RatioOfGrossSalary")</label>
+
+                                    </div>
+                                    <div class="col-lg-12 form-group">
+                                        <label class="col-lg-12 control-label" for="Number">
+                                            @T("Thisismaximumamountthatiseligibleforvaliddeductionduringtaxation")
+                                        </label>
+                                    </div>
+                                    <div class="col-lg-12 form-group">
+                                        <label class="col-lg-4 control-label" for="Number">@T("RebateForFemaleUnmarried")</label>
+                                        <div class="col-lg-3">
+                                            <input type="text" class="form-control" data-bind="value:RebatePercForFemaleUnmarried" />
+                                        </div>
+                                        <label class="col-lg-5 control-label" for="Number">@T("Percentoftaxcalculated")</label>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="clearfix"></div>
+                        <!-- Maximum Deduction Limit END Region-->
+
+
+                        <hr>
+                        <!-- SSF Information Region-->
+                        <div class="col-lg-12 text-center">
+                            <h4 class="text-aqua"><u>@T("SSFInformation")</u></h4>
+                            <hr>
+                        </div>
+                        <div class="col-lg-12">
+
+                            <div class="row">
+
+                                <div class="col-lg-12">
+                                    <div class="col-lg-12 form-group">
+                                        <label class="col-lg-4 control-label" for="Number">@T("ProvidentFund")</label>
+                                        <div class="col-lg-4">
+                                            <input type="text" class="form-control" data-bind="value:PFPercByEmployer" />
+                                        </div>
+                                        <label class="col-lg-4 control-label" for="Number">@T("PercentEmployer")</label>
+
+                                    </div>
+                                    <div class="col-lg-12 form-group">
+
+                                        <div class="col-lg-4 col-lg-offset-4">
+                                            <input type="text" class="form-control" data-bind="value:PFPercByEmployee" />
+                                        </div>
+                                        <label class="col-lg-4 control-label" for="Number">@T("PercentEmployee")</label>
+                                    </div>
+                                    <div class="col-lg-12 form-group">
+
+                                        <label class="col-lg-4 control-label" for="Number">@T("Gratituity")</label>
+                                        <div class="col-lg-4">
+                                            <input type="text" class="form-control" data-bind="value:GratituityPercByEmployer" />
+                                        </div>
+                                        <label class="col-lg-4 control-label" for="Number">@T("PercentEmployer")</label>
+                                    </div>
+
+                                    <div class="col-lg-12 form-group">
+
+                                        <label class="col-lg-4 control-label" for="Number">@T("SocialSecurity")</label>
+                                        <div class="col-lg-4">
+                                            <input type="text" class="form-control" data-bind="value:SSPercByEmployer" />
+                                        </div>
+                                        <label class="col-lg-4 control-label" for="Number">@T("PercentEmployer")</label>
+                                    </div>
+                                    <div class="col-lg-12 form-group">
+
+                                        <div class="col-lg-4 col-lg-offset-4">
+                                            <input type="text" class="form-control" data-bind="value:SSPercByEmployee" />
+                                        </div>
+                                        <label class="col-lg-4 control-label" for="Number">@T("PercentEmployee")</label>
+                                    </div>
+
+                                    <div class="col-lg-12 form-group">
+
+                                        <label class="col-lg-4 control-label" for="Number">@T("PensionFund")</label>
+                                        <div class="col-lg-4">
+                                            <input type="text" class="form-control" data-bind="value:PensionFundByEmployer"  />
+                                        </div>
+                                        <label class="col-lg-4 control-label" for="Number">@T("PercentEmployer")</label>
+                                    </div>
+                                    <div class="col-lg-12 form-group">
+
+                                        <div class="col-lg-4 col-lg-offset-4">
+                                            <input type="text" class="form-control" data-bind="value:PensionFundByEmployee" />
+                                        </div>
+                                        <label class="col-lg-4 control-label" for="Number">@T("PercentEmployee")</label>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <!-- SSF Information END Region-->
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="form-group col-lg-12 text-center">
+                        <input type="submit" data-bind="click:$root.CreateOrUpdate,createUpdateText:$root.TaxSetupModeOfButton" name="Save" class="btn btn-success" />
+                        <input type="button" data-bind="click:$root.Reset" name="Reset" value=@T("Reset") class="btn btn-default" />
+                        <input type="button" data-bind="click:$root.CloseModal" name="Back" value=@T("Back") class="btn btn-danger" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal" id="taxSetupCreationModelView">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-success">@T("TaxSetup")</h4></header>
+                </div>
+                <div class="modal-body">
+                    <div class="row" data-bind="with:TaxSetupMaster">
+                        <div class="col-lg-6 form-group">
+                            <label class="col-lg-5 control-label" for="Number">@T("FiscalYear")</label>
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control" data-bind="value:FiscalYear" readonly />
+
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <hr>
+                        <!-- Tax Slab Region-->
+                        <div class="col-lg-12 text-center">
+                            <h4 class="text-aqua"> <u>@T("TaxSlab")</u></h4>
+                        </div>
+                        <hr>
+
+
+                        <div class="col-lg-12">
+                            <table class="table table-condensed table-bordered table-striped no-padding table-hover">
+                                <thead class="success bg-success">
+                                    <tr>
+                                        <th> @T("SerialNo")</th>
+                                        <th> @T("TaxPercent") </th>
+                                        <th> @T("Individual") </th>
+                                        <th>@T("Couple")</th>
+                                    </tr>
+                                </thead>
+                                <tbody data-bind="foreach:$root.TaxSlabDetails">
+                                    <tr>
+                                        <td data-bind="text:SN"></td>
+                                        <td data-bind="text:TaxPerc"></td>
+                                        <td data-bind="text:IndividualAmount"></td>
+                                        <td data-bind="text:CoupleAmount"></td>
+
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+
+                                </tfoot>
+                            </table>
+
+                            <div class="col-lg-12 form-group">
+                                <label class="col-lg-5 control-label" for="Number">@T("TaxAboveFinalValuePercent")</label>
+                                <div class="col-lg-4">
+                                    <input type="text" class="form-control" data-bind="value:TaxPercAboveFinalValue" readonly />
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="clearfix"></div>
+                        <hr>
+                        <!-- Tax Slab  END Region-->
+                        <!-- Maximum Deduction Limit Region-->
+                        <div class="col-lg-12 text-center">
+
+                            <h4 class="text-aqua"> <u>@T("MaximumDeductionLimit")</u></h4>
+                            <hr>
+                        </div>
+                        <div class="col-lg-12">
+
+                            <div class="row">
+
+                                <div class="col-lg-12">
+                                    <div class="col-lg-12 form-group">
+                                        <label class="col-lg-5 control-label" for="Number">@T("INPFCITRuppes")</label>
+                                        <div class="col-lg-4">
+                                            <input type="text" class="form-control" data-bind="value:DeductionLimitAmount" readonly />
+
+                                        </div>
+
+                                    </div>
+                                    <div class="col-lg-12 form-group">
+                                        <label class="col-lg-5 control-label col-lg-offset-6" for="Number">@T("OR")</label>
+
+                                    </div>
+                                    <div class="col-lg-12 form-group">
+
+                                        <div class="col-lg-4 col-lg-offset-5">
+                                            <div class="col-lg-5">
+                                                <input type="text" class="form-control" data-bind="value:$root.DeductionLimitRatioDividened" readonly />
+                                            </div>
+                                            <div class="col-lg-2">
+                                                <label> / </label>
+                                            </div>
+                                            <div class="col-lg-5">
+                                                <input type="text" class="form-control" data-bind="value:$root.DeductionLimitRatioDivisor" readonly />
+                                            </div>
+                                        </div>
+
+
+
+
+                                        <label class="col-lg-3 control-label" for="Number">@T("RatioOfGrossSalary")</label>
+
+                                    </div>
+                                    <div class="col-lg-12 form-group">
+                                        <label class="col-lg-12 control-label" for="Number">
+                                            @T("Thisismaximumamountthatiseligibleforvaliddeductionduringtaxation")
+                                        </label>
+                                    </div>
+                                    <div class="col-lg-12 form-group">
+                                        <label class="col-lg-4 control-label" for="Number">@T("Rebate(ForFemaleUnmarried)")</label>
+                                        <div class="col-lg-3">
+                                            <input type="text" class="form-control" data-bind="value:RebatePercForFemaleUnmarried" readonly />
+                                        </div>
+                                        <label class="col-lg-5 control-label" for="Number">@T("Percentoftaxcalculated")</label>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="clearfix"></div>
+                        <!-- Maximum Deduction Limit END Region-->
+
+
+                        <hr>
+                        <!-- SSF Information Region-->
+                        <div class="col-lg-12 text-center">
+                            <h4 class="text-aqua"><u>@T("SSFInformation")</u></h4>
+                            <hr>
+                        </div>
+                        <div class="col-lg-12">
+
+                            <div class="row">
+
+                                <div class="col-lg-12">
+                                    <div class="col-lg-12 form-group">
+                                        <label class="col-lg-4 control-label" for="Number">@T("ProvidentFund")</label>
+                                        <div class="col-lg-4">
+                                            <input type="text" class="form-control" data-bind="value:PFPercByEmployer" readonly />
+                                        </div>
+                                        <label class="col-lg-4 control-label" for="Number">@T("PercentEmployer")</label>
+
+                                    </div>
+                                    <div class="col-lg-12 form-group">
+
+                                        <div class="col-lg-4 col-lg-offset-4">
+                                            <input type="text" class="form-control" data-bind="value:PFPercByEmployee" readonly />
+                                        </div>
+                                        <label class="col-lg-4 control-label" for="Number">@T("PercentEmployee")</label>
+                                    </div>
+                                    <div class="col-lg-12 form-group">
+
+                                        <label class="col-lg-4 control-label" for="Number">@T("Gratituity")</label>
+                                        <div class="col-lg-4">
+                                            <input type="text" class="form-control" data-bind="value:GratituityPercByEmployer" readonly />
+                                        </div>
+                                        <label class="col-lg-4 control-label" for="Number">@T("PercentEmployer")</label>
+                                    </div>
+
+                                    <div class="col-lg-12 form-group">
+
+                                        <label class="col-lg-4 control-label" for="Number">@T("SocialSecurity")</label>
+                                        <div class="col-lg-4">
+                                            <input type="text" class="form-control" data-bind="value:SSPercByEmployer" readonly />
+                                        </div>
+                                        <label class="col-lg-4 control-label" for="Number">@T("PercentEmployer")</label>
+                                    </div>
+                                    <div class="col-lg-12 form-group">
+
+                                        <div class="col-lg-4 col-lg-offset-4">
+                                            <input type="text" class="form-control" data-bind="value:SSPercByEmployee" readonly />
+                                        </div>
+                                        <label class="col-lg-4 control-label" for="Number">@T("PercentEmployee")</label>
+                                    </div>
+                                    <div class="col-lg-12 form-group">
+
+                                        <label class="col-lg-4 control-label" for="Number">@T("PensionFund")</label>
+                                        <div class="col-lg-4">
+                                            <input type="text" class="form-control" data-bind="value:PensionFundByEmployer" readonly />
+                                        </div>
+                                        <label class="col-lg-4 control-label" for="Number">@T("PercentEmployer")</label>
+                                    </div>
+                                    <div class="col-lg-12 form-group">
+
+                                        <div class="col-lg-4 col-lg-offset-4">
+                                            <input type="text" class="form-control" data-bind="value:PensionFundByEmployee" readonly />
+                                        </div>
+                                        <label class="col-lg-4 control-label" for="Number">@T("PercentEmployee")</label>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <!-- SSF Information END Region-->
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="box box-success">
+        <div class="box-header">
+            <div class="">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default action" data-bind="click:ShowModal,actionVisibility:'7234'"><i class="fa fa-plus-square text-green">&nbsp;@T("Create")</i></button>
+                    <button type="button" class="btn btn-default action" data-bind="click:Select,actionVisibility:'7235'"><i class="fa fa-pencil text-blue">&nbsp;@T("Edit")</i></button>
+                    <button type="button" class="btn btn-default action" data-bind="click:Delete,actionVisibility:'7236'"><i class="fa fa-trash text-red">&nbsp;@T("Delete")</i></button>
+                    <button type="button" class="btn btn-default action" data-bind="click:View,actionVisibility:'7237'"><i class="fa fa-eye text-blue">&nbsp;@T("View")</i></button>
+                </div>
+            </div>
+        </div>
+        <div class="box-body">
+            <div class="row">
+                <div class="col-lg-12" data-bind="kendoGrid:KendoGridOptions">
+                    <div id="taxSetupKendoGrid">
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+@if (Request.IsAjaxRequest())
+{
+    <script src="~/Areas/PayRoll/Scripts/Riddha.Script.TaxSetup.Model.js"></script>
+    <script src="~/Areas/PayRoll/Scripts/Riddha.Script.TaxSetup.Controller.js"></script>
+    <script type="text/javascript">
+        var obj = {};
+        Riddha.global.permission.action('8022').done(function (data) {
+            Riddha.global.permission.actions = data.Data;
+            ko.cleanNode(document.getElementById("partial-render"));
+            obj = new TaxSetupController();
+            ko.applyBindings(obj, document.getElementById("partial-render"));
+        });
+    </script>
+}
+else
+{
+    @section scripts
+    {
+
+        <script src="~/Areas/PayRoll/Scripts/Riddha.Script.TaxSetup.Model.js"></script>
+        <script src="~/Areas/PayRoll/Scripts/Riddha.Script.TaxSetup.Controller.js"></script>
+        <script type="text/javascript">
+            var obj = {};
+            Riddha.global.permission.action('8022').done(function (data) {
+                Riddha.global.permission.actions = data.Data;
+                ko.cleanNode(document.getElementById("partial-render"));
+                obj = new TaxSetupController();
+
+                ko.applyBindings(obj, document.getElementById("partial-render"));
+            });
+        </script>
+    }
+}

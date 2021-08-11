@@ -1,0 +1,625 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Layout_Adminlte.cshtml";
+}
+<section class="content-header">
+    <h1>
+        @T("EmployeeStatus")
+        <sup class="text-green">@T("Verification")</sup>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> @T("Home")</a></li>
+        <li class="active">@T("Verification")</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <div class="modal" id="contractViewModel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-green text-center" data-bind="text:'Contract For: '+SelectedContract().EmployeeName()"></h4> </header>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal" data-bind="with:Contract">
+                        <div class="col-lg-1"></div>
+                        <div class="col-lg-11">
+                            <dl class="dl-horizontal">
+                                <dt>@T("Code") :</dt>
+                                <dd data-bind="text:Code"></dd>
+                                <dt>@T("Employee") :</dt>
+                                <dd data-bind="text:EmployeeName"></dd>
+                                <dt>@T("EmploymentStatus") :</dt>
+                                <dd data-bind="text:EmploymentStatusName"></dd>
+                                <dt>@T("Period") :</dt>
+                                <dd data-bind="text:Period"></dd>
+                            </dl>
+                        </div>
+                    </div>
+                    &nbsp;
+                    <div class="form-group col-lg-12 text-center">
+                        <input type="submit" data-bind="click:$root.Approve,actionVisibility:'7110'" name="Save" class="btn btn-success action" value=@T("Approve") />
+                        <input type="button" data-bind="click:$root.CloseModal" value=@T("Back") class="btn btn-default" />
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="resignationViewModel">
+        <div class="modal-dialog ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-green text-center" data-bind="text:'Resignation For: '+SelectedResignation().EmployeeName()"></h4> </header>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal" data-bind="with:Resignation">
+                        <div class="col-lg-1"></div>
+                        <div class="col-lg-11">
+                            <dl class="dl-horizontal">
+                                <dt>@T("Code") :</dt>
+                                <dd data-bind="text:Code"></dd>
+                                <dt>@T("Employee") :</dt>
+                                <dd data-bind="text:EmployeeName"></dd>
+                                <dt>@T("NoticeDate") :</dt>
+                                <dd data-bind="text:SuitableDate(NoticeDate())"></dd>
+                                <dt>@T("DesiredResignDate") :</dt>
+                                <dd data-bind="text:SuitableDate(DesiredResignDate())"></dd>
+                                <dt>@T("ForwardTo") :</dt>
+                                <dd data-bind="text:ForwardToName"></dd>
+                                <dt>@T("Reason") :</dt>
+                                <dd data-bind="text:Reason"></dd>
+                                <dt>@T("Details") :</dt>
+                                <dd data-bind="text:Details"></dd>
+                            </dl>
+                        </div>
+                    </div>
+                    &nbsp;
+                    <div class="form-group text-center">
+                        <input type="submit" data-bind="click:$root.ResignationApprove,actionVisibility:'7116'" name="Save" class="btn btn-success action" value=@T("Approve") />
+                        <input type="button" data-bind="click:$root.ResignationCloseModal" value=@T("Back") class="btn btn-default" />
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="terminationViewModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-green text-center" data-bind="text:'Termination For: '+SelectedTermination().EmployeeName()"></h4> </header>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal" data-bind="with:Termination">
+                        <div class="col-lg-1"></div>
+                        <div class="col-lg-11">
+                            <dl class="dl-horizontal">
+                                <dt>@T("Code") :</dt>
+                                <dd data-bind="text:Code"></dd>
+                                <dt>@T("Employee") :</dt>
+                                <dd data-bind="text:EmployeeName"></dd>
+                                <dt>@T("NoticeDate") :</dt>
+                                <dd data-bind="text:SuitableDate(NoticeDate())"></dd>
+                                <dt>@T("Service End Date") :</dt>
+                                <dd data-bind="text:SuitableDate(ServiceEndDate())"></dd>
+                                <dt>@T("ForwardTo") :</dt>
+                                <dd data-bind="text:ForwardToName"></dd>
+                                <dt>@T("Change Status") :</dt>
+                                <dd data-bind="text:ChangeStatusName"></dd>
+                                <dt>@T("Reason") :</dt>
+                                <dd data-bind="text:Reason"></dd>
+                                <dt>@T("Details") :</dt>
+                                <dd data-bind="text:Details"></dd>
+                            </dl>
+                        </div>
+                    </div>
+                    &nbsp;
+                    <div class="form-group text-center">
+                        <input type="submit" data-bind="click:$root.TerminationApprove,actionVisibility:'7113'" name="Save" class="btn btn-success action" value=@T("Approve") />
+                        <input type="button" data-bind="click:$root.TerminationCloseModal" value=@T("Back") class="btn btn-default" />
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="educationViewModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-green text-center" data-bind="text:'Education For: '+SelectedEducation().EmployeeName()"></h4> </header>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal" data-bind="with:Education">
+                        <dl class="dl-horizontal">
+                            <dt>@T("Emp.Code") :</dt>
+                            <dd data-bind="text:EmployeeCode"></dd>
+                            <dt>@T("Employee") :</dt>
+                            <dd data-bind="text:EmployeeName"></dd>
+                            <dt>@T("Edu.Code") :</dt>
+                            <dd data-bind="text:Code"></dd>
+                            <dt>@T("Name") :</dt>
+                            <dd data-bind="text:Name"></dd>
+                            <dt>@T("Description") :</dt>
+                            <dd data-bind="text:Description"></dd>
+                        </dl>
+                    </div>
+                    &nbsp;
+                    <div class="form-group text-center">
+                        <input type="submit" data-bind="click:$root.EducationApprove" name="Save" class="btn btn-success " value=@T("Approve") />
+                        <input type="button" data-bind="click:$root.EducationCloseModal" value=@T("Back") class="btn btn-default" />
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="skillViewModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-green text-center" data-bind="text:'Skill For: '+SelectedSkill().EmployeeName()"></h4> </header>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal" data-bind="with:Skill">
+                        <dl class="dl-horizontal">
+                            <dt>@T("Emp.Code") :</dt>
+                            <dd data-bind="text:EmployeeCode"></dd>
+                            <dt>@T("Employee") :</dt>
+                            <dd data-bind="text:EmployeeName"></dd>
+                            <dt>@T("Skill Code") :</dt>
+                            <dd data-bind="text:Code"></dd>
+                            <dt>@T("Name") :</dt>
+                            <dd data-bind="text:Name"></dd>
+                            <dt>@T("Description") :</dt>
+                            <dd data-bind="text:Description"></dd>
+                        </dl>
+                    </div>
+                    &nbsp;
+                    <div class="form-group text-center">
+                        <input type="submit" data-bind="click:$root.SkillApprove" name="Save" class="btn btn-success " value=@T("Approve") />
+                        <input type="button" data-bind="click:$root.SkillCloseModal" value=@T("Back") class="btn btn-default" />
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="licenseViewModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-green text-center" data-bind="text:'License For: '+SelectedLicense().EmployeeName()"></h4> </header>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal" data-bind="with:License">
+                        <dl class="dl-horizontal">
+                            <dt>@T("Emp.Code") :</dt>
+                            <dd data-bind="text:EmployeeCode"></dd>
+                            <dt>@T("Employee") :</dt>
+                            <dd data-bind="text:EmployeeName"></dd>
+                            <dt>@T("License Code") :</dt>
+                            <dd data-bind="text:Code"></dd>
+                            <dt>@T("Name") :</dt>
+                            <dd data-bind="text:Name"></dd>
+                            <dt>@T("Description") :</dt>
+                            <dd data-bind="text:Description"></dd>
+                        </dl>
+                    </div>
+                    &nbsp;
+                    <div class="form-group text-center">
+                        <input type="submit" data-bind="click:$root.LicenseApprove" name="Save" class="btn btn-success " value=@T("Approve") />
+                        <input type="button" data-bind="click:$root.LicenseCloseModal" value=@T("Back") class="btn btn-default" />
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="languageViewModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-green text-center" data-bind="text:'Language For: '+SelectedLanguage().EmployeeName()"></h4> </header>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal" data-bind="with:Language">
+                        <dl class="dl-horizontal">
+                            <dt>@T("Emp.Code") :</dt>
+                            <dd data-bind="text:EmployeeCode"></dd>
+                            <dt>@T("Employee") :</dt>
+                            <dd data-bind="text:EmployeeName"></dd>
+                            <dt>@T("License Code") :</dt>
+                            <dd data-bind="text:Code"></dd>
+                            <dt>@T("Name") :</dt>
+                            <dd data-bind="text:Name"></dd>
+                            <dt>@T("Description") :</dt>
+                            <dd data-bind="text:Description"></dd>
+                        </dl>
+                    </div>
+                    &nbsp;
+                    <div class="form-group text-center">
+                        <input type="submit" data-bind="click:$root.LanguageApprove" name="Save" class="btn btn-success " value=@T("Approve") />
+                        <input type="button" data-bind="click:$root.LanguageCloseModal" value=@T("Back") class="btn btn-default" />
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="membershipViewModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-green text-center" data-bind="text:'Membership For: '+SelectedMembership().EmployeeName()"></h4> </header>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal" data-bind="with:Membership">
+                        <dl class="dl-horizontal">
+                            <dt>@T("Emp.Code") :</dt>
+                            <dd data-bind="text:EmployeeCode"></dd>
+                            <dt>@T("Employee") :</dt>
+                            <dd data-bind="text:EmployeeName"></dd>
+                            <dt>@T("Membership Code") :</dt>
+                            <dd data-bind="text:Code"></dd>
+                            <dt>@T("Name") :</dt>
+                            <dd data-bind="text:Name"></dd>
+                            <dt>@T("Description") :</dt>
+                            <dd data-bind="text:Description"></dd>
+                        </dl>
+                    </div>
+                    &nbsp;
+                    <div class="form-group text-center">
+                        <input type="submit" data-bind="click:$root.MembershipApprove" name="Save" class="btn btn-success " value=@T("Approve") />
+                        <input type="button" data-bind="click:$root.MembershipCloseModal" value=@T("Back") class="btn btn-default" />
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="experienceViewModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-green text-center" data-bind="text:'Experience For: '+SelectedExperience().EmployeeName()"></h4> </header>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal" data-bind="with:Experience">
+                        <dl class="dl-horizontal">
+                            <dt>@T("Emp.Code") :</dt>
+                            <dd data-bind="text:EmployeeCode"></dd>
+                            <dt>@T("Employee") :</dt>
+                            <dd data-bind="text:EmployeeName"></dd>
+                            <dt>@T("Experience Code") :</dt>
+                            <dd data-bind="text:Code"></dd>
+                            <dt>@T("Title") :</dt>
+                            <dd data-bind="text:Title"></dd>
+                            <dt>@T("OrganizationName") :</dt>
+                            <dd data-bind="text:OrganizationName"></dd>
+                            <dt>@T("BeganOn") :</dt>
+                            <dd data-bind="text:SuitableDate(BeganOn())"></dd>
+                            <dt>@T("EndedOn") :</dt>
+                            <dd data-bind="text:SuitableDate(EndedOn())"></dd>
+                            <dt>@T("Description") :</dt>
+                            <dd data-bind="text:Description"></dd>
+                        </dl>
+                    </div>
+                    &nbsp;
+                    <div class="form-group text-center">
+                        <input type="submit" data-bind="click:$root.ExperienceApprove" name="Save" class="btn btn-success " value=@T("Approve") />
+                        <input type="button" data-bind="click:$root.ExperienceCloseModal" value=@T("Back") class="btn btn-default" />
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Info boxes -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box box-success">
+                <div class="box-header with-border">
+                    &nbsp;
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-wrench"></i>
+                            </button>
+                            <ul class="dropdown-menu" role="menu"></ul>
+                        </div>
+                        <button type="button" class="btn btn-box-tool text-red" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="box-body ">
+
+                    <ul id="tabList" class="nav nav-tabs" data-bind="with:UnapprovedCount">
+                        <li class="active"><a href="#contract" data-toggle="tab">@T("Contract") &nbsp;<span class="badge bg-aqua-gradient" data-bind="text:Contract"></span></a></li>
+                        <li><a href="#resignation" data-toggle="tab" data-bind="click:$root.TabClickLock.Resignation?function(){return}: function(){$root.TabClickLock.Resignation=true; $root.GetOnDemandKendoGrid.Resignation();}">@T("Resignation") &nbsp;<span class="badge bg-black-gradient" data-bind="text:Resignation"></span></a></li>
+                        <li><a href="#termination" data-toggle="tab" data-bind="click:$root.TabClickLock.Termination?function(){return}: function(){$root.TabClickLock.Termination=true; $root.GetOnDemandKendoGrid.Termination();}">@T("Termination") &nbsp;<span class="badge bg-blue-gradient" data-bind="text:Termination"></span></a></li>
+                        <li><a href="#education" data-toggle="tab" data-bind="click:$root.TabClickLock.Education?function(){return}: function(){$root.TabClickLock.Education=true; $root.GetOnDemandKendoGrid.Education();}">@T("Education") &nbsp;<span class="badge bg-gray-active" data-bind="text:EmployeeEducation"></span></a></li>
+                        <li><a href="#skill" data-toggle="tab" data-bind="click:$root.TabClickLock.Skill?function(){return}: function(){$root.TabClickLock.Skill=true; $root.GetOnDemandKendoGrid.Skill();}">@T("Skill") &nbsp; <span class="badge bg-maroon-active" data-bind="text:EmployeeSkill"></span></a></li>
+                        <li><a href="#experience" data-toggle="tab" data-bind="click:$root.TabClickLock.Experience?function(){return}: function(){$root.TabClickLock.Experience=true; $root.GetOnDemandKendoGrid.Experience();}">@T("Experience") &nbsp;<span class="badge bg-danger" data-bind="text:EmployeeExperience"></span></a></li>
+                        <li><a href="#emplicense" data-toggle="tab" data-bind="click:$root.TabClickLock.License?function(){return}: function(){$root.TabClickLock.License=true; $root.GetOnDemandKendoGrid.License();}">@T("License") &nbsp;<span class="badge bg-olive-active" data-bind="text:EmployeeLicense"></span></a></li>
+                        <li><a href="#membership" data-toggle="tab" data-bind="click:$root.TabClickLock.Membership?function(){return}: function(){$root.TabClickLock.Membership=true; $root.GetOnDemandKendoGrid.Membership();}">@T("Membership") &nbsp;<span class="badge bg-yellow-gradient" data-bind="text:EmployeeMembership"></span></a></li>
+                        <li><a href="#language" data-toggle="tab" data-bind="click:$root.TabClickLock.Language?function(){return}: function(){$root.TabClickLock.Language=true; $root.GetOnDemandKendoGrid.Language();}">@T("Language") &nbsp;<span class="badge bg-teal-gradient" data-bind="text:EmployeeLanguage"></span></a></li>
+                    </ul>
+                    <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane fade active in " id="contract">
+                            <br />
+                            <div class="col-lg-12">
+                                <div class="box box-default">
+                                    <div class="box-header with-border">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-default action" data-bind="click:ShowModal,actionVisibility:'7109'"><i class="fa fa-eye text-blue">&nbsp;@T("View")</i></button>
+                                            <button type="button" class="btn btn-default action" data-bind="click:Approve,actionVisibility:'7110'"><i class="fa fa-check text-green">&nbsp;@T("Approve")</i></button>
+                                            <button type="button" class="btn btn-default" data-bind="enable:VisibleRevert ,click:Revert"><i class="fa fa-undo text-red">&nbsp;@T("Revert")</i></button>
+                                        </div>
+                                    </div>
+                                    <div class="box-body">
+                                        <div class="row">
+                                            <div class="col-lg-12" data-bind="kendoGrid:KendoGridOptionForContracts">
+                                                <div id="contractKendoGrid">
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade  " id="resignation">
+                            <br />
+                            <div class="col-lg-12">
+                                <div class="box box-default">
+                                    <div class="box-header with-border">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-default action" data-bind="click:ResignationShowModal,actionVisibility:'7115'"><i class="fa fa-eye text-blue">&nbsp;@T("View")</i></button>
+                                            <button type="button" class="btn btn-default action" data-bind="click:ResignationApprove,actionVisibility:'7116'"><i class="fa fa-check text-green">&nbsp;@T("Approve")</i></button>
+                                            <button type="button" class="btn btn-default" data-bind="enable:VisibleResignationRevert ,click:ResignationRevert"><i class="fa fa-undo text-red">&nbsp;@T("Revert")</i></button>
+                                        </div>
+                                    </div>
+                                    <div class="box-body">
+                                        <div class="row">
+                                            <div class="col-lg-12" data-bind="kendoGrid:KendoGridOptionForResignations">
+                                                <div id="resignationKendoGrid">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade " id="termination">
+                            <br />
+                            <div class="col-lg-12">
+                                <div class="box box-default">
+                                    <div class="box-header with-border">
+                                        <button type="button" class="btn btn-default action" data-bind="click:TerminationShowModal,actionVisibility:'7112'"><i class="fa fa-eye text-blue">&nbsp;@T("View")</i></button>
+                                        <button type="button" class="btn btn-default action" data-bind="click:TerminationApprove,actionVisibility:'7113'"><i class="fa fa-check text-green">&nbsp;@T("Approve")</i></button>
+                                        <button type="button" class="btn btn-default " data-bind="enable:VisibleTerminationRevert ,click:TerminationRevert"><i class="fa fa-undo text-red">&nbsp;@T("Revert")</i></button>
+                                    </div>
+                                    <div class="box-body ">
+                                        <div class="row">
+                                            <div class="col-lg-12" data-bind="kendoGrid:KendoGridOptionForTerminations">
+                                                <div id="terminationKendoGrid">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade " id="education">
+                            <br />
+                            <div class="col-lg-12">
+                                <div class="box box-default">
+                                    <div class="box-header with-border">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-default " data-bind="click:EducationShowModal"><i class="fa fa-eye text-blue">&nbsp;@T("View")</i></button>
+                                            <button type="button" class="btn btn-default " data-bind="click:EducationApprove"><i class="fa fa-check text-green">&nbsp;@T("Approve")</i></button>
+                                            <button type="button" class="btn btn-default " data-bind="enable:VisibleEducationRevert ,click:EducationRevert"><i class="fa fa-undo text-red">&nbsp;@T("Revert")</i></button>
+                                        </div>
+                                    </div>
+                                    <div class="box-body">
+                                        <div class="row">
+                                            <div class="col-lg-12" data-bind="kendoGrid:KendoGridOptionForEducations">
+                                                <div id="educationKendoGrid">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade " id="skill">
+                            <br />
+                            <div class="col-lg-12">
+                                <div class="box box-default">
+                                    <div class="box-header with-border">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-default " data-bind="click:SkillShowModal"><i class="fa fa-eye text-blue">&nbsp;@T("View")</i></button>
+                                            <button type="button" class="btn btn-default " data-bind="click:SkillApprove"><i class="fa fa-check text-green">&nbsp;@T("Approve")</i></button>
+                                            <button type="button" class="btn btn-default " data-bind="enable:VisibleSkillRevert, click:SkillRevert"><i class="fa fa-undo text-red">&nbsp;@T("Revert")</i></button>
+                                        </div>
+                                    </div>
+                                    <div class="box-body">
+                                        <div class="row">
+                                            <div class="col-lg-12" data-bind="kendoGrid:KendoGridOptionForSkills">
+                                                <div id="skillKendoGrid">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade " id="experience">
+                            <br />
+                            <div class="col-lg-12">
+                                <div class="box box-default">
+                                    <div class="box-header with-border">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-default " data-bind="click:ExperienceShowModal"><i class="fa fa-eye text-blue">&nbsp;@T("View")</i></button>
+                                            <button type="button" class="btn btn-default " data-bind="click:ExperienceApprove"><i class="fa fa-check text-green">&nbsp;@T("Approve")</i></button>
+                                            <button type="button" class="btn btn-default " data-bind="enable:VisibleExperienceRevert ,click:ExperienceRevert"><i class="fa fa-undo text-red">&nbsp;@T("Revert")</i></button>
+                                        </div>
+                                    </div>
+                                    <div class="box-body">
+                                        <div class="row">
+                                            <div class="col-lg-12" data-bind="kendoGrid:KendoGridOptionForExperience">
+                                                <div id="experienceKendoGrid">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade " id="emplicense">
+                            <br />
+                            <div class="col-lg-12">
+                                <div class="box box-default">
+                                    <div class="box-header with-border">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-default " data-bind="click:LicenseShowModal"><i class="fa fa-eye text-blue">&nbsp;@T("View")</i></button>
+                                            <button type="button" class="btn btn-default " data-bind="click:LicenseApprove"><i class="fa fa-check text-green">&nbsp;@T("Approve")</i></button>
+                                            <button type="button" class="btn btn-default " data-bind="enable:VisibleLicenseRevert ,click:LicenseRevert"><i class="fa fa-undo text-red">&nbsp;@T("Revert")</i></button>
+                                        </div>
+                                    </div>
+                                    <div class="box-body">
+                                        <div class="row">
+                                            <div class="col-lg-12" data-bind="kendoGrid:KendoGridOptionForLicense">
+                                                <div id="licenseKendoGrid">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade " id="membership">
+                            <br />
+                            <div class="col-lg-12">
+                                <div class="box box-default">
+                                    <div class="box-header with-border">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-default " data-bind="click:MembershipShowModal"><i class="fa fa-eye text-blue">&nbsp;@T("View")</i></button>
+                                            <button type="button" class="btn btn-default " data-bind="click:MembershipApprove"><i class="fa fa-check text-green">&nbsp;@T("Approve")</i></button>
+                                            <button type="button" class="btn btn-default " data-bind="enable:VisibleMembershipRevert ,click:MembershipRevert"><i class="fa fa-undo text-red">&nbsp;@T("Revert")</i></button>
+                                        </div>
+                                    </div>
+                                    <div class="box-body">
+                                        <div class="row">
+                                            <div class="col-lg-12" data-bind="kendoGrid:KendoGridOptionForMembership">
+                                                <div id="membershipKendoGrid">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade " id="language">
+                            <br />
+                            <div class="col-lg-12">
+                                <div class="box box-default">
+                                    <div class="box-header with-border">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-default " data-bind="click:LanguageShowModal"><i class="fa fa-eye text-blue">&nbsp;@T("View")</i></button>
+                                            <button type="button" class="btn btn-default " data-bind="click:LanguageApprove"><i class="fa fa-check text-green">&nbsp;@T("Approve")</i></button>
+                                            <button type="button" class="btn btn-default " data-bind="enable:VisibleLanguageRevert ,click:LanguageRevert"><i class="fa fa-undo text-red">&nbsp;@T("Revert")</i></button>
+                                        </div>
+                                    </div>
+                                    <div class="box-body">
+                                        <div class="row">
+                                            <div class="col-lg-12" data-bind="kendoGrid:KendoGridOptionForLanguage">
+                                                <div id="languageKendoGrid">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/html" id="mode-button-add-template">
+        <span class="glyphicon glyphicon-plus"></span>
+    </script>
+    <script type="text/html" id="mode-button-update-template">
+        <span class="glyphicon glyphicon-arrow-up"></span>
+    </script>
+    <!-- /.row -->
+    <!-- /.row -->
+    <!-- Main row -->
+    <!-- /.row -->
+</section>
+
+@if (Request.IsAjaxRequest())
+{
+    <script src="~/Areas/HRM/Scripts/Riddha.Script.HRM.Model.js"></script>
+    <script src="~/Areas/HRM/Scripts/Riddha.Script.HRM.Controller.js"></script>
+    <script type="text/javascript">
+        var obj = {};
+        Riddha.global.permission.action('7002').done(function (data) {
+            Riddha.global.permission.actions = data.Data;
+            ko.cleanNode(document.getElementById("partial-render"));
+            obj = new verificationController();
+            ko.applyBindings(obj, document.getElementById("partial-render"));
+        });
+    </script>
+}
+else
+{
+    @section scripts
+    {
+        <script src="~/Areas/HRM/Scripts/Riddha.Script.HRM.Model.js"></script>
+        <script src="~/Areas/HRM/Scripts/Riddha.Script.HRM.Controller.js"></script>
+        <script type="text/javascript">
+            var obj = {};
+            Riddha.global.permission.action('7002').done(function (data) {
+                Riddha.global.permission.actions = data.Data;
+                ko.cleanNode(document.getElementById("partial-render"));
+                obj = new verificationController();
+
+                ko.applyBindings(obj, document.getElementById("partial-render"));
+            });
+        </script>
+    }
+}

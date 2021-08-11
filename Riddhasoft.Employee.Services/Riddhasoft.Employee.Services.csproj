@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{68CC8ADE-5AA9-470C-B4A7-F91690FB38FE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Riddhasoft.Employee.Services</RootNamespace>
+    <AssemblyName>Riddhasoft.Employee.Services</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SDateTable.cs" />
+    <Compile Include="SEmployee.cs" />
+    <Compile Include="SEmployeeDesignationHistory.cs" />
+    <Compile Include="SEmployeeLateInAndEarlyOutRequest.cs" />
+    <Compile Include="SEmployeeLogin.cs" />
+    <Compile Include="SEvent.cs" />
+    <Compile Include="SHolidayEmployee.cs" />
+    <Compile Include="SKaj.cs" />
+    <Compile Include="SLateNote.cs" />
+    <Compile Include="SLeaveApplication.cs" />
+    <Compile Include="SLeaveBalance.cs" />
+    <Compile Include="SLeaveSettlement.cs" />
+    <Compile Include="SManualPunch.cs" />
+    <Compile Include="SManualPunchRequest.cs" />
+    <Compile Include="SNotice.cs" />
+    <Compile Include="SNotification.cs" />
+    <Compile Include="SOfficeVisit.cs" />
+    <Compile Include="SOfficeVisitRequest.cs" />
+    <Compile Include="SReplacementLeaveBalance.cs" />
+    <Compile Include="SRoster.cs" />
+    <Compile Include="SWeeklyRoster.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Riddhasoft.Attendance.Entities\Riddhasoft.Attendance.Entities.csproj">
+      <Project>{eacae529-7242-47d0-810d-a29a675debfa}</Project>
+      <Name>Riddhasoft.Attendance.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Riddhasoft.Employee.Entities\Riddhasoft.Employee.Entities.csproj">
+      <Project>{83419054-271d-46b2-bf0b-668ee8186c87}</Project>
+      <Name>Riddhasoft.Employee.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Riddhasoft.HRM.Entities\Riddhasoft.HRM.Entities.csproj">
+      <Project>{9217F2BD-B289-4C7F-9F73-A40684CC7E27}</Project>
+      <Name>Riddhasoft.HRM.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Riddhasoft.HRM.Services\Riddhasoft.HRM.Services.csproj">
+      <Project>{EE3B9A60-2188-4D89-9FC2-90FEF9DAC343}</Project>
+      <Name>Riddhasoft.HRM.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Riddhasoft.OfficeSetup.Entities\Riddhasoft.OfficeSetup.Entities.csproj">
+      <Project>{f01054a3-3157-4763-9daa-b350fca8f784}</Project>
+      <Name>Riddhasoft.OfficeSetup.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Riddhasoft.OfficeSetup.Services\Riddhasoft.OfficeSetup.Services.csproj">
+      <Project>{e45cd773-99b8-4d72-bd79-58189e1eb293}</Project>
+      <Name>Riddhasoft.OfficeSetup.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Riddhasoft.Services.Common\Riddhasoft.Services.Common.csproj">
+      <Project>{302eb62d-eb13-453e-a267-3ed06677e4b7}</Project>
+      <Name>Riddhasoft.Services.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RTech.Core.Repository\Riddhasoft.Core.Repository.csproj">
+      <Project>{9604fec8-726a-4731-afd2-0ee7a7dd5aea}</Project>
+      <Name>Riddhasoft.Core.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RTech.Entity.User\Riddhasoft.User.Entity.csproj">
+      <Project>{10857039-6d51-4c0b-9ba7-b3b9928f1fe3}</Project>
+      <Name>Riddhasoft.User.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RTech.Repository.User\Riddhasoft.Repository.User.csproj">
+      <Project>{23a79de4-af60-45ed-b935-b703d9443523}</Project>
+      <Name>Riddhasoft.Repository.User</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

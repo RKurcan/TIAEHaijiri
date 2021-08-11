@@ -1,0 +1,16 @@
+﻿
+<div id="customer-nav">
+    <ul class="sidebar-menu" id="sideMenu" data-bind="foreach:Menus">
+        <li class=" treeview">
+            <a href="#">
+                <i data-bind="attr:{'class':MenuIconCss}"></i> <span data-bind="text:Name"></span> <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu" data-bind="foreach:Children">
+                <li><a data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#partial-render" data-ajax-success="updateUrl('ModulePermission',this)" data-bind="attr:{href:MenuUrl},template:{name:'icon-class'}"></a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<script type="text/html" id="icon-class">
+    <i data-bind="attr:{'class':MenuIconCss}"></i>&nbsp;<!-- ko text: Name --> <!-- /ko -->
+</script>

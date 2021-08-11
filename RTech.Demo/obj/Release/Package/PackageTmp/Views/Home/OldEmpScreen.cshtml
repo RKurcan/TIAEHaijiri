@@ -1,0 +1,755 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Layout_Adminlte.cshtml";
+}
+<section class="content-header">
+    <h1>
+        @T("Employee")
+        <sup class="text-green">@T("Creation")</sup>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> @T("Home")</a></li>
+        <li class="active">@T("Employee")</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <div class="modal" id="loginModal">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-success"> @T("ActivateLogin")</h4></header>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal" data-bind="with:Employee">
+                        <div class="form-group col-lg-12">
+                            <label class="col-lg-4 control-label" for="Number">@T("Role")</label>
+                            <div class="col-lg-8">
+                                <select class="form-control" data-bind="options:$root.Roles,optionsValue:'Id',optionsText:'Name',optionsCaption:Riddha.UI.getOptionCaption(),value:RoleId"></select>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-12">
+                            <label class="col-lg-4 control-label" for="Number">@T("UserName")</label>
+                            <div class="col-lg-8">
+                                <input type="text" data-bind="value:UserName" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-12">
+                            <label class="col-lg-4 control-label" for="Number">@T("Password")</label>
+                            <div class="col-lg-8">
+                                <input type="text" data-bind="value:Password" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-12">
+                            <div class="col-lg-5"></div>
+                            <div class="col-lg-7">
+                                <input type="button" data-bind="click:$root.ActivateEmployee" class="btn btn-success" title="Save" value=@T("ActivateLogin")>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="employeeCreationModel" style="">
+        <div class="modal-dialog modal-lg ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4>@T("Employee") @T("Creation")</h4></header>
+                </div>
+                <div class="modal-body">
+                    <ul id="tabList" class="nav nav-tabs">
+                        <li class="active"><a href="#officeRecord" data-toggle="tab">@T("OfficeRecord")</a></li>
+                        <li><a href="#BasicInformation" data-toggle="tab">@T("BasicInformation")</a></li>
+                        <li><a href="#Punch" data-toggle="tab">@T("TimePunchManagement")</a></li>
+                        <li><a href="#Wo" data-toggle="tab">@T("ShiftWOManagement")</a></li>
+                        @*<li><a href="#LogIn" data-toggle="tab">@T("LogIn")</a></li>*@
+                    </ul>
+                    <div id="myTabContent" class="tab-content" data-bind="with:Employee">
+                        <div class="tab-pane fade active in" id="officeRecord">
+                            <div class="col-lg-12">
+                                <div class="col-lg-6">
+                                    <div class="form-group row">
+                                        <br />
+                                        <div class="required">
+                                            <label class="col-lg-5 control-label" for="Number">@T("EmployeeCode")</label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control " id="form-group-input" data-bind="value:Code">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="required">
+                                            <label class="col-lg-5 control-label" for="Number">@T("Name")</label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control " id="form-group-input" data-bind="value:Name">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-5 control-label" for="Number">@T("NameNp")</label>
+                                        <div class="col-lg-6">
+                                            <input type="text" class="form-control " id="form-group-input" data-bind="PreetiToUnicode:NameNp">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-5 control-label" for="Number">@T("DateOfJoin")</label>
+                                        <div class="col-lg-6">
+                                            <input type="text" class="form-control" data-nepdate="#nepaliDate" data-bind="mask:'date',value:DateOfJoin,visible:DateVisibility('en')">
+                                            <input class="form-control nepDate" data-format="yyyy/MM/dd" name="date" type="text" id="nepaliDateOfJoin" data-bind="dateNp:{engDate:DateOfJoin},visible:DateVisibility('ne')">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="required">
+                                            <label class="col-lg-5 control-label" for="Number">@T("EmployeeDeviceCode")</label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control " id="form-group-input" data-bind="value:DeviceCode,mask:'number'" title="This field allow only numbers" placeholder="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <br />
+                                    <div class="form-group row">
+                                        <div class="required">
+                                            <label class="col-lg-5 control-label" for="Number">@T("Designation")</label>
+                                            <div class="col-lg-6">
+                                                <select class="form-control" required data-bind="options:$root.Designations,
+                                                                                            optionsText:'Name',optionsValue:'Id',value:DesignationId"></select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="required">
+                                            <label class="col-lg-5 control-label" for="Number">@T("Department")</label>
+                                            <div class="col-lg-6">
+                                                <select class="form-control" required data-bind="options:$root.Departments,
+                                        optionsValue:'Id',optionsText:'Name',
+                                        value:$root.DepartmentId ,CascadeTo:{id:$root.DepartmentId,childs:$root.AllSections,online:false,property:'DepartmentId',childBindList:$root.Sections }"></select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="required">
+                                            <label class="col-lg-5 control-label" for="Number">@T("Section")</label>
+                                            <div class="col-lg-6">
+                                                <select class="form-control" required data-bind="options:$root.Sections,
+                                                                                            optionsText: function(item) {
+                                                                                                return new Riddha.config().CurrentLanguage=='ne'&& item.NameNp()!=''?item.NameNp():item.Name();
+                                                                                                                                                     },optionsValue:'Id',value:SectionId"></select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-5 control-label" for="Number">@T("GradeGroup")</label>
+                                        <div class="col-lg-6">
+                                            <select class="form-control" required data-bind="options:$root.GradeGroups,
+                                                                                            optionsText:'Name',optionsValue:'Id',value:GradeGroupId"></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-5 control-label" for="Number">@T("IsManager")</label>
+                                        <div class="col-lg-7">
+                                            <input type="checkbox" data-bind="checked:IsManager">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="BasicInformation">
+                            <div class="col-lg-12">
+                                <div class="col-lg-6">
+                                    <div class="form-group row">
+                                        <br />
+                                        <label class="col-lg-5 control-label" for="Number">@T("DateOfBirth")</label>
+                                        <div class="col-lg-4">
+                                            <input type="text" class="form-control" data-nepdate="#nepaliDate" data-bind="mask:'date',value:DateOfBirth,visible:DateVisibility('en')">
+                                            <input class="form-control nepDate" data-format="yyyy/MM/dd" name="date" type="text" id="nepaliDateOfBirth" data-bind="dateNp:{engDate:DateOfJoin},visible:DateVisibility('ne')">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-5 control-label" for="Number">@T("MaritalStatus")</label>
+                                        <div class="col-lg-6">
+                                            <select class="form-control" required data-bind="options:$root.MaritalStatusList,
+                                                                                                optionsText:'Name',optionsValue:'Id',value:MaritialStatus,
+                                                                                                optionsCaption:Riddha.UI.getOptionCaption()"></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-5 control-label" for="Number">@T("Gender")</label>
+                                        <div class="col-lg-6">
+                                            <select class="form-control" required data-bind="options:$root.Gender,
+                                                                                                optionsText:'Name',optionsValue:'Id',value:Gender,
+                                                                                                optionsCaption:Riddha.UI.getOptionCaption()"></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-5 control-label" for="Number">@T("BloodGroup")</label>
+                                        <div class="col-lg-6">
+                                            <select class="form-control" required data-bind="options:$root.BloodGroups,
+                                                                                                optionsText:'Name',optionsValue:'Id',value:BloodGroup,
+                                                                                                optionsCaption:Riddha.UI.getOptionCaption()"></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="required">
+                                            <label class="col-lg-5 control-label" for="Number">@T("MobileNo")</label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control " id="form-group-input" data-bind="value:Mobile">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-5 control-label" for="Number">@T("Email")</label>
+                                        <div class="col-lg-6">
+                                            <input type="text" class="form-control " id="form-group-input" data-bind="value:Email">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-5 control-label" for="Number">@T("PassportNo")</label>
+                                        <div class="col-lg-6">
+                                            <input type="text" class="form-control " id="form-group-input" data-bind="value:PassportNo">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-5 control-label" for="Number">@T("CitizenNo")</label>
+                                        <div class="col-lg-6">
+                                            <input type="text" class="form-control " id="form-group-input" data-bind="value:CitizenNo">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-5 control-label" for="Number">@T("IssueDate")</label>
+                                        <div class="col-lg-6">
+                                            <input type="text" class="form-control" data-nepdate="#nepaliDate" data-bind="mask:'date',value:IssueDate,visible:DateVisibility('en')">
+                                            <input class="form-control nepDate" data-format="yyyy/MM/dd" name="date" type="text" id="nepaliIssueDate" data-bind="dateNp:{engDate:IssueDate},visible:DateVisibility('ne')">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-5 control-label" for="Number">@T("IssueDistict")</label>
+                                        <div class="col-lg-6">
+                                            <input type="text" class="form-control" id="form-group-input" data-bind="value:IssueDistict">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-5 control-label" for="Number">@T("Religion")</label>
+                                        <div class="col-lg-6">
+                                            <select class="form-control" required data-bind="options:$root.Religion,
+                                                                                                optionsText:'Name',optionsValue:'Id',value:Religion,
+                                                                                                optionsCaption:Riddha.UI.getOptionCaption()"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <br />
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 control-label" for="Number">@T("Photo")</label>
+                                        <div class="col-lg-4 text-center">
+                                            <img data-bind="img: { src: ImageUrl() , fallback:'/Images/men3.png' }" class="img-thumbnail" alt="Cinque Terre" width="100" height="50" style="cursor:pointer">
+                                            @*<img class="img-rounded with-border " style="cursor:pointer" width="110" height="120" data-bind="attr: {src:ImageUrl() ||'/Images/men3.png'}" />*@
+                                            <label class="btn btn-lg btn-success btn-file col-lg-12 control-label">
+                                                Browse <input data-bind="fileUpload: {value:ImageUrl,type:'image'}" type="file" value=" " class="btn btn-flat btn-file btn-success" hidden />
+                                            </label>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 control-label" for="Number">@T("Permanent")</label>
+                                        <div class="col-lg-7">
+                                            <textarea data-bind="value:PermanentAddress"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 control-label" for="Number">@T("PermanentNp")</label>
+                                        <div class="col-lg-7">
+                                            <textarea data-bind="PreetiToUnicode:PermanentAddressNp"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 control-label" for="Number">@T("Temporary")</label>
+                                        <div class="col-lg-7">
+                                            <textarea data-bind="value:TemporaryAddress"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 control-label" for="Number">@T("TemporaryNp")</label>
+                                        <div class="col-lg-7">
+                                            <textarea data-bind="PreetiToUnicode:TemporaryAddressNp"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="Punch">
+                            <div class="col-lg-6">
+                                <br />
+                                <div class="form-group row">
+                                    <label class="col-lg-5 control-label" for="Number">@T("MaxWorkingHour")</label>
+                                    <div class="col-lg-5">
+                                        <input type="text" class="form-control" data-mask="" placeholder="__:__" data-bind="value:MaxWorkingHour,mask:'time'">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-5 control-label" for="Number">@T("AllowedLateIn")</label>
+                                    <div class="col-lg-5">
+                                        <input type="text" id=dateFrom class="form-control" data-mask="" placeholder="__:__" data-bind="value:AllowedLateIn,mask:'time'">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-5 control-label" for="Number">@T("AllowedEarlyOut")</label>
+                                    <div class="col-lg-5">
+                                        <input type="text" class="form-control" data-mask="" placeholder="__:__" data-bind="value:AllowedEarlyOut,mask:'time'">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-5 control-label" for="Number">@T("HalfDayWorkingHour")</label>
+                                    <div class="col-lg-5">
+                                        <input type="text" class="form-control" data-mask="" placeholder="__:__" data-bind="value:HalfdayWorkingHour,mask:'time'">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-5 control-label" for="Number">@T("ShortDayWorkingHour")</label>
+                                    <div class="col-lg-5">
+                                        <input type="text" class="form-control" data-mask="" placeholder="__:__" data-bind="value:ShortDayWorkingHour,mask:'time'">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-5 control-label" for="Number">@T("PresentMarkingDuration")</label>
+                                    <div class="col-lg-5">
+                                        <input type="text" class="form-control" data-mask="" placeholder="__:__" data-bind="value:PresentMarkingDuration,mask:'time'">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <br />
+                                <div class="form-group row">
+                                    <label class="col-lg-5 control-label" for="Number">@T("NoPunch")</label>
+                                    <div class="col-lg-5">
+                                        <input type="checkbox" data-check="NoPunch" name="number" data-bind="checked:NoPunch" />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-5 control-label" for="Number">@T("SinglePunch")</label>
+                                    <div class="col-lg-5">
+                                        <input type="checkbox" data-check="SinglePunch" name="number" data-bind="checked:SinglePunch" />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-5 control-label" for="Number">@T("MultiplePunch")</label>
+                                    <div class="col-lg-5">
+                                        <input type="checkbox" data-check="MultiplePunch" name="number" data-bind="checked:MultiplePunch" />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-5 control-label" for="Number">@T("TwoPunch")</label>
+                                    <div class="col-lg-5">
+                                        <input type="checkbox" data-check="TwoPunch" name="number" data-bind="checked:TwoPunch" />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-5 control-label" for="Number">@T("FourPunch")</label>
+                                    <div class="col-lg-5">
+                                        <input type="checkbox" data-check="FourPunch" name="number" data-bind="checked:FourPunch" />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-5 control-label" for="Number">@T("ConsiderTimeLoss")</label>
+                                    <div class="col-lg-5">
+                                        <input type="checkbox" data-bind="checked:ConsiderTimeLoss" />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-5 control-label" for="Number">@T("HalfDayMarking")</label>
+                                    <div class="col-lg-5">
+                                        <input type="checkbox" data-bind="checked:HalfDayMarking" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="Wo">
+                            <div class="col-lg-12">
+                                <div class="col-lg-6">
+                                    <div class="form-group row">
+                                        <br />
+                                        <label class="col-lg-5 control-label" for="Number">@T("ShiftType")</label>
+                                        <div class="col-lg-7">
+                                            <select class="form-control" required data-bind="options:$root.Shift,
+                                                                                                optionsText:'Name',optionsValue:'Id',value:ShiftTypeId"></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-5 control-label" for="Number">@T("Shift")</label>
+                                        <div class="col-lg-7">
+                                            <select class="form-control" required data-bind="options:$root.Shifts,
+                                                                                            optionsText:'Name',optionsValue:'Id',value:ShiftId"></select>
+                                        </div>
+                                    </div>
+                                    @*<div class="form-group row">
+                                            <label class="col-lg-5 control-label" for="Number">@T("WeeklyOffType")</label>
+                                            <div class="col-lg-7">
+                                                <select class="form-control" required data-bind="options:$root.WeeklyOfType,
+                                                                                                    optionsText:'Name',optionsValue:'Id',value:WOTypeId"></select>
+                                            </div>
+                                        </div>*@
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group ">
+                                        <label class="col-lg-12 control-label" for="Number">@T("CheckMultiplForDynamicWeeklyoff")</label>
+                                        <div class="row" data-bind="foreach:$root.WeeklyOff">
+                                            <div class="col-lg-4">
+                                                @*Enable Disable CheckboxList Code*@
+                                                @*,enable:$root.Employee().WOTypeId()==1*@
+                                                <input type="checkbox" name="name" data-bind="value:Id,checked:$root.SelectedWeeklyOff" value=" " /> <span data-bind="text:Name"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <br />
+                                </div>
+                            </div>
+                        </div>
+                        @*<div class="tab-pane fade" id="LogIn">
+                                <div class="col-lg-12">
+                                    <div class="col-lg-6">
+                                        <div class="form-group row">
+                                            <br />
+                                            <label class="col-lg-5 control-label" for="Number">@T("Role")</label>
+                                            <div class="col-lg-7">
+                                                <select class="form-control" data-bind="options:$root.Roles,optionsValue:'Id',optionsText:'Name',optionsCaption:Riddha.UI.getOptionCaption(),value:RoleId"></select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-5 control-label" for="Number">@T("UserName")</label>
+                                            <div class="col-lg-7">
+                                                <input type="text" data-bind="value:UserName" class="form-control" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-5 control-label" for="Number">@T("Password")</label>
+                                            <div class="col-lg-7">
+                                                <input type="password" data-bind="value:Password" class="form-control" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <br />
+                                    </div>
+                                </div>
+                            </div>*@
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="col-lg-12">
+                        @*<button type="button" class="btn btn-info" id="btnPrevious">
+                                <span class="glyphicon glyphicon-arrow-left"></span> Previous
+                            </button>*@
+                        <button type="button" class="btn btn-success" id="btnNext" data-toggle="tooltip" data-placement="top" title=@T("NextTab")>
+                            <span class="glyphicon glyphicon-arrow-right">@T("Next")</span>
+                        </button>
+                        <input type="submit" data-bind="click:$root.CreateUpdate,createUpdateText:$root.ModeOfButton" name="Save" class="btn btn-success" value=@T("Save") />
+                        <input type="button" data-bind="click:$root.Reset" name="Reset" value=@T("Reset") class="btn btn-default" />
+                        <input type="button" id="close" data-bind="click:$root.CloseModal" value=@T("Back") class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="employeeInfo" style="">
+        <div class="modal-dialog modal-lg ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4>@T("Employee") @T("Information")</h4></header>
+                </div>
+                <div class="modal-body" data-bind="with:EmployeeInfo">
+                    <div class="col-md-4">
+                        <div class="box box-widget widget-user-2">
+                            <div class="widget-user-header bg-green-gradient">
+                                <div class="widget-user-image">
+                                    <img style="width:70px;height:70px;" class="profile-user-img img-responsive img-circle " data-bind="img: { src: Photo() , fallback:'/Images/men3.png' }">
+                                </div>
+                                <h3 class="widget-user-username" data-bind="text:EmployeeName"></h3>
+                                <h5 class="widget-user-desc" data-bind="text:DateOfJoin"></h5>
+                            </div>
+                            <div class="box-footer no-padding">
+                                <ul class="nav nav-stacked">
+                                    <li><a href="#">@T("Branch") <span class="pull-right  green" data-bind="text:BranchName">Riddhasoft</span></a></li>
+                                    <li><a href="#">@T("Department")<span class="pull-right  aqua" data-bind="text:DepartmentName">.Net Department</span></a></li>
+                                    <li><a href="#">@T("Section")<span class="pull-right  red" data-bind="text:SectionName">Web Section</span></a></li>
+                                    <li><a href="#">@T("Designation")<span class="pull-right  red" data-bind="text:DesignationName">Devloper</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="box box-widget widget-user-2">
+                            <div class="widget-user-header bg-yellow-gradient">
+                                <div class="widget-user-image">
+                                </div>
+                                <h3 class="widget-user-username">@T("Basic")</h3>
+                                <h5 class="widget-user-desc">@T("Information")</h5>
+                            </div>
+                            <div class="box-footer no-padding">
+                                <ul class="nav nav-stacked">
+                                    <li><a href="#">@T("DateOfBirth")<span class="pull-right  green" data-bind="text:DateOfBirth"></span></a></li>
+                                    <li><a href="#">@T("MobileNo")<span class="pull-right  aqua" data-bind="text:Mobile"></span></a></li>
+                                    <li><a href="#">@T("Address")<span class="pull-right  red" data-bind="text:Address">Kathmandu</span></a></li>
+                                    <li><a href="#">@T("BloodGroup")<span class="pull-right  red" data-bind="text:$root.GetBloodGroupName(BloodGroup)">O+</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="box box-widget widget-user-2">
+                            <div class="widget-user-header bg-red-gradient">
+                                <div class="widget-user-image">
+                                </div>
+                                <h3 class="widget-user-username">@T("PunchandShift")</h3>
+                                <h5 class="widget-user-desc">@T("Management")</h5>
+                            </div>
+                            <div class="box-footer no-padding">
+                                <ul class="nav nav-stacked">
+                                    <li><a href="#">@T("PunchType")<span class="pull-right  green" data-bind="text:PunchType"></span></a></li>
+                                    <li><a href="#">@T("MaxWorkingHour")<span class="pull-right  red" data-bind="text:MaxWorkingHours">08:00</span></a></li>
+                                    <li><a href="#">@T("ShiftType")<span class="pull-right  aqua" data-bind="text:$root.GetShiftTypeName(ShiftType)"></span></a></li>
+                                    <li><a href="#">@T("Shift")<span class="pull-right  red" data-bind="text:ShiftName">Day Shift</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Info boxes -->
+    @*<div class="row">
+            <div class="col-lg-12">
+                <div class="box box-success">
+                    <div class="box-header with-border">
+                        &nbsp;
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool dropdown-toggle text-green" data-toggle="dropdown" data-bind="click:syncDeviceEmployee" style="">
+                                <i class="fa fa-plus-square"></i> @T("PullDeviceEmployee")
+                            </button>
+                            <button type="button" class="btn btn-box-tool dropdown-toggle text-green" data-toggle="dropdown" data-bind="click:ShowModal" style="">
+                                <i class="fa fa-plus-square"></i> @T("Create")
+                            </button>
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                <i class="fa fa-minus"></i>
+                            </button>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-wrench"></i>
+                                </button>
+                                <input type="file" name="UploadedFile" id="UploadedFile" data-bind="event:{change:UploadClick}" class="hidden" />
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a class=" " href="/Files/EmployeeExcelTemplate.xlsx"><i class="fa fa-file-excel-o">  @T("DownloadExcelFormat")</i> </a></li>
+                                    <li class="divider"></li>
+                                    <li><a class=" " data-bind="click:ExportClick"><i class="fa fa-download"> @T("Export")</i>  </a></li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a class="" data-bind="click:trigerFileBrowse">
+                                            <i class="fa fa-file-excel-o"> @T("UploadExcelFile")</i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <button type="button" class="btn btn-box-tool text-red" data-widget="remove"><i class="fa fa-times"></i></button>
+                        </div>
+                    </div>
+                    <div class="box-body table-responsive  table-hover">
+                        <table class="table table-condensed table-bordered table-striped no-padding">
+                            <thead class="success bg-green">
+                                <tr>
+                                    <th class=""> @T("SerialNo")</th>
+                                    <th class="col-lg-1">@T("IdCardNo")</th>
+                                    <th class="col-lg-2">@T("Name")</th>
+                                    <th class="col-lg-1">@T("Designation")</th>
+                                    <th class="col-lg-1">@T("Department")</th>
+                                    <th class="col-lg-2">@T("MobileNo")</th>
+                                    <th class="col-lg-1">@T("Photo")</th>
+                                    <th class="col-lg-1">@T("Status")</th>
+                                    <th class="col-lg-2">@T("Action")</th>
+                                    <th class="col-lg-1">@T("Login")</th>
+                                </tr>
+                            </thead>
+                            <tbody data-bind="foreach:Employees">
+                                <tr>
+                                    <td class="text-center" data-bind="serialNo:$index()+1"></td>
+                                    <td data-bind="text:IdCardNo"></td>
+                                    <td data-bind="text:NameNp()==''?EmployeeName():EmployeeName()+'('+NameNp()+')'"></td>
+                                    <td data-bind="text:DesignationName"></td>
+                                    <td data-bind="text:DepartmentName"></td>
+                                    <td data-bind="text:Mobile"></td>
+                                    <td class="text-center">
+                                        <img class="img-rounded with-border " style="cursor:pointer" width="55" height="55" data-bind="img: { src: PhotoURL() , fallback:'/Images/men3.png' }" />
+                                    </td>
+                                    <td class="text-center"><i data-bind="attr:{class:IsActivated()?'fa fa-circle text-success':'fa fa-circle text-gray'}"></i></td>
+                                    <td>
+                                        <button type="button" title=@T("Info") data-bind="click:$root.InfoShowModal" class="btn btn-xs btn-default "><span class="fa fa-eye text-success"></span> </button>
+                                        <button type="button" title=@T("Edit") data-bind="click:$root.Select" class="btn btn-xs btn-default "><span class="glyphicon glyphicon-pencil text-success"></span> </button>
+                                        <button type="button" data-bind="click:$root.Delete" class="btn btn-xs btn-default " title=@T("Remove")>
+                                            <span class="glyphicon glyphicon-trash text-danger"></span>
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button type="button" data-bind="click:$root.ActivateDeactivateEmp" class="btn btn-xs text-success"><span data-bind="text:IsActivated()?'@T("DeactivateLogin")':'@T("ActivateLogin")'"></span></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box box-success">
+                <div class="box-header">
+                    <p data-bind="" class="text-green"></p>
+                    <div class="">
+                        <button type="button" class="btn btn-app action" data-bind="click:ShowModal,actionVisibility:'2009'">
+                            <i class="fa fa-plus-square text-green"></i> @T("Create")
+                        </button>
+
+                        <button type="button" class="btn btn-app action" data-bind="click:Select,actionVisibility:'2010'">
+                            <i class="fa fa-pencil text-green"></i> @T("Edit")
+                        </button>
+                        <button type="button" class="btn btn-app action " data-bind="click:Delete,actionVisibility:'2011'">
+                            <i class="fa fa-trash text-red"></i> @T("Delete")
+                        </button>
+                        <button type="button" class="btn btn-app action " data-bind="click:InfoShowModal,actionVisibility:'2012'">
+                            <i class="fa fa-eye text-info"></i> @T("ViewDetails")
+                        </button>
+                        <button type="button" class="btn btn-app  action" data-bind="click:syncDeviceEmployee,actionVisibility:'2013'">
+                            <i class="fa fa-refresh text-success"></i> @T("PullDeviceEmployee")
+                        </button>
+                        <button type="button" class="btn btn-app action " data-bind="click:ActivateDeactivateEmp,actionVisibility:'2014'">
+                            <i class="fa fa-mobile text-success"></i> @T("Login")
+                        </button>
+                    </div>
+                    <div class="box-tools">
+
+                    </div>
+                    <div class="box-tools pull-right">
+
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <i class="fa fa-wrench"></i>
+                            </button>
+                            <input type="file" name="UploadedFile" id="UploadedFile" data-bind="event:{change:UploadClick}" class="hidden" />
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a class=" " href="/Files/EmployeeExcelTemplate.xlsx" data-bind="actionVisibility:'2015'"><i class="fa fa-file-excel-o">  @T("DownloadExcelFormat")</i> </a></li>
+                                <li class="divider"></li>
+                                <li><a class=" " data-bind="click:ExportClick,actionVisibility:'2016'"><i class="fa fa-download"> @T("Export")</i>  </a></li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a class="" data-bind="click:trigerFileBrowse,actionVisibility:'2017'">
+                                        <i class="fa fa-file-excel-o"> @T("UploadExcelFile")</i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <button type="button" class="btn btn-box-tool text-red" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+
+                <div class="box-body">
+                    @*<div class="box-tools pull-right">
+                            <div class="has-feedback ">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search" data-bind="value: filterText, valueUpdate: 'keyup'">
+                                    <div class="input-group-btn">
+                                        <button type="button" class="btn btn-danger" data-bind="click:$root.gridOptions.refresh"><span><i class="fa fa-search"></i></span></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>*@
+                    <div class="row">
+                        <div class="col-sm-9">
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="dataTables_filter">
+                                <div class="input-group col-lg-12">
+                                    <input type="text" class="form-control input-sm" placeholder=@T("Search") data-bind="value: filterText, valueUpdate: 'keyup'">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default bg-gray form-control fa fa-search" type="button" data-bind="click:$root.gridOptions.refresh"></button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="gridStyle" data-bind="koGrid:$root.gridOptions">
+    </div>
+    <script type="text/html" id="mode-button-template">
+        <span class="glyphicon glyphicon-plus" data-bind="text:$root.ModeOfButton"></span>
+    </script>
+    <!-- /.row -->
+    <!-- /.row -->
+    <!-- Main row -->
+    <!-- /.row -->
+</section>
+@if (Request.IsAjaxRequest())
+{
+    <script src="~/Areas/Employee/Scripts/Riddha.Script.Employee.Model.js"></script>
+    <script src="~/Areas/Employee/Scripts/Riddha.Script.Employee.Controller.js"></script>
+    <script type="text/javascript">
+        var obj = new employeeController();
+        Riddha.global.permission.action('2001').done(function (data) {
+            Riddha.global.permission.actions = data.Data;
+            ko.cleanNode(document.getElementById("partial-render"));
+            ko.applyBindings(obj, document.getElementById("partial-render"));
+        });
+
+        $('#btnNext').click(function () {
+            $('#tabList > .active').next('li').find('a').trigger('click');
+        });
+        $('#btnPrevious').click(function () {
+            $('#tabList > .active').prev('li').find('a').trigger('click');
+        });
+        $(document).ready(function () {
+            $('.gridStyle').width('960px');
+        })
+    </script>
+}
+else
+{
+    @section scripts
+    {
+        <script src="~/Areas/Employee/Scripts/Riddha.Script.Employee.Model.js"></script>
+        <script src="~/Areas/Employee/Scripts/Riddha.Script.Employee.Controller.js"></script>
+        <script type="text/javascript">
+            var obj = new employeeController();
+            Riddha.global.permission.action('2001').done(function (data) {
+                Riddha.global.permission.actions = data.Data;
+                ko.cleanNode(document.getElementById("partial-render"));
+                ko.applyBindings(obj, document.getElementById("partial-render"));
+            });
+
+            $('#btnNext').click(function () {
+                $('#tabList > .active').next('li').find('a').trigger('click');
+            });
+            $('#btnPrevious').click(function () {
+                $('#tabList > .active').prev('li').find('a').trigger('click');
+            });
+        </script>
+    }
+}

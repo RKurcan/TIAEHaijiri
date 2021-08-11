@@ -1,0 +1,111 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Layout_Adminlte.cshtml";
+}
+<section class="content-header">
+    <h1>
+        Permission
+        @*<sup class="text-green">Permission</sup>*@
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Permission</li>
+    </ol>
+</section>
+
+<section class="content">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box box-success">
+                <div class="box-header with-border">
+                    &nbsp;
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool dropdown-toggle text-green" data-toggle="dropdown" data-bind="click:Save" style="">
+                            <i class="fa fa-save"></i> Save
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <div class="btn-group">
+
+                            <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-wrench"></i>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Add New Module</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                            </ul>
+                        </div>
+                        <button type="button" class="btn btn-box-tool text-red" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <table class="table table-condensed table-bordered table-striped no-padding" data-bind="">
+                                <thead class="bg-green">
+                                    <tr>
+                                        <th class="col-lg-3">Role</th>
+                                        <th class="col-lg-9">
+                                            Controllers
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody data-bind="foreach:ModulePermissions">
+                                    <tr>
+                                        <td><span data-bind="text:RoleName"></span></td>
+                                        <td class="text-center" data-bind="foreach:Modules">
+                                            <div class="text-left col-lg-3 col-md-4 col-sm-6 col-xs-6">
+                                                <input type="checkbox" data-bind="checked:Checked" />&nbsp;&nbsp;<span data-bind="text:Name"></span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-footer">
+                    <button data-bind="click:$root.Save" class="btn btn-success"><i class="fa fa-file-o"></i> Save</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Info boxes -->
+
+</section>
+@if (Request.IsAjaxRequest())
+{
+    <script src="~/Scripts/App/Globals/Riddha.Globals.ko.js"></script>
+    <script src="~/Areas/User/Scripts/Riddha.Script.User.Model.js"></script>
+    <script src="~/Areas/User/Scripts/Riddha.Script.UserRole.Permission.Model.js"></script>
+    <script src="~/Areas/User/Scripts/Riddha.Script.UserRole.Permission.Controller.js"></script>
+    <script type="text/javascript">
+        ko.cleanNode(document.getElementById("partial-render"));
+        var obj = new ownerPermissionController();
+        ko.applyBindings(obj, document.getElementById("partial-render"));
+    </script>
+}
+else
+{
+    @section scripts
+    {
+        <script src="~/Scripts/App/Globals/Riddha.Globals.ko.js"></script>
+        <script src="~/Areas/User/Scripts/Riddha.Script.User.Model.js"></script>
+        <script src="~/Areas/User/Scripts/Riddha.Script.UserRole.Permission.Model.js"></script>
+        <script src="~/Areas/User/Scripts/Riddha.Script.UserRole.Permission.Controller.js"></script>
+        <script type="text/javascript">
+            var obj = new ownerPermissionController();
+            ko.applyBindings(obj);
+        </script>
+    }
+}
+
+
+
+

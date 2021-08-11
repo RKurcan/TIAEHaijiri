@@ -1,0 +1,2025 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Absent" xml:space="preserve">
+    <value>अनुपस्थित</value>
+  </data>
+  <data name="Action" xml:space="preserve">
+    <value>कार्य</value>
+  </data>
+  <data name="AddedSuccess" xml:space="preserve">
+    <value>सफलताका साथ सुरक्षित भएको छ।</value>
+  </data>
+  <data name="AddNewBranch" xml:space="preserve">
+    <value>नयाँ शाखा नुहोस</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>ठेगाना</value>
+  </data>
+  <data name="Allrightsreserved" xml:space="preserve">
+    <value>सबै अधिकार सुरक्षित गरिएका छन्। </value>
+  </data>
+  <data name="AttendanceReport" xml:space="preserve">
+    <value>हाजिरी </value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>बन्द गर्नुहोस</value>
+  </data>
+  <data name="Bank" xml:space="preserve">
+    <value>बैंक</value>
+  </data>
+  <data name="Branch" xml:space="preserve">
+    <value>शाखा</value>
+  </data>
+  <data name="Browse" xml:space="preserve">
+    <value>रोज्नुहोस</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>कोड</value>
+  </data>
+  <data name="Company" xml:space="preserve">
+    <value>कम्पनी</value>
+  </data>
+  <data name="ContactNo" xml:space="preserve">
+    <value>सम्पर्क नं.</value>
+  </data>
+  <data name="Copyright" xml:space="preserve">
+    <value>प्र्तिलिपी</value>
+  </data>
+  <data name="CopyrightDate" xml:space="preserve">
+    <value>२०१७-२०२२</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>नयाँ बनाउनुस</value>
+  </data>
+  <data name="Creation" xml:space="preserve">
+    <value>सिर्जना</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>ड्यासबोर्ड</value>
+  </data>
+  <data name="Department" xml:space="preserve">
+    <value>विभाग</value>
+  </data>
+  <data name="Designation" xml:space="preserve">
+    <value>पद</value>
+  </data>
+  <data name="DynamicRoster" xml:space="preserve">
+    <value>गतिशिल  कार्यसुची</value>
+  </data>
+  <data name="EHajiriCom" xml:space="preserve">
+    <value>ई -हाजिरी.कम</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>ईमेल</value>
+  </data>
+  <data name="Employee" xml:space="preserve">
+    <value>कर्मचारी</value>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value>बाट</value>
+  </data>
+  <data name="HajiriCom" xml:space="preserve">
+    <value>हाजिरी.कम</value>
+  </data>
+  <data name="Holiday" xml:space="preserve">
+    <value>सार्वजनिक बिदा</value>
+  </data>
+  <data name="HolidayName" xml:space="preserve">
+    <value>छुट्टिको नाम</value>
+  </data>
+  <data name="HolidaySummary" xml:space="preserve">
+    <value>छुट्टी संक्षेप</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>गृह</value>
+  </data>
+  <data name="LateIn" xml:space="preserve">
+    <value>ढिला आउने</value>
+  </data>
+  <data name="LeaveApplication" xml:space="preserve">
+    <value>बिदाको लागी निवेदन</value>
+  </data>
+  <data name="LeaveBalance" xml:space="preserve">
+    <value>सन्चित बिदा</value>
+  </data>
+  <data name="LeaveMaster" xml:space="preserve">
+    <value>बिदा</value>
+  </data>
+  <data name="LeaveName" xml:space="preserve">
+    <value>बिदाको नाम</value>
+  </data>
+  <data name="LeaveRemaining" xml:space="preserve">
+    <value>बाकी बिदा</value>
+  </data>
+  <data name="LeaveSummary" xml:space="preserve">
+    <value>बिदा संक्षेप</value>
+  </data>
+  <data name="LeaveTaken" xml:space="preserve">
+    <value>बिदा लिएको</value>
+  </data>
+  <data name="Logo" xml:space="preserve">
+    <value>लोगो</value>
+  </data>
+  <data name="MainNavigation" xml:space="preserve">
+    <value>मुख्य मेनु</value>
+  </data>
+  <data name="ManualPunch" xml:space="preserve">
+    <value>म्यानुअल पंच</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>नाम</value>
+  </data>
+  <data name="NoOfDepartments" xml:space="preserve">
+    <value>विभागहरुको संख्या</value>
+  </data>
+  <data name="NoOfEmployees" xml:space="preserve">
+    <value>कर्मचारीहरुको संख्या</value>
+  </data>
+  <data name="NoOfSections" xml:space="preserve">
+    <value>फाँटहरुको संख्या</value>
+  </data>
+  <data name="Office" xml:space="preserve">
+    <value>कार्यलय</value>
+  </data>
+  <data name="OnLeave" xml:space="preserve">
+    <value>बिदामा</value>
+  </data>
+  <data name="PAN" xml:space="preserve">
+    <value>प्यान</value>
+  </data>
+  <data name="Present" xml:space="preserve">
+    <value>उपस्थित</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>हटाउनु</value>
+  </data>
+  <data name="RemoveSuccess" xml:space="preserve">
+    <value>सफलताका साथ हटाइएको छ।</value>
+  </data>
+  <data name="Report" xml:space="preserve">
+    <value>प्रतिवेदन</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>रिसेट</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>खोजी</value>
+  </data>
+  <data name="Section" xml:space="preserve">
+    <value>फाँट</value>
+  </data>
+  <data name="SeparatedLink" xml:space="preserve">
+    <value>लिन्क अलग गरिएको छ</value>
+  </data>
+  <data name="SerialNo" xml:space="preserve">
+    <value>क्र.स</value>
+  </data>
+  <data name="Shift" xml:space="preserve">
+    <value>सिफ्ट</value>
+  </data>
+  <data name="SomethingElseHere" xml:space="preserve">
+    <value>केहि अरु यहाँ</value>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>सम्म</value>
+  </data>
+  <data name="TodaysAttendanceInfo" xml:space="preserve">
+    <value>आजको हाजिरी सुचना</value>
+  </data>
+  <data name="UpdatedSuccess" xml:space="preserve">
+    <value>सफलताका साथ नयाँ भएको छ।</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>प्रयोगकर्ता </value>
+  </data>
+  <data name="UserRole" xml:space="preserve">
+    <value>प्रयोगकर्ताको भूमिका</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>संस्करण २.० .१.०</value>
+  </data>
+  <data name="Web" xml:space="preserve">
+    <value>वेव</value>
+  </data>
+  <data name="AddNewDepartment" xml:space="preserve">
+    <value>नयाँ विभाग नुहोस</value>
+  </data>
+  <data name="AddNewDesignation" xml:space="preserve">
+    <value>नयाँ पद नुहोस</value>
+  </data>
+  <data name="AddNewSection" xml:space="preserve">
+    <value>नयाँ फाँट नुहोस</value>
+  </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>पासवर्ड परिवर्तन</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>काट्छाट </value>
+  </data>
+  <data name="Followers" xml:space="preserve">
+    <value>अनुयायी</value>
+  </data>
+  <data name="Friends" xml:space="preserve">
+    <value>साथी</value>
+  </data>
+  <data name="LogOut" xml:space="preserve">
+    <value>लग आउट गर्नुहोस</value>
+  </data>
+  <data name="Sales" xml:space="preserve">
+    <value>बिक्री</value>
+  </data>
+  <data name="AllowedEarlyOut" xml:space="preserve">
+    <value>चाडो जाने अनुमती</value>
+  </data>
+  <data name="AllowedLateIn" xml:space="preserve">
+    <value>ढिला आउने अनुमती</value>
+  </data>
+  <data name="BasicInformation" xml:space="preserve">
+    <value>आधारभुत जानकारी</value>
+  </data>
+  <data name="BeginDate" xml:space="preserve">
+    <value>जारी मिती</value>
+  </data>
+  <data name="BloodGroup" xml:space="preserve">
+    <value>रक्त समुह</value>
+  </data>
+  <data name="ConsiderTimeLoss" xml:space="preserve">
+    <value>समय घाटाको बिचार</value>
+  </data>
+  <data name="DateOfBirth" xml:space="preserve">
+    <value>जन्म मिती</value>
+  </data>
+  <data name="DateTime" xml:space="preserve">
+    <value>समय मिती</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>विवरण</value>
+  </data>
+  <data name="EmployeeCode" xml:space="preserve">
+    <value>कर्मचारी कोड</value>
+  </data>
+  <data name="EmployeeName" xml:space="preserve">
+    <value>कर्मचारीको नाम</value>
+  </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>मिती समाप्ती</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>बाहिर जाने ढोका</value>
+  </data>
+  <data name="FourPunch" xml:space="preserve">
+    <value>चार पन्च</value>
+  </data>
+  <data name="Friday" xml:space="preserve">
+    <value>शुक्रबार</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>पुरा नाम</value>
+  </data>
+  <data name="Gender" xml:space="preserve">
+    <value>लिङग</value>
+  </data>
+  <data name="HalfDayMarking" xml:space="preserve">
+    <value>आधा दिनको चिनो</value>
+  </data>
+  <data name="HalfDayWorkingHour" xml:space="preserve">
+    <value>आधा दिनको कार्य समय</value>
+  </data>
+  <data name="HolidayInclude" xml:space="preserve">
+    <value>छुट्टिमा समावेस</value>
+  </data>
+  <data name="IdCardNo" xml:space="preserve">
+    <value>परिचय पत्र नं.</value>
+  </data>
+  <data name="JoinDate" xml:space="preserve">
+    <value>नियुक्ती</value>
+  </data>
+  <data name="LeaveType" xml:space="preserve">
+    <value>बिदाको प्रकार</value>
+  </data>
+  <data name="LunchEnd" xml:space="preserve">
+    <value>लन्च समाप्ती</value>
+  </data>
+  <data name="LunchStartTime" xml:space="preserve">
+    <value>लन्च सुरु</value>
+  </data>
+  <data name="MaritalStatus" xml:space="preserve">
+    <value>वैवाहिक स्तिथी</value>
+  </data>
+  <data name="MaxWorkingHour" xml:space="preserve">
+    <value>अधिक्तम कार्य समय</value>
+  </data>
+  <data name="MobileNo" xml:space="preserve">
+    <value>मोबाईल नं.</value>
+  </data>
+  <data name="Monday" xml:space="preserve">
+    <value>सोमबार</value>
+  </data>
+  <data name="Month" xml:space="preserve">
+    <value>महिना</value>
+  </data>
+  <data name="MultiplePunch" xml:space="preserve">
+    <value>बहु पन्च</value>
+  </data>
+  <data name="NoPunch" xml:space="preserve">
+    <value>पन्च चाहिदैन</value>
+  </data>
+  <data name="NumberOfStaff" xml:space="preserve">
+    <value>कर्मचारीको संख्या</value>
+  </data>
+  <data name="OfficeRecord" xml:space="preserve">
+    <value>कार्यालयको विवरन</value>
+  </data>
+  <data name="OpeningBalance" xml:space="preserve">
+    <value>सन्चित उद्घाटन</value>
+  </data>
+  <data name="Permanent" xml:space="preserve">
+    <value>स्थायी</value>
+  </data>
+  <data name="Photo" xml:space="preserve">
+    <value>तस्बिर</value>
+  </data>
+  <data name="PresentMarkingDuration" xml:space="preserve">
+    <value>उपस्थित हुने समय</value>
+  </data>
+  <data name="Priority" xml:space="preserve">
+    <value>प्राथमिकता</value>
+  </data>
+  <data name="RefreshRoster" xml:space="preserve">
+    <value>कार्यसुची रिफ्रेस गर्नुहोस</value>
+  </data>
+  <data name="Remark" xml:space="preserve">
+    <value>टिप्पणी गर्नुहोस</value>
+  </data>
+  <data name="RequiredValidation" xml:space="preserve">
+    <value>अनिवार्य छ!!</value>
+  </data>
+  <data name="Role" xml:space="preserve">
+    <value>भूमिका</value>
+  </data>
+  <data name="Saturday" xml:space="preserve">
+    <value>शनिबार</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>सुरक्षित गर्नुहोस</value>
+  </data>
+  <data name="Select" xml:space="preserve">
+    <value>छान्नुहोस</value>
+  </data>
+  <data name="ShiftEndTime" xml:space="preserve">
+    <value>सिफ्ट समाप्ती</value>
+  </data>
+  <data name="ShiftStartTime" xml:space="preserve">
+    <value>सिफ्ट सुरु</value>
+  </data>
+  <data name="ShiftType" xml:space="preserve">
+    <value>सिफ्ट प्रकार</value>
+  </data>
+  <data name="ShiftWOManagement" xml:space="preserve">
+    <value>सिफ्ट/ड्ब्लु व ब्याबस्थापन</value>
+  </data>
+  <data name="ShortDayWorkingHour" xml:space="preserve">
+    <value>छोटो दिनको कार्य समय</value>
+  </data>
+  <data name="SinglePunch" xml:space="preserve">
+    <value>एकल पन्च</value>
+  </data>
+  <data name="Sunday" xml:space="preserve">
+    <value>आइतबार</value>
+  </data>
+  <data name="Temporary" xml:space="preserve">
+    <value>अस्थायी</value>
+  </data>
+  <data name="Thursday" xml:space="preserve">
+    <value>बिहिवार</value>
+  </data>
+  <data name="TimePunchManagement" xml:space="preserve">
+    <value>समय/पन्च ब्याबस्थापन</value>
+  </data>
+  <data name="Tuesday" xml:space="preserve">
+    <value>मंगलवार</value>
+  </data>
+  <data name="TwoPunch" xml:space="preserve">
+    <value>दुई पन्च</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>प्रयोगकर्ताको नाम</value>
+  </data>
+  <data name="Wednesday" xml:space="preserve">
+    <value>बुधबार</value>
+  </data>
+  <data name="WeeklyOffInclude" xml:space="preserve">
+    <value>हप्ता भित्रमा समावेस</value>
+  </data>
+  <data name="WeeklyOffType" xml:space="preserve">
+    <value>हप्ता भित्रको प्रकार</value>
+  </data>
+  <data name="Year" xml:space="preserve">
+    <value>वर्ष</value>
+  </data>
+  <data name="DateOfJoin" xml:space="preserve">
+    <value>नियुक्ती</value>
+  </data>
+  <data name="DayName" xml:space="preserve">
+    <value>दिनको नाम</value>
+  </data>
+  <data name="PaymentWeeklyOff" xml:space="preserve">
+    <value>हप्ता भित्रको भुक्तानी</value>
+  </data>
+  <data name="Roaster" xml:space="preserve">
+    <value>कार्यसुची</value>
+  </data>
+  <data name="Balance" xml:space="preserve">
+    <value>सन्चित</value>
+  </data>
+  <data name="Leave" xml:space="preserve">
+    <value>बिदा</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>गोप्य शब्द</value>
+  </data>
+  <data name="PrimaryWeeklyOff" xml:space="preserve">
+    <value>हप्ताको मुख्य छुट्टी</value>
+  </data>
+  <data name="Application" xml:space="preserve">
+    <value>निवेदन</value>
+  </data>
+  <data name="Generate" xml:space="preserve">
+    <value>हेर्नुहोस</value>
+  </data>
+  <data name="ApplyLeaveExceedMoreThanRemainLeave" xml:space="preserve">
+    <value>लिन खोजेको बिदा भन्दा बाँकी बिदा बढी भयो</value>
+  </data>
+  <data name="Manual" xml:space="preserve">
+    <value>म्यानुअल</value>
+  </data>
+  <data name="Punch" xml:space="preserve">
+    <value>पन्च</value>
+  </data>
+  <data name="Day" xml:space="preserve">
+    <value>दिन</value>
+  </data>
+  <data name="DailyEarlyInReport" xml:space="preserve">
+    <value>दैनिक चाँडै आउने प्रतिबेदन</value>
+  </data>
+  <data name="DailyEarlyInDesc" xml:space="preserve">
+    <value>चाँडै आउने कर्मचारीको प्रतिबेदन</value>
+  </data>
+  <data name="DailyEarlyOutReport" xml:space="preserve">
+    <value>दैनिक चाँडै जाने प्रतिबेदन</value>
+  </data>
+  <data name="DailyEarlyOutDesc" xml:space="preserve">
+    <value>चाँडै जाने कर्मचारीको प्रतिबेदन</value>
+  </data>
+  <data name="DailyEmployeeAbsentReport" xml:space="preserve">
+    <value>कर्मचारीको अनुपस्थित हुने दैनिक प्रतिबेदन</value>
+  </data>
+  <data name="DailyEmployeeAbsentReportDesc" xml:space="preserve">
+    <value>अनुपस्थित भएका कर्मचारीको प्रतिबेदन</value>
+  </data>
+  <data name="DailyEmployeeAttendanceReport" xml:space="preserve">
+    <value>कर्मचारीको दैनिक हाजिरीको प्रतिबेदन</value>
+  </data>
+  <data name="DailyEmployeeAttendanceReportDesc" xml:space="preserve">
+    <value>कर्मचारीको दैनिक सम्पादन जहाँ सबै परिणाम समाबेस छन</value>
+  </data>
+  <data name="DailyEmployeeLeaveReport" xml:space="preserve">
+    <value>दैनिक कर्मचारीको बिदाको प्रतिबेदन</value>
+  </data>
+  <data name="DailyEmployeeLeaveReportDesc" xml:space="preserve">
+    <value>दैनिक तोकिएका समयको प्रतिबेदन</value>
+  </data>
+  <data name="DailyLateInReport" xml:space="preserve">
+    <value>दैनिक ढिला आउनेको प्रतिबेदन</value>
+  </data>
+  <data name="DailyLateInDesc" xml:space="preserve">
+    <value>दैनिक ढिला आउने कर्मचारीको प्रतिबेदन</value>
+  </data>
+  <data name="DailyLateOutReport" xml:space="preserve">
+    <value>दैनिक ढिला जानेको प्रतिबेदन</value>
+  </data>
+  <data name="DailyLateOutDesc" xml:space="preserve">
+    <value>दैनिक ढिला जाने कर्मचारीको प्रतिबेदन</value>
+  </data>
+  <data name="DailyMissingPunchesReport" xml:space="preserve">
+    <value>दैनिक भुलेको पन्चको प्रतिवेदन</value>
+  </data>
+  <data name="DailyMissingPunchesReportDesc" xml:space="preserve">
+    <value>छानेको समयमा भुलेको पन्चको प्रतिवेदन</value>
+  </data>
+  <data name="MonthlyAttendancereport" xml:space="preserve">
+    <value>मासिक हाजीरी प्रतिवेदन</value>
+  </data>
+  <data name="MonthlyAttendancereportDesc" xml:space="preserve">
+    <value>तोकीएको समयमा मासिक हाजीरी प्रतिवेदन</value>
+  </data>
+  <data name="MonthlyEmployeeSummaryReport" xml:space="preserve">
+    <value>कर्मचारीको  संक्षेप प्रतिवेदन</value>
+  </data>
+  <data name="MonthlyEmployeeSummaryReportDesc" xml:space="preserve">
+    <value>तोकिएका समयमा कर्मचारीको प्रतिबेदन</value>
+  </data>
+  <data name="Strength" xml:space="preserve">
+    <value>शक्ती</value>
+  </data>
+  <data name="AddressNp" xml:space="preserve">
+    <value>ठेगाना(नेपाली)</value>
+  </data>
+  <data name="NameNp" xml:space="preserve">
+    <value>नाम(नेपाली)</value>
+  </data>
+  <data name="Device" xml:space="preserve">
+    <value>हाजिरी मेसिन्</value>
+  </data>
+  <data name="DeviceSerialNo" xml:space="preserve">
+    <value>हजिरी मेसिनको क्र स</value>
+  </data>
+  <data name="IPAddress" xml:space="preserve">
+    <value>आइ पि ठेगाना</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>स्थिति</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>प्रकार्</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>परिमार्जन सुरक्षित गर्नुहोस</value>
+  </data>
+  <data name="CitizenNo" xml:space="preserve">
+    <value>नागरिकता नं.</value>
+  </data>
+  <data name="CitizenshipIssueDate" xml:space="preserve">
+    <value>जारी मिति</value>
+  </data>
+  <data name="CitizenshipIssueDistict" xml:space="preserve">
+    <value>जारी जिल्ला</value>
+  </data>
+  <data name="PassportNo" xml:space="preserve">
+    <value>राहदानी नं.</value>
+  </data>
+  <data name="PermanentAddressNp" xml:space="preserve">
+    <value>स्थाइ ठेगाना(नेपाली)</value>
+  </data>
+  <data name="Religion" xml:space="preserve">
+    <value>धर्म्</value>
+  </data>
+  <data name="TemporaryAddressNp" xml:space="preserve">
+    <value>आस्थाइ ठेगाना(नेपाली)</value>
+  </data>
+  <data name="ApplicableGender" xml:space="preserve">
+    <value>लिङग</value>
+  </data>
+  <data name="CurrentFiscalYear" xml:space="preserve">
+    <value>चालु आर्थिक वर्ष</value>
+  </data>
+  <data name="EarlyGrace" xml:space="preserve">
+    <value>चाडो जान मिल्ने</value>
+  </data>
+  <data name="Fiscal" xml:space="preserve">
+    <value>आर्थिक</value>
+  </data>
+  <data name="IsLeaveCarryable" xml:space="preserve">
+    <value>बिदा सार्नुहोस</value>
+  </data>
+  <data name="IsPaidLeave" xml:space="preserve">
+    <value>तलबिय बिदा</value>
+  </data>
+  <data name="LateGrace" xml:space="preserve">
+    <value>ढिलो आउन मिल्ने</value>
+  </data>
+  <data name="MaxSalary" xml:space="preserve">
+    <value>अधिक्तम तलब</value>
+  </data>
+  <data name="MinSalary" xml:space="preserve">
+    <value>न्युनतम तलब</value>
+  </data>
+  <data name="NoOfDays" xml:space="preserve">
+    <value>दिन</value>
+  </data>
+  <data name="PermanentNp" xml:space="preserve">
+    <value>स्थायी(नेपाली)</value>
+  </data>
+  <data name="TemporaryNp" xml:space="preserve">
+    <value>अस्थायी(नेपाली)</value>
+  </data>
+  <data name="Applicable" xml:space="preserve">
+    <value>उचित</value>
+  </data>
+  <data name="DeviceId" xml:space="preserve">
+    <value>हाजिरी मेसिनकोआइडि</value>
+  </data>
+  <data name="LeaveQuata" xml:space="preserve">
+    <value>बिदा कोटा</value>
+  </data>
+  <data name="LeaveQuataFor" xml:space="preserve">
+    <value>को बिदा कोटा</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>अर्को ट्याब</value>
+  </data>
+  <data name="NextTab" xml:space="preserve">
+    <value>अर्को ट्याब</value>
+  </data>
+  <data name="NonReligious" xml:space="preserve">
+    <value>अधार्मिक</value>
+  </data>
+  <data name="OccuredOnSameDate" xml:space="preserve">
+    <value>एकै मितिमा पर्ने</value>
+  </data>
+  <data name="Religious" xml:space="preserve">
+    <value>धार्मिक</value>
+  </data>
+  <data name="Apply" xml:space="preserve">
+    <value>दर्खास्त गर्नुहोस</value>
+  </data>
+  <data name="Mapped" xml:space="preserve">
+    <value>म्याप्ड</value>
+  </data>
+  <data name="MaxLimit" xml:space="preserve">
+    <value>अधिक्तम लिमिट</value>
+  </data>
+  <data name="OfficeVisit" xml:space="preserve">
+    <value>कार्यलय भ्रमण</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>समय</value>
+  </data>
+  <data name="AppliedSuccess" xml:space="preserve">
+    <value>सफलताका साथ सुरक्षित भएको छ।</value>
+  </data>
+  <data name="ApprovedBy" xml:space="preserve">
+    <value>स्विक्रित द्वारा</value>
+  </data>
+  <data name="CompanyProfile" xml:space="preserve">
+    <value>कम्पनीको परिचय</value>
+  </data>
+  <data name="ContactPerson" xml:space="preserve">
+    <value>ब्यक्त्तिगत सम्पर्क नं.</value>
+  </data>
+  <data name="ContactPersonNp" xml:space="preserve">
+    <value>ब्यक्त्तिगत सम्पर्क न(नेपाली)</value>
+  </data>
+  <data name="LeaveDay" xml:space="preserve">
+    <value>बिदाको दिन</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>परिचय</value>
+  </data>
+  <data name="CarryToNext" xml:space="preserve">
+    <value>क्यारी गर्नु</value>
+  </data>
+  <data name="Days" xml:space="preserve">
+    <value>दिनहरु</value>
+  </data>
+  <data name="LeaveSettlement" xml:space="preserve">
+    <value>बिदा मीलाउने</value>
+  </data>
+  <data name="Pay" xml:space="preserve">
+    <value>तिर्नु</value>
+  </data>
+  <data name="RemainingLeave" xml:space="preserve">
+    <value>बाकी बिदा</value>
+  </data>
+  <data name="SettlementType" xml:space="preserve">
+    <value>मीलाउने प्रकार</value>
+  </data>
+  <data name="SettlingLeave" xml:space="preserve">
+    <value>मीलाउने बिदा</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>मिती सुरु</value>
+  </data>
+  <data name="ContactYourAdmin" xml:space="preserve">
+    <value>एड्मिन लाई सम्पर्क गर्नुहोस</value>
+  </data>
+  <data name="GradeGroup" xml:space="preserve">
+    <value>दर्जा समुह</value>
+  </data>
+  <data name="NoAuthorization" xml:space="preserve">
+    <value>यो स्क्रीन प्रयोग गर्न तपाईं लाई अधिकार छैन |</value>
+  </data>
+  <data name="NoPermission" xml:space="preserve">
+    <value>अनुमती छैन |</value>
+  </data>
+  <data name="OopsNoPermission" xml:space="preserve">
+    <value>उप्स्! तपाईं लाई अनुमती छैन |</value>
+  </data>
+  <data name="ReturnToDashboard" xml:space="preserve">
+    <value>ड्यास्बोर्ड मा फर्कनुहोस</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>थपनुहोस</value>
+  </data>
+  <data name="ThisFieldRequiresOnlyOneNumber" xml:space="preserve">
+    <value>यो ठाँउमा एउटा न्ंम्बर मात्र राख्नु पर्छ</value>
+  </data>
+  <data name="IssueDate" xml:space="preserve">
+    <value>जारी मिति</value>
+  </data>
+  <data name="IssueDistict" xml:space="preserve">
+    <value>जारी जिल्ला</value>
+  </data>
+  <data name="Basic" xml:space="preserve">
+    <value>आधारभुत</value>
+  </data>
+  <data name="Information" xml:space="preserve">
+    <value>जानकारी</value>
+  </data>
+  <data name="PunchType" xml:space="preserve">
+    <value>पन्च प्रकार</value>
+  </data>
+  <data name="Management" xml:space="preserve">
+    <value>व्यवस्थापन</value>
+  </data>
+  <data name="PunchandShift" xml:space="preserve">
+    <value>पन्च र सिफ्ट</value>
+  </data>
+  <data name="ExpiredOn" xml:space="preserve">
+    <value>समाप्ती</value>
+  </data>
+  <data name="List" xml:space="preserve">
+    <value>सुची</value>
+  </data>
+  <data name="Notice" xml:space="preserve">
+    <value>सूचना</value>
+  </data>
+  <data name="PublishOn" xml:space="preserve">
+    <value>सार्वजनिक</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>शिर्षक</value>
+  </data>
+  <data name="Token" xml:space="preserve">
+    <value>टोकन</value>
+  </data>
+  <data name="ActivatedSuccess" xml:space="preserve">
+    <value>सफलताका साथ एक्टिभेट भएको छ।</value>
+  </data>
+  <data name="ActivateLogin" xml:space="preserve">
+    <value>एक्टिभेट</value>
+  </data>
+  <data name="DeactivatedSuccess" xml:space="preserve">
+    <value>सफलताका साथ डिएक्टिभेट भएको छ।</value>
+  </data>
+  <data name="DeactivateLogin" xml:space="preserve">
+    <value>डिएक्टिभेट</value>
+  </data>
+  <data name="Duplicate" xml:space="preserve">
+    <value>डुप्लिकेट भयो</value>
+  </data>
+  <data name="Event" xml:space="preserve">
+    <value>इभेन्ट</value>
+  </data>
+  <data name="IsManager" xml:space="preserve">
+    <value>प्रबन्धक हो ?</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>लागिन</value>
+  </data>
+  <data name="EnableMobile" xml:space="preserve">
+    <value>इनेवल मोबाईल</value>
+  </data>
+  <data name="IsUrgent" xml:space="preserve">
+    <value>जरुरि हो?</value>
+  </data>
+  <data name="HamroHajiricom" xml:space="preserve">
+    <value>हाम्रो-हजिरी.कम</value>
+  </data>
+  <data name="ControllerPermission" xml:space="preserve">
+    <value>कन्ट्रोलर अनुमती</value>
+  </data>
+  <data name="Module" xml:space="preserve">
+    <value>मोडुल </value>
+  </data>
+  <data name="ModulePermission" xml:space="preserve">
+    <value>मोडुल अनुमती</value>
+  </data>
+  <data name="Payroll" xml:space="preserve">
+    <value>तलबी विवरण</value>
+  </data>
+  <data name="Permission" xml:space="preserve">
+    <value>अनुमती</value>
+  </data>
+  <data name="LeaveBalExceeded" xml:space="preserve">
+    <value>लिने बिदा चाँही बाँकी बिदा भन्दा धेरै भयो ।</value>
+  </data>
+  <data name="NoRemainingLeave" xml:space="preserve">
+    <value>बाँकी बिदा छैन ।</value>
+  </data>
+  <data name="Approval" xml:space="preserve">
+    <value>मज्जुरी</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>स्विकृती दिनुहोस ।</value>
+  </data>
+  <data name="ApproveSuccess" xml:space="preserve">
+    <value>सफलताका साथ मज्जुरी भएको छ।</value>
+  </data>
+  <data name="Controller" xml:space="preserve">
+    <value>नियन्त्रक</value>
+  </data>
+  <data name="EventLevel" xml:space="preserve">
+    <value>ईभेन्ट लेभल</value>
+  </data>
+  <data name="LeaveApproval" xml:space="preserve">
+    <value>बिदाको लागी स्विकृती</value>
+  </data>
+  <data name="LeaveCount" xml:space="preserve">
+    <value>बिदा गन्नु</value>
+  </data>
+  <data name="NoticeLevel" xml:space="preserve">
+    <value>सूचना लेभल</value>
+  </data>
+  <data name="PullDeviceEmployee" xml:space="preserve">
+    <value>हाजिरी मेसिनमा कर्मचारी ल्याउनुहोस ।</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>अस्विकार गर्नुहोस ।</value>
+  </data>
+  <data name="RejectSuccess" xml:space="preserve">
+    <value>सफलताका साथ अस्विकार भएको छ।</value>
+  </data>
+  <data name="Remarks" xml:space="preserve">
+    <value>कैफियत</value>
+  </data>
+  <data name="RemLeave" xml:space="preserve">
+    <value>बाकी बिदा</value>
+  </data>
+  <data name="View" xml:space="preserve">
+    <value>हेर्नुहोस</value>
+  </data>
+  <data name="DataAlreadyPulled" xml:space="preserve">
+    <value>डाटा अगडिनै तानिएको छ ।</value>
+  </data>
+  <data name="ImportSuccess" xml:space="preserve">
+    <value>सफलताका साथ आयात भएको छ।</value>
+  </data>
+  <data name="PullDefaltLeave" xml:space="preserve">
+    <value>डिफल्ट बिदा ल्याउनुहोस ।</value>
+  </data>
+  <data name="PullDefaultHoliday" xml:space="preserve">
+    <value>डिफल्ट सार्वजनिक बिदा ल्याउनुहोस ।</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>मिती</value>
+  </data>
+  <data name="FiscalYearNotSet" xml:space="preserve">
+    <value>आर्थिक वर्ष निर्धारण गरिएको छैन ।</value>
+  </data>
+  <data name="TotalDays" xml:space="preserve">
+    <value>पुरा दिन</value>
+  </data>
+  <data name="BankName" xml:space="preserve">
+    <value>बैंकको नाम</value>
+  </data>
+  <data name="BankNameNp" xml:space="preserve">
+    <value>बैंकको नाम(नेपाली)</value>
+  </data>
+  <data name="BranchName" xml:space="preserve">
+    <value>शाखाको नाम</value>
+  </data>
+  <data name="BranchNameNp" xml:space="preserve">
+    <value>शाखाको नाम(नेपाली)</value>
+  </data>
+  <data name="CompanyName" xml:space="preserve">
+    <value>कम्पनीको नाम</value>
+  </data>
+  <data name="CompanyNameNp" xml:space="preserve">
+    <value>कम्पनीको नाम(नेपाली)</value>
+  </data>
+  <data name="DepartmentName" xml:space="preserve">
+    <value>विभागको नाम</value>
+  </data>
+  <data name="DepartmentNameNp" xml:space="preserve">
+    <value>विभागको नाम(नेपाली)</value>
+  </data>
+  <data name="DesignationName" xml:space="preserve">
+    <value>पदको नाम</value>
+  </data>
+  <data name="DesignationNameNp" xml:space="preserve">
+    <value>पदको नाम(नेपाली)</value>
+  </data>
+  <data name="DeviceName" xml:space="preserve">
+    <value>हाजिरी मेसिनको नाम</value>
+  </data>
+  <data name="DownloadExcelFormat" xml:space="preserve">
+    <value>एक्सल फरमेट डाउनलोड</value>
+  </data>
+  <data name="EmployeeNameNp" xml:space="preserve">
+    <value>कर्मचारीको नाम(नेपाली)</value>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>एक्स्पोर्ट</value>
+  </data>
+  <data name="GradeGroupName" xml:space="preserve">
+    <value>दर्जा समुहको नाम</value>
+  </data>
+  <data name="GradeGroupNameNp" xml:space="preserve">
+    <value>दर्जा समुहको नाम(नेपाली)</value>
+  </data>
+  <data name="HolidayNameNp" xml:space="preserve">
+    <value>छुट्टिको नाम(नेपाली)</value>
+  </data>
+  <data name="LeaveNameNp" xml:space="preserve">
+    <value>बिदाको नाम(नेपाली)</value>
+  </data>
+  <data name="SectionName" xml:space="preserve">
+    <value>फाँटको नाम</value>
+  </data>
+  <data name="SectionNameNp" xml:space="preserve">
+    <value>फाँटको नाम(नेपाली)</value>
+  </data>
+  <data name="ShiftName" xml:space="preserve">
+    <value>सिफ्टको नाम</value>
+  </data>
+  <data name="ShiftNameNp" xml:space="preserve">
+    <value>सिफ्टको नाम(नेपाली)</value>
+  </data>
+  <data name="UploadExcelFile" xml:space="preserve">
+    <value>अपलोड एक्सल फाइल</value>
+  </data>
+  <data name="Model" xml:space="preserve">
+    <value>मोडेल</value>
+  </data>
+  <data name="AboutUs" xml:space="preserve">
+    <value>हाम्रो बारेमा</value>
+  </data>
+  <data name="Extras" xml:space="preserve">
+    <value>अधिक</value>
+  </data>
+  <data name="History" xml:space="preserve">
+    <value>ईतिहास</value>
+  </data>
+  <data name="LeaveInfo" xml:space="preserve">
+    <value>बिदाको सुचना</value>
+  </data>
+  <data name="LeaveRequest" xml:space="preserve">
+    <value>बिदाको अनुरोध</value>
+  </data>
+  <data name="LoanAdvanceInfo" xml:space="preserve">
+    <value>ॠण/अगाडीनै जानकारी</value>
+  </data>
+  <data name="LoanAdvanceRequest" xml:space="preserve">
+    <value>ॠण/अगाडीनै अनुरोध</value>
+  </data>
+  <data name="MoreInfo" xml:space="preserve">
+    <value>अधिक जानकारी</value>
+  </data>
+  <data name="Preferences" xml:space="preserve">
+    <value>प्राथमिकता</value>
+  </data>
+  <data name="Setting" xml:space="preserve">
+    <value>सेटिङ</value>
+  </data>
+  <data name="Suggestion" xml:space="preserve">
+    <value>सुझाव</value>
+  </data>
+  <data name="UserFullName" xml:space="preserve">
+    <value>प्रयोगकर्ताको  पुरा नाम</value>
+  </data>
+  <data name="UserRoleName" xml:space="preserve">
+    <value>प्रयोगकर्ताको भूमिकाको नाम</value>
+  </data>
+  <data name="News" xml:space="preserve">
+    <value>समाचार</value>
+  </data>
+  <data name="Main" xml:space="preserve">
+    <value>मुख्य</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>डीलीट</value>
+  </data>
+  <data name="ViewDetails" xml:space="preserve">
+    <value>विवरण हेर्नुहोस</value>
+  </data>
+  <data name="EmployeeDeviceCode" xml:space="preserve">
+    <value>कर्मचारी मेसिन् कोड</value>
+  </data>
+  <data name="LeaveManagement" xml:space="preserve">
+    <value>बिदा व्यवस्थापन</value>
+  </data>
+  <data name="Managment" xml:space="preserve">
+    <value>व्यवस्थापन</value>
+  </data>
+  <data name="Setup" xml:space="preserve">
+    <value>सेट्प</value>
+  </data>
+  <data name="WeeklyRoster" xml:space="preserve">
+    <value>साप्ताहिक कार्यसुची</value>
+  </data>
+  <data name="MonthlyEmployeeSummaryReportDayWise" xml:space="preserve">
+    <value>कर्मचारीको संक्षेप प्रतिवेदन दैनिकी</value>
+  </data>
+  <data name="MonthlyEmployeeSummaryReportHourWise" xml:space="preserve">
+    <value>कर्मचारीको संक्षेप प्रतिवेदन घण्टा अवधि</value>
+  </data>
+  <data name="CheckMultiplForDynamicWeeklyoff" xml:space="preserve">
+    <value>गतिशिल हप्ता भित्रको विविध जाँच</value>
+  </data>
+  <data name="HolidayType" xml:space="preserve">
+    <value>सार्वजनिक बिदाको प्रकार</value>
+  </data>
+  <data name="DesignationLevel" xml:space="preserve">
+    <value>पदको तह</value>
+  </data>
+  <data name="EndMonth" xml:space="preserve">
+    <value>महिनाको आन्तिम</value>
+  </data>
+  <data name="NoOfStaff" xml:space="preserve">
+    <value>कर्मचारीको संख्या</value>
+  </data>
+  <data name="ShiftEndGrace" xml:space="preserve">
+    <value>सिफ्ट समाप्तिमा छुट</value>
+  </data>
+  <data name="ShiftStartGrace" xml:space="preserve">
+    <value>सिफ्ट सुरु गर्नुमा छुट</value>
+  </data>
+  <data name="ShortDayWorking" xml:space="preserve">
+    <value>कम समय काम गर्ने</value>
+  </data>
+  <data name="StartMonth" xml:space="preserve">
+    <value>महिनाको सुरुवात</value>
+  </data>
+  <data name="SettlingBalShouldEqualRemBal" xml:space="preserve">
+    <value>मीलाउने बिदा बाँकी बिदा सँग बराबरि हुनुपर्छ ।</value>
+  </data>
+  <data name="Excel" xml:space="preserve">
+    <value>एक्सेल</value>
+  </data>
+  <data name="OnDate" xml:space="preserve">
+    <value>मिती</value>
+  </data>
+  <data name="UserRoleNameNp" xml:space="preserve">
+    <value>प्रयोगकर्ताको भूमिकाको नाम(नेपाली)</value>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>अफ</value>
+  </data>
+  <data name="On" xml:space="preserve">
+    <value>अन</value>
+  </data>
+  <data name="PleaseSelectRowToDelete" xml:space="preserve">
+    <value>कृपया हटाउनु अगाडी रो रोज्नु</value>
+  </data>
+  <data name="PleaseSelectRowToEdit" xml:space="preserve">
+    <value>कृपया काट्छाट गर्नु अगाडी रो रोज्नु</value>
+  </data>
+  <data name="PleaseSelectRowToLogin" xml:space="preserve">
+    <value>कृपया लागिन गर्नु अगाडी रो रोज्नु</value>
+  </data>
+  <data name="PleaseSelectRowToViewDetails" xml:space="preserve">
+    <value>कृपया विवरण हेर्नु अगाडी रो रोज्नु</value>
+  </data>
+  <data name="EndDateIsRequired" xml:space="preserve">
+    <value>समाप्ती मिती</value>
+  </data>
+  <data name="StartDateIsRequired" xml:space="preserve">
+    <value>सुरु मिती</value>
+  </data>
+  <data name="TheEndDatemustbegreatethantheStartDate" xml:space="preserve">
+    <value>समप्ती मिती सुरु मिती भन्दा धेरै हुन</value>
+  </data>
+  <data name="SelectEmployees" xml:space="preserve">
+    <value>कर्मचारीहरु छान्नुहोस</value>
+  </data>
+  <data name="Attendance" xml:space="preserve">
+    <value>हाजिरी</value>
+  </data>
+  <data name="PlanedTime" xml:space="preserve">
+    <value>तय समय</value>
+  </data>
+  <data name="Planed" xml:space="preserve">
+    <value>तय समय</value>
+  </data>
+  <data name="SelfAttendanceInfoofCurrentMonth" xml:space="preserve">
+    <value>आफ्नो मासिक हाजिरी सुचना</value>
+  </data>
+  <data name="MonthlyAttendanceStatistic" xml:space="preserve">
+    <value>मासिक हाजिरी तथ्याक्ं</value>
+  </data>
+  <data name="EmploymentStatus" xml:space="preserve">
+    <value>रोजगार स्थिति</value>
+  </data>
+  <data name="IsContract" xml:space="preserve">
+    <value>सम्झौतामा</value>
+  </data>
+  <data name="BeganOn" xml:space="preserve">
+    <value>सुरु मिती</value>
+  </data>
+  <data name="ChangeStatus" xml:space="preserve">
+    <value>परिवर्तन स्थिति</value>
+  </data>
+  <data name="Contract" xml:space="preserve">
+    <value>सम्झौता</value>
+  </data>
+  <data name="ContractFor" xml:space="preserve">
+    <value>सम्झौता</value>
+  </data>
+  <data name="DesiredResignDate" xml:space="preserve">
+    <value>इच्छित राजीना मिती</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>विवरण</value>
+  </data>
+  <data name="EndedOn" xml:space="preserve">
+    <value>अन्त्य मिती</value>
+  </data>
+  <data name="ForwardTo" xml:space="preserve">
+    <value>फर्वार्डटु</value>
+  </data>
+  <data name="NoticeDate" xml:space="preserve">
+    <value>सूचना मिति</value>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>कारण</value>
+  </data>
+  <data name="Resignation" xml:space="preserve">
+    <value>राजीनामा</value>
+  </data>
+  <data name="ResignationFor" xml:space="preserve">
+    <value>राजीनामा</value>
+  </data>
+  <data name="ServiceEndDate" xml:space="preserve">
+    <value>सेवा अन्त मिति</value>
+  </data>
+  <data name="Termination" xml:space="preserve">
+    <value>समापन</value>
+  </data>
+  <data name="TerminationFor" xml:space="preserve">
+    <value>समापन</value>
+  </data>
+  <data name="EmployeeStatus" xml:space="preserve">
+    <value>कर्मचारी स्थिति</value>
+  </data>
+  <data name="Verification" xml:space="preserve">
+    <value>प्रमाणिकरण</value>
+  </data>
+  <data name="Education" xml:space="preserve">
+    <value>शिक्षा</value>
+  </data>
+  <data name="Experience" xml:space="preserve">
+    <value>अनुभव</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>भाषा</value>
+  </data>
+  <data name="License" xml:space="preserve">
+    <value>लाइसेन्स</value>
+  </data>
+  <data name="Membership" xml:space="preserve">
+    <value>सदस्यता</value>
+  </data>
+  <data name="Skill" xml:space="preserve">
+    <value>कौशल</value>
+  </data>
+  <data name="Allowance" xml:space="preserve">
+    <value>भत्ता</value>
+  </data>
+  <data name="Deduction" xml:space="preserve">
+    <value>कटौती</value>
+  </data>
+  <data name="Insurance" xml:space="preserve">
+    <value>बिमा</value>
+  </data>
+  <data name="DataVisibilityLevel" xml:space="preserve">
+    <value>डाटा भिजिबिलिटी लेभेल</value>
+  </data>
+  <data name="Coordinator" xml:space="preserve">
+    <value>संयोजक</value>
+  </data>
+  <data name="Cost" xml:space="preserve">
+    <value>लागत</value>
+  </data>
+  <data name="Course" xml:space="preserve">
+    <value>पाठ्यक्रम</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>मुद्रा</value>
+  </data>
+  <data name="Duration" xml:space="preserve">
+    <value>अवधि</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>स्थान</value>
+  </data>
+  <data name="Method" xml:space="preserve">
+    <value>विधि</value>
+  </data>
+  <data name="ParticipantStatus" xml:space="preserve">
+    <value>सहभागी स्थिति</value>
+  </data>
+  <data name="ParticipatingSession" xml:space="preserve">
+    <value>सहभागी सत्र</value>
+  </data>
+  <data name="Session" xml:space="preserve">
+    <value>सत्र</value>
+  </data>
+  <data name="Versionn" xml:space="preserve">
+    <value>संस्करण</value>
+  </data>
+  <data name="Subversion" xml:space="preserve">
+    <value>उपसंस्करण</value>
+  </data>
+  <data name="EndDatee" xml:space="preserve">
+    <value>मिती समाप्ती</value>
+  </data>
+  <data name="AdvanceAmount" xml:space="preserve">
+    <value>अग्रिम रकम</value>
+  </data>
+  <data name="AdvanceCash" xml:space="preserve">
+    <value>अग्रिम नगद</value>
+  </data>
+  <data name="Purpose" xml:space="preserve">
+    <value>उद्देश्य</value>
+  </data>
+  <data name="Travel" xml:space="preserve">
+    <value>यात्रा</value>
+  </data>
+  <data name="TravelInformation" xml:space="preserve">
+    <value>यात्रा जानकारी</value>
+  </data>
+  <data name="TravelRequest" xml:space="preserve">
+    <value>यात्रा अनुरोध</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>रकम</value>
+  </data>
+  <data name="Case" xml:space="preserve">
+    <value>मामला</value>
+  </data>
+  <data name="CaseName" xml:space="preserve">
+    <value>मामलाको नाम</value>
+  </data>
+  <data name="CreatedOn" xml:space="preserve">
+    <value>सिर्जना मा</value>
+  </data>
+  <data name="CurrencyPaidIn" xml:space="preserve">
+    <value>मुद्रा भुक्तानी</value>
+  </data>
+  <data name="CustomField" xml:space="preserve">
+    <value>अनुकूलन क्षेत्र</value>
+  </data>
+  <data name="DepartureTime" xml:space="preserve">
+    <value>प्रस्थान समय</value>
+  </data>
+  <data name="DestinationAddress" xml:space="preserve">
+    <value>गन्तव्य ठेगाना</value>
+  </data>
+  <data name="DisciplinaryAction" xml:space="preserve">
+    <value>शास्त्रीय  कार्य</value>
+  </data>
+  <data name="DisciplinaryCases" xml:space="preserve">
+    <value>शास्त्रीय मामला</value>
+  </data>
+  <data name="ExpenseType" xml:space="preserve">
+    <value>खर्च प्रकार</value>
+  </data>
+  <data name="FieldName" xml:space="preserve">
+    <value>क्षेत्रको नाम</value>
+  </data>
+  <data name="FieldType" xml:space="preserve">
+    <value>क्षेत्रको प्रकार</value>
+  </data>
+  <data name="Length" xml:space="preserve">
+    <value>लम्बाइ</value>
+  </data>
+  <data name="MainDestination" xml:space="preserve">
+    <value>मुख्य गन्तव्य</value>
+  </data>
+  <data name="PaidBy" xml:space="preserve">
+    <value>भुक्तानी द्वारा</value>
+  </data>
+  <data name="Request" xml:space="preserve">
+    <value>अनुरोध</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>कुल</value>
+  </data>
+  <data name="TravelEstimate" xml:space="preserve">
+    <value>यात्रा अनुमान</value>
+  </data>
+  <data name="TravelPeriodFrom" xml:space="preserve">
+    <value>यात्रा अवधि बाट</value>
+  </data>
+  <data name="TravelPeriodTo" xml:space="preserve">
+    <value>यात्रा अवधि गर्न</value>
+  </data>
+  <data name="DisciplinaryReportCasewise" xml:space="preserve">
+    <value>मामला अनुसार</value>
+  </data>
+  <data name="DisciplinaryReportEmployeewise" xml:space="preserve">
+    <value>कर्मचारी अनुसार</value>
+  </data>
+  <data name="EmployeeContractReport" xml:space="preserve">
+    <value>कर्मचारी सम्झौता प्रतिवेदन</value>
+  </data>
+  <data name="EmployeeDetailsReport" xml:space="preserve">
+    <value>कर्मचारी विवरण प्रतिवेदन</value>
+  </data>
+  <data name="EmployeeExperienceReport" xml:space="preserve">
+    <value>कर्मचारी अनुभव प्रतिवेदन</value>
+  </data>
+  <data name="EmployeeQualificationReport" xml:space="preserve">
+    <value>कर्मचारी योग्यता प्रतिवेदन</value>
+  </data>
+  <data name="EmployeeResignationReport" xml:space="preserve">
+    <value>कर्मचारी इस्तीफा प्रतिवेदन</value>
+  </data>
+  <data name="EmployeeTerminationReport" xml:space="preserve">
+    <value>कर्मचारी समापन प्रतिवेदन</value>
+  </data>
+  <data name="TrainingCourseReport" xml:space="preserve">
+    <value>कर्मचारी प्रशिक्षण पाठ्यक्रम प्रतिवेदन</value>
+  </data>
+  <data name="TrainingParticipationReport" xml:space="preserve">
+    <value>प्रशिक्षण सहभागिता रिपोर्ट</value>
+  </data>
+  <data name="TrainingSessionReport" xml:space="preserve">
+    <value>कर्मचारी प्रशिक्षण सत्र प्रतिवेदन</value>
+  </data>
+  <data name="AttendanceReportDesc" xml:space="preserve">
+    <value>कर्मचारी हाजिरी प्रतिवेदन</value>
+  </data>
+  <data name="DailyAttendanceReports" xml:space="preserve">
+    <value>दैनिक हाजिरी प्रतिबेदन</value>
+  </data>
+  <data name="EarlyIn" xml:space="preserve">
+    <value>चाँडै आउने</value>
+  </data>
+  <data name="EarlyOut" xml:space="preserve">
+    <value>चाँडै जाने</value>
+  </data>
+  <data name="EmployeeInformation" xml:space="preserve">
+    <value>कर्मचारी जानकारी</value>
+  </data>
+  <data name="EmployeePayRollSummaryReportDesc" xml:space="preserve">
+    <value>कर्मचारी तलबी विवरण सारांश प्रतिवेदन</value>
+  </data>
+  <data name="EmployeeSummaryReport" xml:space="preserve">
+    <value>कर्मचारी सारांश प्रतिवेदन</value>
+  </data>
+  <data name="EmployeeSummaryReportDesc" xml:space="preserve">
+    <value>तोकिएका समयमा  कर्मचारी सारांश प्रतिवेदन</value>
+  </data>
+  <data name="HR" xml:space="preserve">
+    <value>मानव स्रोत</value>
+  </data>
+  <data name="LateOut" xml:space="preserve">
+    <value>ढिला जाने</value>
+  </data>
+  <data name="MissingPunch" xml:space="preserve">
+    <value>भुलेको पन्च</value>
+  </data>
+  <data name="MonthlyRosterReport" xml:space="preserve">
+    <value>कर्मचारीको कार्यसुची प्रतिवेदन</value>
+  </data>
+  <data name="Participations" xml:space="preserve">
+    <value>सहभागिता</value>
+  </data>
+  <data name="Qualification" xml:space="preserve">
+    <value>योग्यता</value>
+  </data>
+  <data name="SalarySummary" xml:space="preserve">
+    <value> तलब सारांश </value>
+  </data>
+  <data name="Statics" xml:space="preserve">
+    <value>तथ्याङ्क</value>
+  </data>
+  <data name="Summary" xml:space="preserve">
+    <value>सारांश</value>
+  </data>
+  <data name="Daily" xml:space="preserve">
+    <value>दैनिक</value>
+  </data>
+  <data name="Disciplinary" xml:space="preserve">
+    <value>अनुशासनिक</value>
+  </data>
+  <data name="DisciplinaryReportCasewiseDesc" xml:space="preserve">
+    <value>मामला अनुसारको अनुशासनिक प्रतिवेदन</value>
+  </data>
+  <data name="DisciplinaryReportEmployeewiseDesc" xml:space="preserve">
+    <value>कर्मचारी अनुसारको अनुशासनिक प्रतिवेदन</value>
+  </data>
+  <data name="EmployeeWiseLeaveReport" xml:space="preserve">
+    <value>कर्मचारी अनुसार</value>
+  </data>
+  <data name="EmployeeWiseLeaveReportDesc" xml:space="preserve">
+    <value>कर्मचारी अनुसारको बिदाको प्रतिवेदन</value>
+  </data>
+  <data name="LeaveWiseLeaveReport" xml:space="preserve">
+    <value>बिदा अनुसार</value>
+  </data>
+  <data name="LeaveWiseLeaveReportDesc" xml:space="preserve">
+    <value>बिदा अनुसारको बिदाको प्रतिवेदन</value>
+  </data>
+  <data name="Monthly" xml:space="preserve">
+    <value>मासिक</value>
+  </data>
+  <data name="MonthlyOtReport" xml:space="preserve">
+    <value>मासिक ओ.टी प्रतिवेदन</value>
+  </data>
+  <data name="OT" xml:space="preserve">
+    <value>ओ.टी</value>
+  </data>
+  <data name="AppliedDate" xml:space="preserve">
+    <value>लागू गरिएको मिति</value>
+  </data>
+  <data name="ApproveBy" xml:space="preserve">
+    <value>अनुमोदन गर्ने</value>
+  </data>
+  <data name="DateOfFlight" xml:space="preserve">
+    <value>उडान मिति</value>
+  </data>
+  <data name="FlightNo" xml:space="preserve">
+    <value>उडान नम्बर</value>
+  </data>
+  <data name="Rebate" xml:space="preserve">
+    <value>छूट</value>
+  </data>
+  <data name="RecommendedBy" xml:space="preserve">
+    <value>सिफारिस गर्ने</value>
+  </data>
+  <data name="Relation" xml:space="preserve">
+    <value>सम्बन्ध</value>
+  </data>
+  <data name="RequestType" xml:space="preserve">
+    <value>अनुरोधको प्रकार</value>
+  </data>
+  <data name="Sector" xml:space="preserve">
+    <value>क्षेत्र</value>
+  </data>
+  <data name="TravelTicket" xml:space="preserve">
+    <value>यात्रा टिकट</value>
+  </data>
+  <data name="TravelTicketRequestForm" xml:space="preserve">
+    <value>यात्रा टिकट अनुरोध फारम</value>
+  </data>
+  <data name="Oneway" xml:space="preserve">
+    <value>एकतर्फी</value>
+  </data>
+  <data name="Twoway" xml:space="preserve">
+    <value>दुईतर्फी</value>
+  </data>
+  <data name="TravelTicketDetailsForm" xml:space="preserve">
+    <value>यात्रा टिकट विवरण फारम</value>
+  </data>
+  <data name="Hajiri" xml:space="preserve">
+    <value>हाजिरी</value>
+  </data>
+  <data name="TravelTicketApproval" xml:space="preserve">
+    <value>यात्रा टिकट अनुमोदन</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>सक्रिय </value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>सबै </value>
+  </data>
+  <data name="AllowancePaidPer" xml:space="preserve">
+    <value>भत्ता भुक्तानी</value>
+  </data>
+  <data name="FilterEmployee" xml:space="preserve">
+    <value>कर्मचारी फिल्टर</value>
+  </data>
+  <data name="Inactive" xml:space="preserve">
+    <value>निष्क्रिय</value>
+  </data>
+  <data name="MinWorkHour" xml:space="preserve">
+    <value>न्यूनतम कार्य घण्टा</value>
+  </data>
+  <data name="Period" xml:space="preserve">
+    <value>अवधि</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>मूल्य</value>
+  </data>
+  <data name="OtClaim" xml:space="preserve">
+    <value>ओ.टी दावी</value>
+  </data>
+  <data name="DailyEmployeeOtDesc" xml:space="preserve">
+    <value>दैनिक कर्मचारीको ओ.टी विवरणको   प्रतिवेदन</value>
+  </data>
+  <data name="MonthlyAbsentReport" xml:space="preserve">
+    <value>मासिक अनुपस्थितको प्रतिबेदन</value>
+  </data>
+  <data name="MonthlyEarlyInReport" xml:space="preserve">
+    <value>मासिक चाँडै आउनेको प्रतिबेदन</value>
+  </data>
+  <data name="MonthlyEarlyOutReport" xml:space="preserve">
+    <value>मासिक चाँडै जानेको प्रतिबेदन</value>
+  </data>
+  <data name="MonthlyLateInReport" xml:space="preserve">
+    <value>मासिक ढिला आउनेको प्रतिबेदन</value>
+  </data>
+  <data name="MonthlyLateOutReport" xml:space="preserve">
+    <value>मासिक ढिला जानेको प्रतिबेदन</value>
+  </data>
+  <data name="MonthlyLeaveReport" xml:space="preserve">
+    <value>मासिक बिदाको प्रतिबेदन</value>
+  </data>
+  <data name="MonthlyMissingPunchesReport" xml:space="preserve">
+    <value>मासिक भुलेको पन्चको प्रतिवेदन</value>
+  </data>
+  <data name="MonthlyOtClaimReport" xml:space="preserve">
+    <value>मासिक ओ.टीको दावी प्रतिबेदन</value>
+  </data>
+  <data name="LeaveReplacement" xml:space="preserve">
+    <value>बिदाको प्रतिस्थापन</value>
+  </data>
+  <data name="Allow" xml:space="preserve">
+    <value>अनुमति</value>
+  </data>
+  <data name="Configuration" xml:space="preserve">
+    <value>कन्फिगरेसन</value>
+  </data>
+  <data name="PresentInDayOff" xml:space="preserve">
+    <value>बिदा को दिन आउने</value>
+  </data>
+  <data name="PresentInHoliday" xml:space="preserve">
+    <value>छुट्टी को दिन आउने</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>रीफ्रेश</value>
+  </data>
+  <data name="Replacement" xml:space="preserve">
+    <value>प्रतिस्थापन</value>
+  </data>
+  <data name="EmployeeAllowanceReport" xml:space="preserve">
+    <value>मासिक भत्ताको प्रतिवेदन</value>
+  </data>
+  <data name="EmployeeAllowanceReportDesc" xml:space="preserve">
+    <value>मासिक भत्ताको प्रतिवेदन</value>
+  </data>
+  <data name="LeaveWiseTakenLeaveReportDesc" xml:space="preserve">
+    <value>बिदा अनुसारको बिदा लिएको प्रतिवेदन</value>
+  </data>
+  <data name="MonthlyAllowanceReport" xml:space="preserve">
+    <value>मासिक भत्ताको प्रतिवेदन</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>कुनै होईन</value>
+  </data>
+  <data name="FixedRoster" xml:space="preserve">
+    <value>स्थिर कार्यसुची</value>
+  </data>
+  <data name="DailyManualPunchReport" xml:space="preserve">
+    <value>दैनिक म्यानुअल पंच प्रतिवेदन</value>
+  </data>
+  <data name="MonthlyManualPunchReport" xml:space="preserve">
+    <value>मासिक म्यानुअल पंच प्रतिवेदन</value>
+  </data>
+  <data name="MonthlyOfficeVisitReport" xml:space="preserve">
+    <value>मासिक कार्यलय भ्रमन को प्रतिबेदन</value>
+  </data>
+  <data name="DailyOfficeVisitReport" xml:space="preserve">
+    <value>दैनिक  कार्यलय भ्रमन को प्रतिबेदन</value>
+  </data>
+  <data name="IncludeInactive" xml:space="preserve">
+    <value>निष्क्रिय समावेश</value>
+  </data>
+  <data name="OfficeVisitApproval" xml:space="preserve">
+    <value>कार्यलय भ्रमन मज्जुरी</value>
+  </data>
+  <data name="RefreshGrid" xml:space="preserve">
+    <value>रीफ्रेश ग्रिड</value>
+  </data>
+  <data name="DayWise" xml:space="preserve">
+    <value>दिन अनुसार</value>
+  </data>
+  <data name="HourWise" xml:space="preserve">
+    <value>घण्टा अनुसार</value>
+  </data>
+  <data name="IncludeLeave" xml:space="preserve">
+    <value>बिदा समावेश</value>
+  </data>
+  <data name="IncludePunchTime" xml:space="preserve">
+    <value>समावेश हाजिरी समय </value>
+  </data>
+  <data name="Kaj" xml:space="preserve">
+    <value>काज</value>
+  </data>
+  <data name="KajApproval" xml:space="preserve">
+    <value>काज स्विकृती</value>
+  </data>
+  <data name="ActiveDevices" xml:space="preserve">
+    <value>सक्रिय मेसिनहरू</value>
+  </data>
+  <data name="Devices" xml:space="preserve">
+    <value>मेसिनहरू</value>
+  </data>
+  <data name="Employeeattendancestatus" xml:space="preserve">
+    <value>कर्मचारीको हजिरी विवरण</value>
+  </data>
+  <data name="Employeeattendancestatus7days" xml:space="preserve">
+    <value>कर्मचारीको पछिल्लो ७ दिनको हजिरी विवरण</value>
+  </data>
+  <data name="Events" xml:space="preserve">
+    <value>घटनाक्रमहरू</value>
+  </data>
+  <data name="Holidays" xml:space="preserve">
+    <value>बिदाहरू</value>
+  </data>
+  <data name="NoRecordFound" xml:space="preserve">
+    <value>कुनै रेकर्ड फेला परेन</value>
+  </data>
+  <data name="TotalEmployees" xml:space="preserve">
+    <value>कुल कर्मचारी</value>
+  </data>
+  <data name="CopyFromLastFiscalYear" xml:space="preserve">
+    <value>पछिल्लो आर्थिक वर्षबाट प्रतिलिपि गर्नुहोस्</value>
+  </data>
+  <data name="Couple" xml:space="preserve">
+    <value>जोडी</value>
+  </data>
+  <data name="FiscalYear" xml:space="preserve">
+    <value>आर्थिक वर्ष</value>
+  </data>
+  <data name="Gratituity" xml:space="preserve">
+    <value>ग्रटुइटी</value>
+  </data>
+  <data name="Individual" xml:space="preserve">
+    <value>व्यक्तिगत</value>
+  </data>
+  <data name="INPFCITRuppes" xml:space="preserve">
+    <value>इ न+पी यफ + सी आइ टि  (रू)</value>
+  </data>
+  <data name="InsuranceCompany" xml:space="preserve">
+    <value>बीमा कम्पनी</value>
+  </data>
+  <data name="MaximumDeductionLimit" xml:space="preserve">
+    <value>अधिकतम कटौती सीमा</value>
+  </data>
+  <data name="OR" xml:space="preserve">
+    <value>वा</value>
+  </data>
+  <data name="PercentEmployee" xml:space="preserve">
+    <value>% कर्मचारी</value>
+  </data>
+  <data name="PercentEmployer" xml:space="preserve">
+    <value>% नियोक्ता  को </value>
+  </data>
+  <data name="Percentoftaxcalculated" xml:space="preserve">
+    <value>प्रतिशत कर गणना</value>
+  </data>
+  <data name="ProvidentFund" xml:space="preserve">
+    <value>संचयकोष </value>
+  </data>
+  <data name="RatioOfGrossSalary" xml:space="preserve">
+    <value>कूल तलबको अनुपात</value>
+  </data>
+  <data name="RebateForFemaleUnmarried" xml:space="preserve">
+    <value>महिला अविवाहितका लागि छुट</value>
+  </data>
+  <data name="SocialSecurity" xml:space="preserve">
+    <value>सामाजिक सुरक्षा</value>
+  </data>
+  <data name="SSFInformation" xml:space="preserve">
+    <value>एस एस इन्फर्मेसन</value>
+  </data>
+  <data name="TaxAboveFinalValuePercent" xml:space="preserve">
+    <value>अन्तिम मूल्य प्रतिशत भन्दा माथि कर</value>
+  </data>
+  <data name="TaxPercent" xml:space="preserve">
+    <value>कर प्रतिशत</value>
+  </data>
+  <data name="TaxSetup" xml:space="preserve">
+    <value>कर सेटअप</value>
+  </data>
+  <data name="TaxSlab" xml:space="preserve">
+    <value>कर स्लैब</value>
+  </data>
+  <data name="Thisismaximumamountthatiseligibleforvaliddeductionduringtaxation" xml:space="preserve">
+    <value>यो अधिकतम रकम हो जुन ट्याक्सेशनको क्रममा वैध कटौतीको लागि योग्य छ</value>
+  </data>
+  <data name="AllowanceHead" xml:space="preserve">
+    <value>भत्ता प्रमुख</value>
+  </data>
+  <data name="CodeEg" xml:space="preserve">
+    <value>कोड को उदाहरण</value>
+  </data>
+  <data name="NameEg" xml:space="preserve">
+    <value>नाम को उदाहरण</value>
+  </data>
+  <data name="Actual" xml:space="preserve">
+    <value>सही समय</value>
+  </data>
+  <data name="ActualTime" xml:space="preserve">
+    <value>सही समय</value>
+  </data>
+  <data name="BreakIn" xml:space="preserve">
+    <value>ब्रेक इन</value>
+  </data>
+  <data name="BreakOut" xml:space="preserve">
+    <value>ब्रेक आउट</value>
+  </data>
+  <data name="Early" xml:space="preserve">
+    <value>चाडो</value>
+  </data>
+  <data name="In" xml:space="preserve">
+    <value>इन</value>
+  </data>
+  <data name="Late" xml:space="preserve">
+    <value>ढिला</value>
+  </data>
+  <data name="Out" xml:space="preserve">
+    <value>आउट</value>
+  </data>
+  <data name="PlannedTime" xml:space="preserve">
+    <value>तय समय</value>
+  </data>
+  <data name="WorkTime" xml:space="preserve">
+    <value>कार्य समय</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>सम्पर्क</value>
+  </data>
+  <data name="BirthdayAnniversary" xml:space="preserve">
+    <value>जन्मदिन / वार्षिकोत्सव</value>
+  </data>
+  <data name="AbsentDays" xml:space="preserve">
+    <value>अनुपस्थित (दिन)</value>
+  </data>
+  <data name="DutyDays" xml:space="preserve">
+    <value>कार्य (दिन)</value>
+  </data>
+  <data name="HolidayDays" xml:space="preserve">
+    <value>सार्वजनिक बिदा (दिन)</value>
+  </data>
+  <data name="LeaveDays" xml:space="preserve">
+    <value>बिदा (दिन)</value>
+  </data>
+  <data name="MiscDays" xml:space="preserve">
+    <value>विविध (दिन)</value>
+  </data>
+  <data name="OTHours" xml:space="preserve">
+    <value>ओ.टी (घण्टा)</value>
+  </data>
+  <data name="PreseentOnDayOff" xml:space="preserve">
+    <value>सप्ताहन्त बिदामा उपस्थित (दिन)</value>
+  </data>
+  <data name="PresentDays" xml:space="preserve">
+    <value>उपस्थित (दिन)</value>
+  </data>
+  <data name="PresentOnHoliday" xml:space="preserve">
+    <value>सार्वजनिक बिदामा उपस्थित (दिन)</value>
+  </data>
+  <data name="WeekendDays" xml:space="preserve">
+    <value>सप्ताह (दिन)</value>
+  </data>
+  <data name="WorkedHours" xml:space="preserve">
+    <value>कार्य (घण्टा)</value>
+  </data>
+  <data name="BasicSalary" xml:space="preserve">
+    <value>स्केल</value>
+  </data>
+  <data name="CIT" xml:space="preserve">
+    <value>ना.ल.कोष</value>
+  </data>
+  <data name="DeductionAmount" xml:space="preserve">
+    <value>कटौती खाता</value>
+  </data>
+  <data name="Grade" xml:space="preserve">
+    <value>ग्रेड रकम</value>
+  </data>
+  <data name="GrossSalary" xml:space="preserve">
+    <value>कुल तलब</value>
+  </data>
+  <data name="InsuranceAmount" xml:space="preserve">
+    <value>बीमा कट्टी</value>
+  </data>
+  <data name="InsuranceAmountEmpyr" xml:space="preserve">
+    <value>बीमा थप</value>
+  </data>
+  <data name="NetPayable" xml:space="preserve">
+    <value>कुल प्राप्त</value>
+  </data>
+  <data name="RebateAmount" xml:space="preserve">
+    <value>छूट रकम</value>
+  </data>
+  <data name="TaxableAmount" xml:space="preserve">
+    <value>भुक्तानीयोग्य रकम</value>
+  </data>
+  <data name="TotalAllowance" xml:space="preserve">
+    <value>कुल भत्ता</value>
+  </data>
+  <data name="TotalEmployeeSSF" xml:space="preserve">
+    <value>क.सा.को कटौती</value>
+  </data>
+  <data name="TotalEmployerSSF" xml:space="preserve">
+    <value>क.सा.को थप</value>
+  </data>
+  <data name="TotalTDS" xml:space="preserve">
+    <value>सा.सु.कर</value>
+  </data>
+  <data name="MonthOfJoin" xml:space="preserve">
+    <value>तलब वृद्धि हुनु </value>
+  </data>
+  <data name="GradeTitle" xml:space="preserve">
+    <value>ग्रेड</value>
+  </data>
+  <data name="PensionFundEmployee" xml:space="preserve">
+    <value>पे.यो. कट्टी</value>
+  </data>
+  <data name="PensionFundEmployer" xml:space="preserve">
+    <value>पे.यो. थप</value>
+  </data>
+  <data name="PFEmployee" xml:space="preserve">
+    <value>क.सं.को कट्टी</value>
+  </data>
+  <data name="PFEmployer" xml:space="preserve">
+    <value>क.सं.को थप</value>
+  </data>
+  <data name="AdditionAmount" xml:space="preserve">
+    <value>थप रकम</value>
+  </data>
+  <data name="asd" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CodeNo" xml:space="preserve">
+    <value>कोड नम्बर</value>
+  </data>
+  <data name="EmployeeContributionAmount" xml:space="preserve">
+    <value>अनिवार्य कट्टी</value>
+  </data>
+  <data name="EmployerContributionAmount" xml:space="preserve">
+    <value>कोष थप</value>
+  </data>
+  <data name="InsurancePolicyNo" xml:space="preserve">
+    <value>विमा कोष प.प.नं.</value>
+  </data>
+  <data name="SheetRollNo" xml:space="preserve">
+    <value>सिट रोल नं.</value>
+  </data>
+  <data name="TotalDeduction" xml:space="preserve">
+    <value>जम्मा कट्टी रु.</value>
+  </data>
+  <data name="FromMonth" xml:space="preserve">
+    <value>महिना बाट</value>
+  </data>
+  <data name="InsuranceReport" xml:space="preserve">
+    <value>बीमा रिपोर्ट</value>
+  </data>
+  <data name="ToMonth" xml:space="preserve">
+    <value>महिनामा</value>
+  </data>
+  <data name="CITNo" xml:space="preserve">
+    <value>परिचय पत्र नं.</value>
+  </data>
+  <data name="CompanyAddress" xml:space="preserve">
+    <value>कम्पनीको ठेगाना</value>
+  </data>
+  <data name="CompanyCodeNo" xml:space="preserve">
+    <value>कम्पनी को कोड</value>
+  </data>
+  <data name="FundDeduction" xml:space="preserve">
+    <value>कोषकट्टी</value>
+  </data>
+  <data name="IssuedAmount" xml:space="preserve">
+    <value>दाखिला रकम रु.</value>
+  </data>
+  <data name="IssuedDate" xml:space="preserve">
+    <value>दाखिला गरेको मिति</value>
+  </data>
+  <data name="IssuedToBankName" xml:space="preserve">
+    <value>दाखिला गरेको बैंकको नाम</value>
+  </data>
+  <data name="PhoneNo" xml:space="preserve">
+    <value>फोन नम्बर</value>
+  </data>
+  <data name="PF" xml:space="preserve">
+    <value>क.सं.कोष प.प.नं.</value>
+  </data>
+  <data name="ProvidentFundNo" xml:space="preserve">
+    <value>संचयकोष  नं</value>
+  </data>
+  <data name="Itisrequestedthatthefollowingstaffsbesenttothisofficefornecessaryworkincludingsplittingandbankfilingvouchers" xml:space="preserve">
+    <value>यस कार्यालयमा निम्न कर्मचारीहरुको फाँटवारी र बैंक दाखिला भौचर समावेश गरी आवश्यक कार्यार्थको लागि पठाईएको व्यहोरा अनुरोध छ ।</value>
+  </data>
+  <data name="MultiPunch" xml:space="preserve">
+    <value>बहु पन्च</value>
+  </data>
+  <data name="MultiPunchAttendanceDetailReport" xml:space="preserve">
+    <value>बहु पन्च उपस्थिति विवरण रिपोर्ट</value>
+  </data>
+  <data name="PunchTime" xml:space="preserve">
+    <value>हाजिरी समय</value>
+  </data>
+</root>

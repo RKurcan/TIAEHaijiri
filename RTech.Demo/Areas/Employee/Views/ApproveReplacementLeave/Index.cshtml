@@ -1,0 +1,234 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Layout_Adminlte.cshtml";
+}
+<section class="content-header">
+    <h1>
+        @T("LeaveReplacement")
+        <sup class="text-green">@T("Approval")</sup>
+
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> @T("Home")</a></li>
+        <li class="active">@T("LeaveReplacement")</li>
+    </ol>
+
+    <style>
+        .panel-body {
+            padding: 7.5px;
+        }
+
+        .list-group-item {
+            position: relative;
+            display: block;
+            padding: 4px;
+            margin-bottom: -1px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+        }
+
+            .list-group-item:first-child {
+                margin-top: 0;
+                border-top: 0px;
+                border-bottom-right-radius: 4px;
+                /* border-bottom-left-radius: 4px; */
+            }
+
+        .modal.bootstrap-dialog.type-primary.fade.size-large.in > .modal-dialog {
+            width: 90%;
+            overflow-x: scroll;
+        }
+
+        .form-horizontal .form-group {
+            margin-right: -12px;
+            margin-left: -15px;
+        }
+
+        .modal-body {
+            position: relative;
+            padding: 2px;
+        }
+    </style>
+</section>
+<!-- Main content -->
+<section class="content">
+    <!-- Info boxes -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box box-success">
+                <div class="box-header with-border">
+                    &nbsp;
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-wrench"></i>
+                            </button>
+                            <ul class="dropdown-menu" role="menu"></ul>
+                        </div>
+                        <button type="button" class="btn btn-box-tool text-red" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="row" data-bind="visible:Riddha.DataVisibilityLevel=='4'">
+                    <br>
+                    <div class="col-lg-12">
+                        <div class="form-horizontal">
+                            <div class="row">
+                                <div class="form-group col-lg-12">
+                                    <label class="col-lg-1 control-label" for="Number">@T("Branch")</label>
+                                    <div class="col-lg-3">
+                                        <select class="form-control " required data-bind="options:Branches,optionsText:'Name',optionsValue:'Id',value:$root.BranchId,event:{change:$root.Search}"></select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-body ">
+
+                    <ul id="tabList" class="nav nav-tabs">
+                        <li class="active"><a href="#leaveReplacement" data-toggle="tab">@T("LeaveReplacement") &nbsp;<span class="badge bg-aqua-gradient"></span></a></li>
+                        <li data-bind="actionVisibility:'7201'"><a href="#ArroveList" data-toggle="tab">@T("Approval") @T("List") &nbsp;<span class="badge bg-black-gradient"></span></a></li>
+                    </ul>
+                    <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane fade active in " id="leaveReplacement">
+                            <br />
+                            <div class="box-body ">
+                                <div class="modal-body">
+                                    <div class="form-horizontal" data-bind="">
+                                        <div class="row">
+                                            <div class="form-group col-lg-4">
+                                                <label class="col-lg-4 control-label" for="OnDate">@T("Year")</label>
+                                                <div class="col-lg-5">
+                                                    <input type="text" class="form-control" data-bind="value:Year,mask:'number'" maxlength="4">
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-lg-4">
+                                                <label class="col-lg-4 control-label">@T("Month")</label>
+                                                <div class="col-lg-8">
+                                                    <select class="form-control" data-bind="options:Months,optionsText:'Name',optionsValue:'Id',value:MonthId"></select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-lg-4">
+                                                <div class="col-lg-2"></div>
+                                                <div class="col-lg-8">
+                                                    <input type="button" name="Save" class="btn btn-success" value=@T("Refresh") data-bind="click:RefreshApprovalGrid,actionVisibility:'7197'" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <div class="panel panel-success">
+                                                    <div class="box-header bg-green ">@T("Department") <input class="pull-right" type="checkbox" data-bind="checked:CheckAllDepartments" /></div>
+                                                    <div class="panel-body" style="height:250px; overflow-y:auto">
+                                                        <ul data-bind="foreach:Departments" class="list-group list list-group-unbordered">
+                                                            <li class="list-group-item">
+                                                                <span data-bind="text:Name"></span>   <a class="pull-right"><input type="checkbox" data-bind="checked:Checked,event:{change:$root.GetSections}" /></a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="panel panel-success">
+                                                    <div class="box-header bg-green ">@T("Section") <input class="pull-right" type="checkbox" data-bind="checked:CheckAllSections" /></div>
+                                                    <div class="panel-body" style="height:250px; overflow-y:auto">
+                                                        <ul data-bind="foreach:Sections" class="list-group list list-group-unbordered">
+                                                            <li class="list-group-item">
+                                                                <span data-bind="text:Name"></span>   <a class="pull-right"><input type="checkbox" data-bind="checked:Checked,event:{change:$root.GetEmployee}" /></a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="panel panel-success">
+                                                    <div class="box-header bg-green ">@T("Employee") <input class="pull-right" type="checkbox" data-bind="checked:CheckAllEmployees" /></div>
+                                                    <div class="panel-body" data-bind="" style="height:250px; overflow-y:auto">
+                                                        <ul data-bind="foreach:Employees" class="list-group list list-group-unbordered">
+                                                            <li class="list-group-item">
+                                                                <span data-bind="text:Name"></span>   <input class="pull-right" type="checkbox" data-bind="value:Id,checked:Checked,enable:$root.CheckAllEmployees()==false" />
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12" data-bind="kendoGrid:KendoGridOptions">
+                                                <div id="approveReplacementLeaveKendoGrid">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <div class="col-lg-7">
+                                            <input type="button" data-bind="click:Approve,actionVisibility:'7198'" name="Save" class="btn btn-success" value=@T("Approve") />
+                                            <input type="button" data-bind="click:$root.Reset" name="Reset" value=@T("Reset") class="btn btn-default" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade  " id="ArroveList">
+                            <br />
+                            <div class="row">
+                                <div class="col-lg-12" data-bind="kendoGrid:KendoGridOptionForApprovalList">
+                                    <div id="approvalListKendoGrid">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/html" id="mode-button-add-template">
+        <span class="glyphicon glyphicon-plus"></span>
+    </script>
+    <script type="text/html" id="mode-button-update-template">
+        <span class="glyphicon glyphicon-arrow-up"></span>
+    </script>
+    <!-- /.row -->
+    <!-- /.row -->
+    <!-- Main row -->
+    <!-- /.row -->
+</section>
+
+@if (Request.IsAjaxRequest())
+{
+    <script src="~/Areas/Employee/Scripts/Riddha.Script.ApproveReplacementLeave.Controller.js"></script>
+    <script type="text/javascript">
+        var obj = {};
+        Riddha.global.permission.action('8016').done(function (data) {
+            Riddha.global.permission.actions = data.Data;
+            ko.cleanNode(document.getElementById("partial-render"));
+            obj = new ApproveReplacementLeaveController();
+            ko.applyBindings(obj, document.getElementById("partial-render"));
+        });
+    </script>
+}
+else
+{
+    @section scripts
+    {
+        <script src="~/Areas/Employee/Scripts/Riddha.Script.ApproveReplacementLeave.Controller.js"></script>
+        <script type="text/javascript">
+            var obj = {};
+            Riddha.global.permission.action('8016').done(function (data) {
+                Riddha.global.permission.actions = data.Data;
+                ko.cleanNode(document.getElementById("partial-render"));
+                obj = new ApproveReplacementLeaveController();
+                ko.applyBindings(obj, document.getElementById("partial-render"));
+            });
+        </script>
+    }
+}
+
+

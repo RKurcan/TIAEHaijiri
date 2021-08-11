@@ -1,0 +1,267 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Layout_Adminlte.cshtml";
+}
+<style>
+    html .k-dialog .k-window-titlebar {
+        padding-left: 17px;
+    }
+
+    .k-dialog .k-content {
+        padding: 17px;
+    }
+
+    #filterText {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 6px;
+        border-radius: 3px;
+        border: 1px solid #d9d9d9;
+    }
+
+    .selectAll {
+        margin: 17px 0;
+    }
+
+    #result {
+        color: #9ca3a6;
+        float: right;
+    }
+
+    #treeview {
+        height: 300px;
+        overflow-y: auto;
+        border: 1px solid #d9d9d9;
+    }
+
+    #openWindow {
+        min-width: 180px;
+    }
+</style>
+<section class="content-header">
+    <h1>
+        @T("UserRole")
+        <sup class="text-green">@T("Creation")</sup>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i>@T("Home")</a></li>
+        <li class="active">@T("UserRole")</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <div class="modal" id="dataVisibilityModal" style="">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4>@T("DataVisibilityLevel")</h4></header>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group col-lg-6">
+                        <!--ko foreach:DataVisibilityLevels-->
+                        <div class="col-lg-12">
+                            <input type="radio" name="DataVisibilityLevel" data-bind="value:Id,checked:$root.DataVisibilityLevel" /> &nbsp; &nbsp; <!-- ko text:Name --><!-- /ko -->
+                        </div>
+                        <!--/ko-->
+                    </div>
+                    <div class="col-lg-12 ">
+                        <input type="submit" data-bind="click:$root.CreateDataVisibilityLevel" name="Save" class="btn btn-success" value=@T("Save") />
+                        <input type="button" id="close" data-bind="click:$root.CloseDataVisibilityModal" value=@T("Back") class="btn btn-default" />
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- UserRole Modal -->
+    <div class="modal" id="userRoleCreationModel" style="">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4>@T("UserRole") @T("Creation")</h4></header>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal" data-bind="with:UserRole">
+                        <div class="form-group">
+                            <div class="required">
+                                <label class="col-lg-4 control-label" for="Number">@T("UserRoleName")</label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" required data-bind="value:Name" id="form-group-input " maxlength="50">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="required">
+                                <label class="col-lg-4 control-label" for="Number">@T("UserRoleNameNp")</label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" required data-bind="PreetiToUnicode:NameNp" id="form-group-input " maxlength="50">
+                                </div>
+                            </div>
+                        </div>
+                        @*<div class="form-group">
+                            <label class="col-lg-2
+                                    control-label" for="Number">@T("Priority")</label>
+                                    <div class="col-lg-4">
+                                        <input type="number" class="form-control" data-bind="value:Priority" id="form-group-input ">
+                                    </div>
+                                </div>*@
+                    </div>
+                    <div class="col-lg-12 text-center">
+                        <input type="submit" data-bind="click:$root.CreateUpdate,createUpdateText:$root.ModeOfButton" name="Save" class="btn btn-success" value=@T("Save") />
+                        <input type="button" data-bind="click:$root.Reset" name="Reset" value=@T("Reset") class="btn btn-default" />
+                        <input type="button" id="close" data-bind="click:$root.CloseModal" value=@T("Back") class="btn btn-default" />
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Info boxes -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box box-success">
+                <div class="box-header with-border">
+                    &nbsp;
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool dropdown-toggle text-green" data-toggle="dropdown" data-bind="click:ShowModal,actionVisibility:'4003'" style="">
+                            <i class="fa fa-plus-square"></i> @T("Create")
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <div class="btn-group">
+
+                            <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-wrench"></i>
+                            </button>
+                            <ul class="dropdown-menu" role="menu"></ul>
+                        </div>
+                        <button type="button" class="btn btn-box-tool text-red" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="row" data-bind="visible:Riddha.DataVisibilityLevel=='4'">
+                    <br>
+                    <div class="col-lg-12">
+                        <div class="form-horizontal">
+                            <div class="row">
+                                <div class="form-group col-lg-12">
+                                    <label class="col-lg-1 control-label" for="Number">@T("Branch")</label>
+                                    <div class="col-lg-3">
+                                        <select class="form-control " required data-bind="options:Branches,optionsText:'Name',optionsValue:'Id',value:$root.BranchId,event:{change:$root.Search}"></select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-body table-responsive ">
+                    <table class="table table-condensed table-bordered table-striped no-padding table-hover">
+                        <thead class="success bg-green">
+                            <tr>
+                                <th class="col-lg-1"> @T("SerialNo")</th>
+                                <th class="col-lg-2"> @T("UserRoleName") </th>
+                                <th class="col-lg-2"> @T("UserRoleNameNp") </th>
+                                @*<th class="col-lg-1"> @T("Priority")</th>*@
+                                <th class="col-lg-3">@T("Action")</th>
+                            </tr>
+                        </thead>
+                        <tbody data-bind="foreach:UserRoles">
+                            <tr>
+                                <td class="hidden"><input type="hidden" data-bind="value:Id" /></td>
+                                <td data-bind="serialNo:$index()+1"></td>
+                                <td data-bind="text:Name"></td>
+                                <td data-bind="text:NameNp"></td>
+                                @*<td data-bind="text:Priority"></td>*@
+                                <td>
+                                    <button type="button" data-bind="click:$root.Select,actionVisibility:'4004'" class="btn btn-xs btn-default action" title="Edit"><span class="glyphicon glyphicon-pencil  text-success"></span> </button>
+                                    <button type="button" data-bind="click:$root.Delete,actionVisibility:'4005'" class="btn btn-xs btn-default action" title="Remove"><span class="glyphicon glyphicon-trash  text-danger"></span></button>
+                                    <button class="k-primary action" data-bind="click:$root.ShowKendoDialog,actionVisibility:'4010',visible:BranchId">@T("Permission")</button>
+                                    <button class="k-primary" data-bind="visible:BranchId,click:$root.ShowDataVisibilityModal">@T("DataVisibilityLevel")</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot data-bind="with:UserRole">
+                            @*<tr>
+                        <td></td>
+                        <td>
+                            <div class="">
+                                <input type="text" class="form-control " id="form-group-input" data-bind="value:Name" placeholder=@T("Name")>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="">
+                                <input type="number" class="form-control " id="form-group-input" data-bind="value:Priority" placeholder=@T("Priority")>
+                            </div>
+                        </td>
+                        <td>
+                            <button type="button" data-bind="click:$root.CreateUpdate,template:{name:$root.ModeOfButton()=='Create'?'mode-button-add-template':'mode-button-update-template'}" class="btn btn-success" title=@T("Create")></button>
+                            <button type="button" data-bind="click:$root.Reset" class="btn btn-default" title=@T("Reset")><span class="glyphicon glyphicon-refresh"></span></button>
+                        </td>
+                    </tr>*@
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="treeViewWindow">
+        <div class="k-content">
+            @*<input id="filterText" type="text" placeholder="Search categories" />*@
+            <div class="selectAll">
+                @*<input type="checkbox" id="chbAll" class="k-checkbox" data-bind="checked:$root.CheckAllNodes" />
+                    <label class="k-checkbox-label" for="chbAll">Select All</label>*@
+                @*<span id="result">0 categories selected</span>*@
+            </div>
+            <div id="treeview"></div>
+        </div>
+    </div>
+    <script type="text/html" id="mode-button-add-template">
+        <span class="glyphicon glyphicon-plus"></span>
+    </script>
+    <script type="text/html" id="mode-button-update-template">
+        <span class="glyphicon glyphicon-arrow-up"></span>
+    </script>
+    <!-- /.row -->
+    <!-- /.row -->
+    <!-- Main row -->
+    <!-- /.row -->
+</section>
+
+@if (Request.IsAjaxRequest())
+{
+    @*<script src="~/Areas/User/Scripts/Riddha.Script.User.Model.js"></script>
+        <script src="~/Areas/User/Scripts/Riddha.Script.User.Controller.js"></script>*@
+    @*<script src="~/Areas/User/Scripts/Riddha.Script.RolePermissionTreeData.js"></script>*@
+    <script type="text/javascript">
+
+        Riddha.global.permission.action('4001').done(function (data) {
+            Riddha.global.permission.actions = data.Data;
+            ko.cleanNode(document.getElementById("partial-render"));
+            var obj = new userRoleController();
+            ko.applyBindings(obj, document.getElementById("partial-render"));
+            obj.Search();
+        });
+    </script>
+}
+else
+{
+    @section scripts
+    {
+        @*<script src="~/Areas/User/Scripts/Riddha.Script.User.Model.js"></script>
+            <script src="~/Areas/User/Scripts/Riddha.Script.User.Controller.js"></script>*@
+        @*<script src="~/Areas/User/Scripts/Riddha.Script.RolePermissionTreeData.js"></script>*@
+        <script type="text/javascript">
+            Riddha.global.permission.action('4001').done(function (data) {
+                Riddha.global.permission.actions = data.Data;
+                ko.cleanNode(document.getElementById("partial-render"));
+                var obj = new userRoleController();
+                ko.applyBindings(obj, document.getElementById("partial-render"));
+                obj.Search();
+            });
+        </script>
+    }
+}

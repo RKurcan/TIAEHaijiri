@@ -1,0 +1,121 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Layout_Adminlte.cshtml";
+}
+<section class="content-header">
+    <h1>
+        @T("AllowanceHead")
+        <sup class="text-green">@T("Creation")</sup>
+
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> @T("Home")</a></li>
+        <li class="active">@T("AllowanceHead")</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <!-- Education Modal -->
+    <div class="modal" id="allowanceHeadCreationModel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-blue">@T("AllowanceHead")   @T("Creation")</h4></header>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal" data-bind="with:AllowanceHead">
+                        <div class="form-group col-lg-12">
+                            <div class="required">
+                                <label class="col-lg-4 control-label">@T("Code")</label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" required data-bind="value:Code" placeholder="@T("CodeEg")" maxlength="10">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-12">
+                            <div class="required">
+                                <label class="col-lg-4 control-label">@T("Name")</label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" required data-bind="value:Name" placeholder="@T("NameEg")" maxlength="300">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="form-group text-center">
+                            <input type="submit" data-bind="click:$root.CreateUpdate,createUpdateText:$root.ModeOfButton" name="Save" class="btn btn-success" />
+                            <input type="button" data-bind="click:$root.Reset" name="Reset" value=@T("Reset") class="btn btn-default" />
+                            <input type="button" id="close" data-bind="click:$root.CloseModal" value=@T("Back") class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Info boxes -->
+
+    <div class="box box-success">
+        <div class="box-header">
+            <div class="">
+
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default action" data-bind="click:ShowModal,actionVisibility:'7243'"><i class="fa fa-plus-square text-green">&nbsp;@T("Create")</i></button>
+                    <button type="button" class="btn btn-default action" data-bind="click:Select,actionVisibility:'7244'"><i class="fa fa-pencil text-green">&nbsp;@T("Edit")</i></button>
+                    <button type="button" class="btn btn-default action" data-bind="click:Delete,actionVisibility:'7245'"><i class="fa fa-trash text-red">&nbsp;@T("Delete")</i></button>
+                </div>
+            </div>
+        </div>
+        <div class="box-body">
+            <div class="row">
+                <div class="col-lg-12" data-bind="kendoGrid:KendoGridOptions">
+                    <div id="allowanceHeadKendoGrid">
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- /.row -->
+    <!-- /.row -->
+    <!-- Main row -->
+    <!-- /.row -->
+</section>
+
+@if (Request.IsAjaxRequest())
+{
+    <script src="~/Areas/PayRoll/Scripts/Riddha.Script.AllowanceHead.Controller.js"></script>
+    <script src="~/Areas/PayRoll/Scripts/Riddha.Script.AllowanceHead.Model.js"></script>
+    <script type="text/javascript">
+        var obj = {};
+        Riddha.global.permission.action('8024').done(function (data) {
+            Riddha.global.permission.actions = data.Data;
+            ko.cleanNode(document.getElementById("partial-render"));
+            obj = new allowanceHeadController();
+            ko.applyBindings(obj, document.getElementById("partial-render"));
+        });
+    </script>
+}
+else
+{
+    @section scripts
+    {
+
+        <script src="~/Areas/PayRoll/Scripts/Riddha.Script.AllowanceHead.Controller.js"></script>
+        <script src="~/Areas/PayRoll/Scripts/Riddha.Script.AllowanceHead.Model.js"></script>
+        <script type="text/javascript">
+            var obj = {};
+            Riddha.global.permission.action('8024').done(function (data) {
+                Riddha.global.permission.actions = data.Data;
+                ko.cleanNode(document.getElementById("partial-render"));
+                obj = new allowanceHeadController();
+                ko.applyBindings(obj, document.getElementById("partial-render"));
+            });
+        </script>
+    }
+}
+
+
+
+

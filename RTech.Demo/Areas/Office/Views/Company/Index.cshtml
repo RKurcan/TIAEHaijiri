@@ -1,0 +1,369 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Layout_Adminlte.cshtml";
+}
+<style>
+</style>
+<section class="content-header">
+    <h1>
+        Customer
+        <sup class="text-green">Creation</sup>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+
+        <li class="active">Customer</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <!-- Company Modal -->
+    <div class="modal" id="companyCreationModel">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-green">Customer Creation</h4></header>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal" data-bind="with:Company">
+                        <div class="form-group col-lg-6">
+                            <div class="required">
+                                <label class="col-lg-5 control-label" for="Number">Code</label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" required data-bind="value:Code,event:{change:$root.CheckDuplicateSNo}" id="form-group-input " placeholder="Code">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <div class="required">
+                                <label class="col-lg-5 control-label" for="Number">Name</label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" required data-bind="value:Name" id="form-group-input " placeholder="Name">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label class="col-lg-5 control-label" for="Number">Name(Nepali)</label>
+                            <div class="col-lg-6">
+                                <input type="text" class="form-control" required data-bind="PreetiToUnicode:NameNp" id="form-group-input " placeholder="Name  (Nepali)">
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <div class="required">
+                                <label class="col-lg-5 control-label" for="Number">Address</label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" required data-bind="value:Address" id="form-group-input " placeholder="Address">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label class="col-lg-5 control-label" for="Number">Address(Nepali)</label>
+                            <div class="col-lg-6">
+                                <input type="text" class="form-control" required data-bind="PreetiToUnicode:AddressNp" id="form-group-input " placeholder="Address  (Nepali)">
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <div class="required">
+                                <label class="col-lg-5 control-label" for="Number">Contact Number</label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" required data-bind="value:ContactNo" id="form-group-input " placeholder="Contact Number">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <div class="required">
+                                <label class="col-lg-5 control-label" for="Number">Contact Person</label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" required data-bind="value:ContactPerson" id="form-group-input " placeholder="Contact Person">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label class="col-lg-5 control-label" for="Number">Contact Person(Nepali)</label>
+                            <div class="col-lg-6">
+                                <input type="text" class="form-control" required data-bind="PreetiToUnicode:ContactPersonNp" id="form-group-input " placeholder="Contact Person (Nepali)">
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <div class="required">
+                                <label class="col-lg-5 control-label" for="Number">Email</label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" required data-bind="value:Email,event:{change:$root.CheckDuplicateEmail}" id="form-group-input " placeholder="Email">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label class="col-lg-5 control-label" for="Number">Web</label>
+                            <div class="col-lg-6">
+                                <input type="text" class="form-control" required data-bind="value:WebUrl" id="form-group-input " placeholder="WebUrl">
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label class="col-lg-5 control-label" for="Number">PAN</label>
+                            <div class="col-lg-6">
+                                <input type="text" class="form-control" required data-bind="value:PAN" id="form-group-input " placeholder="PAN">
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label class="col-lg-5 control-label" for="Number">User Name</label>
+                            <div class="col-lg-6">
+                                <input type="text" class="form-control" required data-bind="value:$root.UserName" id="form-group-input " placeholder="User Name">
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label class="col-lg-5 control-label" for="Number">Password</label>
+                            <div class="col-lg-6">
+                                <input type="text" class="form-control" required data-bind="value:$root.Password" id="form-group-input " placeholder="Password" onkeypress="return RestrictSpace()">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-lg-6">
+                            <label class="col-lg-5 control-label" for="Number">Enable Mobile</label>
+                            <div class="col-lg-6">
+                                <input type="checkbox" data-bind="checked:EnableMobile">
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label class="col-lg-5 control-label" for="Number">Software Package</label>
+                            <div class="col-lg-6">
+                                <select class="form-control" required data-bind="options:$root.SoftwarePackageType,
+                                                                                                optionsText:'Name',optionsValue:'Id',value:SoftwarePackageType"></select>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label class="col-lg-5 control-label" for="Number">Software Type</label>
+                            <div class="col-lg-6">
+                                <select class="form-control" required data-bind="options:$root.SoftwareTypes,
+                                                                                                optionsText:'Name',optionsValue:'Id',value:SoftwareType"></select>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-lg-6">
+                            @*<label class="col-lg-6 control-label" for="Number"></label>*@
+                            <div class="col-lg-3"></div>
+                            <div class="col-lg-9">
+                                <span data-bind="text:$root.PasswordInfo,attr:{class:$root.PasswordInfoStyle}"></span>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label class="col-lg-5 control-label" for="Number">Price</label>
+                            <div class="col-lg-6">
+                                <input type="text" class="form-control" required data-bind="value:Price" id="form-group-input " placeholder="Price">
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label class="col-lg-5 control-label" for="Number">Organization Type</label>
+                            <div class="col-lg-6">
+                                <select class="form-control" required data-bind="options:$root.OrganizationTypes,
+                                                                                                optionsText:'Name',optionsValue:'Id',value:OrganizationType"></select>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label class="col-lg-5 control-label" for="Number">Allow Departmentwise Attendance</label>
+                            <div class="col-lg-6">
+                                <input type="checkbox" data-bind="checked:AllowDepartmentwiseAttendance">
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-6 text-center">
+                                <img class="img-rounded " style="cursor:pointer" width="120" data-bind="attr: {src: LogoUrl() || '/Images/logo-default.png'}" />
+                                <label class="btn btn-success btn-file col-lg-12">
+                                    Browse <input data-bind="fileUpload: {value:LogoUrl,type:'image'}" type="file" value=" " class="btn btn-flat btn-file btn-success" hidden />
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-12">
+                            <div class="col-lg-5"></div>
+                            <div class="col-lg-7">
+                                <input type="submit" data-bind="click:$root.CreateUpdate,createUpdateText:$root.ModeOfButton" name="Save" class="btn btn-success" value="Save" />
+                                <input type="button" data-bind="click:$root.Reset" name="Reset" value="Reset" class="btn btn-default" />
+                                <input type="button" id="close" data-bind="click:$root.CloseModal" value="Back" class="btn btn-default" />
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="companyLicenseCreationModel">
+        <div class="modal-dialog ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-green" data-bind="text:new Riddha.config().CurrentLanguage=='ne'?CompanyLicenseFor()+'@T("CompanyLicense")':'@T("CompanyLicense")'+' '+CompanyLicenseFor()"></h4></header>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal" data-bind="with:CompanyLicense">
+                        <div class="form-group col-lg-12">
+                            <label class="col-lg-6 control-label" for="Number">License Status</label>
+                            <div class="col-lg-6">
+                                <span class="label label-success" data-bind="text:$root.LicenseStatus"></span>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-12">
+                            <label class="col-lg-6 control-label" for="Number">License Period</label>
+                            <div class="col-lg-3">
+                                <input type="text" min="0" max="5" class="form-control" required data-bind="mask:'number', value:LicensePeriod,event:{change:$root.GetExpiryDate}" id="form-group-input " placeholder="LicensePeriod">
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-12">
+                            <label class="col-lg-6 control-label" for="Number">Issue Date</label>
+                            <div class="col-lg-3">
+                                <input type="text" class="form-control" required data-bind="value:IssueDate,mask:'date',event:{change:$root.GetExpiryDate}" id="form-group-input " placeholder="IssueDate">
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-12">
+                            <label class="col-lg-6 control-label" for="Number">Expiry Date</label>
+                            <div class="col-lg-3">
+                                <input type="text" class="form-control" required data-bind="value:ExpiryDate,mask:'date'" id="form-group-input " placeholder="ExpiryDate" disabled>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-12">
+                            <div class="col-lg-6"></div>
+                            <div class="col-lg-6">
+                                <input type="button" data-bind="click:$root.SaveCompanyLicense,enable:$root.IsRequestComplete()==true" class="btn btn-success" title="Save" value="Save" />
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Info boxes -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box box-success">
+                <div class="box-header with-border">
+                    &nbsp;
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool dropdown-toggle text-green" data-toggle="dropdown" data-bind="click:ShowModal" style="">
+                            <i class="fa fa-plus-square"></i> Create
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <div class="btn-group">
+
+                            <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-wrench"></i>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Add New Company</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                            </ul>
+                        </div>
+                        <button type="button" class="btn btn-box-tool text-red" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-lg-12" data-bind="kendoGrid:KendoGridOptions">
+                            <div id="companyKendoGrid">
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                @*<div class="box-body table-responsive ">
+                        <table class="table table-condensed table-bordered table-striped table-hover">
+                            <thead class="success bg-green">
+                                <tr>
+
+                                    <th>Code</th>
+                                    <th class="col-lg-3"> Name </th>
+                                    <th class="col-lg-2"> Address</th>
+
+                                    <th class="col-lg-2"> Contact Person</th>
+                                    <th> Email</th>
+                                    <th>Package</th>
+                                    <th>Status</th>
+                                    <th class="col-lg-3">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody data-bind="foreach:Companies">
+                                <tr>
+                                    <td class="hidden"><input type="hidden" data-bind="value:Id" /></td>
+                                    <td data-bind="text:Code"></td>
+                                    <td data-bind="text:NameNp()==''?Name():Name()+'('+NameNp()+')'"></td>
+                                    <td data-bind="text:AddressNp()==''?Address():Address()+'('+AddressNp()+')'"></td>
+                                    <td data-bind="text:ContactPersonNp()==''?ContactPerson():ContactPerson()+'('+ContactPersonNp()+')'"></td>
+                                    <td data-bind="text:Email"></td>
+                                    <td data-bind="text:SoftwarePackageType"></td>
+
+                                    <td><span data-bind="text:Status,attr:{'class':Status()=='Suspended'?'label label-warning':Status()=='Approved'?'label label-success':'label label-info'}" class="label label-info"></span></td>
+                                    <td>
+                                        <div class="btn-group btn-group-sm">
+                                            <button type="button" data-bind="click:$root.Select" class="btn btn-xs text-green" title="Edit" data-toggle="tooltip" data-placement="left" data-original-title="Edit"><span class="glyphicon glyphicon-pencil "></span> </button>
+                                            <button type="button" data-bind="click:$root.Delete" class="btn btn-xs text-danger" data-toggle="tooltip" data-placement="left" data-original-title="Remove" title="Remove"><span class="glyphicon glyphicon-trash"></span></button>
+                                            <button type="button" data-bind="click:$root.ApproveSuspend,attr:{'data-original-title':Status()=='Approved'?'Click To Suspend':'Click To Approve.'}" data-toggle="tooltip" data-placement="left" title="" data-original-title="Tooltip on left" class="btn btn-xs text-success"><span class="glyphicon glyphicon-ok " data-bind="css:{'glyphicon-pause txt-red':Status()=='Approved'}"></span></button>
+                                            <button type="button" data-bind="click:$root.ShowCompLicenseModal" class="btn btn-xs text-green" data-original-title="License" title=@T("License")><span>@T("License")</span></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot data-bind="with:Company">
+
+                            </tfoot>
+                        </table>
+                    </div>*@
+            </div>
+        </div>
+    </div>
+    <script type="text/html" id="mode-button-template">
+        <span class="glyphicon glyphicon-plus" data-bind="text:$root.ModeOfButton"></span>
+    </script>
+    <!-- /.row -->
+    <!-- /.row -->
+    <!-- Main row -->
+    <!-- /.row -->
+</section>
+
+@if (Request.IsAjaxRequest())
+{
+    @*<script src="~/Areas/Scripts/Riddha.Script.Company.Model.js"></script>
+        <script src="~/Areas/Scripts/Riddha.Script.Company.Controller.js"></script>*@
+    <script type="text/javascript">
+        ko.cleanNode(document.getElementById("partial-render"));
+        var obj = new companyController('@DateTime.Now.ToString("yyyy/MM/dd")');
+        ko.applyBindings(obj, document.getElementById("partial-render"));
+
+        function RestrictSpace() {
+            if (event.keyCode == 32) {
+                event.returnValue = false;
+                return false;
+            }
+        };
+    </script>
+}
+else
+{
+    @section scripts
+    {
+        @*<script src="~/Areas/Scripts/Riddha.Script.Company.Model.js"></script>
+            <script src="~/Areas/Scripts/Riddha.Script.Company.Controller.js"></script>*@
+        <script type="text/javascript">
+            var obj = new companyController('@DateTime.Now.ToString("yyyy/MM/dd")', '@DateTime.Now.AddYears(1).ToString("yyyy/MM/dd")');
+            ko.applyBindings(obj);
+
+            function RestrictSpace() {
+                if (event.keyCode == 32) {
+                    event.returnValue = false;
+                    return false;
+                }
+            };
+        </script>
+    }
+}

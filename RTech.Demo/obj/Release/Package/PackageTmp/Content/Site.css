@@ -1,0 +1,210 @@
+﻿
+.table tbody > tr > th,
+.table tfoot > tr > th,
+.table tbody > tr > td,
+.table tfoot > tr > td {
+    font-size: 13px;
+    padding: 2px;
+    line-height: 1.428571429;
+    vertical-align: top;
+    border-top: 1px solid #dddddd;
+}
+
+.table thead > tr > td,
+.table thead > tr > th {
+    padding: 8px;
+    line-height: 1.428571429;
+    vertical-align: top;
+    border-top: 1px solid #dddddd;
+}
+
+.table .input-min-width .form-control {
+    min-width: 100px;
+}
+
+.form-control {
+    display: block;
+    outline: 0;
+    width: 100%;
+    height: 25px;
+    padding: 2px 3px;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.form-horizontal .control-label {
+    padding-top: 4px;
+    margin-bottom: 0;
+    text-align: right;
+}
+
+.btn {
+    display: inline-block;
+    padding: 4px 8px;
+    margin-bottom: 0;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 1.428571429;
+}
+
+.content-header sup,
+.content-header small {
+    color: green;
+}
+
+.message-box {
+    position: absolute;
+    text-align: center;
+    z-index: 5;
+}
+
+.form-group {
+    margin-bottom: 7.5px;
+}
+
+.gridStyle {
+    border: 1px solid rgb(212,212,212);
+    width: 100% !important;
+    height: 400px;
+}
+
+#Custom {
+    border: 1px solid #D2D5E4;
+    padding: 0px;
+    border-color: rgba(255,255,255,0.2);
+    width: 100%;
+    max-width: 57px;
+    height: auto;
+}
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+    background-color: #f2f2f2;
+}
+
+/*this CSS is Textbox required Field */
+.required:after {
+    content: " *";
+    color: red;
+    font: bold;
+    font-size: large;
+    font-weight: bold;
+}
+.k-autocomplete .k-input {
+    height: 19px;
+    padding: 2px 0px;
+    text-indent: 3px;
+    font-size:13px;
+}
+.k-grid td {
+    padding: .1em .6em !important;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.k-grid tbody tr {
+    height: 38px;
+}
+
+.k-header {
+    background-color: #5c6bc0;
+}
+.k-dialog-titlebar.k-header {
+    background:#5c6bc0;
+    color:#fff;
+}
+
+/*.k-group, .k-flatcolorpicker.k-group, .k-menu, .k-menu .k-group, .k-popup.k-widget.k-context-menu {
+    color: #444;
+    background-color: #fff;
+}*/
+
+.k-grid-header th.k-header > .k-link {
+    padding: 0;
+    margin: 0;
+    /*min-height: 16px;*/
+    /*line-height: inherit;*/
+    color: black;
+    /*font-weight: bold;*/
+}
+
+.k-grid-header th.k-header {
+    padding-left: 3px;
+    color: black;
+    font-size:12px;
+    font-weight: bold;
+}
+/*.k-grouping-header {
+    color: black;
+    font-size:12px;
+    font-weight: bold;
+    background-color: #FCFAFA;
+}*/   
+.action {
+    display: none;
+}
+
+k-gantt-toolbar .k-button, .k-gantt > .k-header .k-link, .k-gantt > .k-header li, .k-grid .k-header .k-button, .k-scheduler .k-header .k-button, .k-scheduler .k-header .k-link, .k-scheduler .k-header li, .km-pane-wrapper .k-header .k-button:hover {
+    color: black;
+    background-color: #fff;
+    border-color: #fff;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.k-grid .k-alt {
+    background-color: #FCFAFA; /* specify the alternate background-color */
+}
+
+.k-grid-content tr td {
+    border-left-width: 1px;
+}
+a.k-button.k-button-icontext:hover{
+    color:#fff;
+}
+.k-dialog .k-content {
+    margin: 0;
+    padding: 0; 
+    /*overflow-y:scroll !important;*/
+}
+
+.page-template {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+    .page-template .logo{
+        float:left;
+        margin-top:5px;
+        margin-left:30px;
+        width:100px;
+    }
+    .page-template .header {
+        position: absolute;
+        top: 15px;
+        left: 30px;
+        right: 30px;
+        /*border-bottom: 1px solid #888;*/
+        text-align: center;
+        
+    }
+    .page-template .header .company-name {
+        font-size: 15px;
+    }
+    .page-template .header .company-address {
+        margin-top:5px;
+        font-size: 12px;
+    }
+
+    .page-template .footer {
+        position: absolute;
+        bottom: 15px;
+        left: 30px;
+        right: 30px;
+        font-size:11px;
+    }
+    /*For Roster dropdown*/
+    .roster tbody > tr select {
+    height: 30px;
+}

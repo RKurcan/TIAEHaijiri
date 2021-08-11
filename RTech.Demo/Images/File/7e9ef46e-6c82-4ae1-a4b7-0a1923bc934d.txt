@@ -1,0 +1,29 @@
+
+
+
+select * from EStudentEnrollments where StudentId = 1292
+
+select * from EStudents where FirstName LIKE 'Bishal%'
+
+select * from EStudentEnrollmentOnSubjects where StudentEnrollmentId = 1621
+
+duplicate data delete query
+
+WITH CTE AS(
+   SELECT subjectid,studentenrollmentid,
+       RN = ROW_NUMBER()OVER(PARTITION BY subjectid,studentenrollmentid ORDER BY subjectid)
+   FROM EStudentEnrollmentOnSubjects
+)
+delete FROM CTE WHERE RN > 1
+
+
+raz basnet 
+579445
+
+http://www.gameofporn.net/video/blindfolded-jogger-threesome-cassidy-banks-share-my-bf
+http://www.gameofporn.net/video/alexa-and-valentina-give-deepthroat-bj-alexa-grace-valentina-nappi-share-my-bf
+
+Early 70es THE HIPPE ERA (Bhukka Tourist ) in KAT-MAN-DU, it was almost like "WHAT A CAT CAN DO THAT A MAN CAN DO IN KAT-MAN-DU". 
+The streets flocked by Pot smoking Hippies from Thamel , Pashupati area , Sayambhu, Chabel, Bhaktapur Durbar Square . It was the time where weeds n hashish (HASS)sold ,found in open abundantly. 
+The establishment of Hippie cultural HIPPIE HOME in Dhulikhel . Their only contribution to Nepal was Sexually Transmitted Diseases like Silpys , VD , Gonerriea appeared in Nepal through them .
+The 1st n last initiative soon after the incarnation of H.M , B. B. SHAH 1974 , their joints wrer raided by police ,arrested , loaded in trucks and deportation from Nepal ,dropping them across to Birgunj Indian border , which compel them to head towards Indian state of Goa , where they established for almost more than a decade in course of time some died due to drug use ,others with feebleness of old age few still remain alive but as Yogis , Sadhu who accepted the Spiritual path for existence.

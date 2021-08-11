@@ -1,0 +1,17 @@
+D:\project\EHajiri_2017.07.30\trunk\RTech.Lib.WebCore\bin\Release\Riddhasoft.Lib.WebCore.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Lib.WebCore\bin\Release\Riddhasoft.Lib.WebCore.pdb
+D:\project\EHajiri_2017.07.30\trunk\RTech.Lib.WebCore\obj\Release\Riddhasoft.Lib.WebCore.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Lib.WebCore\obj\Release\Riddhasoft.Lib.WebCore.pdb
+D:\project\Hamro-Hajiri\trunk\RTech.Lib.WebCore\bin\Release\Riddhasoft.Lib.WebCore.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Lib.WebCore\bin\Release\Riddhasoft.Lib.WebCore.pdb
+D:\project\Hamro-Hajiri\trunk\RTech.Lib.WebCore\obj\Release\Riddhasoft.Lib.WebCore.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Lib.WebCore\obj\Release\Riddhasoft.Lib.WebCore.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Lib.WebCore\bin\Release\Riddhasoft.Lib.WebCore.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Lib.WebCore\bin\Release\Riddhasoft.Lib.WebCore.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Lib.WebCore\obj\Release\Riddhasoft.Lib.WebCore.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Lib.WebCore\obj\Release\Riddhasoft.Lib.WebCore.pdb
+D:\Projects\HamroHajiri\trunk\RTech.Lib.WebCore\bin\Release\Riddhasoft.Lib.WebCore.dll
+D:\Projects\HamroHajiri\trunk\RTech.Lib.WebCore\bin\Release\Riddhasoft.Lib.WebCore.pdb
+D:\Projects\HamroHajiri\trunk\RTech.Lib.WebCore\obj\Release\Riddhasoft.Lib.WebCore.csproj.CoreCompileInputs.cache
+D:\Projects\HamroHajiri\trunk\RTech.Lib.WebCore\obj\Release\Riddhasoft.Lib.WebCore.dll
+D:\Projects\HamroHajiri\trunk\RTech.Lib.WebCore\obj\Release\Riddhasoft.Lib.WebCore.pdb

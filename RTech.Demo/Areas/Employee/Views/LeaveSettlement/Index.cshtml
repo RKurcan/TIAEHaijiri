@@ -1,0 +1,192 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Layout_Adminlte.cshtml";
+}
+
+<section class="content-header">
+    <h1>
+        @T("LeaveSettlement")
+        <sup class="text-green">@T("Creation")</sup>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> @T("Home")</a></li>
+        <li class="active">@T("LeaveSettlement")</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <!-- Bank Modal -->
+    <div class="modal" id="leaveSettlementCreationModel">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-success">@T("LeaveSettlement") @T("Creation")</h4> </header>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal" data-bind="with:LeaveSettlement">
+                        <div class="form-group">
+                            <div>
+                                <label class="col-lg-2 control-label" for="Number">@T("Employee")</label>
+                                <div class="col-lg-6">
+                                    <div class="demo-section k-content">
+                                        <input data-bind="kendoAutocomplete:$root.EmpAutoCompleteOptions" style="width: 100%;" />
+                                    </div>
+                                </div>
+                                <label class="col-lg-1 control-label" for="Number">@T("Leave")</label>
+                                <div class="col-lg-3">
+                                    <select class="form-control" data-bind="options:$root.LeaveMaster,optionsText:'Name',optionsValue:$data,
+                                                                            optionsCaption:Riddha.UI.getOptionCaption(),
+                                                                            value:$root.selectedLeaveMaster,event:{change:$root.GetLeaveInfo}"></select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label" for="Number">@T("OpeningBalance")</label>
+                            <div class="col-lg-2">
+                                <span class="form-control" data-bind="text:$root.OpBal"></span>
+                            </div>
+                            <label class="col-lg-2 control-label" for="Number">@T("LeaveTaken")</label>
+                            <div class="col-lg-2">
+                                <span class="form-control" data-bind="text:$root.LeaveTaken"></span>
+                            </div>
+                            <label class="col-lg-2 control-label" for="Number">@T("RemainingLeave")</label>
+                            <div class="col-lg-2">
+                                <span class="form-control" data-bind="text:$root.RemLeave"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label" for="Number">@T("CarryToNext")</label>
+                            <div class="col-lg-2">
+                                <input class="form-control" type="text" data-bind="enable: ($root.selectedLeaveMaster()||{IsLeaveCarryable:false}).IsLeaveCarryable,value:CarrytoNext,mask:'number'" />
+                            </div>
+                            <label class="col-lg-2 control-label" for="Number">@T("Pay")</label>
+                            <div class="col-lg-2">
+                                <input class="form-control" type="text" data-bind="enable:($root.selectedLeaveMaster()||{IsPaidLeave:false}).IsPaidLeave,mask:'number',value:Paid" />
+                            </div>
+                            <label class="col-lg-2 control-label" for="Number">@T("SettlingLeave")</label>
+                            <div class="col-lg-2">
+                                <input class="form-control" type="text" data-bind="enable:false,value:$root.SettlingLeave,mask:'number'" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="form-group col-lg-7 ">
+                            <input type="submit" data-bind="click:$root.CreateUpdate,createUpdateText:$root.ModeOfButton" name="Save" class="btn btn-success" value=@T("Save") />
+                            <input type="button" name="Reset" value=@T("Reset") class="btn btn-default" data-bind="click:Reset" />
+                            <input type="button" value=@T("Back") class="btn btn-default" data-bind="click:CloseModal" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Info boxes -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box box-success">
+                <div class="box-header with-border">
+                    &nbsp;
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool dropdown-toggle text-green action" data-toggle="dropdown" data-bind="click:$root.ShowModal,actionVisibility:'3018'" style="">
+                            <i class="fa fa-plus-square"></i> @T("Create")
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <div class="btn-group">
+
+                            <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-wrench"></i>
+                            </button>
+                            <ul class="dropdown-menu" role="menu"></ul>
+                        </div>
+                        <button type="button" class="btn btn-box-tool text-red" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+
+                <div class="box-body table-responsive ">
+                    <table class="table table-condensed table-bordered table-striped no-padding table-hover">
+                        <thead class="success bg-green">
+                            <tr>
+                                <th class="col-lg-1"> @T("SerialNo")</th>
+
+                                <th class="col-lg-2">@T("Employee")</th>
+
+                                <th class="col-lg-2"> @T("Leave") </th>
+
+                                <th class="col-lg-2"> @T("FiscalYear")</th>
+
+                                <th class="col-lg-1"> @T("Balance")</th>
+
+                                <th class="col-lg-2"> @T("SettlementType")</th>
+
+                                <th class="col-lg-2">@T("Action")</th>
+                            </tr>
+                        </thead>
+                        <tbody data-bind="foreach:LeaveSettlements">
+                            <tr>
+                                <td data-bind="serialNo:$index()+1"></td>
+                                <td data-bind="text:EmployeeName"></td>
+                                <td data-bind="text:LeaveMasterName"></td>
+                                <td data-bind="text:SuitableNumber(FiscalYearName)"></td>
+                                <td data-bind="text:SuitableNumber(Balance)"></td>
+                                <td data-bind="text:$root.GetSettlementTypeName(SettlementType)"></td>
+                                <td>
+                                    <button type="button" data-bind="click:$root.Select,actionVisibility:'3019'" class="btn btn-xs btn-default action" title=@T("Edit")><span class="glyphicon glyphicon-pencil text-green "></span> </button>
+                                    <button type="button" data-bind="click:$root.Delete,actionVisibility:'3020'" class="btn btn-xs btn-default action" title=@T("Remove")><span class="glyphicon glyphicon-trash text-red"></span></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/html" id="mode-button-add-template">
+        <span class="glyphicon glyphicon-plus"></span>
+    </script>
+    <script type="text/html" id="mode-button-update-template">
+        <span class="glyphicon glyphicon-arrow-up"></span>
+    </script>
+    <!-- /.row -->
+    <!-- /.row -->
+    <!-- Main row -->
+    <!-- /.row -->
+</section>
+
+@if (Request.IsAjaxRequest())
+{
+    @*<script src="~/Areas/Employee/Scripts/Riddha.Script.LeaveSettlement.Model.js"></script>
+        <script src="~/Areas/Employee/Scripts/Riddha.Script.LeaveSettlement.Controller.js"></script>*@
+    <script type="text/javascript">
+        var obj = {};
+        Riddha.global.permission.action('3004').done(function (data) {
+            Riddha.global.permission.actions = data.Data;
+            ko.cleanNode(document.getElementById("partial-render"));
+            obj = new leaveSettlementController();
+            ko.applyBindings(obj, document.getElementById("partial-render"));
+        });
+    </script>
+}
+else
+{
+    @section scripts
+    {
+        @*<script src="~/Areas/Employee/Scripts/Riddha.Script.LeaveSettlement.Model.js"></script>
+            <script src="~/Areas/Employee/Scripts/Riddha.Script.LeaveSettlement.Controller.js"></script>*@
+        <script type="text/javascript">
+            var obj = {};
+            Riddha.global.permission.action('3004').done(function (data) {
+                Riddha.global.permission.actions = data.Data;
+                ko.cleanNode(document.getElementById("partial-render"));
+                obj = new leaveSettlementController();
+                ko.applyBindings(obj, document.getElementById("partial-render"));
+            });
+        </script>
+    }
+}
+
+

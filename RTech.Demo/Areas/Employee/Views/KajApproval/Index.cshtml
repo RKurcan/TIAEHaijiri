@@ -1,0 +1,185 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Layout_Adminlte.cshtml";
+}
+<section class="content-header">
+    <h1>
+        @T("KajApproval")
+        <sup class="text-green">@T("Approval")</sup>
+
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="\"><i class="fa fa-dashboard"></i> @T("Home")</a></li>
+        <li class="active">@T("KajApproval")</li>
+    </ol>
+    <style>
+        .k-button.k-state-disabled, .k-button.k-state-disabled:active, .k-button.k-state-disabled:active:hover, .k-button.k-state-disabled:hover, .k-button[disabled], .k-listbox .k-button.k-state-disabled, .k-state-disabled .k-button, .k-state-disabled .k-button:active, .k-state-disabled .k-button:hover {
+            color: #000;
+            border-color: #ffffff;
+            background-color: #fafafa;
+            background-image: none;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
+
+        .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+            background-color: #fff;
+            opacity: 1;
+        }
+    </style>
+</section>
+<!-- Main content -->
+<section class="content">
+    <!-- Office Visit Approval Modal -->
+    <div class="modal" id="kajApprovalModel">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-green">@T("KajApproval") </h4></header>
+                </div>
+                <div class="modal-body">
+                    <fieldset disabled>
+                        <div class="row" data-bind="with:Kaj">
+                            <div class="col-lg-6 form-group">
+                                <label class="col-lg-2 control-label" for="Number">@T("From") </label>
+                                <div class="col-lg-6">
+                                    <div class="col-lg-6 col-sm-6 col-md-6 no-padding">
+                                        <input type="text" class="form-control" data-nepdate="#nepaliDate" data-bind="mask:'date',value:From,visible:DateVisibility('en')">
+                                        <input class="form-control nepDate" data-format="yyyy/MM/dd" name="date" type="text" id="nepaliDateOfJoin" data-bind="dateNp:{engDate:From},visible:DateVisibility('ne')">
+                                    </div>
+                                    <div class="col-lg-6 col-sm-6 col-md-6 no-padding">
+                                        <input type="time" class="form-control" data-bind="value:FromTime">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 form-group">
+                                <label class="col-lg-2 control-label" for="Number">@T("To") </label>
+                                <div class="col-lg-6">
+                                    <div class="col-lg-6 col-sm-6 col-md-6 no-padding">
+                                        <input type="text" class="form-control" data-nepdate="#nepaliDate" data-bind="mask:'date',value:To,visible:DateVisibility('en')">
+                                        <input class="form-control nepDate" data-format="yyyy/MM/dd" name="date" type="text" id="nepaliDateOfJoins" data-bind="dateNp:{engDate:To},visible:DateVisibility('ne')">
+                                    </div>
+                                    <div class="col-lg-6 col-sm-6 col-md-6 no-padding">
+                                        <input type="time" class="form-control" data-bind="value:ToTime">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 form-group">
+                                <label class="col-lg-1 control-label" for="Number">@T("Remark")  </label>
+                                <div class="col-lg-9">
+                                    <textarea class="form-control" data-bind="value:Kaj().Remark"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 form-group">
+                                <label class="col-lg-1 control-label" for="Number">@T("Employee")  </label>
+                                <div class="col-lg-9">
+                                    <div id="example" role="application">
+                                        <div class="demo-section k-content">
+                                            <select id="required" multiple="multiple" data-placeholder="@T("SelectEmployees")" data-bind="kendoMultiSelect:EmpMultiOptions,options:Employees,optionsText:'Name',optionsValue:'Id'"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="modal-footer">
+                        <div class="form-group col-lg-7">
+                            <input type="button" name="Approve" value=@T("Approve") class="btn btn-success" data-bind="click:Approve,actionVisibility:'7232'" />
+                            <input type="button" name="Reject" value=@T("Reject") class="btn btn-danger" data-bind="click:Reject" />
+                            <input type="button" name="Back" value=@T("Back") class="btn btn-default" data-bind="click:CloseModal" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Info boxes -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box box-success">
+                <div class="box-header with-border">
+                    &nbsp;
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <div class="btn-group">
+
+                            <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-wrench"></i>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">@T("AddNewBranch")</a></li>
+                                <li><a href="#">@T("SomethingElseHere")</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">@T("SeparatedLink")</a></li>
+                            </ul>
+                        </div>
+                        <button type="button" class="btn btn-box-tool text-red" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                    <div class="btn-group">
+                        @*<button type="button" class="btn btn-default action" data-bind="click:View,actionVisibility:'7232'"><i class="fa fa-eye text-green">&nbsp;@T("View")</i></button>*@
+                        @*<button type="button" class="btn btn-default " data-bind="click:RefreshKendoGrid"><i class="fa fa-refresh text-green">&nbsp;@T("RefreshGrid")</i></button>*@
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-lg-12" data-bind="kendoGrid:KendoGridOptions">
+                            <div id="kajApprovalKendoGrid">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script type="text/html" id="mode-button-add-template">
+        <span class="glyphicon glyphicon-plus"></span>
+    </script>
+    <script type="text/html" id="mode-button-update-template">
+        <span class="glyphicon glyphicon-arrow-up"></span>
+    </script>
+    <!-- /.row -->
+    <!-- /.row -->
+    <!-- Main row -->
+    <!-- /.row -->
+</section>
+
+@if (Request.IsAjaxRequest())
+{
+
+    <script type="text/javascript">
+        var obj = {};
+        Riddha.global.permission.action('8021').done(function (data) {
+            Riddha.global.permission.actions = data.Data;
+            ko.cleanNode(document.getElementById("partial-render"));
+            obj = new KajApprovalController();
+
+            ko.applyBindings(obj, document.getElementById("partial-render"));
+        });
+    </script>
+}
+else
+{
+    @section scripts
+    {
+
+        <script type="text/javascript">
+            var obj = {};
+            Riddha.global.permission.action('8021').done(function (data) {
+                Riddha.global.permission.actions = data.Data;
+                ko.cleanNode(document.getElementById("partial-render"));
+                obj = new KajApprovalController();
+
+                ko.applyBindings(obj, document.getElementById("partial-render"));
+            });
+        </script>
+    }
+}

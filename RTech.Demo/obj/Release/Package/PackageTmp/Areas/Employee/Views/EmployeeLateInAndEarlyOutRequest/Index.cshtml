@@ -1,0 +1,199 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Layout_Adminlte.cshtml";
+}
+
+<style>
+    #custom {
+        padding: 3px 13px;
+    }
+</style>
+
+<section class="content-header">
+    <h1>
+        @T("Late In & Early Out")
+        <sup class="text-green">@T("Request")</sup>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> @T("Employee")</a></li>
+        <li class="active">@T("Late In & Early Out Request")</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <!-- LeaveApplication Modal -->
+    <div class="modal" id="employeeLateInAndEarlyOutRequestModal">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-success text-center">@T("Late In & Early Out Request")</h4></header>
+                </div>
+                <div class="modal-body">
+                    <div class="row col-lg-12">
+                        @*<div class="col-lg-12" data-bind="with:EmployeeLateInAndEarlyOutRequest">
+                                <div class="col-lg-12 form-group">
+                                    <label class="col-lg-2 control-label" for="Number">@T("EmployeeCode") </label>
+                                    <div class="col-lg-8">
+                                        <span data-bind="text:EmployeeCode"></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 form-group">
+                                    <label class="col-lg-2 control-label" for="Number">@T("EmployeeName") </label>
+                                    <div class="col-lg-8">
+                                        <span data-bind="text:EmployeeName"></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 form-group">
+                                    <label class="col-lg-2 control-label" for="Number">@T("Department") </label>
+                                    <div class="col-lg-8">
+                                        <span data-bind="text:DepartmentName"></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 form-group">
+                                    <label class="col-lg-2 control-label" for="Number">@T("Request Date") </label>
+                                    <div class="col-lg-8">
+                                        <span data-bind="text:SuitableDate(RequestDate())"></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 form-group">
+                                    <label class="col-lg-2 control-label" for="Number">@T("Work Time") </label>
+                                    <div class="col-lg-8">
+                                        <span data-bind="text:WorkTime"></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 form-group">
+                                    <label class="col-lg-2 control-label" for="Number">@T("Reason") </label>
+                                    <div class="col-lg-8">
+                                        <span data-bind="text:Remark"></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 form-group">
+                                    <label class="col-lg-2 control-label" for="Number">@T("Is Approved") </label>
+                                    <div class="col-lg-8">
+                                        <span data-bind="text:IsApproved"></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 form-group">
+                                    <label class="col-lg-2 control-label" for="Number">@T("ApproveBy") </label>
+                                    <div class="col-lg-7">
+                                        <span data-bind="text:ApproveByName"></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 form-group">
+                                    <label class="col-lg-2 control-label" for="Number">@T("ApproveDate") </label>
+                                    <div class="col-lg-7">
+                                        <span data-bind="text:ApproveDate"></span>
+                                    </div>
+                                </div>
+                            </div>*@
+                        <div class="box-body box-profile" data-bind="with:EmployeeLateInAndEarlyOutRequest">
+                            <div class="text-center">
+                                <img class=" text-center  profile-user-img img-responsive img-thumbnail" data-bind="attr: {src: EmployeePhoto() || '/Images/men3.png'}" alt="User profile picture">
+                            </div>
+                            
+
+                            <h3 class="profile-username text-center" data-bind="text:EmployeeCode()+' - '+EmployeeName()"></h3>
+
+                            <p class="text-muted text-center" data-bind="text:EmployeeDesignation"></p>
+
+                            <ul class="list-group list-group-unbordered">
+                                <li class="list-group-item">
+                                    <b>Department</b> <a class="pull-right" data-bind="text:DepartmentName"></a>
+                                </li>
+                                <li class="list-group-item">
+                                    <b>Request Type</b> <a class="pull-right" data-bind="text:LateInEarlyOutRequestTypeName"></a>
+                                </li>
+                                <li class="list-group-item">
+                                    <b>Request Date</b> <a class="pull-right" data-bind="text:SuitableDate(RequestDate())"></a>
+                                </li>
+                                <li class="list-group-item">
+                                    <b>Work Time</b> <a class="pull-right" data-bind="text:WorkTime"></a>
+                                </li>
+                                <li class="list-group-item">
+                                    <b>Reason</b> <a class="pull-right" data-bind="text:Remark"></a>
+                                </li>
+                            </ul>
+
+                            @*<a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>*@
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="form-group col-lg-7">
+                            <input type="button" data-bind="click:Approve" name="Approve" class="btn btn-success" value=@T("Approve") />
+                            <input type="button" value=@T("Back") class="btn btn-default" data-bind="click:CloseModal" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box box-success">
+                <div class="box-header with-border">
+                    &nbsp;
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool text-red" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default " data-bind="click:$root.ViewDetails" style="display: inline-block;"><i class="fa fa-eye text-aqua">&nbsp;@T("View")</i></button>
+                        <button type="button" class="btn btn-default " data-bind="click:$root.Approve" style="display: inline-block;"><i class="fa fa-check text-green">&nbsp;@T("Approve")</i></button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-lg-12" data-bind="kendoGrid:KendoGridOptions">
+                            <div id="employeeLateInAndEarlyOutRequestKendoGrid">
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="empSearch">
+        <div>
+
+        </div>
+    </div>
+    <script type="text/html" id="mode-button-template">
+        <span class="glyphicon glyphicon-plus" data-bind="text:$root.ModeOfButton"></span>
+    </script>
+</section>
+@if (Request.IsAjaxRequest())
+{
+    <script type="text/javascript">
+        var obj = {};
+        //Riddha.global.permission.action('3002').done(function (data) {
+        //    Riddha.global.permission.actions = data.Data;
+        ko.cleanNode(document.getElementById("partial-render"));
+        obj = new employeeLateInAndEarlyOutRequestController();
+
+        ko.applyBindings(obj, document.getElementById("partial-render"));
+        //});
+    </script>
+}
+else
+{
+    @section scripts
+    {
+        <script type="text/javascript">
+            var obj = {};
+            //Riddha.global.permission.action('3002').done(function (data) {
+            //    Riddha.global.permission.actions = data.Data;
+            ko.cleanNode(document.getElementById("partial-render"));
+            obj = new employeeLateInAndEarlyOutRequestController();
+
+            ko.applyBindings(obj, document.getElementById("partial-render"));
+                                                                                            //});
+        </script>
+    }
+}
+
+

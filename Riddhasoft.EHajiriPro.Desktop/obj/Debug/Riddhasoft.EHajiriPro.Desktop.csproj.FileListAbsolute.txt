@@ -1,0 +1,212 @@
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.EHajiriPro.Desktop.exe.config
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.EHajiriPro.Desktop.exe
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.EHajiriPro.Desktop.pdb
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Payroll.PayrollSetupFrm.resources
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Properties.Resources.resources
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Views.Home.resources
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Views.Login.resources
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.csproj.GenerateResource.Cache
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.exe
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.pdb
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Attendance.Entities.dll
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Device.Entities.dll
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Employee.Entities.dll
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Employee.Mobile.Entities.dll
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Entity.User.dll
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.HRM.Entities.dll
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.OfficeSetup.Entities.dll
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.PayRoll.Entities.dll
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Attendance.Entities.pdb
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Device.Entities.pdb
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Employee.Entities.pdb
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Employee.Mobile.Entities.pdb
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.HRM.Entities.pdb
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.OfficeSetup.Entities.pdb
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.PayRoll.Entities.pdb
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Entity.User.pdb
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Setup.FiscalYearFrm.resources
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Device.DeviceSetupFrm.resources
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Leave.LeaveApplicationFrm.resources
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Leave.LeaveApprovalFrm.resources
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Leave.LeaveMasterSetup.resources
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Leave.LeaveOpeningBalanceForm.resources
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Leave.LeaveSettlementForm.resources
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Setup.BranchFrm.resources
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Setup.DepartmentFrm.resources
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Setup.DesignationFrm.resources
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Setup.SectionFrm.resources
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Setup.ShiftFrm.resources
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.csprojAssemblyReference.cache
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Interop.zkemkeeper.dll
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.csproj.ResolveComReference.cache
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Device.DeviceDataManagementFrm.resources
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Leave.LeaveQuataFrm.resources
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Office_Management.EmployeeFrm.resources
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Office_Management.EmployeeViewDetailsFrm.resources
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Office_Management.HolidaySetupFrm.resources
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Office_Management.ManualPunchFrm.resources
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Office_Management.MonthlyRosterSetupFrm.resources
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Office_Management.OfficeVisitApprovalFrm.resources
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Office_Management.OfficeVisitFrm.resources
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Office_Management.WeeklyRosterSetupFrm.resources
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Report.AttendanceReportFrm.resources
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Report.DailyAttendanceReportDailougeFrm.resources
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Report.ReportViewerFrm.resources
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Setup.CompanyProfile.resources
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Views.DashboardWidgetsMoreInfoFrm.resources
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Views.EmployeeSearchFrm.resources
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Views.ProductKeyEntryForm.resources
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Views.ProductKeyRequestForm.resources
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.csproj.CoreCompileInputs.cache
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\EntityFramework.dll
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\EntityFramework.SqlServer.dll
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Attendance.Services.dll
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Device.Services.dll
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Employee.Services.dll
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.FingerKeeper.Extension.dll
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Globlas.dll
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.OfficeSetup.Services.dll
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Report.dll
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Services.Common.dll
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Services.User.dll
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\RTech.Lib.ProductKey.dll
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.DB.dll
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Interop.zkemkeeper.dll
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Attendance.Entities.dll.config
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Attendance.Services.pdb
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Attendance.Services.dll.config
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Device.Services.pdb
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Employee.Services.pdb
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Employee.Services.dll.config
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Globlas.pdb
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.HRM.Entities.dll.config
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.OfficeSetup.Entities.dll.config
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.OfficeSetup.Services.pdb
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.OfficeSetup.Services.dll.config
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.PayRoll.Entities.dll.config
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Report.pdb
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Report.dll.config
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Services.Common.pdb
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Services.User.pdb
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\EntityFramework.xml
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\EntityFramework.SqlServer.xml
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.FingerKeeper.Extension.pdb
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\RTech.Lib.ProductKey.pdb
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.DB.pdb
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.DB.dll.config
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.csproj.CopyComplete
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Areas\Report\DailyEarlyInReport.rdlc
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Areas\Report\DailyEmployeePerformanceReport.rdlc
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Areas\Report\DailyLateInReport.rdlc
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Areas\Report\DailyLateOutReport.rdlc
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Areas\Report\MonthlyEmployeeSummaryReport.rdlc
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Areas\Report\MonthlyEmployeeTimeSHeet.rdlc
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Areas\Report\EmployeeWiseLeaveReport.rdlc
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Areas\Report\MonthlyWiseReport.rdlc
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.EHajiriPro.Desktop.exe.config
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.EHajiriPro.Desktop.exe
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.EHajiriPro.Desktop.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\EntityFramework.dll
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\EntityFramework.SqlServer.dll
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Interop.zkemkeeper.dll
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Attendance.Entities.dll
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Attendance.Services.dll
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.DB.dll
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Device.Entities.dll
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Device.Services.dll
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Employee.Entities.dll
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Employee.Mobile.Entities.dll
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Employee.Services.dll
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Entity.User.dll
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.FingerKeeper.Extension.dll
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Globlas.dll
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.HRM.Entities.dll
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.OfficeSetup.Entities.dll
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.OfficeSetup.Services.dll
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.PayRoll.Entities.dll
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Report.dll
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Services.Common.dll
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Services.User.dll
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\RTech.Lib.ProductKey.dll
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Attendance.Entities.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Attendance.Services.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Device.Entities.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Device.Services.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Employee.Entities.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Employee.Mobile.Entities.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Employee.Services.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Globlas.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.HRM.Entities.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.OfficeSetup.Entities.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.OfficeSetup.Services.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.PayRoll.Entities.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Report.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Services.Common.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.DB.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Entity.User.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Services.User.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.FingerKeeper.Extension.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\EntityFramework.xml
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\EntityFramework.SqlServer.xml
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\RTech.Lib.ProductKey.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Device.DeviceDataManagementFrm.resources
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Device.DeviceSetupFrm.resources
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Leave.LeaveApplicationFrm.resources
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Leave.LeaveApprovalFrm.resources
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Leave.LeaveMasterSetup.resources
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Leave.LeaveOpeningBalanceForm.resources
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Leave.LeaveQuataFrm.resources
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Leave.LeaveSettlementForm.resources
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Office_Management.EmployeeFrm.resources
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Office_Management.EmployeeViewDetailsFrm.resources
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Office_Management.HolidaySetupFrm.resources
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Office_Management.ManualPunchFrm.resources
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Office_Management.MonthlyRosterSetupFrm.resources
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Office_Management.OfficeVisitApprovalFrm.resources
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Office_Management.OfficeVisitFrm.resources
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Office_Management.WeeklyRosterSetupFrm.resources
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Payroll.PayrollSetupFrm.resources
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Report.AttendanceReportFrm.resources
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Report.DailyAttendanceReportDailougeFrm.resources
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Report.LeaveReportDailougeFrm.resources
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Report.MonthlyAttendanceReportDailougeFrm.resources
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Report.ReportViewerFrm.resources
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Setup.BranchFrm.resources
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Setup.CompanyProfile.resources
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Setup.DepartmentFrm.resources
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Setup.DesignationFrm.resources
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Setup.FiscalYearFrm.resources
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Setup.SectionFrm.resources
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.Setup.ShiftFrm.resources
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Areas.User_Management.UserFrm.resources
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Properties.Resources.resources
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Views.DashboardWidgetsMoreInfoFrm.resources
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Views.EmployeeSearchFrm.resources
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Views.Home.resources
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Views.Login.resources
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Views.ProductKeyEntryForm.resources
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.Views.ProductKeyRequestForm.resources
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.csproj.GenerateResource.cache
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.exe
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.HRM.Services.dll
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.HRM.Services.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Attendance.Entities.dll.config
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Attendance.Services.dll.config
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Employee.Services.dll.config
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.HRM.Entities.dll.config
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.OfficeSetup.Entities.dll.config
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.OfficeSetup.Services.dll.config
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.PayRoll.Entities.dll.config
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.Report.dll.config
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.DB.dll.config
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.HRM.Services.dll.config
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.csprojAssemblyReference.cache
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.csproj.CoreCompileInputs.cache
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.csproj.CopyComplete
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.EHajiriPro.Desktop.exe.manifest
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\bin\Debug\Riddhasoft.EHajiriPro.Desktop.application
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.exe.manifest
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\obj\Debug\Riddhasoft.EHajiriPro.Desktop.application
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\obj\Debug\RdlCompile.cache
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\obj\Debug\RdlCompile.compiled

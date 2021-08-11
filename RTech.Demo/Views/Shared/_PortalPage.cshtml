@@ -1,0 +1,1005 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>
+        Ehajiri - Hamro-Hajiri - eAttendance - Zkteco Hajiri - Online Human Resource Management software with real time attendance of Nepal. innovative web-based time attendance software,Graphical Dashboard,Payroll Management,Auto-Synchronization of Face, Fingerprint, Palm and Card,Employee Self-Service, Multiple Admin Privilege,Multi Branch Support, Flexible Shift Scheduling,Flexible Leave and Holiday,
+        Dual Calendar (Nepali and English), Nepali and English Calendar, Nepali and English, Multi language,Automatic E-mail and SMS Alerts (optional), Multi-languages, Real-Time Data Transmission, Attendance Calculation & Reports, Best Attendance Software For Nepal, Attendance System Nepal, E Attendance System Nepal, Ehajiri, Hamro Hajiri, Hajiri, Zkteco Nepal, Authorized Software, Authorized Distributors of Nepal, Low Cost, Affordaable Software nepal, Top 10 Attendance Software of Nepal
+    </title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="eHajiri is an innovative web-based time attendance software which provides a stable communication for devices through LAN/WAN/Wi-Fi/GPRS/3G/4G. Users can access to the software anywhere by their web browser to remotely manage thousands of T&A terminals under complex network (WLAN).
+          Web-Based Time Attendance Software ,Graphical Dashboard,Payroll Management,Auto-Synchronization of Face, Fingerprint, Palm and Card,Employee Self-Service, Multiple Admin Privilege,Multi Branch Support, Flexible Shift Scheduling,Flexible Leave and Holiday,
+          Dual Calendar (Nepali and English), Nepali and English Calendar, Nepali and English, Multi language,Automatic E-mail and SMS Alerts (optional), Multi-languages, Real-Time Data Transmission, Attendance Calculation & Reports, Best Attendance Software For Nepal, Attendance System Nepal, E Attendance System Nepal, Ehajiri, Hamro Hajiri, Hajiri, Zkteco Nepal, Authorized Software, Authorized Distributors of Nepal, Low Cost, Affordaable Software nepal, Top 10 Attendance Software of Nepal. We offer authorized zkteco devices all inside boundries. This is ehajiri login page.">
+    <meta name="author" content="Riddhasoft pvt. ltd. Barcode Inc Pvt. Ltd.">
+
+    <meta property="og:url" content="https://www.your-domain.com/your-page.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Your Website Title" />
+    <meta property="og:description" content="Your description" />
+    <meta property="og:image" content="http://riddhasoft.com/Images/File/6e33c61c-27c9-4b8f-bc5c-55cf0cef336d.png" />
+
+    <!-- Bootstrap Core CSS -->
+    @*<link href="~/Content/PortalPage/css/bootstrap.min.css" rel="stylesheet" />*@
+
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <!-- Custom CSS -->
+    <link href="~/Content/PortalPage/css/small-business.css" rel="stylesheet" />
+    <link href="~/Content/toastr.css" rel="stylesheet" />
+    <link href="~/Content/jquery.sweet-modal.min.css" rel="stylesheet" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        label {
+            font-weight: 100;
+            text-align: left !important;
+        }
+
+        a {
+            color: #000000;
+        }
+
+        .navbar-inverse {
+            background-color: #7AC143;
+            border-color: #EEEEEE;
+        }
+
+            .navbar-inverse .navbar-brand {
+                color: #FFFFFF;
+            }
+
+            .navbar-inverse .navbar-nav > li > a {
+                color: #FFFFFF;
+            }
+
+        body {
+            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #333;
+            background-color: #EEEEEE;
+        }
+
+        .TabColor {
+            background-color: #EEEEEE;
+        }
+
+        .font {
+            font-size: 16px;
+        }
+
+        .fontcolor {
+            color: #6eae3c;
+        }
+
+        .titleColor {
+            color: #427d14;
+        }
+
+        .input-group-addon {
+            border: 0px solid #ccc;
+        }
+
+        .modal-footer {
+            padding: 15px;
+            text-align: right;
+            border-top: 0px solid #e5e5e5;
+        }
+
+        .captcha-style {
+            width: 104px;
+            height: 31px;
+        }
+
+        .required:after {
+            content: " *";
+            color: red;
+            font: bold;
+            font-size: large;
+        }
+
+        .feature-item p {
+            padding-left: 15px;
+        }
+
+        .description-text {
+            font-size: 15px;
+        }
+
+            .description-text p {
+                padding-top: 15px;
+            }
+
+        .feature-panel {
+            min-height: 183px;
+        }
+
+        .customize {
+            color: #6EAE3C;
+            background-color: #6EAE3C;
+            border-color: #6EAE3C;
+            padding: 1px 1px;
+        }
+
+            .customize:hover {
+                color: #5CB85C;
+                background-color: #5CB85C;
+                border-color: #5CB85C;
+                padding: 1px 1px;
+            }
+    </style>
+</head>
+<body>
+    <div class="modal facebookShareModal" id="facebookShareModal">
+        <div class="modal-dialog" data-bind="with:FacebookPost">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-success text-center" data-bind="text:Title"></h4></header>
+                </div>
+                <div class="box-body">
+                    <img data-bind="img: { src: PhotoURL() , fallback:'/Images/asd123.jpg' }" class="img-responsive pad" alt="Photo" height="200">
+                    <h5 style="margin-left:7px; font-family:'Times New Roman';font-size:18px;" class="" data-bind="text:Message"> </h5>
+                    <a href="https://www.facebook.com/hamrohajiri" target="_blank" class="btn btn-primary form-control"><i class="fa fa-thumbs-up"></i>Like</a>
+                    @*<button type="button" class="btn-primary form-control"><i class="fa fa-thumbs-o-up"></i> Like</button>*@
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="modal" id="forgetResellerPasswordModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-success">Forgot Password?</h4></header>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="form-group col-lg-12">
+                            <label class="col-lg-2 control-label" for="Number">Email</label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control" placeholder="Email" data-bind="value:ResellerEmailConfirm">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-lg-12">
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-10">
+                                <i>Hamro-hajiri will send a link to your email address to reset password.</i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-lg-12">
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-10">
+                                <button data-bind="click:ResetResellerPassword,enable:!IsResellerResetPWClick()" class="btn btn-success">
+                                    <!-- ko if:IsResellerResetPWClick()==true --><i class="fa fa-refresh fa-spin"></i> &nbsp;<!-- /ko -->
+                                    Reset
+                                </button>
+                                <input type="button" data-bind="click:CloseResellerForgetPasswordModal" name="Cancel" class="btn btn-warning" value="Cancel" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="forgetUserPasswordModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-success">Forgot Password?</h4></header>
+                </div>
+                <div class="modal-body" data-bind="with:UserPasswordReset">
+                    <div class="row">
+                        <div class="form-group col-lg-12">
+                            <label class="col-lg-3 control-label" for="code">Company Code</label>
+                            <div class="col-lg-9">
+                                <input type="text" id="code" class="form-control" placeholder="Company Code" data-bind="value:CompanyCode">
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-12">
+                            <label class="col-lg-3 control-label" for="username">Username</label>
+                            <div class="col-lg-9">
+                                <input type="text" class="form-control" id="username" placeholder="Username" data-bind="value:Username">
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-12">
+                            <label class="col-lg-3 control-label" for="email">Email</label>
+                            <div class="col-lg-9">
+                                <input type="text" class="form-control" id="email" placeholder="email" data-bind="value:Email">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-lg-12">
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-10">
+                                <i>Hamro-hajiri will send a link to your email address to reset password.</i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-lg-12 text-center">
+                            <div class="col-lg-10">
+                                <button data-bind="click:$root.ResetUserPassword,enable:!$root.IsUserResetPWClick()" class="btn btn-success">
+                                    <!-- ko if:$root.IsUserResetPWClick()==true --><i class="fa fa-refresh fa-spin"></i> &nbsp;<!-- /ko -->
+                                    Reset
+                                </button>
+                                <input type="button" data-bind="click:$root.CloseUserForgetPasswordModal" name="Cancel" class="btn btn-warning" value="Cancel" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="becomePatnerModel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-success">Become a Partner</h4></header>
+                </div>
+                <div class="modal-body" data-bind="with:Reseller">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <ul id="tabList" class="nav nav-tabs">
+                                <li class="active"><a href="#home" data-toggle="tab" aria-expanded="true">Home</a></li>
+                                <li class=""><a href="#profile" data-toggle="tab" aria-expanded="false">Document</a></li>
+                            </ul>
+                            <div id="myTabContent" class="tab-content">
+                                <div class="tab-pane fade active in" id="home">
+                                    <br />
+                                    <div class="form-group col-lg-12">
+                                        <div class="required">
+                                            <label class="col-lg-3 control-label" for="Number">Partner</label>
+                                            <div class="col-lg-7">
+                                                <input type="text" class="form-control" required data-bind="value:Name" id="form-group-input " placeholder="Name">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-lg-12">
+                                        <div class="required">
+                                            <label class="col-lg-3 control-label" for="Number">Address</label>
+                                            <div class="col-lg-7">
+                                                <input type="text" class="form-control" required data-bind="value:Address" id="form-group-input " placeholder="Address">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-lg-12">
+                                        <div class="required">
+                                            <label class="col-lg-3 control-label" for="Number">Contact Number</label>
+                                            <div class="col-lg-7">
+                                                <input type="text" class="form-control" required data-bind="value:ContactNo" id="form-group-input " placeholder="Contact Number">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-lg-12">
+                                        <div class="required">
+                                            <label class="col-lg-3 control-label" for="Number">Contact Person</label>
+                                            <div class="col-lg-7">
+                                                <input type="text" class="form-control" required data-bind="value:ContactPerson" id="form-group-input " placeholder="Contact Person">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-lg-12">
+                                        <div class="required">
+                                            <label class="col-lg-3 control-label" for="Number">Email</label>
+                                            <div class="col-lg-7">
+                                                <input type="email" class="form-control" required data-bind="value:Email,event:{change:$root.CheckDuplicateEmail}" id="form-group-input " placeholder="Email">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-lg-12">
+                                        <div class="required">
+                                            <label class="col-lg-3 control-label" for="Number">Web</label>
+                                            <div class="col-lg-7">
+                                                <input type="text" class="form-control" required data-bind="value:WebUrl" id="form-group-input " placeholder="WebUrl">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-lg-12">
+                                        <div class="required">
+                                            <label class="col-lg-3 control-label" for="Number">PAN</label>
+                                            <div class="col-lg-7">
+                                                <input type="text" class="form-control" required data-bind="value:PAN" id="form-group-input " placeholder="PAN">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-lg-12">
+                                        <div class="required">
+                                            <label class="col-lg-3 control-label" for="Number">Registration No</label>
+                                            <div class="col-lg-7">
+                                                <input type="text" class="form-control" required data-bind="value:CompanyRegistrationNo" id="form-group-input " placeholder="Company Registration No.">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-4"></div>
+                                        <input type="button" data-bind="click:$root.Reset" name="Reset" value="Reset" class="btn btn-warning" id="becomePatnerResetBtn" />
+                                        <input type="button" data-bind="click:$root.ClosePopupModal" value="Close" class="btn btn-default" />
+                                        <button type="button" class="btn btn-success" id="btnNext" data-bind="click:$root.NextTab()" data-toggle="tooltip" data-placement="top" title="Next Tab">
+                                            <span class="glyphicon glyphicon-arrow-right">@T("Next")</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="profile">
+                                    <br />
+                                    <div class="row">
+                                        <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                            <label class="btn btn-default control-label col-lg-12">
+                                                <strong>Company Registration Document.</strong><input type="file" hidden data-bind="fileUpload: {value:CRDUrl}">
+                                            </label>
+                                        </div>
+                                        <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                            <label class="btn btn-default control-label col-lg-12">
+                                                <strong>Company PAN/VAT Document.</strong><input type="file" hidden data-bind="fileUpload: {value:PANVATUrl}">
+                                            </label>
+                                        </div>
+                                        <div class="col-lg-4"></div>
+                                        <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                            <img data-bind="attr:{src: LogoUrl() || '/Images/logo-default.png'}" class="img-thumbnail" alt="Cinque Terre" width="154" height="160">
+                                            <label class="btn btn-default control-label col-lg-7">
+                                                &nbsp;&nbsp;&nbsp;&nbsp; Browse Logo <input type="file" style="display:none;" data-bind="fileUpload: {value:LogoUrl,type:'image'}">
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-4"></div>
+                                        <button type="button" class="btn btn-success" id="btnPrevious" data-bind="click:$root.PreviousTab()" data-toggle="tooltip" data-placement="top" title="Previous Tab">
+                                            <span class="glyphicon glyphicon-arrow-left">@T("Previous")</span>
+                                        </button>
+                                        <button data-bind="click:$root.CreateUpdate,enable:$root.IsSubmitClick()==false" class="btn btn-warning" disabled>
+                                            <!-- ko if: $root.IsSubmitClick() --><i class="fa fa-refresh fa-spin"></i> &nbsp;<!-- /ko -->Submit
+                                        </button>
+                                        @*<input type="submit" data-bind="click:$root.CreateUpdate,value:$root.ModeOfButton" name="Save" class="btn btn-warning" value="Submit" />*@
+                                        <input type="button" data-bind="click:$root.ClosePopupModal" value="Close" class="btn btn-default" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Demo Request-->
+    <div class="modal" id="requestDemoModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-success">Request Demo Login Credentials</h4></header>
+                </div>
+                @*<div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <header><h4 class="text-success">Become a Patner</h4></header>
+                    </div>*@
+                <div class="modal-body" data-bind="with:DemoRequest">
+                    <div class="form-group col-lg-12">
+                        <div class="required">
+                            <label class="col-lg-3 control-label" for="DemoName">Name</label>
+                            <div class="col-lg-7">
+                                <input type="text" class="form-control" required data-bind="value:Name" id="DemoName" placeholder="Name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-12">
+                        <div class="required">
+                            <label class="col-lg-3 control-label" for="DemoAddress">Address</label>
+                            <div class="col-lg-7">
+                                <input type="text" class="form-control" required data-bind="value:Address" id="DemoAddress" placeholder="Address">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-12">
+                        <div class="required">
+                            <label class="col-lg-3 control-label" for="DemoNumber">Contact Number</label>
+                            <div class="col-lg-7">
+                                <input type="text" class="form-control" required data-bind="value:ContactNo,mask:'number'" id="DemoNumber" placeholder="Contact Number">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-12">
+                        <div class="required">
+                            <label class="col-lg-3 control-label" for="DemoContactPerson">Contact Person</label>
+                            <div class="col-lg-7">
+                                <input type="text" class="form-control" required data-bind="value:ContactPerson" id="DemoContactPerson" placeholder="Contact Person">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-12">
+                        <div class="required">
+                            <label class="col-lg-3 control-label" for="DemoEmail">Email</label>
+                            <div class="col-lg-7">
+                                <input type="email" class="form-control" required data-bind="value:Email" id="DemoEmail" placeholder="Email">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-12">
+                        <div>
+                            <label class="col-lg-3 control-label" for="DemoWeb">Web</label>
+                            <div class="col-lg-7">
+                                <input type="text" class="form-control" required data-bind="value:WebUrl" id="DemoWeb" placeholder="WebUrl">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4"></div>
+                        <input type="button" data-bind="click:$root.SubmitDemoRequest" name="Reset" value="Request" class="btn btn-success" />
+                        <input type="button" data-bind="click:$root.ResetDemoRequest" name="Reset" value="Reset" class="btn btn-warning" id="becomePatnerResetBtn" />
+                        <input type="button" data-bind="click:$root.CloseDemoRequestPopupModal" value="Close" class="btn btn-default" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <img src="~/Images/rsz_1zklogo2.png" />
+                </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">
+                            <strong>Hamro-Hajiri</strong>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="showmodal" href="#">Become a Partner</a>
+                    </li>
+                    <li>
+                        <a id="showRequestDemoModal" href="#">Request for Demo</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    <!-- Page Content -->
+    <div class="container">
+        <!--  Row -->
+        <div class="row">
+            <div class="description-text col-md-8 font">
+                <h2 class="titleColor">About Hamro-Hajiri</h2>
+                <p>
+                    <strong>
+                        Hamro-Hajiri
+                    </strong> is an innovative web-based time attendance software which provides a stable communication for devices through LAN/WAN/Wi-Fi/GPRS/3G/4G. Users can access to the software anywhere by their web browser to remotely manage thousands of T&A terminals under complex network (WLAN).
+                </p>
+                <img class="img-bordered btn btn-default customize img-responsive" src="~/Content/LandingPage/img/E-hajiri-img.jpg" />
+                <p>
+                    With its user-friendly UI, managing timetable, shifting schedule, and generating attendance report have become easily managed. An Automatic Synchronization function is available to automatically synchronize data between devices and server.
+                </p>
+                <p>Furthermore it features optional Payroll Management solution that can eliminate excessive workload in calculating employee hours and wages. </p>
+            </div>
+            <!-- /.col-md-8 -->
+            <div class="col-md-4 TabColor">
+                <ul id="LoginTab" class="nav nav-tabs">
+                    <li class="active"><a href="#Customer" data-toggle="tab" aria-expanded="true">Customer's Login</a></li>
+                    <li class=""><a href="#Reseller" data-toggle="tab" aria-expanded="false">Partner's Login</a></li>
+
+                </ul>
+                <div id="myTabContent" class="tab-content">
+                    <div class="tab-pane fade active in" id="Customer">
+                        <div class="login-box">
+                            <!-- /.login-logo -->
+                            <div class="login-box-body">
+                                <form class="form-horizontal" action="/User/User/Login" method="post">
+                                    <br />
+                                    <div class="form-group has-feedback">
+                                        <label for="IpAddress" class="col-lg-4  control-label">Ip Address</label>
+                                        <div class="col-lg-8">
+                                            <input type="text" class="form-control" readonly name="IpAddress" value=@ViewBag.IpAddress>
+                                            <span class="glyphicon glyphicon-lamp form-control-feedback"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group has-feedback">
+                                        <label for="CompanyCode" class="col-lg-4  control-label">Company Code</label>
+                                        <div class="col-lg-8">
+                                            <input type="text" class="form-control " name="CompanyCode" placeholder="Company Code" value="">
+                                            <span class="glyphicon glyphicon-home form-control-feedback"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group has-feedback">
+                                        <label for="UserName" class="col-lg-4  control-label">User Name</label>
+                                        <div class="col-lg-8">
+                                            <input type="text" class="form-control " name="UserName" required placeholder="User Name">
+                                            <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group has-feedback">
+                                        <label for="Password" class="col-lg-4  control-label">Password</label>
+                                        <div class="col-lg-8">
+                                            <input type="password" class="form-control" onkeypress="return RestrictSpace()" name="Password" required placeholder="Password">
+                                            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                                        </div>
+                                    </div>
+                                    @*<div class="form-group has-feedback">
+                                            <label for="Password" class="col-lg-4  control-label">Captcha</label>
+                                            <div class="col-lg-4 ">
+                                                <input type="text" class="form-control " id="extra7" name="Captcha" onkeypress="return isNumber(event)" required placeholder="Captcha" maxlength="4">
+                                            </div>
+                                            <div class="col-lg-1">
+                                                <img src='@Url.Action("Captcha", "User", new { area = "User" })' id="captchauserlogin" class="captcha-style" />
+                                            </div>
+                                        </div>*@
+                                    @*<div class="form-group has-feedback">
+                                            <div class="col-lg-2">
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <img src='@Url.Action("Captcha", "User", new { area = "User" })' id="captchauserlogin" />
+                                            </div>
+                                        </div>*@
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <input type="submit" class="btn btn-success " value="Log In " name="UserLogin" />
+                                            <input type="reset" class="btn btn-warning " value="Cancel" id="resetBtn" />
+                                        </div>
+                                        <!-- /.col -->
+                                        <!-- /.col -->
+                                    </div>
+                                    &nbsp;
+                                    <div class="form-group has-feedback">
+                                        <div class="col-lg-4">
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <a class="link-black" style="cursor:pointer;" data-bind="click:ShowUserForgetPasswordModal">Forgot Password?</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <strong>
+                                            <a href="~/WindowsKit/SetupFiles.zip" class="btn"><i class="fa fa-desktop"></i> Download Hamro-Hajiri Desktop</a>.
+                                            <br />
+                                            <a href="~/WindowsKit/RealTimePushHamroHajiri.zip" class="btn"><i class="fa fa-refresh"></i> Download Windows Kit for non ADMS Device</a>.
+                                            <a href="https://play.google.com/store/apps/details?id=com.companyname.riddha.hamrohajirimobile&hl=en" class="btn"><i class="fa fa-android"></i> Click download for Hamro-Hajiri Android App</a>
+                                        </strong>
+                                    </div>
+                                    <br />
+                                </form>
+                                <!-- /.social-auth-links -->
+                            </div>
+                            <!-- /.login-box-body -->
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="Reseller">
+                        <div class="login-box">
+                            <div class="login-box-body">
+                                <form class="form-horizontal" action="/User/User/Login" method="post">
+                                    <br />
+                                    <div class="form-group has-feedback">
+                                        <label for="IpAddress" class="col-lg-4  control-label">Ip Address</label>
+                                        <div class="col-lg-8">
+                                            <input type="text" class="form-control" readonly name="IpAddress" value=@ViewBag.IpAddress>
+                                            <span class="glyphicon glyphicon-lamp form-control-feedback"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group has-feedback">
+                                        <label for="UserName" class="col-lg-4  control-label">User Name</label>
+                                        <div class="col-lg-8">
+                                            <input type="text" class="form-control" name="UserName" required placeholder="User Name">
+                                            <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group has-feedback">
+                                        <label for="Password" class="col-lg-4  control-label">Password</label>
+                                        <div class="col-lg-8">
+                                            <input type="password" class="form-control" onkeypress="return RestrictSpace()" name="Password" required placeholder="Password">
+                                            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                                        </div>
+                                    </div>
+                                    @*<div class="form-group has-feedback">
+                                            <label for="Password" class="col-lg-4  control-label">Captcha</label>
+                                            <div class="col-lg-4">
+                                                <input type="text" class="form-control " id="extra7" name="Captcha" onkeypress="return isNumber(event)" required placeholder="Captcha" maxlength="4">
+                                            </div>
+                                            <div class="col-lg-1">
+                                                <img src='@Url.Action("Captcha", "User", new { area = "User" })' id="captchaPartnerlogin" class="captcha-style" />
+                                            </div>
+                                        </div>*@
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <input type="submit" class="btn btn-success" value="Log In " name="ResellerLogin" />
+                                            <input type="reset" class="btn btn-warning" value="Cancel" id="resetPartnerBtn" />
+                                        </div>
+                                    </div>
+                                    &nbsp;
+                                    <div class="form-group has-feedback">
+                                        <div class="col-lg-4">
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <a class="link-black" style="cursor:pointer;" data-bind="click:ShowResellerForgetPasswordModal">Forgot Password?</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <strong>
+                                            <a href="~/WindowsKit/RealTimePushEHajiri.zip">Download Windows Kit for non WDMS Device</a>.
+                                        </strong>
+                                    </div>
+                                    <br />
+                                </form>
+
+                                <!-- /.social-auth-links -->
+                            </div>
+                            <!-- /.login-box-body -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.col-md-4 -->
+        </div>
+        <!-- /.row -->
+        <!-- Call to Action Well -->
+        <h2 class="titleColor text-center">Features</h2>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="panel panel-default feature-panel">
+                    <div class="panel-heading">
+                        <img style="float:left;" src="~/Images/PortalPageIcon/webs.png" />
+                        <h5 class="fontcolor " style="padding-left:60px;">Web-Based Time Attendance Software </h5>
+                    </div>
+                    <div class="panel-body">
+                        Users can access the centralized system anywhere by their web browser to remotely manage thousands of T&A terminals under complex network (WLAN).
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="panel panel-default feature-panel">
+                    <div class="panel-heading">
+                        <img style="float:left; height:40px;" src="~/Images/Dashboard.png" />
+                        <h5 class="fontcolor " style="padding-left:60px;">Graphical Dashboard</h5>
+                    </div>
+                    <div class="panel-body">
+                        The chart used in the dashboard is more informative to get summary information about how many employees are present or absent in work day.Similarly the details information in dashboard.
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="panel panel-default feature-panel">
+                    <div class="panel-heading">
+                        <img style="float:left; " src="~/Images/PortalPageIcon/payrollS.png" />
+                        <h5 class="fontcolor " style="padding-left:60px;">Payroll Management</h5>
+                    </div>
+                    <div class="panel-body">
+                        Basic payroll function can eliminate errors in the payroll process and reduce excessive eff¬ort in calculating employee hours, wages, and tax with holdings.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="panel panel-default feature-panel">
+                    <div class="panel-heading">
+                        <img style="float:left; height:40px;" src="~/Images/Calendar.png" />
+                        <h5 class="fontcolor " style="padding-left:60px;">Flexible Leave and Holiday</h5>
+                    </div>
+                    <div class="panel-body">
+                        Our system is very useful to get the information about upcoming holidays according to
+                        nepali calender standard and provides flexibility in leave application and leave settlement.
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="panel panel-default feature-panel">
+                    <div class="panel-heading">
+                        <img style="float:left; height:40px;" src="~/Images/PortalPageIcon/autosync%20S.png" />
+                        <h5 class="fontcolor " style="padding-left:60px;">Auto-Synchronization of Palm, Face, Finger Vein</h5>
+                    </div>
+                    <div class="panel-body">
+                        Fingerprint, and Card Templates Automatically synchronizing the data between devices and server among the same “Area” to ensure the information are updated.
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="panel panel-default feature-panel">
+                    <div class="panel-heading">
+                        <img style="float:left; height:40px;" src="~/Images/PortalPageIcon/multipleadminprev%20S.png" />
+                        <h5 class="fontcolor " style="padding-left:60px;">Multiple Admin Privilege</h5>
+                    </div>
+                    <div class="panel-body">
+                        Multiple admin can be set to manage di¬fferent privilege in the software. Admin will get a list of employee’s attendance including the number of late and absences.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="panel panel-default feature-panel">
+                    <div class="panel-heading">
+                        <img style="float:left; height:40px;" src="~/Images/PortalPageIcon/empselfserv%20S.png" />
+                        <h5 class="fontcolor " style="padding-left:60px;">Employee Self-Service</h5>
+                    </div>
+                    <div class="panel-body">
+                        Access login is provided for each employees to check their attendance. Employees can apply for online leave to be approved by the manager or admin.
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="panel panel-default feature-panel">
+                    <div class="panel-heading">
+                        <img style="float:left; height:40px;" src="~/Images/PortalPageIcon/flexibleshift%20S.png" />
+                        <h5 class="fontcolor " style="padding-left:60px;">Flexible Shift Scheduling and Auto Shift</h5>
+                    </div>
+                    <div class="panel-body">
+                        Software administrator can assign flexible schedules which support cross-day timing to the employees.
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="panel panel-default feature-panel">
+                    <div class="panel-heading">
+                        <img style="float:left; height:40px;" src="~/Images/PortalPageIcon/multilevel%20S.png" />
+                        <h5 class="fontcolor " style="padding-left:60px;">Multi Branch Support</h5>
+                    </div>
+                    <div class="panel-body">
+                        Our software is capable to support n number of branches and their activities about attendance system.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="panel panel-default feature-panel">
+                    <div class="panel-heading">
+                        <img style="float:left; height:40px;" src="~/Images/PortalPageIcon/multilevel%20S.png" />
+                        <h5 class="fontcolor " style="padding-left:60px;">Multi-Level Approvals and Automatic E-mail Alerts</h5>
+                    </div>
+                    <div class="panel-body">
+                        E-mail notifications for the attendance exceptions and for multi-level approvals.
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="panel panel-default feature-panel">
+                    <div class="panel-heading">
+                        <img style="float:left; height:40px;" src="~/Images/PortalPageIcon/attreport%20S.png" />
+                        <h5 class="fontcolor " style="padding-left:60px;">Attendance Calculation & Reports</h5>
+                    </div>
+                    <div class="panel-body">
+                        The attendance reports are calculated easily and can be exported in CSV, PDF, and XLS format.
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="panel panel-default feature-panel">
+                    <div class="panel-heading">
+                        <img style="float:left; height:40px;" src="~/Images/PortalPageIcon/attrules%20S.png" />
+                        <h5 class="fontcolor " style="padding-left:60px;">Attendance Rules Setting</h5>
+                    </div>
+                    <div class="panel-body">
+                        Organization can set attendance rules as per organization rules and regulation.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="panel panel-default feature-panel">
+                    <div class="panel-heading">
+                        <img style="float:left; height:40px;" src="~/Images/PortalPageIcon/realtimedata%20S.png" />
+                        <h5 class="fontcolor " style="padding-left:60px;">Real-Time Data Transmission</h5>
+                    </div>
+                    <div class="panel-body">
+                        The data from the inter-regional terminals can be monitored in real time.
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="panel panel-default feature-panel">
+                    <div class="panel-heading">
+                        <img style="float:left; height:40px;" src="~/Images/PortalPageIcon/calender%20S.png" />
+                        <h5 class="fontcolor " style="padding-left:60px;">Multi-date</h5>
+                    </div>
+                    <div class="panel-body">
+                        Supports Gregorian and Nepali Calendar.
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="panel panel-default feature-panel">
+                    <div class="panel-heading">
+                        <img style="float:left; height:40px;" src="~/Images/PortalPageIcon/multilanguage%20S.png" />
+                        <h5 class="fontcolor " style="padding-left:60px;">Multi-languages</h5>
+                    </div>
+                    <div class="panel-body">
+                        Supports English and Nepali language.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="panel panel-default feature-panel">
+                    <div class="panel-heading">
+                        <img style="float:left; height:40px;" src="~/Images/PortalPageIcon/hrintegration%20S.png" />
+                        <h5 class="fontcolor " style="padding-left:60px;">Embedded HR Integration</h5>
+                    </div>
+                    <div class="panel-body">
+                        Hamro-Hajiri is a platform which can be integrated with ERP and HR software to do synchronization using Middle table.
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="panel panel-default feature-panel">
+                    <div class="panel-heading">
+                        <img style="float:left; height:40px;" src="~/Images/PortalPageIcon/backup%20S.png" />
+                        <h5 class="fontcolor " style="padding-left:60px;">Backup</h5>
+                    </div>
+                    <div class="panel-body">
+                        Auto and Schedule backup.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <strong><b>Copyright &copy; Hamro-Hajiri.com 2017-2022</b></strong>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- /.container -->
+    <!-- jQuery -->
+    <script src="~/Content/PortalPage/js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/Content/PortalPage/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/toastr.js"></script>
+    <script src="/Scripts/knockout-3.4.2.js"></script>
+    <script src="/Scripts/App/Globals/Riddha.Globals.ko.js"></script>
+    <script src="~/Areas/Office/Scripts/Riddha.Script.Reseller.Model.js"></script>
+    <script src="~/Areas/Office/Scripts/Riddha.Script.Reseller.Controller.js"></script>
+    <script src="~/Content/jquery.sweet-modal.min.js"></script>
+    <script>
+        var message = '@ViewBag.Message';
+        var loginAs = '@ViewBag.LoginAs';
+        function RestrictSpace() {
+            if (event.keyCode == 32) {
+                event.returnValue = false;
+                return false;
+            }
+        };
+
+
+        //$("#becomePatnerResetBtn").click(function () {
+        //    refreshBecomePatnerCaptcha("#captchaBecomaPatner");
+        //});
+
+        $("#showRequestDemoModal").click(function () {
+            $("#requestDemoModal").modal('show');
+        });
+
+
+        @*function refreshBecomePatnerCaptcha(id) {
+            $.ajax({
+                url: '@Url.Action("Captcha", "Office", new { area = "Reseller" })',
+                contentType: "image/jpeg",
+                cache: false,
+                type: 'get',
+                success: function (data) {
+                    d = new Date();
+                    $(id).attr("src", "/Office/Reseller/Captcha?" + d.getTime());
+                },
+            });
+        }*@
+
+
+
+        $("#showmodal").click(function () {
+            $("#becomePatnerModel").modal('show');
+        });
+
+        //$("#resetBtn").click(function () {
+        //    refreshCaptcha("#captchauserlogin");
+        //});
+        //$("#resetPartnerBtn").click(function () {
+        //    refreshCaptcha("#captchaPartnerlogin");
+        //});
+        @*function refreshCaptcha(id) {
+            $.ajax({
+                url: '@Url.Action("Captcha", "User", new { area="user"})',
+                contentType: "image/jpeg",
+                cache: false,
+                type: 'get',
+                success: function (data) {
+                    d = new Date();
+                    $(id).attr("src", "/user/user/Captcha?" + d.getTime());
+                },
+            });
+        }*@
+        $(document).ready(function () {
+            if (message != "") {
+                $("#LoginTab li").removeClass('active');
+                $("#LoginTab li").find('a').attr("aria-expanded", "false");
+                switch (loginAs) {
+                    case 'User':
+                        $("#LoginTab li").eq(0).addClass('active').find('a').attr("aria-expanded", "true").click();
+                        break;
+                    case 'Reseller':
+                        $("#LoginTab li").eq(1).addClass('active').find('a').attr("aria-expanded", "true").click();
+                        //$('#myTabContent > div').removeClass('active in').eq(1).addClass('active in');
+                        $('#Customer').removeClass('active in');
+                        $("#Reseller").addClass('active in');
+                        break;
+                    default:
+                }
+
+                $('#msg').hide();
+                $('#aLogin').click();
+                toastr.error(message, "Login Failed");
+            }
+            setTimeout(function () {
+                $('#msg').fadeOut('fast');
+            }, 0);
+        });
+        function isNumber(evt) {
+            evt = (evt) ? evt : window.event;
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                return false;
+            }
+            return true;
+        }
+
+
+
+        var portalPage = new portalPageController();
+        ko.applyBindings(portalPage);
+        //$('#btnNext').click(function () {
+        //    $('#tabList > .active').next('li').find('a').trigger('click');
+        //});
+        //$('#btnPrevious').click(function () {
+        //    $('#tabList > .active').prev('li').find('a').trigger('click');
+        //});
+
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112848608-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-112848608-1');
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,166 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Layout_Adminlte.cshtml";
+}
+<section class="content-header">
+    <h1>
+        @T("Employee")
+        <sup class="text-green">@T("Creation")</sup>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> @T("Home")</a></li>
+        <li class="active">@T("Employee")</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <button class="btn btn-lg btn-success" id="showSalaryPosting">Show</button>
+        <div id="example">
+            <div id="grid">
+                <div class="col-lg-12">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>1</th>
+                                <th>1</th>
+                                <th>1</th>
+                                <th>1</th>
+                                <th>1</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2</td>
+                                <td>2</td>
+                                <td>2</td>
+                                <td>2</td>
+                                <td>2</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+</section>
+@section scripts
+    {
+<script>
+    $(document).ready(function () {
+        var config = new Riddha.config();
+        var language = config.CurrentLanguage;
+        var docHeight = $(document).height();
+        var dataDailog = $("#example").kendoDialog({
+            width:"100%",
+            height: docHeight,
+            animation: {
+                close: {
+                    effects: "fade:out"
+                },
+                open: {
+                    effects: "fade:in"
+                }
+            },
+            title:"Salary Posting",
+            visible: false,
+            closable: true,
+            modal: true,
+            //open: function () {
+            //    loadGrid();
+            //}
+        }).data("kendoDialog");
+        $("#showSalaryPosting").off('click').on('click', function () {
+            dataDailog.open();
+        });
+
+
+        var crudServiceBaseUrl = "https://demos.telerik.com/kendo-ui/service",
+            dataSource = new kendo.data.DataSource({
+                type: "json",
+                serverPaging: true,
+                serverSorting: false,
+                serverFiltering: true,
+                pageSize: 30,
+                transport: {
+                    read: {
+                        type: "POST",
+                        url: "/Api/MonthlyEmployeeSummaryReportApi/GenerateReport",
+                        dataType: "json",
+                        data: {onDate: "2017/11/01", ToDate: "2017/11/30", Daywise: true }
+                    },
+                    update: {
+                        url: crudServiceBaseUrl + "/Products/Update",
+                        dataType: "jsonp"
+                    },
+                    destroy: {
+                        url: crudServiceBaseUrl + "/Products/Destroy",
+                        dataType: "jsonp"
+                    },
+                    create: {
+                        url: crudServiceBaseUrl + "/Products/Create",
+                        dataType: "jsonp"
+                    },
+                    parameterMap: function (options, operation) {
+                        if (operation == "read") {
+                            return options;
+                        }
+                    },
+                },
+                batch: true,
+                pageSize: 20,
+                schema: {
+                    data: "Data",
+                    total: "TotalCount",
+                    model: {
+                        id: "ProductID",
+                        fields: {
+                            EmployeeId: { editable: false, nullable: false },
+                            //IdCardNo: { validation: { required: true } },
+                            EmployeeName: { editable: false,validation: { required: true } },
+                            //DepartmentName: { validation: { required: true } },
+                            //Section: { validation: { required: true } },
+                            //UnitPrice: { type: "number", validation: { required: true, min: 1 } },
+                            //Discontinued: { type: "boolean" },
+                            //UnitsInStock: { type: "number", validation: { min: 0, required: true } }
+                        }
+                    }
+                }
+            });
+
+        function loadGrid() {
+            $("#grid").kendoGrid({
+                dataSource: dataSource,
+                reorderable: false,
+                resizable: true,
+                scrollable: true,
+                navigatable: true,
+                sortable: true,
+                autoSync: false,
+                height: 550,
+                columns: [
+                { field: 'EmployeeName', title: language == "ne" ? "र्नाम" : "Name", width: 140 },
+               { field: "TotalDays", title: language == "ne" ? "जम्मा" : "Total", filterable: false, sortable: false,width:40 },
+               { field: "DutyDay", title: language == "ne" ? "कार्य" : "Duty", filterable: false, sortable: false,width:40 },
+               { field: "Weekend", title: language == "ne" ? "कार्य" : "Weekend", filterable: false, sortable: false, width: 60 },
+               { field: "Holiday", title: language == "ne" ? "सार्वजनिक बिदा" : "Holiday", filterable: false, sortable: false, width: 55 },
+               { field: "Present", title: language == "ne" ? "उपस्थित(दिन)" : "Present", filterable: false, sortable: false, width: 55},
+               { field: "Absent", title: language == "ne" ? "अनुपस्थित(दिन)" : "Absent", filterable: false, sortable: false, width: 50 },
+               { field: "Leave", title: language == "ne" ? "बिदा(दिन)" : "Leave", filterable: false, sortable: false, width: 50 },
+               { field: "Worked", title: language == "ne" ? "कार्य(घण्टा)" : "Worked(H)", filterable: false, sortable: false, width: 70},
+               { field: "Ot", title: language == "ne" ? "ओ.टी" : "OT", filterable: false, sortable: false, width: 50},
+                { title: language == "ne" ? "ढिला" : "Late", headerAttributes: { style: "text-align:center;" }, columns: [{ field: "LateIn", title: language == "ne" ? "इन" : "In", filterable: false, sortable: false, width: 40 }, { field: "LateOut", title: language == "ne" ? "आउट" : "Out", filterable: false, sortable: false, width: 40 }] },
+                { title: language == "ne" ? "चाडो" : "Early", headerAttributes: { style: "text-align:center;" }, columns: [{ field: "EarlyIn", title: language == "ne" ? "इन" : "In", filterable: false, sortable: false, width: 40 }, { field: "EarlyOut", title: language == "ne" ? "आउट" : "Out", filterable: false, sortable: false, width: 40 }] },
+                    { command: ["edit"], title: "Action" }],
+                editable: "inline"
+            });
+        }
+    });
+    
+    
+    function customBoolEditor(container, options) {
+        var guid = kendo.guid();
+        $('<input class="k-checkbox" id="' + guid + '" type="checkbox" name="Discontinued" data-type="boolean" data-bind="checked:Discontinued">').appendTo(container);
+        $('<label class="k-checkbox-label" for="' + guid + '">&#8203;</label>').appendTo(container);
+    }
+</script>
+
+}

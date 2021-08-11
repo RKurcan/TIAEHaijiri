@@ -1,0 +1,180 @@
+D:\project\EHajiri_2017.07.30\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.DB.dll.config
+D:\project\EHajiri_2017.07.30\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.DB.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.DB.pdb
+D:\project\EHajiri_2017.07.30\trunk\RTech.Core.Repository\bin\Debug\EntityFramework.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Core.Repository\bin\Debug\EntityFramework.SqlServer.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Attendance.Entities.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Device.Entities.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Employee.Entities.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Employee.Mobile.Entities.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Entity.User.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.HRM.Entities.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.OfficeSetup.Entities.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.PayRoll.Entities.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Attendance.Entities.pdb
+D:\project\EHajiri_2017.07.30\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Device.Entities.pdb
+D:\project\EHajiri_2017.07.30\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Employee.Entities.pdb
+D:\project\EHajiri_2017.07.30\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Employee.Mobile.Entities.pdb
+D:\project\EHajiri_2017.07.30\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.HRM.Entities.pdb
+D:\project\EHajiri_2017.07.30\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.OfficeSetup.Entities.pdb
+D:\project\EHajiri_2017.07.30\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.PayRoll.Entities.pdb
+D:\project\EHajiri_2017.07.30\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Entity.User.pdb
+D:\project\EHajiri_2017.07.30\trunk\RTech.Core.Repository\bin\Debug\EntityFramework.xml
+D:\project\EHajiri_2017.07.30\trunk\RTech.Core.Repository\bin\Debug\EntityFramework.SqlServer.xml
+D:\project\EHajiri_2017.07.30\trunk\RTech.Core.Repository\obj\Debug\Riddhasoft.Core.Repository.csprojResolveAssemblyReference.cache
+D:\project\EHajiri_2017.07.30\trunk\RTech.Core.Repository\obj\Debug\Riddhasoft.DB.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Core.Repository\obj\Debug\Riddhasoft.DB.pdb
+D:\projects\NewRepos\HamroHajiri\RTech.Core.Repository\bin\Debug\Riddhasoft.DB.dll.config
+D:\projects\NewRepos\HamroHajiri\RTech.Core.Repository\bin\Debug\Riddhasoft.DB.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Core.Repository\bin\Debug\Riddhasoft.DB.pdb
+D:\projects\NewRepos\HamroHajiri\RTech.Core.Repository\bin\Debug\EntityFramework.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Core.Repository\bin\Debug\EntityFramework.SqlServer.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Core.Repository\bin\Debug\Riddhasoft.Attendance.Entities.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Core.Repository\bin\Debug\Riddhasoft.Device.Entities.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Core.Repository\bin\Debug\Riddhasoft.Employee.Entities.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Core.Repository\bin\Debug\Riddhasoft.Employee.Mobile.Entities.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Core.Repository\bin\Debug\Riddhasoft.Entity.User.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Core.Repository\bin\Debug\Riddhasoft.HRM.Entities.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Core.Repository\bin\Debug\Riddhasoft.OfficeSetup.Entities.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Core.Repository\bin\Debug\Riddhasoft.PayRoll.Entities.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Core.Repository\bin\Debug\Riddhasoft.Attendance.Entities.pdb
+D:\projects\NewRepos\HamroHajiri\RTech.Core.Repository\bin\Debug\Riddhasoft.Device.Entities.pdb
+D:\projects\NewRepos\HamroHajiri\RTech.Core.Repository\bin\Debug\Riddhasoft.Employee.Entities.pdb
+D:\projects\NewRepos\HamroHajiri\RTech.Core.Repository\bin\Debug\Riddhasoft.Employee.Mobile.Entities.pdb
+D:\projects\NewRepos\HamroHajiri\RTech.Core.Repository\bin\Debug\Riddhasoft.HRM.Entities.pdb
+D:\projects\NewRepos\HamroHajiri\RTech.Core.Repository\bin\Debug\Riddhasoft.OfficeSetup.Entities.pdb
+D:\projects\NewRepos\HamroHajiri\RTech.Core.Repository\bin\Debug\Riddhasoft.PayRoll.Entities.pdb
+D:\projects\NewRepos\HamroHajiri\RTech.Core.Repository\bin\Debug\Riddhasoft.Entity.User.pdb
+D:\projects\NewRepos\HamroHajiri\RTech.Core.Repository\bin\Debug\EntityFramework.xml
+D:\projects\NewRepos\HamroHajiri\RTech.Core.Repository\bin\Debug\EntityFramework.SqlServer.xml
+D:\projects\NewRepos\HamroHajiri\RTech.Core.Repository\obj\Debug\Riddhasoft.Core.Repository.csprojResolveAssemblyReference.cache
+D:\projects\NewRepos\HamroHajiri\RTech.Core.Repository\obj\Debug\Riddhasoft.DB.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Core.Repository\obj\Debug\Riddhasoft.DB.pdb
+D:\project\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.DB.dll.config
+D:\project\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.DB.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.DB.pdb
+D:\project\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\EntityFramework.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\EntityFramework.SqlServer.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Attendance.Entities.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Device.Entities.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Employee.Entities.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Employee.Mobile.Entities.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Entity.User.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.HRM.Entities.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.OfficeSetup.Entities.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.PayRoll.Entities.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Attendance.Entities.pdb
+D:\project\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Attendance.Entities.dll.config
+D:\project\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Device.Entities.pdb
+D:\project\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Employee.Entities.pdb
+D:\project\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Employee.Mobile.Entities.pdb
+D:\project\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.HRM.Entities.pdb
+D:\project\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.HRM.Entities.dll.config
+D:\project\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.OfficeSetup.Entities.pdb
+D:\project\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.OfficeSetup.Entities.dll.config
+D:\project\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.PayRoll.Entities.pdb
+D:\project\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.PayRoll.Entities.dll.config
+D:\project\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Entity.User.pdb
+D:\project\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\EntityFramework.xml
+D:\project\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\EntityFramework.SqlServer.xml
+D:\project\Hamro-Hajiri\trunk\RTech.Core.Repository\obj\Debug\Riddhasoft.Core.Repository.csprojAssemblyReference.cache
+D:\project\Hamro-Hajiri\trunk\RTech.Core.Repository\obj\Debug\Riddhasoft.Core.Repository.csproj.CoreCompileInputs.cache
+D:\project\Hamro-Hajiri\trunk\RTech.Core.Repository\obj\Debug\Riddhasoft.Core.Repository.csproj.CopyComplete
+D:\project\Hamro-Hajiri\trunk\RTech.Core.Repository\obj\Debug\Riddhasoft.DB.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Core.Repository\obj\Debug\Riddhasoft.DB.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.DB.dll.config
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.DB.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.DB.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\EntityFramework.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\EntityFramework.SqlServer.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Attendance.Entities.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Device.Entities.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Employee.Entities.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Employee.Mobile.Entities.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Entity.User.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.HRM.Entities.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.OfficeSetup.Entities.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.PayRoll.Entities.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Attendance.Entities.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Device.Entities.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Employee.Entities.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Employee.Mobile.Entities.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.HRM.Entities.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.OfficeSetup.Entities.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.PayRoll.Entities.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Entity.User.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\EntityFramework.xml
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\EntityFramework.SqlServer.xml
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Core.Repository\obj\Debug\Riddhasoft.DB.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Core.Repository\obj\Debug\Riddhasoft.DB.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Attendance.Entities.dll.config
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.HRM.Entities.dll.config
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.OfficeSetup.Entities.dll.config
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.PayRoll.Entities.dll.config
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Core.Repository\obj\Debug\Riddhasoft.Core.Repository.csprojAssemblyReference.cache
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Core.Repository\obj\Debug\Riddhasoft.Core.Repository.csproj.CoreCompileInputs.cache
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Core.Repository\obj\Debug\Riddhasoft.Core.Repository.csproj.CopyComplete
+D:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.DB.dll.config
+D:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.DB.dll
+D:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.DB.pdb
+D:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\EntityFramework.dll
+D:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\EntityFramework.SqlServer.dll
+D:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Attendance.Entities.dll
+D:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Device.Entities.dll
+D:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Employee.Entities.dll
+D:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Employee.Mobile.Entities.dll
+D:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Entity.User.dll
+D:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.HRM.Entities.dll
+D:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.OfficeSetup.Entities.dll
+D:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.PayRoll.Entities.dll
+D:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Attendance.Entities.pdb
+D:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Attendance.Entities.dll.config
+D:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Device.Entities.pdb
+D:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Employee.Entities.pdb
+D:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Employee.Mobile.Entities.pdb
+D:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.HRM.Entities.pdb
+D:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.HRM.Entities.dll.config
+D:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.OfficeSetup.Entities.pdb
+D:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.OfficeSetup.Entities.dll.config
+D:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.PayRoll.Entities.pdb
+D:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.PayRoll.Entities.dll.config
+D:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Entity.User.pdb
+D:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\EntityFramework.xml
+D:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\EntityFramework.SqlServer.xml
+D:\Projects\HamroHajiri\trunk\RTech.Core.Repository\obj\Debug\Riddhasoft.Core.Repository.csprojAssemblyReference.cache
+D:\Projects\HamroHajiri\trunk\RTech.Core.Repository\obj\Debug\Riddhasoft.Core.Repository.csproj.CoreCompileInputs.cache
+D:\Projects\HamroHajiri\trunk\RTech.Core.Repository\obj\Debug\Riddhasoft.Core.Repository.csproj.CopyComplete
+D:\Projects\HamroHajiri\trunk\RTech.Core.Repository\obj\Debug\Riddhasoft.DB.dll
+D:\Projects\HamroHajiri\trunk\RTech.Core.Repository\obj\Debug\Riddhasoft.DB.pdb
+F:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.DB.dll.config
+F:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.DB.dll
+F:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.DB.pdb
+F:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\EntityFramework.dll
+F:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\EntityFramework.SqlServer.dll
+F:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Attendance.Entities.dll
+F:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Device.Entities.dll
+F:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Employee.Entities.dll
+F:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Employee.Mobile.Entities.dll
+F:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Entity.User.dll
+F:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.HRM.Entities.dll
+F:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.OfficeSetup.Entities.dll
+F:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.PayRoll.Entities.dll
+F:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Attendance.Entities.pdb
+F:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Attendance.Entities.dll.config
+F:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Device.Entities.pdb
+F:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Employee.Entities.pdb
+F:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Employee.Mobile.Entities.pdb
+F:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.HRM.Entities.pdb
+F:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.HRM.Entities.dll.config
+F:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.OfficeSetup.Entities.pdb
+F:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.OfficeSetup.Entities.dll.config
+F:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.PayRoll.Entities.pdb
+F:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.PayRoll.Entities.dll.config
+F:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\Riddhasoft.Entity.User.pdb
+F:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\EntityFramework.xml
+F:\Projects\HamroHajiri\trunk\RTech.Core.Repository\bin\Debug\EntityFramework.SqlServer.xml
+F:\Projects\HamroHajiri\trunk\RTech.Core.Repository\obj\Debug\Riddhasoft.Core.Repository.csprojAssemblyReference.cache
+F:\Projects\HamroHajiri\trunk\RTech.Core.Repository\obj\Debug\Riddhasoft.Core.Repository.csproj.CoreCompileInputs.cache
+F:\Projects\HamroHajiri\trunk\RTech.Core.Repository\obj\Debug\Riddhasoft.Core.Repository.csproj.CopyComplete
+F:\Projects\HamroHajiri\trunk\RTech.Core.Repository\obj\Debug\Riddhasoft.DB.dll
+F:\Projects\HamroHajiri\trunk\RTech.Core.Repository\obj\Debug\Riddhasoft.DB.pdb

@@ -1,0 +1,961 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Layout_Adminlte.cshtml";
+    var user = RTech.Demo.Utilities.RiddhaSession.GetUser() ?? new Riddhasoft.User.Entity.EUser();
+    string currentLanguage = RTech.Demo.Utilities.RiddhaSession.Language.ToString();
+}
+<style>
+    /*.SalarySheet {
+        background-color: #1697bb !important;
+        color: azure;
+    }*/
+
+
+    #salarySheetTable {
+        overflow-y: auto;
+        overflow-x: auto;
+        width: 100%;
+    }
+
+    .panel-body {
+        padding: 7.5px;
+    }
+
+    .list-group-item {
+        position: relative;
+        display: block;
+        padding: 4px;
+        margin-bottom: -1px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+    }
+
+        .list-group-item:first-child {
+            margin-top: 0;
+            border-top: 0px;
+            border-bottom-right-radius: 4px;
+            /* border-bottom-left-radius: 4px; */
+        }
+
+    .appbtn {
+        border-radius: 3px;
+        position: relative;
+        padding: 15px 5px;
+        margin: 0 0 10px 10px;
+        min-width: 80px;
+        height: 60px;
+        text-align: center;
+        color: #666;
+        border: 1px solid #ddd;
+        background-color: #f4f4f4;
+        font-size: 12px;
+    }
+
+    .pagebreak {
+        page-break-before: always;
+    }
+
+    #PaySlipPreviewViewModal {
+        overflow-y: auto;
+    }
+</style>
+
+
+<section class="content-header">
+    <h1>
+        @T("Salary PaySlip")
+        <sup class="text-green">@T("Creation")</sup>
+
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> @T("Home")</a></li>
+        <li class="active">@T("Salary Payment")</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+
+    <div class="modal" id="PaySlipPreviewViewModal" data-backdrop="static">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-blue">@T("Salary PaySlip")</h4></header>
+                </div>
+                <div class="modal-body">
+                    <div id="salarySlip">
+                        <!--ko foreach:SalaryPayslipMasters-->
+                        <div class="col-lg-12" style=" page-break-before: always; ">
+                            <h4 class="text-left success bg-success"><strong>@(currentLanguage == "ne" ? user.Branch.Company.NameNp : user.Branch.Company.Name.ToUpper())</strong> </h4>
+                            <h4 class="text-left success bg-success" data-bind="html:'<strong> Salary PaySlip for the month of ' + Month() + '</strong>'"> <strong> </strong></h4>
+                            <p>
+                                <span class="text-left" data-bind="html:'<strong> Name : ' + EmployeeName() + '(' + EmployeeCode() +') </strong>'"> <strong> </strong></span>
+
+                            </p>
+                            <p>
+                                <span class="text-right" data-bind="html:' <strong> Designation : ' + Designation() + '</strong>'"> <strong> </strong></span>
+                            </p>
+
+                            <table class="table table-condensed table-bordered table-striped no-padding table-hover">
+                                <thead class="success bg-success">
+
+
+                                </thead>s
+                                <tbody data-bind="foreach:SalaryPaySlipInfos">
+                                    <tr>
+                                        <th data-bind="text:Name" class="text-left"> </th>
+                                        <th data-bind="text:Amount" class="text-right"></th>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                        <!--/ko-->
+
+                        <div class="pagebreak"> </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <div class="form-group col-lg-12 text-center">
+                            @*<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>*@
+                            @*<input type="button" id="close" data-dismiss="modal" aria-hidden="true" value=@T("Print") class="btn btn-default" />*@
+                            <button type="button" class="btn btn-default " data-bind="click:function(){Print('#salarySlip')}"><i class="fa fa-plus-square text-green">&nbsp;@T("Print")</i></button>
+                            @*<button id="btnExport" type="button" class="btn btn-default " data-bind="click:function(){ExportExcel('table')}"><i class="fa fa-pencil text-blue">&nbsp;@T("Excel")</i></button>*@
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+    <div class="modal" id="PaySlipMultiplePreviewModal" data-backdrop="static">
+        <div class="modal-dialog  modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-blue">@T("Salary PaySlip")</h4></header>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-12" id="salarySliptbl" style="max-width:880px;overflow-x:auto;overflow-y:auto;height:auto">
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <p data-bind="text:$root.CompanyName()" style="text-align:center;font-size:20px;"></p>
+                            <p data-bind="text:$root.CompanyAddress()" style="text-align:center;font-size:20px;"></p>
+                            <p data-bind="text:$root.SalaryPaymentDesc()" style="text-align:center;font-size:20px;"></p>
+                            @*<!--ko if:$root.SalaryPayslipMasters().length > 0-->
+                                <table class="table table-condensed table-bordered table-striped no-padding table-hover">
+                                    <thead class="success bg-success">
+
+
+                                        <tr>
+                                            <th>@T("EmployeeName")</th>
+                                            <th>@T("Designation")</th>
+
+                                            <!--ko foreach:$root.SalaryPayslipMasters()[0].SalaryPaySlipInfos()-->
+                                            <th class="col-lg-1" data-bind="text:Name"></th>
+                                            <!--/ko-->
+                                        </tr>
+                                    </thead>
+                                    <tbody data-bind="foreach:$root.SalaryPayslipMasters">
+                                        <tr>
+                                            <th data-bind="text: ' ' +  EmployeeName() + ' '"></th>
+                                            <th data-bind="text:Designation"></th>
+                                            <!--ko foreach:SalaryPaySlipInfos-->
+                                            <th data-bind="text:Amount" class="text-right"></th>
+                                            <!-- /ko-->
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <!--/ko-->*@
+
+                            <table style="font-size:12px;border:1px;" class="table table-bordered table-hover table-condensed table-responsive table-striped no-padding roster">
+                                <thead class="bg-green" id="salarySheetTbl">
+
+                                    <tr>
+                                        <th>@T("SerialNo")</th>
+                                        <th>@T("EmployeeName")</th>
+                                        <th>@T("Designation")</th>
+                                        <th>@T("MonthOfJoin")</th>
+                                        <th>@T("BasicSalary")</th>
+                                        <th>@T("GradeTitle")</th>
+                                        <th>@T("Grade")</th>
+
+
+                                        <th>@T("DeductionAmount")</th>
+                                        <th>@T("AdditionAmount")</th>
+                                        <!--ko foreach :AllowanceHeads()-->
+                                        <th data-bind="text:AllowanceHead"></th>
+                                        <!--/ko -->
+
+                                        <th>@T("GrossSalary")</th>
+
+                                        <th>@T("InsuranceAmountEmpyr")</th>
+
+                                        <th>@T("PFEmployer")</th>
+
+                                        <th>@T("PensionFundEmployer")</th>
+
+                                        <th>@T("CIT")</th>
+
+                                        <th>@T("InsuranceAmount")</th>
+
+                                        <th>@T("PFEmployee")</th>
+                                        <th>@T("PensionFundEmployee")</th>
+
+                                        <th>@T("TaxableAmount")</th>
+                                        <th>@T("TotalTDS")</th>
+
+                                        <th>@T("NetPayable")</th>
+                                    </tr>
+                                </thead>
+                                <tbody >
+                                    <!--ko foreach:SalaryPayments-->
+                                    <tr>
+
+                                        <td data-bind="serialNo:$index()+1"></td>
+                                        <td data-bind="text:EmployeeName() + '(' + EmployeeCode() + ')'"></td>
+                                        <td data-bind="text:Designation"></td>
+                                        <td data-bind="text:JoinedMonth"></td>
+
+                                        <td data-bind="text:SuitableNumber(BasicSalary())"></td>
+                                        <td data-bind="text:GradeName" height="57px"></td>
+
+                                        <td data-bind="text:SuitableNumber(Grade())" height="57px"></td>
+
+                                        <td data-bind="text:SuitableNumber(DeductionAmount())"></td>
+                                        <td data-bind="text:SuitableNumber(AdditionAmount())"></td>
+                                        <!--ko foreach:Allowances-->
+                                        <td data-bind="text:SuitableNumber(AllowanceAmount)"></td>
+                                        <!-- /ko -->
+                                        <td data-bind="text:SuitableNumber(GrossSalary())"></td>
+                                        <!-- Insurance -->
+                                        <td data-bind="text:SuitableNumber(InsurancePaidbyOffice())"></td>
+
+                                        <td data-bind="text:SuitableNumber(PFER())"></td>
+
+                                        <td data-bind="text:SuitableNumber(PensionFundER())"></td>
+
+                                        <!--CIT-->
+                                        <td data-bind="text:SuitableNumber(CITAmount())"></td>
+                                        <!--/CIT-->
+                                        <td data-bind="text:SuitableNumber(InsurancePremiumAmount())"></td>
+                                        <!-- /Insurance -->
+
+                                        <td data-bind="text:SuitableNumber(PFEE())"></td>
+                                        <td data-bind="text:SuitableNumber(PensionFundEE())"></td>
+                                        <td data-bind="text:SuitableNumber(TaxableAmount())"></td>
+                                        <!-- Tax Information -->
+                                        <td data-bind="text:SuitableNumber(TotalTDS())"></td>
+                                        <td data-bind="text:SuitableNumber(NetSalary())"></td>
+                                        <!-- Tax Information -->
+                                    </tr>
+                                    <!--/ko-->
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <th data-bind="text:SuitableNumber($root.TotalBasicSalary())"></th>
+                                        <td></td>
+                                        <th data-bind="text:SuitableNumber($root.TotalGradeAmount())"></th>
+                                        <th data-bind="text:SuitableNumber($root.TotalDeductionAmount())"></th>
+                                        <th data-bind="text:SuitableNumber($root.TotalAdditionAmount())"></th>
+                                        <!--ko foreach :$root.AllowanceHeads()-->
+                                        <th data-bind="text:SuitableNumber(AllowanceAmount())"></th>
+                                        <!--/ko -->
+                                        <th data-bind="text:SuitableNumber($root.TotalGrossSalary())"></th>
+                                        <th data-bind="text:SuitableNumber($root.TotalInsuranceAmountER())"></th>
+                                        <th data-bind="text:SuitableNumber($root.TotalPFEmployer())"></th>
+                                        <th data-bind="text:SuitableNumber($root.TotalPensionEmployer())"></th>
+                                        <th data-bind="text:SuitableNumber($root.TotalCITAmount())"></th>
+                                        <th data-bind="text:SuitableNumber($root.TotalInsuranceAmount())"></th>
+                                        <th data-bind="text:SuitableNumber($root.TotalPFEmployee())"></th>
+                                        <th data-bind="text:SuitableNumber($root.TotalPensionEmployee())"></th>
+                                        <th data-bind="text:SuitableNumber($root.TotalTaxableAmount())"></th>
+                                        <th data-bind="text:SuitableNumber($root.TotalTaxAmount())"></th>
+                                        <th data-bind="text:SuitableNumber($root.TotalNetSalary())"></th>
+                                    </tr>
+                                </tbody>
+
+                                <tfoot>
+                                   
+                                </tfoot>
+                            </table>
+
+
+
+                        </div>
+                        <div class="modal-footer">
+                            <div class="form-group col-lg-12 text-center">
+                                @*<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>*@
+                                @*<input type="button" id="close" data-dismiss="modal" aria-hidden="true" value=@T("Print") class="btn btn-default" />*@
+                                <button type="button" class="btn btn-default " data-bind="click:function(){Print('#salarySliptbl')}"><i class="fa fa-plus-square text-green">&nbsp;@T("Print")</i></button>
+                                @*<button id="btnExport" type="button" class="btn btn-default " data-bind="click:function(){ExportExcel('table')}"><i class="fa fa-pencil text-blue">&nbsp;@T("Excel")</i></button>*@
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="SSFViewModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-blue">@T("SSF Information")</h4></header>
+                </div>
+                <div class="modal-body">
+
+                    <div class="col-lg-12">
+                        <table class="table table-condensed table-bordered table-striped no-padding table-hover">
+                            <thead class="success bg-success">
+                                <tr>
+                                    <th>@T("PF Employer")</th>
+                                    <th>@T("PF Employee")</th>
+                                    <th>@T("Gratituity Employer")</th>
+                                    <th>@T("SS Employer")</th>
+                                    <th>@T("SS Employee")</th>
+                                    <th>@T("PensionFund Employer")</th>
+                                    <th>@T("PensionFund Employee")</th>
+                                </tr>
+                            </thead>
+                            <tbody data-bind="with:SSFInfo">
+                                <tr>
+                                    <td data-bind="text:PFER()"></td>
+                                    <td data-bind="text:PFEE()"></td>
+                                    <td data-bind="text:Gratituity()"></td>
+                                    <td data-bind="text:SSER()"></td>
+                                    <td data-bind="text:SSEE()"></td>
+                                    <td data-bind="text:PensionFundER()"></td>
+                                    <td data-bind="text:PensionFundEE()"></td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="form-group col-lg-12 text-center">
+                            @*<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>*@
+                            <input type="button" id="close" data-dismiss="modal" aria-hidden="true" value=@T("Back") class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="AllowanceViewModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-blue">@T("Allowances")</h4></header>
+                </div>
+                <div class="modal-body">
+
+                    <div class="col-lg-12">
+                        <table class="table table-condensed table-bordered table-striped no-padding table-hover">
+                            <thead class="success bg-success">
+                                <tr>
+                                    <!-- ko if:AllowanceHeads().length > 0 -->
+                                    <th data-bind="attr:{'colspan':AllowanceHeads().length}" class="text-center">@T("Allowances")</th>
+                                    <!--/ko-->
+                                </tr>
+                                <tr>
+                                    <!--ko foreach :AllowanceHeads()-->
+                                    <th data-bind="text:AllowanceHead"></th>
+                                    <!--/ko -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <!--ko foreach:Allowances()-->
+                                    <td data-bind="text:AllowanceAmount"></td>
+                                    <!-- /ko -->
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="form-group col-lg-12 text-center">
+                            @*<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>*@
+                            <input type="button" id="close" data-dismiss="modal" aria-hidden="true" value=@T("Back") class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="TDSInfoViewModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-blue">@T("Tax Information")</h4></header>
+                </div>
+                <div class="modal-body">
+
+                    <div class="col-lg-12">
+                        <table class="table table-condensed table-bordered table-striped no-padding table-hover">
+                            <thead class="success bg-success">
+                                <tr>
+                                    <th>@T("Social Security Tax")</th>
+                                    <th>@T("Renumeration Tax")</th>
+                                </tr>
+
+                            </thead>
+                            <tbody data-bind="with:TDSInfo">
+                                <tr>
+                                    <td data-bind="text:SocialSecurityTax()"></td>
+                                    <td data-bind="text:RenumerationTax()"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="form-group col-lg-12 text-center">
+                            @*<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>*@
+                            <input type="button" id="close" data-dismiss="modal" aria-hidden="true" value=@T("Back") class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="DeductionInfoViewModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-blue">@T("Pay Deduction Info")</h4></header>
+                </div>
+                <div class="modal-body">
+
+                    <div class="col-lg-12">
+                        <table class="table table-condensed table-bordered table-striped no-padding table-hover">
+                            <thead class="success bg-success">
+                                <tr>
+                                    <th colspan="5" class="text-center">@T("Pay Deduction Info")</th>
+                                </tr>
+                                <tr>
+                                    <th>@T("Absent")</th>
+                                    <th>@T("Leave")</th>
+                                    <th>@T("Late")</th>
+                                    <th>@T("EarlyOut")</th>
+                                    <th>@T("Deduction Amount")</th>
+                                </tr>
+                            </thead>
+                            <tbody data-bind="with:PayDeductionInfo">
+                                <tr>
+                                    <td data-bind="text:Absent()"></td>
+                                    <td data-bind="text:Leave()"></td>
+                                    <td data-bind="text:Late()"></td>
+                                    <td data-bind="text:EarlyOut()"></td>
+                                    <td data-bind="text:DeductionAmount()"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="form-group col-lg-12 text-center">
+                            @*<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>*@
+                            <input type="button" id="close" data-dismiss="modal" aria-hidden="true" value=@T("Back") class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box box-success">
+
+                <div class="box-header with-border">
+                    <div class="box-header with-border">
+                        <div class="row">
+                            <div class="form-group col-lg-2">
+                                <label class="col-lg-6 control-label" for="Number">@T("Fiscal Year")</label>
+                                <div class="col-lg-6">
+                                    @*<span data-bind="text:$root.FiscalYear"></span>*@
+                                    <input type="text" class="form-control" required id="form-group-input" data-bind="value:$root.FiscalYear" readonly />
+                                </div>
+
+                            </div>
+                            <div class="form-group col-lg-3">
+                                <label class="col-lg-4 control-label" for="Number">@T("Month")</label>
+                                <div class="col-lg-8">
+                                    @*<select class="form-control" data-bind="options:Months,optionsValue:'Id',optionsText:'Name',optionsCaption:Riddha.UI.getOptionCaption(),value:MonthId"></select>*@
+                                    <select class="form-control" data-bind="options:Months,optionsText:'Name',optionsValue:'Id',value:MonthId,event:{change:$root.DateDiffrence}"></select>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-lg-4">
+                                <div class="col-lg-12">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-default " data-bind="click:$root.Refresh"><i class="fa fa-refresh text-green">&nbsp;@T("Refresh Sheet")</i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="col-lg-4">
+                                <div class="panel panel-success col">
+                                    <div class="box-header bg-green ">@T("Department") @*<input class="pull-right" type="checkbox" data-bind="checked:CheckAllDepartments" />*@</div>
+                                    <div class="panel-body" style="height:250px; overflow-y:auto">
+                                        <ul data-bind="foreach:Departments" class="list-group list list-group-unbordered">
+                                            <li class="list-group-item">
+                                                <span data-bind="text:Name"></span>   <a class="pull-right"><input type="checkbox" data-bind="checked:Checked,event:{change:$root.GetSections}" /></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="panel panel-success">
+                                    <div class="box-header bg-green ">@T("Section") <input class="pull-right" type="checkbox" data-bind="checked:CheckAllSections" /></div>
+                                    <div class="panel-body" style="height:250px; overflow-y:auto">
+                                        <ul data-bind="foreach:Sections" class="list-group list list-group-unbordered">
+                                            <li class="list-group-item">
+                                                <span data-bind="text:Name"></span>   <a class="pull-right"><input type="checkbox" data-bind="checked:Checked,event:{change:$root.GetEmployee}" /></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="panel panel-success">
+                                    <div class="box-header bg-green ">
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                @T("Employee")
+                                            </div>
+                                            <div class="col-md-7 pull-right">
+                                                <input type="text" name="name" data-bind="languageWiseSearchMode:$root.SearchItemText,valueUpdate:'keyup'" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body" data-bind="" style="height:250px; overflow-y:auto">
+                                        <ul data-bind="foreach:FilteredEmployees" class="list-group list list-group-unbordered">
+                                            <li class="list-group-item">
+                                                <span data-bind="text:Name"></span>   <input class="pull-right" type="checkbox" data-bind="value:Id,checked:Checked" />
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="box-footer">
+
+                    <div id="nonGovernmentPaySheet">
+                        <div class="no-padding">
+                            <div class="col-lg-3 no-padding">
+
+                                <table style="font-size:12px;border:1px;" class="table table-bordered table-hover table-condensed table-responsive table-striped no-padding roster">
+                                    <thead class="bg-green">
+
+                                        <tr>
+
+                                            @*data-bind="attr:{'height':$root.HeaderHeight() + 'px'}"*@
+                                            <th data-bind="attr:{'height':'68px'}">@T("SerialNo")</th>
+                                            <th>@T("MonthOfJoin")</th>
+                                            <th>@T("EmployeeName")</th>
+                                            <th>@T("Department")</th>
+                                            @*<th>@T("Month")</th>*@
+                                        </tr>
+
+                                    </thead>
+                                    <tbody data-bind="foreach:SalaryPayments">
+                                        <tr>
+                                            <td data-bind="serialNo:$index()+1" height="57px"></td>
+                                            <td data-bind="text:JoinedMonth"></td>
+                                            <td data-bind="text:EmployeeName() + '(' + EmployeeCode() + ')'"></td>
+                                            <td data-bind="text:DepartmentName"></td>
+                                            @*<td data-bind="text:$root.GetMonthName(MonthId())"></td>*@
+
+                                        </tr>
+                                    </tbody>
+
+                                    <tfoot>
+                                        <tr></tr>
+                                    </tfoot>
+                                </table>
+
+                            </div>
+                            <div style="overflow-x:scroll" class="col-lg-9 no-padding">
+
+                                <table style="font-size:12px;border:1px;" class="table table-bordered table-hover table-condensed table-responsive table-striped no-padding roster">
+                                    <thead class="bg-green" id="salarySheetTbl">
+
+                                        <tr>
+                                            @*data-bind="attr:{'height':$root.HeaderHeight() + 'px'}"*@
+                                            <th data-bind="attr:{'height': '68px'}">@T("GradeTitle")</th>
+                                            <th data-bind="attr:{'height': '68px'}">@T("Grade")</th>
+                                            <th id="Maxheight">@T("BasicSalary")</th>
+                                            @*<th>@T("TotalAllowance")</th>*@
+
+                                            <!--ko foreach :AllowanceHeads()-->
+                                            <th data-bind="text:AllowanceHead"></th>
+                                            <!--/ko -->
+                                            <th>@T("DeductionAmount")</th>
+                                            <th>@T("GrossSalary")</th>
+
+                                            <th>@T("InsuranceAmount")</th>
+                                            <th>@T("InsuranceAmountEmpyr")</th>
+                                            <th>@T("CIT")</th>
+                                            @*<th>@T("TotalEmployeeSSF")</th>
+                                                <th>@T("TotalEmployerSSF")</th>*@
+                                            <th>@T("PF Employer")</th>
+                                            <th>@T("PF Employee")</th>
+                                            <th>@T("Gratituity Employer")</th>
+                                            <th>@T("SS Employer")</th>
+                                            <th>@T("SS Employee")</th>
+                                            <th>@T("PensionFund Employer")</th>
+                                            <th>@T("PensionFund Employee")</th>
+
+                                            <th>@T("TaxableAmount")</th>
+                                            <th>@T("TotalTDS")</th>
+                                            <th>@T("Maritalstatus")</th>
+                                            <th>@T("Gender")</th>
+                                            <th>@T("RebateAmount")</th>
+                                            @*<th >@T("Tax Information")</th>*@
+                                            <th>@T("NetPayable")</th>
+                                        </tr>
+                                        @*<tr>
+
+
+                                                <th>@T("Social Security Tax")</th>
+                                                <th>@T("Renumeration Tax")</th>
+                                                <th>@T("Marital status")</th>
+                                                <th>@T("Gender")</th>
+                                                <th>@T("Rebate Amount")</th>
+
+
+
+                                            </tr>*@
+                                    </thead>
+                                    <tbody data-bind="foreach:SalaryPayments">
+                                        <tr>
+                                            <td data-bind="text:GradeName" height="57px"></td>
+                                            <td data-bind="text:Grade" height="57px"></td>
+                                            <td data-bind="text:BasicSalary"></td>
+                                            @*<td data-bind="text:TotalAllowancesAmount"></td>*@
+                                            @*<td>
+                                                    <a data-bind="click:$root.ViewAllowances"><span data-bind="text:TotalAllowancesAmount"></span></a>
+                                                </td>*@
+                                            <!--ko foreach:Allowances-->
+                                            <td data-bind="text:AllowanceAmount"></td>
+                                            <!-- /ko -->
+                                            @*<td data-bind="text:DeductionAmount"></td>*@
+                                            <td>
+                                                <a data-bind="click:$root.ViewDeductionInfo"><span data-bind="text:DeductionAmount"></span></a>
+                                            </td>
+                                            <td data-bind="text:GrossSalary"></td>
+                                            <!-- Insurance -->
+                                            <td data-bind="text:InsurancePremiumAmount"></td>
+                                            <td data-bind="text:InsurancePaidbyOffice"></td>
+                                            <!-- /Insurance -->
+                                            <!--CIT-->
+                                            <td data-bind="text:CITAmount"></td>
+                                            <!--/CIT-->
+                                            @*<td data-bind="text:TotalEmployeeSSFAmount"></td>*@
+                                            @*<td>
+                                                    <a data-bind="click:$root.ViewSSFInfo"><span data-bind="text:TotalEmployeeSSFAmount"></span> </a>
+                                                </td>
+                                                <td data-bind="text:TotalEmployerSSFAmount"></td>*@
+                                            <td data-bind="text:PFER"></td>
+                                            <td data-bind="text:PFEE"></td>
+                                            <td data-bind="text:Gratituity"></td>
+                                            <td data-bind="text:SSER"></td>
+                                            <td data-bind="text:SSEE"></td>
+                                            <td data-bind="text:PensionFundER"></td>
+                                            <td data-bind="text:PensionFundEE"></td>
+                                            <td data-bind="text:TaxableAmount"></td>
+
+
+                                            <!-- Tax Information -->
+                                            @*<td data-bind="text:TotalTDS"></td>*@
+                                            <td>
+                                                <a data-bind="click:$root.ViewTDSInfo"><span data-bind="text:TotalTDS"></span></a>
+                                            </td>
+                                            <td data-bind="text:MaritalStatus"></td>
+                                            <td data-bind="text:Gender"></td>
+                                            <td data-bind="text:RebateAmount"></td>
+                                            <td data-bind="text:NetSalary"></td>
+                                            <!-- Tax Information -->
+
+                                        </tr>
+                                    </tbody>
+
+                                    <tfoot>
+                                        <tr></tr>
+                                    </tfoot>
+                                </table>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div id="governmentPaysheet">
+                        <div class="no-padding">
+                            <div class="col-lg-3 no-padding">
+
+                                <table style="font-size:12px;border:1px;" class="table table-bordered table-hover table-condensed table-responsive table-striped no-padding roster">
+                                    <thead class="bg-green">
+
+                                        <tr>
+
+                                            <th data-bind="attr:{'height': '68px'}">@T("SerialNo")</th>
+                                            <th data-bind="attr:{'height': '68px'}">@T("GradeTitle")</th>
+                                            <th>@T("MonthOfJoin")</th>
+                                            <th>@T("EmployeeName")</th>
+                                            @*<th>@T("Department")</th>*@
+                                            @*<th>@T("Month")</th>*@
+
+
+                                        </tr>
+
+                                    </thead>
+                                    <tbody data-bind="foreach:SalaryPayments">
+                                        <tr>
+                                            <td data-bind="serialNo:$index()+1" height="57px"></td>
+                                            <td data-bind="text:GradeName" height="57px"></td>
+                                            <td data-bind="text:JoinedMonth"></td>
+                                            <td data-bind="text:EmployeeName() + '(' + EmployeeCode() + ')'"></td>
+                                            @*<td data-bind="text:DepartmentName"></td>*@
+                                            @*<td data-bind="text:$root.GetMonthName(MonthId())"></td>*@
+                                        </tr>
+                                    </tbody>
+
+                                    <tfoot>
+                                        <tr></tr>
+                                    </tfoot>
+                                </table>
+
+                            </div>
+                            <div style="overflow-x:scroll" class="col-lg-9 no-padding">
+
+                                <table style="font-size:12px;border:1px;" class="table table-bordered table-hover table-condensed table-responsive table-striped no-padding roster">
+                                    <thead class="bg-green" id="salarySheetTbl">
+
+                                        <tr>
+
+                                            <th id="Maxheight">@T("BasicSalary")</th>
+                                            <th data-bind="attr:{'height': '68px'}">@T("Grade")</th>
+
+                                            @*<th>@T("TotalAllowance")</th>*@
+                                            <!--ko foreach :AllowanceHeads()-->
+                                            <th data-bind="text:AllowanceHead"></th>
+                                            <!--/ko -->
+
+                                            <th>@T("DeductionAmount")</th>
+                                            <th>@T("AdditionAmount")</th>
+                                            <th>@T("GrossSalary")</th>
+
+                                            <th>@T("InsuranceAmount")</th>
+
+                                            <th>@T("PFEmployee")</th>
+                                            <th>@T("PensionFundEmployee")</th>
+
+                                            <th>@T("CIT")</th>
+                                            <th>@T("InsuranceAmountEmpyr")</th>
+                                            <th>@T("PFEmployer")</th>
+                                            @*<th>@T("Gratituity Employer")</th>
+                                                <th>@T("SS Employer")</th>
+                                                <th>@T("SS Employee")</th>*@
+                                            <th>@T("PensionFundEmployer")</th>
+
+                                            <th>@T("TaxableAmount")</th>
+                                            <th>@T("TotalTDS")</th>
+                                            @*<th>@T("Maritalstatus")</th>
+                                                <th>@T("Gender")</th>
+                                                <th>@T("RebateAmount")</th>*@
+                                            <th>@T("NetPayable")</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody data-bind="foreach:SalaryPayments">
+                                        <tr>
+                                            <td data-bind="text:BasicSalary"></td>
+                                            <td data-bind="text:Grade" height="57px"></td>
+                                            <!--ko foreach:Allowances-->
+                                            <td data-bind="text:AllowanceAmount"></td>
+                                            <!-- /ko -->
+                                            <td>
+                                                <a data-bind="click:$root.ViewDeductionInfo"><span data-bind="text:DeductionAmount"></span></a>
+                                            </td>
+
+                                            <td data-bind="text:AdditionAmount"></td>
+                                            <td data-bind="text:GrossSalary"></td>
+                                            <!-- Insurance -->
+                                            <td data-bind="text:InsurancePremiumAmount"></td>
+                                            <td data-bind="text:PFEE"></td>
+                                            <td data-bind="text:PensionFundEE"></td>
+                                            <!--CIT-->
+                                            <td data-bind="text:CITAmount"></td>
+                                            <!--/CIT-->
+                                            <td data-bind="text:InsurancePaidbyOffice"></td>
+                                            <!-- /Insurance -->
+
+                                            <td data-bind="text:PFER"></td>
+
+                                            @*<td data-bind="text:Gratituity"></td>
+        <td data-bind="text:SSER"></td>
+        <td data-bind="text:SSEE"></td>*@
+                                            <td data-bind="text:PensionFundER"></td>
+
+                                            <td data-bind="text:TaxableAmount"></td>
+
+                                            <!-- Tax Information -->
+                                            <td>
+                                                <a data-bind="click:$root.ViewTDSInfo"><span data-bind="text:TotalTDS"></span></a>
+                                            </td>
+                                            @*<td data-bind="text:MaritalStatus"></td>
+        <td data-bind="text:Gender"></td>
+        <td data-bind="text:RebateAmount"></td>*@
+                                            <td data-bind="text:NetSalary"></td>
+                                            <!-- Tax Information -->
+
+                                        </tr>
+                                    </tbody>
+
+                                    <tfoot>
+                                        <tr></tr>
+                                    </tfoot>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box-footer">
+                    <div class="col-lg-12 text-center">
+                        <button type="submit" data-bind="click:$root.GeneratePaySlip,actionVisibility:'7261'" name="Save" class="btn btn-success">@T("Generate Payslip")</button>
+                        @*<button type="submit" data-bind="click:$root.SendToSalaryReview" name="Save" class="btn btn-primary">@T("Sent To Salary Review")</button>*@
+                    </div>
+                    <div class="col-lg-12 text-center">
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Info boxes -->
+    <!-- /.row -->
+    <!-- /.row -->
+    <!-- Main row -->
+    <!-- /.row -->
+</section>
+
+
+
+
+@if (Request.IsAjaxRequest())
+{
+
+
+    <script src="~/Areas/PayRoll/Scripts/Riddha.Script.SalaryPayment.Model.js"></script>
+    <script src="~/Areas/PayRoll/Scripts/Riddha.Script.SalaryPayslip.Model.js"></script>
+    <script src="~/Areas/PayRoll/Scripts/Riddha.Script.SalaryPayslip.Controller.js"></script>
+    <script type="text/javascript">
+        Riddha.global.permission.action('8028').done(function (data) {
+            Riddha.global.permission.actions = data.Data;
+            ko.cleanNode(document.getElementById("partial-render"));
+            var obj = new SalaryPayslipController();
+
+            ko.applyBindings(obj, document.getElementById("partial-render"));
+        });
+        (function () {
+            var width = screen.width,
+                height = screen.height;
+            setInterval(function () {
+                if (screen.width !== width || screen.height !== height) {
+                    width = screen.width;
+                    height = screen.height;
+                    $(window).trigger(function () {
+
+                        var height = $("#SerialNo").offsetHeight();
+                        $("#grade").attr('height', height);
+
+                    });
+                }
+            }, 50);
+        }());
+
+
+        localStorage.companyName = '@(currentLanguage == "ne" ? user.Branch.Company.NameNp : user.Branch.Company.Name.ToUpper())';
+            localStorage.companyAddress = '@(currentLanguage == "ne" ? user.Branch.Company.AddressNp : user.Branch.Company.Address.ToUpper())';
+
+    </script>
+}
+else
+{
+    @section scripts
+    {
+
+
+        <script src="~/Areas/PayRoll/Scripts/Riddha.Script.SalaryPayment.Model.js"></script>
+        <script src="~/Areas/PayRoll/Scripts/Riddha.Script.SalaryPayslip.Model.js"></script>
+        <script src="~/Areas/PayRoll/Scripts/Riddha.Script.SalaryPayslip.Controller.js"></script>
+        <script type="text/javascript">
+            var obj = {};
+            Riddha.global.permission.action('8028').done(function (data) {
+                Riddha.global.permission.actions = data.Data;
+                ko.cleanNode(document.getElementById("partial-render"));
+                obj = new SalaryPayslipController();
+
+                ko.applyBindings(obj, document.getElementById("partial-render"));
+            });
+
+            (function () {
+                var width = screen.width,
+                    height = screen.height;
+                setInterval(function () {
+                    if (screen.width !== width || screen.height !== height) {
+                        width = screen.width;
+                        height = screen.height;
+                        $(window).trigger(function () {
+
+                            var height = $("#SerialNo").offsetHeight();
+                            $("#grade").attr('height', height);
+
+                        });
+                    }
+                }, 50);
+            }());
+
+            localStorage.companyName = '@(currentLanguage == "ne" ? user.Branch.Company.NameNp : user.Branch.Company.Name.ToUpper())';
+            localStorage.companyAddress = '@(currentLanguage == "ne" ? user.Branch.Company.AddressNp : user.Branch.Company.Address.ToUpper())';
+        </script>
+    }
+}
+
+
+
+

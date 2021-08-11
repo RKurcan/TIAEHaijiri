@@ -1,0 +1,199 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Layout_Adminlte.cshtml";
+}
+<style>
+</style>
+<section class="content-header">
+    <h1>
+        @T("GradeGroup")
+        <sup class="text-green">@T("Creation")</sup>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> @T("Home")</a></li>
+        <li class="active">@T("GradeGroup")</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <!-- Company Modal -->
+    <div class="modal" id="gradeGroupCreationModel">
+        <div class="modal-dialog ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-green">@T("GradeGroup")</h4></header>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal" data-bind="with:GradeGroup">
+                        <div class="form-group col-lg-12">
+                            <div class="required">
+                                <label class="col-lg-4 control-label" for="Number">@T("Code")</label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" required data-bind="value:Code" id="form-group-input" maxlength="10">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-12">
+                            <div class="required">
+                                <label class="col-lg-4 control-label" for="Number">@T("GradeGroupName")</label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" required data-bind="value:Name" id="form-group-input" maxlength="100">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group  col-lg-12">
+                            <label class="col-lg-4 control-label" for="Number">@T("GradeGroupNameNp")</label>
+                            <div class="col-lg-6">
+                                <input type="text" class="form-control" required data-bind="PreetiToUnicode:NameNp" id="form-group-input" maxlength="200">
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-12">
+                            <div class="required">
+                                <label class="col-lg-4 control-label" for="Number">@T("Value")</label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" required data-bind="value:Value,mask:'number'" id="form-group-input">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-12 text-center">
+                            <input type="submit" data-bind="click:$root.CreateUpdate,createUpdateText:$root.ModeOfButton" name="Save" class="btn btn-success" value=@T("Save") />
+                            <input type="button" data-bind="click:$root.Reset" name="Reset" value=@T("Reset") class="btn btn-default" />
+                            <input type="button" id="close" data-bind="click:$root.CloseModal" value=@T("Back") class="btn btn-default" />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Info boxes -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box box-success">
+                <div class="box-header with-border">
+                    &nbsp;
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool dropdown-toggle text-green action" data-toggle="dropdown" data-bind="click:ShowModal,actionVisibility:'1029'" style="">
+                            <i class="fa fa-plus-square"></i> @T("Create")
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <div class="btn-group">
+
+                            <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-wrench"></i>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">@T("AddNewCompany")</a></li>
+                                <li><a href="#">@T("SomethingElseHere")</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">@T("SeparatedLink")</a></li>
+                            </ul>
+                        </div>
+                        <button type="button" class="btn btn-box-tool text-red" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="box-body table-responsive ">
+                    <table class="table table-condensed table-bordered table-striped no-padding table-hover">
+                        <thead class="success bg-green">
+                            <tr>
+                                <th class="col-lg-1"> @T("SerialNo")</th>
+                                <th class="col-lg-3">@T("Code")</th>
+                                <th class="col-lg-3" data-bind="visible:config.CurrentLanguage=='en'" style="display:none;">@T("GradeGroupName")</th>
+                                <th class="col-lg-3" data-bind="visible:config.CurrentLanguage=='ne'" style="display:none;">@T("GradeGroupName")</th>
+                                <th class="col-lg-2">@T("Value")</th>
+                                <th class="col-lg-2">@T("Action")</th>
+                            </tr>
+                        </thead>
+                        <tbody data-bind="foreach:GradeGroups">
+                            <tr>
+                                <td class="hidden"><input type="hidden" data-bind="value:Id" /></td>
+                                <td data-bind="serialNo:$index()+1"></td>
+                                <td data-bind="text:Code"></td>
+                                <td data-bind="text:Name,visible:config.CurrentLanguage=='en'" style="display:none;"></td>
+                                <td data-bind="text:NameNp()==''?Name():NameNp,visible:config.CurrentLanguage=='ne'" style="display:none;"></td>
+                                <td data-bind="text:SuitableNumber(Value)"></td>
+                                <td>
+                                    <button type="button" data-bind="click:$root.Select,actionVisibility:'1030'" class="btn btn-xs btn-default action" title=@T("Edit")><span class="glyphicon glyphicon-pencil text-green"></span> </button>
+                                    <button type="button" data-bind="click:$root.Delete,actionVisibility:'1031'" class="btn btn-xs btn-default action" title=@T("Remove")><span class="glyphicon glyphicon-trash text-danger"></span></button>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                        <tfoot data-bind="with:GradeGroup">
+                            @*<tr>
+                        <td></td>
+                        <td>
+                            <div class="">
+                                <input type="text" class="form-control " id="form-group-input" data-bind="value:Code" placeholder=@T("Code")>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="">
+                                <input type="text" class="form-control " id="form-group-input" data-bind="value:Name" placeholder=@T("Name")>
+                                <input type="text" class="form-control " id="form-group-input" data-bind="value:NameNp" placeholder=@T("NameNp")>
+                            </div>
+                        </td>
+                        <td>
+                            <button type="button" data-bind="click:$root.CreateUpdate,template:{name:$root.ModeOfButton()=='Create'?'mode-button-add-template':'mode-button-update-template'}" class="btn btn-success" title=@T("Create")></button>
+                            <button type="button" data-bind="click:$root.Reset" class="btn btn-default" title=@T("Reset")><span class="glyphicon glyphicon-refresh"></span></button>
+
+                        </td>
+                    </tr>*@
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/html" id="mode-button-add-template">
+        <span class="glyphicon glyphicon-plus"></span>
+    </script>
+    <script type="text/html" id="mode-button-update-template">
+        <span class="glyphicon glyphicon-arrow-up"></span>
+    </script>
+    <!-- /.row -->
+    <!-- /.row -->
+    <!-- Main row -->
+    <!-- /.row -->
+</section>
+
+@if (Request.IsAjaxRequest())
+{
+    @*<script src="~/Areas/Scripts/Riddha.Script.Company.Model.js"></script>
+        <script src="~/Areas/Office/Scripts/Riddha.Script.GradeGroup.Model.js"></script>
+        <script src="~/Areas/Office/Scripts/Riddha.Script.GradeGroup.Controller.js"></script>*@
+    <script type="text/javascript">
+        var obj = {};
+        Riddha.global.permission.action('1008').done(function (data) {
+            Riddha.global.permission.actions = data.Data;
+            ko.cleanNode(document.getElementById("partial-render"));
+            obj = new gradeGroupController();
+            ko.applyBindings(obj, document.getElementById("partial-render"));
+        });
+    </script>
+}
+else
+{
+    @section scripts
+    {
+        @*<script src="~/Areas/Scripts/Riddha.Script.Company.Model.js"></script>
+            <script src="~/Areas/Office/Scripts/Riddha.Script.GradeGroup.Model.js"></script>
+            <script src="~/Areas/Office/Scripts/Riddha.Script.GradeGroup.Controller.js"></script>*@
+        <script type="text/javascript">
+            var obj = {};
+            Riddha.global.permission.action('1008').done(function (data) {
+                Riddha.global.permission.actions = data.Data;
+                ko.cleanNode(document.getElementById("partial-render"));
+                obj = new gradeGroupController();
+                ko.applyBindings(obj, document.getElementById("partial-render"));
+            });
+        </script>
+    }
+}
+
+

@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = Request.IsAjaxRequest()?null:"~/Views/Shared/_Layout_Adminlte.cshtml";
+}
+<section class="content-header">
+    <h1>File <sup>Manager</sup></h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
+        <li class="active">File Manager</li>
+    </ol>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box box-success">
+                <div class="box-header with-border">
+                    &nbsp;
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool dropdown-toggle text-blue" data-toggle="dropdown" id="NewSubfolder">
+                            <i class="fa fa-plus-circle"></i> New Subfolder
+                        </button>
+                        <button type="button" class="btn btn-box-tool dropdown-toggle text-red" data-toggle="dropdown" id="DeleteFolder">
+                            <i class="fa fa-remove"></i> Delete Folder
+                        </button>
+                        <button type="button" class="btn btn-box-tool dropdown-toggle text-green" data-toggle="dropdown" id="RenameFolder">
+                            <i class="fa fa-registered"></i> Rename Folder
+                        </button>
+                        <button type="button" class="btn btn-box-tool dropdown-toggle text-red" data-toggle="dropdown" id="DeleteFile">
+                            <i class="fa fa-trash"></i> Delete File
+                        </button>
+                        <button type="button" class="btn btn-box-tool dropdown-toggle text-green" data-toggle="dropdown" id="RenameFile">
+                            <i class="fa fa-file"></i> Rename File
+                        </button>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-wrench"></i>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Add New Country</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                            </ul>
+                        </div>
+                        <button type="button" class="btn btn-box-tool text-red" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div class="ckfinder-standalone"></div>
+                    <form id="__AjaxAntiForgeryForm" method="post">@Html.AntiForgeryToken()</form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

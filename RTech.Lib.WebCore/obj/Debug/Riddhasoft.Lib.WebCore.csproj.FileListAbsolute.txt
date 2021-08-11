@@ -1,0 +1,16 @@
+D:\projects\NewRepos\HamroHajiri\RTech.Lib.WebCore\bin\Debug\Riddhasoft.Lib.WebCore.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Lib.WebCore\bin\Debug\Riddhasoft.Lib.WebCore.pdb
+D:\projects\NewRepos\HamroHajiri\RTech.Lib.WebCore\obj\Debug\Riddhasoft.Lib.WebCore.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Lib.WebCore\obj\Debug\Riddhasoft.Lib.WebCore.pdb
+D:\project\Hamro-Hajiri\trunk\RTech.Lib.WebCore\bin\Debug\Riddhasoft.Lib.WebCore.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Lib.WebCore\bin\Debug\Riddhasoft.Lib.WebCore.pdb
+D:\project\Hamro-Hajiri\trunk\RTech.Lib.WebCore\obj\Debug\Riddhasoft.Lib.WebCore.csproj.CoreCompileInputs.cache
+D:\project\Hamro-Hajiri\trunk\RTech.Lib.WebCore\obj\Debug\Riddhasoft.Lib.WebCore.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Lib.WebCore\obj\Debug\Riddhasoft.Lib.WebCore.pdb
+D:\project\Hamro-Hajiri\trunk\RTech.Lib.WebCore\obj\Debug\Riddhasoft.Lib.WebCore.csprojAssemblyReference.cache
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Lib.WebCore\bin\Debug\Riddhasoft.Lib.WebCore.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Lib.WebCore\bin\Debug\Riddhasoft.Lib.WebCore.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Lib.WebCore\obj\Debug\Riddhasoft.Lib.WebCore.csprojAssemblyReference.cache
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Lib.WebCore\obj\Debug\Riddhasoft.Lib.WebCore.csproj.CoreCompileInputs.cache
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Lib.WebCore\obj\Debug\Riddhasoft.Lib.WebCore.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Lib.WebCore\obj\Debug\Riddhasoft.Lib.WebCore.pdb

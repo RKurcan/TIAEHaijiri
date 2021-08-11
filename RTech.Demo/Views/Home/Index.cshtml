@@ -1,0 +1,675 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Layout_Adminlte.cshtml";
+}
+<div>
+    <style>
+        .widget-number {
+            font-size: 40px;
+            line-height: 42px;
+        }
+
+        /*.ht-250 {
+            max-height: 250px;
+        }*/
+
+        #widgets > div > .box {
+            /*height:200px;*/
+            overflow: auto;
+        }
+        /* width */
+        ::-webkit-scrollbar {
+            width: 7px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+        }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #555;
+            }
+
+        .custom-black {
+            background-color: #424242;
+            color: white;
+        }
+
+        .bg-device {
+            background-color: #00BFA5;
+            color: white;
+        }
+
+        .progress {
+            margin-bottom: 10px;
+        }
+
+        .no-padding-left {
+            padding-left: 0;
+        }
+
+        .small-box > .inner {
+            padding: 0px 10px;
+        }
+
+        #widgets > div {
+            padding: 0;
+        }
+
+            #widgets > div > div {
+                padding-left: 0;
+            }
+
+        .dot {
+            height: 15px;
+            width: 15px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .dot-red {
+            background-color: #dd4b39;
+        }
+
+        .dot-green {
+            background-color: #00a65a;
+        }
+
+        .box-body-dash {
+            max-height: 250px;
+            overflow: auto;
+        }
+
+        .customePadding {
+            position: relative;
+            min-height: 1px;
+            padding-right: 15px;
+            padding-left: 29px;
+        }
+    </style>
+
+    <!-- Main content -->
+    <section class="content" data-bind="with:AttendanceInfo">
+
+        <!-- Widgets-->
+        <div class="">
+            <div id="widgets" class="col-lg-8 no-padding">
+                <!--Top widgets-->
+                <div class="col-md-12">
+                    <div class="col-lg-3 col-xs-6">
+                        <!-- small box -->
+                        <div class="small-box bg-device">
+                            <div class="inner">
+                                <span class="widget-number" data-bind="text:SuitableNumber($root.ActiveDeviceCount)"></span>
+                                <p>@T("ActiveDevices")</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fa fa-calculator"></i>
+                            </div>
+                            <a href="#" class="small-box-footer" data-bind="kendoWindowGrid:$root.KendoGridOptionsForActiveDevice('@T("Active Device")','activeDevice','#activeDeviceWindow')">
+                                @T("MoreInfo")&nbsp;<i class="fa fa-arrow-circle-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-xs-6">
+                        <!-- small box -->
+                        <div class="small-box custom-black">
+                            <div class="inner">
+                                <span class="widget-number" data-bind="text:SuitableNumber(EmployeeCount)"></span>
+
+                                <p>@T("TotalEmployees")</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fa fa-group"></i>
+                            </div>
+                            <a href="#" class="small-box-footer" data-bind="kendoWindowGrid:$root.KendoGridOptions('@T("Employee")','employee','#empWindow')">
+                                @T("MoreInfo")&nbsp;<i class="fa fa-arrow-circle-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-xs-6">
+                        <!-- small box -->
+                        <div class="small-box bg-aqua">
+                            <div class="inner">
+                                <span class="widget-number" data-bind="text:SuitableNumber(PresentCount)"></span>
+
+                                <p>@T("Present")</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fa fa-group"></i>
+                            </div>
+                            <a href="#" class="small-box-footer" data-bind="kendoWindowGrid:$root.KendoGridOptions('@T("Present")','present','#presentWindow')">
+                                @T("MoreInfo")&nbsp;<i class="fa fa-arrow-circle-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-xs-6">
+                        <!-- small box -->
+                        <div class="small-box bg-red-gradient">
+                            <div class="inner">
+                                <span class="widget-number" data-bind="text:SuitableNumber(AbsentCount)"></span>
+
+                                <p>@T("Absent")</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fa fa-home"></i>
+                            </div>
+                            <a href="#" class="small-box-footer" data-bind="kendoWindowGrid:$root.KendoGridOptionForAbsent('@T("Absent")','absent','#absentWindow')">
+                                @T("MoreInfo")&nbsp;<i class="fa fa-arrow-circle-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-xs-6">
+                        <!-- small box -->
+                        <div class="small-box bg-blue">
+                            <div class="inner">
+                                <span class="widget-number" data-bind="text:SuitableNumber(DepartmentCount)"></span>
+                                <p>@T("Department")</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fa fa-gavel"></i>
+                            </div>
+                            <a href="#" class="small-box-footer" data-bind="kendoWindowGrid:$root.KendoGridOptionsForDepartments('@T("Departments")','department','#departmentsWindow')">
+                                @T("MoreInfo")&nbsp;<i class="fa fa-arrow-circle-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-xs-6">
+                        <!-- small box -->
+                        <div class="small-box bg-green-gradient">
+                            <div class="inner">
+                                <span class="widget-number" data-bind="text:SuitableNumber(LateInCount)"></span>
+
+                                <p>@T("LateIn")</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fa fa-group"></i>
+                            </div>
+                            <a href="#" class="small-box-footer" data-bind="kendoWindowGrid:$root.KendoGridOptionForLateIn('@T("LateIn")','latein','#lateinWindow')">
+                                @T("MoreInfo")&nbsp;<i class="fa fa-arrow-circle-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-xs-6">
+                        <!-- small box -->
+                        <div class="small-box bg-yellow-gradient">
+                            <div class="inner">
+                                <span class="widget-number" data-bind="text:SuitableNumber(OnLeaveCount)"></span>
+
+                                <p>@T("OnLeave")</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fa fa-home"></i>
+                            </div>
+                            <a href="#" class="small-box-footer" data-bind="kendoWindowGrid:$root.KendoGridOptions('@T("OnLeave")','leave','#leaveWindow')">
+                                @T("MoreInfo")&nbsp;<i class="fa fa-arrow-circle-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-xs-6">
+                        <!-- small box -->
+                        <div class="small-box bg-blue-gradient">
+                            <div class="inner">
+                                <span class="widget-number" data-bind="text:SuitableNumber(OfficeVisitCount)+' / '+ SuitableNumber(KajCount)"></span>
+
+                                <p>@T("OfficeVisit / Kaj")</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fa fa-suitcase"></i>
+                            </div>
+                            <a href="#" class="small-box-footer" data-bind="kendoWindowGrid:$root.KendoGridOptionForOfficeVisit('@T("OfficeVisit")','officeVisit','#officeVisitWindow')">
+                                @T("MoreInfo")&nbsp;<i class="fa fa-arrow-circle-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Absent, Leave, visit, and Device-->
+                <div class="col-md-12">
+                    <!--Employee Absent, on leave, and office visit-->
+                    <!--ko foreach:$root.dashBoardDivData-->
+                    <div class="col-md-6">
+                        <div class="box " data-bind="css:{'box-danger':Type=='Absent','box-info ':Type=='Office Visit','box-warning ':Type=='Leave'}">
+                            <div class="box-header">
+                                @*Absent Employees*@
+                                <span data-bind="text:$root.GetTypeName(Type)"></span>
+                                <span class="badge pull-right" data-bind="text:SuitableNumber($root.GetAttendanceInfoByType(Type))"></span>
+                            </div>
+                            <div class="box-body box-body-dash no-padding" style="height:200px; overflow-y:auto">
+                                <table class="table table-condensed table-hover table-bordered table-striped">
+                                    <thead>
+                                        <tr><th>@T("Name")</th><th>@T("Department")</th></tr>
+                                    </thead>
+                                    <tbody data-bind="foreach:Employees">
+                                        <tr>
+                                            <td data-bind="text:SuitableNumber(Code+' - '+Name)"></td>
+                                            <td data-bind="text:Designation"></td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td class="text-center" colspan="2" data-bind="visible:Employees.length==0">
+                                                @T("NoRecordFound")
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/ko-->
+                    <!--Devices-->
+                    @*<div class="col-md-6">
+                            <div class="box box-success ht-250">
+                                <div class="box-header">
+                                    <span>  @T("Devices")</span>
+                                    <span class="badge pull-right" data-bind="text:SuitableNumber( $root.Devices().length)"></span>
+                                </div>
+                                <div class="box-body box-body-dash no-padding">
+                                    <table class="table table-condensed table-hover table-bordered table-striped">
+                                        <thead>
+                                            <tr><th class="col-sm-10">@T("DeviceName")</th><th>@T("Status")</th></tr>
+                                        </thead>
+                                        <tbody data-bind="foreach:$root.Devices">
+                                            <tr>
+                                                <td data-bind="text:Name"></td>
+                                                <td class="text-center">
+                                                    <span class="dot " data-bind="css:Type()=='Normal'?'Non ADMS':IsOnline()==true?'dot-green':'dot-red'"></span>
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>*@
+                </div>
+
+                @*@if (RTech.Demo.Utilities.RiddhaSession.RoleId != 0)
+                {
+                    <div class="col-md-12">
+                        <div class="col-md-6">
+                            <div class=" action" data-bind="actionVisibility:'6004'">
+                                <div class="box  box-danger">
+                                    <div class="box-body box-body-dash" data-bind="with:$root.CurrentUserAttendance">
+                                        <div class="box-title ">  @T("TodaysAttendanceInfo") </div>
+                                        <div class="row">
+                                            <div class="col-sm-6 border-right">
+                                                <div class="description-block">
+                                                    <h4 class="description-header" data-bind="text:PlannedTime"></h4>
+                                                    <span class="description-text text-blue">@T("PlanedTime")</span>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="col-sm-6 border-right">
+                                                <div class="description-block">
+                                                    <h4 class="description-header" data-bind="text:Attendance"></h4>
+                                                    <span class="description-text text-green">@T("Attendance")</span>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+
+                                    </div>
+                                    <div class="box-footer">
+                                        <div class="box-">
+                                            <div class="box-title "> @T("SelfAttendanceInfoofCurrentMonth")</div>
+                                        </div>
+                                        <div class="row" data-bind="with:$root.CurrentUserAttendanceSummary">
+                                            <div class="col-sm-4 border-right">
+                                                <div class="description-block">
+                                                    <h4 class="description-header" data-bind="text:PresentCount"></h4>
+                                                    <span class="description-text text-green">@T("Present")</span>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="col-sm-4 border-right">
+                                                <div class="description-block">
+                                                    <h4 class="description-header" data-bind="text:AbsentCount"></h4>
+                                                    <span class="description-text text-red">@T("Absent")</span>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="description-block">
+                                                    <h4 class="description-header" data-bind="text:HolidayCount"></h4>
+                                                    <span class="description-text text-blue">@T("Holiday")</span>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="" data-bind="event:{onload:$root.getWeekAttendance() }">
+                                <div class="box box-primary">
+                                    <div class="box-header">
+                                        @T("Employeeattendancestatus7days")
+                                    </div>
+                                    <div class="box-body box-body-dash">
+                                        <canvas id="myChart" width="500" height="250"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }*@
+
+            </div>
+            <div class="col-lg-4 pull-right no-padding-left">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        @T("Employeeattendancestatus")
+                    </div>
+                    <div class="panel-body">
+                        <div class="col-md-12">
+                            <div class="progress-group">
+                                <span class="progress-text">@T("Present")</span>
+                                <span class="progress-number"><b><span data-bind="text:SuitableNumber(PresentCount)"></span></b>/<span data-bind="text:SuitableNumber(EmployeeCount)"></span></span>
+
+                                <div class="progress xs">
+                                    <div class="progress-bar progress-bar-aqua" data-bind="style:{width:PresentPCT}"></div>
+                                </div>
+                            </div>
+                            <!-- /.progress-group -->
+                            <div class="progress-group">
+                                <span class="progress-text">@T("LateIn")</span>
+                                <span class="progress-number"><b><span data-bind="text:SuitableNumber(LateInCount)"></span></b>/<span data-bind="text:SuitableNumber(EmployeeCount)"></span></span>
+
+                                <div class="progress xs">
+                                    <div class="progress-bar progress-bar-green" data-bind="style:{width:LateInPCT}"></div>
+                                </div>
+                            </div>
+                            <!-- /.progress-group -->
+                            <div class="progress-group">
+                                <span class="progress-text">@T("OfficeVisit")</span>
+                                <span class="progress-number"><b><span data-bind="text:SuitableNumber(OfficeVisitCount)"></span></b>/<span data-bind="text:SuitableNumber(EmployeeCount)"></span></span>
+
+                                <div class="progress xs">
+                                    <div class="progress-bar progress-bar-blue" data-bind="style:{width:OfficeVisitPCT}"></div>
+                                </div>
+                            </div>
+                            <div class="progress-group">
+                                <span class="progress-text">@T("Kaj")</span>
+                                <span class="progress-number"><b><span data-bind="text:SuitableNumber(KajCount)"></span></b>/<span data-bind="text:SuitableNumber(EmployeeCount)"></span></span>
+
+                                <div class="progress xs">
+                                    <div class="progress-bar progress-bar-blue" data-bind="style:{width:KajPCT}"></div>
+                                </div>
+                            </div>
+                            <!-- /.progress-group -->
+                            <div class="progress-group">
+                                <span class="progress-text">@T("OnLeave")</span>
+                                <span class="progress-number"><b><span data-bind="text:SuitableNumber(OnLeaveCount)"></span></b>/<span data-bind="text:SuitableNumber(EmployeeCount)"></span></span>
+
+                                <div class="progress xs">
+                                    <div class="progress-bar progress-bar-yellow" data-bind="style:{width:LeavePCT}"></div>
+                                </div>
+                            </div>
+                            <!-- /.progress-group -->
+                            <div class="progress-group">
+                                <span class="progress-text">@T("Absent")</span>
+                                <span class="progress-number"><b><span data-bind="text:SuitableNumber(AbsentCount)"></span></b>/<span data-bind="text:SuitableNumber(EmployeeCount)"></span></span>
+
+                                <div class="progress xs">
+                                    <div class="progress-bar progress-bar-red" data-bind="style:{width:AbsentPCT}"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--News and Holidays-->
+                <!--Device-->
+                <div>
+                    <div class="box box-warning">
+                        <div class="box-header">
+                            <div class="box-title ">
+                                @T("Devices")
+                            </div>
+                        </div>
+                        <div class="box-body box-body-dash">
+                            <table class="table table-condensed table-hover table-bordered table-striped">
+                                <thead>
+                                    <tr><th class="col-sm-10">@T("Name")</th><th>@T("Status")</th></tr>
+                                </thead>
+                                <tbody data-bind="foreach:$root.Devices">
+                                    <tr>
+                                        <td data-bind="text:Name"></td>
+                                        <td class="text-center">
+                                            <span class="dot " data-bind="css:Type()=='Normal'?'Non ADMS':IsOnline()==true?'dot-green':'dot-red'"></span>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div data-bind="actionVisibility:'6003'">
+                    <div class="box box-info">
+                        <div class="box-header">
+                            <div class="box-title ">
+                                @T("News")
+                            </div>
+                        </div>
+                        <div class="box-body box-body-dash">
+                            <ul class="products-list product-list-in-box" data-bind="foreach:$root.UpcommingNews">
+
+                                <li class="item" data-bind="visible:Type()==2">
+                                    <div class="product-img">
+                                        <i class="fa fa-newspaper-o fa-2x text-orange"></i>
+                                    </div>
+                                    <div class="product-info">
+                                        <a href="javascript:void(0)" class="product-title">
+                                            <span data-bind="attr:{class:Type()==0?'label label-success pull-right fa fa-star':Type()==1?'label label-info pull-right fa fa-star':'label label-danger pull-right fa fa-star'}"> </span>
+                                        </a>
+
+                                        <span class="text-orange" data-bind="text:SuitableDate(Date())">
+                                        </span>
+                                        <span class=" text-green" data-bind="text:Title">
+                                        </span>
+
+                                        <span class="product-description text-black" data-bind="text:Desc">
+                                        </span>
+                                    </div>
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div>
+                    <div class="box box-danger">
+                        <div class="box-header">
+                            <div class="box-title ">
+                                @T("Holidays")
+                            </div>
+                        </div>
+                        <div class="box-body box-body-dash">
+                            <ul class="products-list product-list-in-box" data-bind="foreach:$root.UpcommingNews">
+                                <li class="item" data-bind="visible:Type()==0">
+                                    <div class="product-img">
+                                        <i class="fa fa-newspaper-o fa-2x text-orange"></i>
+                                    </div>
+                                    <div class="product-info">
+                                        <a href="javascript:void(0)" class="product-title">
+                                            <span data-bind="attr:{class:Type()==0?'label label-success pull-right fa fa-star':Type()==1?'label label-info pull-right fa fa-star':'label label-danger pull-right fa fa-star'}"> </span>
+                                        </a>
+
+                                        <span class="text-orange" data-bind="text:SuitableDate(Date())">
+                                        </span>
+                                        <span class=" text-green" data-bind="text:Title">
+                                        </span>
+
+                                        <span class="product-description text-black" data-bind="text:Desc">
+                                        </span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="box box-success">
+                        <div class="box-header">
+                            <div class="box-title ">
+                                @T("Events")
+                            </div>
+                        </div>
+                        <div class="box-body box-body-dash">
+                            <ul class="products-list product-list-in-box" data-bind="foreach:$root.UpcommingNews">
+
+
+                                <li class="item" data-bind="visible:Type()==1">
+                                    <div class="product-img">
+                                        <i class="fa fa-newspaper-o fa-2x text-orange"></i>
+                                    </div>
+                                    <div class="product-info">
+                                        <a href="javascript:void(0)" class="product-title">
+                                            <span data-bind="attr:{class:Type()==0?'label label-success pull-right fa fa-star':Type()==1?'label label-info pull-right fa fa-star':'label label-danger pull-right fa fa-star'}"> </span>
+                                        </a>
+
+                                        <span class="text-orange" data-bind="text:SuitableDate(Date())">
+                                        </span>
+                                        <span class=" text-green" data-bind="text:Title">
+                                        </span>
+
+                                        <span class="product-description text-black" data-bind="text:Desc">
+                                        </span>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="box box-info">
+                        <div class="box-header">
+                            <div class="box-title ">
+                                @T("BirthdayAnniversary")
+                            </div>
+                        </div>
+                        <div class="box-body box-body-dash">
+                            <ul class="products-list product-list-in-box" data-bind="foreach:$root.EmpDOBAndJoinInfos">
+
+
+                                <li class="item">
+                                    <div class="product-img">
+                                        <i class="fa fa-newspaper-o fa-2x text-orange"></i>
+                                    </div>
+                                    <div class="product-info">
+                                        <span class="text-orange" data-bind="text:Name">
+                                        </span>
+                                        <span class="product-description text-black" data-bind="text:Description">
+                                        </span>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- /.box -->
+            </div>
+        </div>
+
+        <!--Do not remove-->
+        <div class="row">
+        </div>
+        <div id="example">
+            <div id="presentWindow">
+                <div>
+
+                </div>
+            </div>
+            <div id="absentWindow">
+                <div>
+
+                </div>
+            </div>
+            <div id="lateinWindow">
+                <div>
+
+                </div>
+            </div>
+            <div id="leaveWindow">
+                <div>
+
+                </div>
+            </div>
+            <div id="empWindow">
+                <div>
+
+                </div>
+            </div>
+            <div id="officeVisitWindow">
+                <div>
+
+                </div>
+            </div>
+            <div id="departmentsWindow">
+                <div>
+
+                </div>
+            </div>
+            <div id="activeDeviceWindow">
+                <div>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <script type="x/kendo-template" id="page-template">
+        <div class="page-template">
+            <div class="header">
+                Acme Inc.
+            </div>
+            <div class="footer">
+                <div style="float: right">Page #: pageNum # of #: totalPages #</div>
+            </div>
+        </div>
+    </script>
+</div>
+@section scripts{
+    <script type="text/javascript">
+        var homeObj = {};
+        Riddha.global.permission.action('0006').done(function (data) {
+            Riddha.global.permission.actions = data.Data;
+            ko.cleanNode(document.getElementById("partial-render"));
+            homeObj = new userHomeController();
+            ko.applyBindings(homeObj, document.getElementById("partial-render"));
+        });
+    </script>
+}
+
+

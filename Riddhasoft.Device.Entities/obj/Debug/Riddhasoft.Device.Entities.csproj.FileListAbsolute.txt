@@ -1,0 +1,67 @@
+D:\project\EHajiri_2017.07.30\trunk\Riddhasoft.Device.Entities\bin\Debug\Riddhasoft.Device.Entities.dll
+D:\project\EHajiri_2017.07.30\trunk\Riddhasoft.Device.Entities\bin\Debug\Riddhasoft.Device.Entities.pdb
+D:\project\EHajiri_2017.07.30\trunk\Riddhasoft.Device.Entities\bin\Debug\Riddhasoft.Entity.User.dll
+D:\project\EHajiri_2017.07.30\trunk\Riddhasoft.Device.Entities\bin\Debug\Riddhasoft.OfficeSetup.Entities.dll
+D:\project\EHajiri_2017.07.30\trunk\Riddhasoft.Device.Entities\bin\Debug\Riddhasoft.OfficeSetup.Entities.pdb
+D:\project\EHajiri_2017.07.30\trunk\Riddhasoft.Device.Entities\bin\Debug\Riddhasoft.Entity.User.pdb
+D:\project\EHajiri_2017.07.30\trunk\Riddhasoft.Device.Entities\obj\Debug\Riddhasoft.Device.Entities.csprojResolveAssemblyReference.cache
+D:\project\EHajiri_2017.07.30\trunk\Riddhasoft.Device.Entities\obj\Debug\Riddhasoft.Device.Entities.dll
+D:\project\EHajiri_2017.07.30\trunk\Riddhasoft.Device.Entities\obj\Debug\Riddhasoft.Device.Entities.pdb
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.Device.Entities\bin\Debug\Riddhasoft.Device.Entities.dll
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.Device.Entities\bin\Debug\Riddhasoft.Device.Entities.pdb
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.Device.Entities\bin\Debug\EntityFramework.dll
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.Device.Entities\bin\Debug\Riddhasoft.Entity.User.dll
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.Device.Entities\bin\Debug\Riddhasoft.OfficeSetup.Entities.dll
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.Device.Entities\bin\Debug\Riddhasoft.OfficeSetup.Entities.pdb
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.Device.Entities\bin\Debug\Riddhasoft.Entity.User.pdb
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.Device.Entities\obj\Debug\Riddhasoft.Device.Entities.csprojResolveAssemblyReference.cache
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.Device.Entities\obj\Debug\Riddhasoft.Device.Entities.dll
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.Device.Entities\obj\Debug\Riddhasoft.Device.Entities.pdb
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.Device.Entities\bin\Debug\Riddhasoft.Device.Entities.dll
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.Device.Entities\bin\Debug\Riddhasoft.Device.Entities.pdb
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.Device.Entities\bin\Debug\Riddhasoft.Entity.User.dll
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.Device.Entities\bin\Debug\Riddhasoft.OfficeSetup.Entities.dll
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.Device.Entities\bin\Debug\Riddhasoft.OfficeSetup.Entities.pdb
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.Device.Entities\bin\Debug\Riddhasoft.OfficeSetup.Entities.dll.config
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.Device.Entities\bin\Debug\Riddhasoft.Entity.User.pdb
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.Device.Entities\obj\Debug\Riddhasoft.Device.Entities.csprojAssemblyReference.cache
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.Device.Entities\obj\Debug\Riddhasoft.Device.Entities.csproj.CoreCompileInputs.cache
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.Device.Entities\obj\Debug\Riddhasoft.Device.Entities.csproj.CopyComplete
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.Device.Entities\obj\Debug\Riddhasoft.Device.Entities.dll
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.Device.Entities\obj\Debug\Riddhasoft.Device.Entities.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.Device.Entities\bin\Debug\Riddhasoft.Device.Entities.dll
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.Device.Entities\bin\Debug\Riddhasoft.Device.Entities.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.Device.Entities\bin\Debug\Riddhasoft.Entity.User.dll
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.Device.Entities\bin\Debug\Riddhasoft.OfficeSetup.Entities.dll
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.Device.Entities\bin\Debug\Riddhasoft.OfficeSetup.Entities.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.Device.Entities\bin\Debug\Riddhasoft.Entity.User.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.Device.Entities\obj\Debug\Riddhasoft.Device.Entities.dll
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.Device.Entities\obj\Debug\Riddhasoft.Device.Entities.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.Device.Entities\bin\Debug\Riddhasoft.OfficeSetup.Entities.dll.config
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.Device.Entities\obj\Debug\Riddhasoft.Device.Entities.csprojAssemblyReference.cache
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.Device.Entities\obj\Debug\Riddhasoft.Device.Entities.csproj.CoreCompileInputs.cache
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.Device.Entities\obj\Debug\Riddhasoft.Device.Entities.csproj.CopyComplete
+D:\Projects\HamroHajiri\trunk\Riddhasoft.Device.Entities\bin\Debug\Riddhasoft.Device.Entities.dll
+D:\Projects\HamroHajiri\trunk\Riddhasoft.Device.Entities\bin\Debug\Riddhasoft.Device.Entities.pdb
+D:\Projects\HamroHajiri\trunk\Riddhasoft.Device.Entities\bin\Debug\Riddhasoft.Entity.User.dll
+D:\Projects\HamroHajiri\trunk\Riddhasoft.Device.Entities\bin\Debug\Riddhasoft.OfficeSetup.Entities.dll
+D:\Projects\HamroHajiri\trunk\Riddhasoft.Device.Entities\bin\Debug\Riddhasoft.OfficeSetup.Entities.pdb
+D:\Projects\HamroHajiri\trunk\Riddhasoft.Device.Entities\bin\Debug\Riddhasoft.OfficeSetup.Entities.dll.config
+D:\Projects\HamroHajiri\trunk\Riddhasoft.Device.Entities\bin\Debug\Riddhasoft.Entity.User.pdb
+D:\Projects\HamroHajiri\trunk\Riddhasoft.Device.Entities\obj\Debug\Riddhasoft.Device.Entities.csprojAssemblyReference.cache
+D:\Projects\HamroHajiri\trunk\Riddhasoft.Device.Entities\obj\Debug\Riddhasoft.Device.Entities.csproj.CoreCompileInputs.cache
+D:\Projects\HamroHajiri\trunk\Riddhasoft.Device.Entities\obj\Debug\Riddhasoft.Device.Entities.csproj.CopyComplete
+D:\Projects\HamroHajiri\trunk\Riddhasoft.Device.Entities\obj\Debug\Riddhasoft.Device.Entities.dll
+D:\Projects\HamroHajiri\trunk\Riddhasoft.Device.Entities\obj\Debug\Riddhasoft.Device.Entities.pdb
+F:\Projects\HamroHajiri\trunk\Riddhasoft.Device.Entities\bin\Debug\Riddhasoft.Device.Entities.dll
+F:\Projects\HamroHajiri\trunk\Riddhasoft.Device.Entities\bin\Debug\Riddhasoft.Device.Entities.pdb
+F:\Projects\HamroHajiri\trunk\Riddhasoft.Device.Entities\bin\Debug\Riddhasoft.Entity.User.dll
+F:\Projects\HamroHajiri\trunk\Riddhasoft.Device.Entities\bin\Debug\Riddhasoft.OfficeSetup.Entities.dll
+F:\Projects\HamroHajiri\trunk\Riddhasoft.Device.Entities\bin\Debug\Riddhasoft.OfficeSetup.Entities.pdb
+F:\Projects\HamroHajiri\trunk\Riddhasoft.Device.Entities\bin\Debug\Riddhasoft.OfficeSetup.Entities.dll.config
+F:\Projects\HamroHajiri\trunk\Riddhasoft.Device.Entities\bin\Debug\Riddhasoft.Entity.User.pdb
+F:\Projects\HamroHajiri\trunk\Riddhasoft.Device.Entities\obj\Debug\Riddhasoft.Device.Entities.csprojAssemblyReference.cache
+F:\Projects\HamroHajiri\trunk\Riddhasoft.Device.Entities\obj\Debug\Riddhasoft.Device.Entities.csproj.CoreCompileInputs.cache
+F:\Projects\HamroHajiri\trunk\Riddhasoft.Device.Entities\obj\Debug\Riddhasoft.Device.Entities.csproj.CopyComplete
+F:\Projects\HamroHajiri\trunk\Riddhasoft.Device.Entities\obj\Debug\Riddhasoft.Device.Entities.dll
+F:\Projects\HamroHajiri\trunk\Riddhasoft.Device.Entities\obj\Debug\Riddhasoft.Device.Entities.pdb

@@ -1,0 +1,301 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Layout_Adminlte.cshtml";
+}
+<link href="~/Content/nepali.datepicker.v2.2.min.css" rel="stylesheet" />
+<style>
+    .custom-button {
+        padding: 2px 12px;
+    }
+
+    #map_canvas {
+        width: 500px;
+        height: 400px;
+    }
+</style>
+<section class="content-header">
+    <h1>
+        @T("OfficeVisit")
+        <sup class="text-green">@T("Request")</sup>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> @T("Employee")</a></li>
+        <li class="active">@T("OfficeVisit") @T("Request")</li>
+    </ol>
+</section>
+<section class="content">
+
+
+    <div class="modal" id="officeVisitRequestCreatopnModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-success text-center">@T("Office Visit Request") </h4></header>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-7">
+
+                            <div data-bind="with:Employee">
+                                <div class="col-lg-12 form-group">
+                                    <div class="">
+                                        <label class="col-lg-4 control-label" for="Number">@T("EmployeeName")</label>
+                                        <div class="col-lg-8">
+                                            <input type="text" data-bind="kendoAutocomplete:$root.EmpAutoCompleteOptions,value:Name" style="width: 100%;" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 form-group">
+                                    <label class="col-lg-4 control-label" for="Number">@T("Designation") </label>
+                                    <div class="col-lg-8">
+                                        <input type="text" readonly class="form-control" data-bind="value:Designation" />
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 form-group">
+                                    <label class="col-lg-4 control-label" for="Number">@T("Department") </label>
+                                    <div class="col-lg-8">
+                                        <input type="text" readonly class="form-control" data-bind="value:Department" />
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 form-group">
+                                    <label class="col-lg-4 control-label" for="Number">@T("Section") </label>
+                                    <div class="col-lg-8">
+                                        <input type="text" readonly class="form-control" data-bind="value:Section" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-bind="with:OfficeVisitRequest">
+                                <div class="col-lg-12 form-group">
+                                    <label class="col-lg-4 control-label" for="Number">@T("Remark")  </label>
+                                    <div class="col-lg-8">
+                                        <textarea rows="3" cols="30" class="form-control" data-bind="value:Remark"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 form-group" data-bind="visible:$root.RoleId =='0'">
+                                    <label class="col-lg-4 control-label" for="Number">@T("Admin Remark")  </label>
+                                    <div class="col-lg-8">
+                                        <textarea rows="3" cols="30" class="form-control" data-bind="value:AdminRemark"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12 form-group">
+                                    <label class="col-lg-4 control-label" for="Number">@T("From Date")  </label>
+                                    <div class="col-lg-8">
+                                        <input type="text" class="form-control" data-nepdate="#nepaliDate" data-bind="mask:'date',value:FromDate,visible:new Riddha.config().CurrentOperationDate=='en'">
+                                        <input class="form-control nepDate" data-format="yyyy/MM/dd" name="date" type="text" id="nepaliStartDate" data-bind="dateNp:{engDate:FromDate},visible:new Riddha.config().CurrentOperationDate=='ne'">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 form-group">
+                                    <label class="col-lg-4 control-label" for="Number">@T("From Time")  </label>
+                                    <div class="col-lg-8">
+                                        <input type="text" class="form-control" data-bind="value:FromTime,mask:'time'" placeholder="hh:mm" />
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12 form-group">
+                                    <label class="col-lg-4 control-label" for="Number">@T("To Date")  </label>
+                                    <div class="col-lg-8">
+                                        <input type="text" class="form-control" data-nepdate="#nepaliDate" data-bind="mask:'date',value:ToDate,visible:new Riddha.config().CurrentOperationDate=='en'">
+                                        <input class="form-control nepDate" data-format="yyyy/MM/dd" name="date" type="text" id="nepaliStartDate" data-bind="dateNp:{engDate:ToDate},visible:new Riddha.config().CurrentOperationDate=='ne'">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 form-group">
+                                    <label class="col-lg-4 control-label" for="Number">@T("To Time")  </label>
+                                    <div class="col-lg-8">
+                                        <input type="text" class="form-control" data-bind="value:ToTime,mask:'time'" placeholder="hh:mm" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5" data-bind="with:OfficeVisitRequest">
+                            <div class="col-lg-12 form-group">
+                                <div class="col-lg-12" style="padding-left:0px!important;">
+                                    <div id="my_camera"></div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 form-group">
+                                <img id="photo" data-bind="attr: {src: Image() || '/Images/men3.png'}" class="img-thumbnail" width="180" height="150">
+                            </div>
+                            <div class="col-lg-12 form-group">
+                                <div class="col-lg-6">
+                                    <label class="btn btn-success btn-file col-lg-12">
+                                        @T("Browse") <input data-bind="fileUpload: {value:Image,type:'image'}" type="file" value=" " class="btn btn-flat btn-file btn-warning" hidden />
+                                    </label>
+                                    <input type="button" class="btn btn-primary form-control" id="OpenWebCam" name="name" value="Open Webcam" data-bind="click:$root.OpenWebCam" />
+                                    <input type="button" class="btn btn-success form-control" id="snapButtonId" name="name" value="Capture Image" data-bind="imageCapture: {value:Image,attachId:'my_camera',snapButtonId:'snapButtonId',init:$root.webCamCallBack}" />
+                                    <input type="button" class="btn btn-danger form-control" name="name" value="Close Webcam" data-bind="click:$root.OffCam" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="form-group col-lg-7">
+                            <input type="submit" data-bind="click:$root.CreateUpdate,createUpdateText:$root.ModeOfButton" name="Save" class="btn btn-success" value=@T("Create") />
+                            <input type="button" value=@T("Back") class="btn btn-default" data-bind="click:CloseCreationModal" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Manual Punch Modal -->
+
+
+    <div class="modal" id="officevisitRequestModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-success text-center">@T("OfficeVisit") @T("Request")</h4></header>
+                </div>
+                <div class="modal-body">
+                    <div class="row" data-bind="with:OfficeVisitRequest">
+                        <div class="col-lg-7">
+                            <div class="col-lg-12 form-group">
+                                <label class="col-lg-4 control-label" for="Number">@T("EmployeeCode") </label>
+                                <div class="col-lg-8">
+                                    <input type="text" readonly class="form-control" data-bind="value:EmployeeCode" />
+                                </div>
+                            </div>
+                            <div class="col-lg-12 form-group">
+                                <div class="">
+                                    <label class="col-lg-4 control-label" for="Number">@T("EmployeeName")</label>
+                                    <div class="col-lg-8">
+                                        <input type="text" readonly class="form-control" data-bind="value:EmployeeName" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 form-group">
+                                <label class="col-lg-4 control-label" for="Number">@T("Designation") </label>
+                                <div class="col-lg-8">
+                                    <input type="text" readonly class="form-control" data-bind="value:Designation" />
+                                </div>
+                            </div>
+                            <div class="col-lg-12 form-group">
+                                <label class="col-lg-4 control-label" for="Number">@T("Department") </label>
+                                <div class="col-lg-8">
+                                    <input type="text" readonly class="form-control" data-bind="value:Department" />
+                                </div>
+                            </div>
+                            <div class="col-lg-12 form-group">
+                                <label class="col-lg-4 control-label" for="Number">@T("Section") </label>
+                                <div class="col-lg-8">
+                                    <input type="text" readonly class="form-control" data-bind="value:Section" />
+                                </div>
+                            </div>
+                            <div class="col-lg-12 form-group">
+                                <label class="col-lg-4 control-label" for="Number">@T("Remark")  </label>
+                                <div class="col-lg-8">
+                                    <textarea rows="4" cols="50" readonly class="form-control" data-bind="value:Remark"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 form-group">
+                                <label class="col-lg-4 control-label" for="Number">@T("Admin ")@T("Remark")  </label>
+                                <div class="col-lg-8">
+                                    <textarea rows="3" cols="30" class="form-control" data-bind="value:AdminRemark"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="col-lg-12 form-group">
+                                <img class="img-rounded " style="cursor:pointer" width="180" height="180" data-bind="attr: {src: Image || '/Images/men3.png'}" />
+                            </div>
+                            <div class="col-lg-12 form-group">
+                                <label class="col-lg-5 control-label" for="Number">@T("From")  </label>
+                                <div class="col-lg-6">
+                                    <input type="text" readonly class="form-control" data-bind="value:FromDateAndTime" />
+                                </div>
+                            </div>
+                            <div class="col-lg-12 form-group">
+                                <label class="col-lg-5 control-label" for="Number">@T("To")  </label>
+                                <div class="col-lg-6">
+                                    <input type="text" readonly class="form-control" data-bind="value:ToDateAndTime,mask:'time'" />
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <iframe data-bind="attr: {src: $root.MapURL }" width="100%" height="270" frameborder="0" style="border:0"></iframe>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="form-group col-lg-7">
+                            <input type="button" data-bind="click:$root.Approve,actionVisibility:'7271'" name="Save" class="btn btn-success" value="Approve" />
+                            <input type="button" value=@T("Back") class="btn btn-default" data-bind="click:CloseModal" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box box-success">
+                <div class="box-header with-border">
+                    &nbsp;
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool text-red" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                    <div class="btn-group">
+                        @*<button type="button" class="btn btn-default action" data-bind="click:ShowCreationModal,actionVisibility:'7266'" style="display: inline-block;"><i class="fa fa-plus-square text-primary">&nbsp;@T("Create")</i></button>*@
+                        <button type="button" class="btn btn-default action" data-bind="click:View,actionVisibility:'7270'" style="display: inline-block;"><i class="fa fa-eye text-green">&nbsp;@T("View")</i></button>
+                        <button type="button" class="btn btn-default action" data-bind="click:Delete,actionVisibility:'7272'" style="display: inline-block;"><i class="fa fa-trash text-red">&nbsp;@T("Delete")</i></button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-lg-12" data-bind="kendoGrid:KendoGridOptions">
+                            <div id="officeVisitRequestKendoGrid">
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script type="text/html" id="Search">
+</script>
+@if (Request.IsAjaxRequest())
+{
+    <script src="~/webcamjs-master/webcam.js"></script>
+    <script src="~/Areas/Employee/Scripts/Riddha.Script.OfficeVisitRequest.Controller.js"></script>
+    <script src="~/Areas/Employee/Scripts/Riddha.Script.OfficeVisitRequest.Model.js"></script>
+    <script type="text/javascript">
+        var obj = {};
+        Riddha.global.permission.action('8031').done(function (data) {
+            Riddha.global.permission.actions = data.Data;
+            ko.cleanNode(document.getElementById("partial-render"));
+            obj = new officeVisitRequestController();
+            ko.applyBindings(obj, document.getElementById("partial-render"));
+        });
+
+    </script>
+}
+else
+{
+    @section scripts
+    {
+        <script src="~/webcamjs-master/webcam.js"></script>
+        <script src="~/Areas/Employee/Scripts/Riddha.Script.OfficeVisitRequest.Controller.js"></script>
+        <script src="~/Areas/Employee/Scripts/Riddha.Script.OfficeVisitRequest.Model.js"></script>
+        <script type="text/javascript">
+            var obj = {};
+            Riddha.global.permission.action('8031').done(function (data) {
+                Riddha.global.permission.actions = data.Data;
+                ko.cleanNode(document.getElementById("partial-render"));
+                obj = new officeVisitRequestController();
+                ko.applyBindings(obj, document.getElementById("partial-render"));
+            });
+        </script>
+    }
+}

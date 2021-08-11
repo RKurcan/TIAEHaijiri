@@ -1,0 +1,158 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Layout_Adminlte.cshtml";
+}
+<section class="content-header">
+    <h1>
+        @T("User")
+        <sup class="text-blue">@T("Creation")</sup>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> @T("Home")</a></li>
+        <li class="active">@T("User")</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <!-- User Modal -->
+    <div class="modal" id="employeeUserCreationModel" style="">
+        <div class="modal-dialog ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4>@T("User")@T("Creation")</h4></header>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal" data-bind="with:EmployeeUserLogin">
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label" for="Number">@T("Branch")</label>
+                            <div class="col-lg-6">
+                                <select class="form-control" data-bind="options:$root.Branches,
+                                    optionsText:'Name',optionsValue:'Id',value:BranchId,
+                                    optionsCaption:Riddha.UI.getOptionCaption()"></select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label" for="Number">@T("Employee")</label>
+                            <div class="col-lg-6">
+                                <select class="form-control" data-bind="options:$root.Employees,
+                                    optionsText:'Name',optionsValue:'Id',value:EmployeeId,
+                                    optionsCaption:Riddha.UI.getOptionCaption()"></select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label" for="Number">@T("Role")</label>
+                            <div class="col-lg-6">
+                                <select class="form-control" data-bind="options:$root.Roles,
+                                optionsValue:'Id',optionsText:'Name',
+                                optionsCaption:Riddha.UI.getOptionCaption(),value:RoleId"></select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label" for="Number">@T("UserName")</label>
+                            <div class="col-lg-6">
+                                <input type="text" class="form-control" required data-bind="value:UserName" id="form-group col-lg-6-input ">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label" for="Number">@T("Password")</label>
+                            <div class="col-lg-6">
+                                <input type="password" class="form-control" required data-bind="value:Password" id="form-group col-lg-6-input ">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="col-lg-12 text-center">
+                            <input type="submit" data-bind="click:$root.CreateUpdate,createUpdateText:$root.ModeOfButton" name="Save" class="btn btn-primary" value=@T("Create") />
+                            <input type="button" data-bind="click:$root.Reset" name="Reset" value=@T("Reset") class="btn btn-default" />
+                            <input type="button" id="close" data-bind="click:$root.CloseModal" value=@T("Back") class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Info boxes -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    &nbsp;
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool dropdown-toggle text-blue" data-toggle="dropdown" data-bind="click:ShowModal" style="">
+                            <i class="fa fa-plus-square"></i> @T("Create")
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <div class="btn-group">
+
+                            <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-wrench"></i>
+                            </button>
+                            <ul class="dropdown-menu" role="menu"></ul>
+                        </div>
+                        <button type="button" class="btn btn-box-tool text-red" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="box-body table-responsive no-padding">
+                    <table class="table table-condensed table-bordered table-striped no-padding">
+                        <thead class="primary bg-primary">
+                            <tr>
+                                <th class=""> @T("SerialNo")</th>
+                                <th class="col-lg-3"> @T("Branch")</th>
+                                <th class="col-lg-3"> @T("Employee")</th>
+                                <th class="col-lg-2"> @T("UserName") </th>
+                                <th class="col-lg-2">@T("Role") </th>
+                                <th class="col-lg-2">@T("Action")</th>
+                            </tr>
+                        </thead>
+                        <tbody data-bind="foreach:EmployeeUserLogins">
+                            <tr>
+                                <td class="text-center" data-bind="serialNo:$index()+1"></td>
+                                <td data-bind="text:BranchName"></td>
+                                <td data-bind="text:EmployeeName"></td>
+                                <td data-bind="text:UserName"></td>
+                                <td data-bind="text:RoleName"></td>
+                                <td>
+                                    <button type="button" data-bind="click:$root.Select" class="btn btn-xs btn-default" title=@T("Edit")><span class="glyphicon glyphicon-pencil text-primary"></span> </button>
+                                    <button type="button" data-bind="click:$root.Delete" class="btn btn-xs btn-default" title=@T("Remove")><span class="glyphicon glyphicon-trash text-danger"></span></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/html" id="mode-button-template">
+        <span class="glyphicon glyphicon-plus" data-bind="text:$root.ModeOfButton"></span>
+    </script>
+    <!-- /.row -->
+    <!-- /.row -->
+    <!-- Main row -->
+    <!-- /.row -->
+</section>
+
+@if (Request.IsAjaxRequest())
+{
+    <script src="~/Areas/User/Scripts/Riddha.Script.EmployeeUserSetup.Model.js"></script>
+    <script src="~/Areas/User/Scripts/Riddha.Script.EmployeeUserSetup.Controller.js"></script>
+    <script type="text/javascript">
+        ko.cleanNode(document.getElementById("partial-render"));
+        var obj = new employeeUserSetupController();
+        ko.applyBindings(obj, document.getElementById("partial-render"));
+    </script>
+}
+else
+{
+    @section scripts
+    {
+        <script src="~/Areas/User/Scripts/Riddha.Script.EmployeeUserSetup.Model.js"></script>
+        <script src="~/Areas/User/Scripts/Riddha.Script.EmployeeUserSetup.Controller.js"></script>
+        <script type="text/javascript">
+            var obj = new employeeUserSetupController();
+            ko.applyBindings(obj);
+        </script>
+    }
+}

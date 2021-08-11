@@ -1,0 +1,310 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Layout_Adminlte.cshtml";
+}
+<section class="content-header">
+    <h1>
+        @T("TravelTicket")
+        <sup class="text-green">@T("Creation")</sup>
+
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> @T("Home")</a></li>
+        <li class="active">@T("TravelTicket")</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <!-- Bank Modal -->
+    <div class="modal" id="focCreationModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-green text-center"><u>@T("TravelTicketRequestForm")</u></h4></header>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-7" data-bind="with:Employee">
+                            <div class="col-lg-12 form-group">
+                                <label class="col-lg-4 control-label" for="Number">@T("EmployeeName") </label>
+                                <div class="col-lg-8">
+                                    <div class="demo-section k-content">
+                                        <input type="text" data-bind="kendoAutocomplete:$root.EmpAutoCompleteOptions,value:Name" style="width: 100%;" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 form-group">
+                                <label class="col-lg-4 control-label" for="Number">@T("Code") </label>
+                                <div class="col-lg-8">
+                                    <span class="form-control" data-bind="text:Code"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 form-group">
+                                <label class="col-lg-4 control-label" for="Number">@T("Designation") </label>
+                                <div class="col-lg-8">
+                                    <span class="form-control" data-bind="text:Designation"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 form-group">
+                                <label class="col-lg-4 control-label" for="Number">@T("Department") </label>
+                                <div class="col-lg-8">
+                                    <span class="form-control" data-bind="text:Department"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 form-group">
+                                <label class="col-lg-4 control-label" for="Number">@T("Section") </label>
+                                <div class="col-lg-8">
+                                    <span class="form-control" data-bind="text:Section"></span>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="col-lg-5" data-bind="with:FOCTicket">
+                            <div class="col-lg-12 form-group">
+                                <img class="img-rounded " style="cursor:pointer" width="110" height="110" data-bind="attr: {src: $root.Employee().Photo() || '/Images/men3.png'}" />
+                            </div>
+                            <div class="col-lg-12 form-group">
+                                <label class="col-lg-5 control-label" for="Number">@T("AppliedDate") </label>
+                                <div class="col-lg-7">
+                                    <input type="text" class="form-control" data-nepdate="#nepaliDate" data-bind="mask:'date',value:AppliedDate,visible:new Riddha.config().CurrentOperationDate=='en'">
+                                    <input class="form-control nepDate" data-format="yyyy/MM/dd" name="date" type="text" id="nepaliAppliedDate" data-bind="dateNp:{engDate:AppliedDate},visible:new Riddha.config().CurrentOperationDate=='ne'">
+                                </div>
+                            </div>
+                            <div class="col-lg-12 form-group">
+                                <label class="col-lg-5 control-label" for="Number">@T("Rebate") </label>
+                                <div class="col-lg-7">
+                                    <input type="number" min="0" max="100" class="form-control" data-bind="value:Rebate" />
+                                </div>
+                            </div>
+                            <div class="col-lg-12 form-group">
+                                <label class="col-lg-5 control-label" for="Number">@T("RequestType") </label>
+                                <div class="col-lg-7">
+                                    @T("Oneway") <input type="radio" name="RequestType" data-bind="checked:RequestType" value="0" />
+                                    @T("Twoway")<input type="radio" name="RequestType" data-bind="checked:RequestType" value="1" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12" data-bind="with:FOCTicket">
+                            <div class="box-body table-responsive ">
+                                <table class="table table-condensed table-bordered table-striped no-padding table-hover">
+                                    <thead class="success bg-green">
+                                        <tr>
+                                            <th class="col-lg-1"> @T("Sector")</th>
+
+                                            <th class="col-lg-2">@T("From")</th>
+
+                                            <th class="col-lg-2"> @T("To") </th>
+
+                                            <th class="col-lg-2"> @T("DateOfFlight")</th>
+
+                                            <th class="col-lg-2">@T("FlightNo")</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-center"> <b>@T("(A)")</b></td>
+                                            <td>
+                                                <input type="text" class="form-control" data-bind="value:SectorAFrom" />
+
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" data-bind="value:SectorATo" />
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" data-nepdate="#nepaliDate" data-bind="mask:'date',value:SectorADateOfFlight,visible:new Riddha.config().CurrentOperationDate=='en'">
+                                                <input class="form-control nepDate" data-format="yyyy/MM/dd" name="date" type="text" id="nepaliSectorADateOfFlight" data-bind="dateNp:{engDate:SectorADateOfFlight},visible:new Riddha.config().CurrentOperationDate=='ne'">
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" data-bind="value:SectorAFlightNo" />
+                                            </td>
+                                        </tr>
+                                        <tr data-bind="visible:RequestType()=='1'">
+                                            <td class="text-center"> <b>@T("(B)")</b></td>
+                                            <td>
+                                                <input type="text" class="form-control" data-bind="value:SectorBFrom" />
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" data-bind="value:SectorBTo" />
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" data-nepdate="#nepaliDate" data-bind="mask:'date',value:SectorBDateOfFlight,visible:new Riddha.config().CurrentOperationDate=='en'">
+                                                <input class="form-control nepDate" data-format="yyyy/MM/dd" name="date" type="text" id="nepaliSectorBDateOfFlight" data-bind="dateNp:{engDate:SectorBDateOfFlight},visible:new Riddha.config().CurrentOperationDate=='ne'">
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" data-bind="value:SectorBFlightNo" />
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot data-bind="">
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="box-body table-responsive ">
+                                <table class="table table-condensed table-bordered table-striped no-padding table-hover">
+                                    <thead class="success bg-green">
+                                        <tr>
+                                            <th class="col-lg-1"> @T("User")</th>
+
+                                            <th class="col-lg-2"> @T("Relation") </th>
+
+                                            <th class="col-lg-3">@T("Name")</th>
+
+                                            <th class="col-lg-2"> @T("Action")</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody data-bind="foreach:FOCTicketDetails">
+                                        <tr>
+                                            <td></td>
+                                            <td data-bind="text:$root.GetRelationDayName(Relation)"></td>
+                                            <td data-bind="text:Name"></td>
+                                            <td>
+                                                <button type="button" data-bind="click:$root.SelectFOCTicketDetails" class="btn btn-xs text-green" title=@T("Edit")><span class="glyphicon glyphicon-pencil "></span> </button>
+                                                <button type="button" data-bind="click:$root.DeleteFOCTicketDetails" class="btn btn-xs text-danger" title=@T("Remove")><span class="glyphicon glyphicon-trash"></span></button>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                    <tfoot data-bind="with:FOCTicketDetail">
+                                        <tr>
+                                            <td></td>
+                                            <td>
+                                                <select class="form-control" data-bind="options:$root.Relation,
+                                                optionsValue:'Id',optionsText:'Name',value:Relation"></select>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" data-bind="value:Name" />
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-success" data-bind="click:$root.AddFOCTicketDetails,template:{name:$root.FOCTicketDetailsModeOfButton()=='Update'?'mode-button-update-template':'mode-button-add-template'}" title=@T("Add")><span class="glyphicon glyphicon-plus"></span></button>
+                                                <button type="button" class="btn btn-default" data-bind="click:$root.ResetFOCTicketDetails" title=@T("Reset")><span class="glyphicon glyphicon-refresh"></span></button>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12" data-bind="with:FOCTicket">
+                            <div class="col-lg-6 form-group">
+                                <label class="col-lg-5 control-label" for="Number">@T("RecommendedBy") </label>
+                                <div class="col-lg-7">
+                                    <select class="form-control" data-bind="options:$root.RecommendedBy,
+                                    optionsText:'Name',optionsValue:'Id',value:RecommendedBy,
+                                    optionsCaption:Riddha.UI.getOptionCaption()"></select>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 form-group">
+                                <label class="col-lg-4 control-label" for="Number">@T("ApproveBy") </label>
+                                <div class="col-lg-7">
+                                    <select class="form-control" data-bind="options:$root.ApprovedBy,
+                                    optionsText:'Name',optionsValue:'Id',value:ApprovedById,
+                                    optionsCaption:Riddha.UI.getOptionCaption()"></select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="form-group col-lg-7">
+                            <input type="submit" data-bind="click:$root.CreateUpdate,createUpdateText:ModeOfButton,enable:$root.FOCTicketDetails().length>0" name="Save" class="btn btn-success" value=@T("Save") />
+                            <input type="button" data-bind="click:$root.Reset" name="Reset" value=@T("Reset") class="btn btn-default" />
+                            <input type="button" id="close" data-bind="click:$root.CloseModal" value=@T("Back") class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Info boxes -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box box-success">
+                <div class="box-header with-border">
+                    &nbsp;
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-wrench"></i>
+                            </button>
+                            <ul class="dropdown-menu" role="menu"></ul>
+                        </div>
+                        <button type="button" class="btn btn-box-tool text-red" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                    <div class="">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default action" data-bind="click:ShowModal,actionVisibility:'7180'"><i class="fa fa-plus-square text-green">&nbsp;@T("Create")</i></button>
+                            <button type="button" class="btn btn-default action" data-bind="click:Select,actionVisibility:'7181'"><i class="fa fa-pencil text-blue">&nbsp;@T("Edit")</i></button>
+                            <button type="button" class="btn btn-default action" data-bind="click:Delete,actionVisibility:'7182'"><i class="fa fa-trash text-red">&nbsp;@T("Delete")</i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-lg-12" data-bind="kendoGrid:KendoGridOptions">
+                            <div id="focKendoGrid">
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/html" id="mode-button-add-template">
+        <span class="glyphicon glyphicon-plus"></span>
+    </script>
+    <script type="text/html" id="mode-button-update-template">
+        <span class="glyphicon glyphicon-arrow-up"></span>
+    </script>
+    <!-- /.row -->
+    <!-- /.row -->
+    <!-- Main row -->
+    <!-- /.row -->
+</section>
+
+@if (Request.IsAjaxRequest())
+{
+    <script src="~/Areas/HRM/Scripts/Riddha.Script.FOC.Model.js"></script>
+    <script src="~/Areas/HRM/Scripts/Riddha.Script.FOC.Controller.js"></script>
+    <script type="text/javascript">
+        var obj = {};
+        Riddha.global.permission.action('8014').done(function (data) {
+            Riddha.global.permission.actions = data.Data;
+            ko.cleanNode(document.getElementById("partial-render"));
+            obj = new focController();
+            ko.applyBindings(obj, document.getElementById("partial-render"));
+        });
+    </script>
+}
+else
+{
+    @section scripts
+    {
+        <script src="~/Areas/HRM/Scripts/Riddha.Script.FOC.Model.js"></script>
+        <script src="~/Areas/HRM/Scripts/Riddha.Script.FOC.Controller.js"></script>
+        <script type="text/javascript">
+            var obj = {};
+            Riddha.global.permission.action('8014').done(function (data) {
+                Riddha.global.permission.actions = data.Data;
+                ko.cleanNode(document.getElementById("partial-render"));
+                obj = new focController();
+                ko.applyBindings(obj, document.getElementById("partial-render"));
+            });
+        </script>
+    }
+}
+
+

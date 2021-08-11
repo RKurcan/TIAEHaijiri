@@ -1,0 +1,512 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Layout_Adminlte.cshtml";
+}
+
+<style>
+    .modal-custom {
+        width: 750px;
+    }
+
+    .custom-search {
+        display: block;
+        outline: 0;
+        width: 90%;
+        height: 24px;
+        padding: 2px 3px;
+        font-size: 13px;
+        line-height: 1.4;
+    }
+
+    .custom-dep {
+        width: 65%;
+    }
+
+    .custom-item {
+        width: 83%;
+    }
+
+    .custom-emp {
+        width: 73%;
+    }
+
+    .appbtn {
+        /*display: inline-block;
+        padding: 8px 8px;
+        margin-bottom: 0;
+        font-size: 13px;
+        font-weight: normal;
+        line-height: 1.428571429;*/
+        border-radius: 3px;
+        position: relative;
+        padding: 15px 5px;
+        margin: 0 0 10px 10px;
+        min-width: 80px;
+        height: 60px;
+        text-align: center;
+        color: #666;
+        border: 1px solid #ddd;
+        background-color: #f4f4f4;
+        font-size: 12px;
+    }
+
+    /*.k-grid {
+        font-family: "Himalaya";
+    }*/
+</style>
+<section class="content-header">
+    <h1>
+        @T("Owner")
+        <sup class="text-green">@T("Report")</sup>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i>@T("Owner")</a></li>
+
+        <li class="active">@T("Report")</li>
+    </ol>
+</section>
+
+<!-- Main Content-->
+<section class="content">
+    <!-- Item Modal -->
+    <div class="modal" id="ReportModal" style="">
+        <div class="modal-dialog modal-md ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-success" data-bind="text:$root.ReportTitle"></h4></header>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal" data-bind="">
+                        <div class="row col-lg-12">
+                            <div class="form-group col-lg-6">
+                                <label class="col-lg-4 control-label">@T("Month")</label>
+                                <div class="col-lg-8">
+                                    <select class="form-control" data-bind="options:Months,optionsText:'Name',optionsValue:'Id',value:MonthId,event:{change:$root.DateDiffrence}"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row col-lg-12" data-bind="visible:$root.ReportId()==5">
+                            <div class="form-group col-lg-6">
+                                <label class="col-lg-4 control-label" for="OnDate">@T("OnDate")</label>
+                                <div class="col-lg-8">
+                                    <input type="text" class="form-control" data-nepdate="#nepaliDate" data-bind="mask:'date',value:OnDate,visible:DateVisibility('en')">
+                                    <input class="form-control nepDate" data-format="yyyy/MM/dd" name="date" type="text" id="nepaliOnDate" data-bind="dateNp:{engDate:OnDate},visible:DateVisibility('ne')">
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-4">
+                                <label class="col-lg-4 control-label" for="EndDate">@T("EndDate")</label>
+                                <div class="col-lg-8">
+                                    <input type="text" class="form-control" data-nepdate="#nepaliDate" data-bind="mask:'date',value:EndDate,visible:DateVisibility('en')">
+                                    <input class="form-control nepDate" data-format="yyyy/MM/dd" name="date" type="text" id="nepaliEndDate" data-bind="dateNp:{engDate:EndDate},visible:DateVisibility('ne')">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="col-lg-5">
+                            <input type="button" data-bind="click:$root.GenerateCustomerExpiryReport,visible:$root.ReportId()==2" name="Save" class="btn btn-success" value=@T("Generate") />
+                            <input type="button" data-bind="click:$root.GenerateMonthWiseDesktopCustomerReport,visible:$root.ReportId()==4" name="Save" class="btn btn-success" value=@T("Generate") />
+                            <input type="button" data-bind="kendoWindowGrid:$root.KendoGridOptionsForMonthWiseRenew(),visible:$root.ReportId() == 5" name="Save" class="btn btn-success" value=@T("Generate") />
+                            <input type="button" id="close" data-bind="click:$root.CloseModal" value=@T("Back") class="btn btn-default" />
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="showOrgIssueModal" style="">
+        <div class="modal-dialog modal-md ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-success" data-bind="text:$root.ReportTitle"></h4></header>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="panel panel-success">
+                                    <div class="box-header bg-success ">@T("Resellers")<input type="text" name="name" data-bind="value:$root.SearchResellerText,valueUpdate:'keyup'" class="form-control pull-right custom-item" placeholder="Search" /></div>
+                                    <div class="panel-body" data-bind="" style="height:250px; overflow-y:auto">
+                                        <ul data-bind="foreach:$root.FilteredResellers" class="list-group list list-group-unbordered">
+                                            <li class="list-group-item">
+                                                <span data-bind="text:Name"></span><input class="pull-right" type="checkbox" data-bind="value:Id,checked:Checked" />
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="col-lg-7">
+                            <input type="button" data-bind="kendoWindowGrid:$root.KendoGridOptionsForResellerDeviceAssignment(),visible:$root.ReportId() == 1" name="Save" class="btn btn-success" value=@T("Generate") />
+                            <input type="button" id="close" data-bind="click:CloseOrgIssueModal" value=@T("Back") class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="companyStatusReportModal" style="">
+        <div class="modal-dialog modal-md ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-success" data-bind="text:$root.ReportTitle"></h4></header>
+                </div>
+                <div class="modal-body text-center">
+                    @*<div class="form-horizontal">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="panel panel-success">
+                                        <div class="box-header bg-success ">@T("Resellers")<input type="text" name="name" data-bind="value:$root.SearchResellerText,valueUpdate:'keyup'" class="form-control pull-right custom-item" placeholder="Search" /></div>
+                                        <div class="panel-body" data-bind="" style="height:250px; overflow-y:auto">
+                                            <ul data-bind="foreach:$root.FilteredResellers" class="list-group list list-group-unbordered">
+                                                <li class="list-group-item">
+                                                    <span data-bind="text:Name"></span><input class="pull-right" type="checkbox" data-bind="value:Id,checked:Checked" />
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>*@
+
+                    <input type="checkbox" data-bind="checked:$root.Active" name="Include Active" value="asd" class="text-center" /><span>Incluide Active</span>
+                    <div class="modal-footer">
+                        <div class="col-lg-7">
+                            <input type="button" data-bind="kendoWindowGrid:$root.KendoGridOptionsForCompanyStatus()" name="Save" class="btn btn-success" value=@T("Generate") />
+                            <input type="button" id="close" data-bind="click:CloseCompanyStatusReportModal" value=@T("Back") class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box box-success">
+                <div class="box-header with-border">
+                    &nbsp;
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool text-red" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="box-body table-responsive ">
+                    <div class="col-lg-12">
+                        <div class="box">
+                            <div class="box-header">
+                                <h3 class="box-title">@T("Partner") @T("Report")</h3>
+                            </div>
+                            <div class="box-body">
+                                <a data-toggle="tooltip" title='@T("Reseller Device Assignment Report")' class="btn btn-app appbtn" data-bind="click:function(){ShowOrgIssueModal(1,'@T("Reseller Device Assignment")')}"><i class="fa fa-2x fa-arrow-right text-orange"></i>@T("Reseller Device Assignment")</a>
+                                <a data-toggle="tooltip" title='@T("Month wise customer expiry Report")' class="btn btn-app appbtn" data-bind="click:function(){ShowModal(2,'@T("Month wise customer expiry Report")')}"><i class="fa fa-2x fa-calendar text-green"></i>@T("Month wise customer expiry Report")</a>
+                                <a data-toggle="tooltip" title='@T("Month Wise Customer Renew Report")' class="btn btn-app appbtn" data-bind="click:function(){ShowModal(5,'@T("Month wise customer renew")')}"><i class="fa fa-2x fa-arrow-right text-orange"></i>@T("Month wise customer renew")</a>
+                                <a data-toggle="tooltip" title='@T("Month wise new customer Report")' class="btn btn-app appbtn" data-bind="click:function(){GenerateMonthWiseNewCustomerReport(3,'@T("Month wise new customer Report")')}"><i class="fa fa-2x fa-file-o text-aqua"></i>@T("Month wise new customer Report")</a>
+                                <a data-toggle="tooltip" title='@T("Month wise desktop customer Report")' class="btn btn-app appbtn" data-bind="click:function(){ShowModal(4,'@T("Month wise desktop customer Report")')}"><i class="fa fa-2x fa-laptop text-blue"></i>@T("Month wise desktop customer Report")</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal " id="monthWiseCustomerExpiryModal" style="">
+
+        <div class="modal-dialog  " style="width:100%;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <div class="btn-group">
+                        @*<button type="button" class="btn btn-default " data-bind="click:function(){Print('#monthlyAttendanceReportId')}"><i class="fa fa-plus-square text-green">&nbsp;@T("Print")</i></button>
+                            <button id="btnExport" type="button" class="btn btn-default " data-bind="click:function(){ExportExcel('monthlyAttendanceReportTable')}"><i class="fa fa-pencil text-blue">&nbsp;@T("Excel")</i></button>*@
+                    </div>
+                </div>
+                <div class="modal-body" id="monthWiseCustomerExpiryReportId">
+                    <style>
+                        @@media all {
+                            .page-break {
+                                display: none;
+                            }
+                        }
+
+                        @@media print {
+                            .page-break {
+                                display: block;
+                                page-break-inside: auto;
+                            }
+                        }
+                    </style>
+                    <div>
+                        <table style="width:100%;">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <table style="width:100%; " class="text-center">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <strong id="monthlyAttendanceReportTitle" style="margin:35px;" data-bind="text:$root.ReportTitle"></strong>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="form-horizontal">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="box-body table-responsive table-bordered table-condensed table-striped" style="overflow-x:auto;">
+                                        <table id="monthWiseCustomerExpiryReport" class="scrollit table table-condensed table-bordered table-striped no-padding table-hover table-responsive">
+                                            <thead class="bg-gray">
+                                                <tr>
+                                                    <th>@T("SN")</th>
+                                                    <th>@T("Code")</th>
+                                                    <th>@T("Name")</th>
+                                                    <th>@T("Address")</th>
+                                                    <th>@T("Contact Person")</th>
+                                                    <th>@T("Contact No")</th>
+                                                    <th>@T("Expiry Date")</th>
+                                                    <th>@T("Patner")</th>
+                                                    <th>@T("Patner Contact Person")</th>
+                                                    <th>@T("Patner ContactNo")</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody data-bind="foreach:$root.CustomerExpiryReportArray">
+                                                <tr>
+                                                    <td data-bind="serialNo:$index()+1"></td>
+                                                    <td data-bind="text:CompanyCode"></td>
+                                                    <td data-bind="text:CompanyName"></td>
+                                                    <td data-bind="text:CompanyAddress"></td>
+                                                    <td data-bind="text:CompanyContactPerson"></td>
+                                                    <td data-bind="text:CompanyContactNo"></td>
+                                                    <td data-bind="text:SuitableDate(ExpiryDate())"></td>
+                                                    <td data-bind="text:ResellerName"></td>
+                                                    <td data-bind="text:ResellerContactPerson"></td>
+                                                    <td data-bind="text:ResellerContactNo"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="editor"></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal " id="monthWiseNewCustomerReportModal" style="">
+
+        <div class="modal-dialog  " style="width:100%;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <div class="btn-group">
+                    </div>
+                </div>
+                <div class="modal-body" id="monthWiseCustomerExpiryReportId">
+                    <style>
+                        @@media all {
+                            .page-break {
+                                display: none;
+                            }
+                        }
+
+                        @@media print {
+                            .page-break {
+                                display: block;
+                                page-break-inside: auto;
+                            }
+                        }
+                    </style>
+                    <div>
+                        <table style="width:100%;">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <table style="width:100%; " class="text-center">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <strong id="monthlyAttendanceReportTitle" style="margin:35px;" data-bind="text:$root.ReportTitle"></strong>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="form-horizontal">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="box-body table-responsive table-bordered table-condensed table-striped" style="overflow-x:auto;">
+                                        <table id="monthWiseCustomerExpiryReport" class="scrollit table table-condensed table-bordered table-striped no-padding table-hover table-responsive">
+                                            <thead class="bg-gray">
+                                                <tr>
+                                                    <th>@T("SN")</th>
+                                                    <th>@T("Month")</th>
+                                                    <th>@T("Customer")</th>
+                                                    <th>@T("Diffrence")</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody data-bind="foreach:$root.MonthWiseNewCustomerReportArray">
+                                                <tr>
+                                                    <td data-bind="serialNo:$index()+1"></td>
+                                                    <td data-bind="text:Month"></td>
+                                                    <td data-bind="text:Count"></td>
+                                                    <td data-bind="text:Diffrence"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="editor"></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal " id="monthWiseDesktopCustomerReportModal" style="">
+
+        <div class="modal-dialog  " style="width:100%;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <div class="btn-group">
+                        @*<button type="button" class="btn btn-default " data-bind="click:function(){Print('#monthlyAttendanceReportId')}"><i class="fa fa-plus-square text-green">&nbsp;@T("Print")</i></button>
+                            <button id="btnExport" type="button" class="btn btn-default " data-bind="click:function(){ExportExcel('monthlyAttendanceReportTable')}"><i class="fa fa-pencil text-blue">&nbsp;@T("Excel")</i></button>*@
+                    </div>
+                </div>
+                <div class="modal-body" id="monthWiseDesktopCustomerReportId">
+                    <style>
+                        @@media all {
+                            .page-break {
+                                display: none;
+                            }
+                        }
+
+                        @@media print {
+                            .page-break {
+                                display: block;
+                                page-break-inside: auto;
+                            }
+                        }
+                    </style>
+                    <div>
+                        <table style="width:100%;">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <table style="width:100%; " class="text-center">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <strong id="monthWiseDesktopCustomerTitle" style="margin:35px;" data-bind="text:$root.ReportTitle"></strong>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="form-horizontal">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="box-body table-responsive table-bordered table-condensed table-striped" style="overflow-x:auto;">
+                                        <table id="monthWiseDesktopCustomerReport" class="scrollit table table-condensed table-bordered table-striped no-padding table-hover table-responsive">
+                                            <thead class="bg-gray">
+                                                <tr>
+                                                    <th>@T("SN")</th>
+                                                    <th>@T("Code")</th>
+                                                    <th>@T("Name")</th>
+                                                    <th>@T("Contact No")</th>
+                                                    <th>@T("Reseller")</th>
+                                                    <th>@T("Reseller Contact No.")</th>
+                                                    <th>@T("Issue Date")</th>
+                                                    <th>@T("MAC")</th>
+                                                    <th>@T("Key")</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody data-bind="foreach:$root.MonthWiseDesktopCustomerReportArray">
+                                                <tr>
+                                                    <td data-bind="serialNo:$index()+1"></td>
+                                                    <td data-bind="text:CompanyCode"></td>
+                                                    <td data-bind="text:CompanyName"></td>
+                                                    <td data-bind="text:CompanyContactNo"></td>
+                                                    <td data-bind="text:ResellerName"></td>
+                                                    <td data-bind="text:ResellerContactNo"></td>
+                                                    <td data-bind="text:SuitableDate(IssueDate())"></td>
+                                                    <td data-bind="text:MAC"></td>
+                                                    <td data-bind="text:Key"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="editor"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<div id="kendoResellerDeviceAssignmentReportWindow">
+    <div>
+    </div>
+</div>
+<div id="renewReportWindow">
+    <div>
+    </div>
+</div>
+<div id="kendocompanyStatusReportWindow">
+    <div>
+    </div>
+</div>
+
+@if (Request.IsAjaxRequest())
+{
+    <script src="~/Areas/Report/Scripts/Riddha.Script.OwnerReport.Model.js"></script>
+    <script src="~/Areas/Report/Scripts/Riddha.Script.OwnerReport.Controller.js"></script>
+    <script type="text/javascript">
+        var obj = {};
+        ko.cleanNode(document.getElementById("partial-render"));
+        obj = new ownerReportController('@DateTime.Now.ToString("yyyy/MM/dd")');
+        ko.applyBindings(obj, document.getElementById("partial-render"));
+    </script>
+}
+else
+{
+    @section scripts
+    {
+        <script src="~/Areas/Report/Scripts/Riddha.Script.OwnerReport.Model.js"></script>
+        <script src="~/Areas/Report/Scripts/Riddha.Script.OwnerReport.Controller.js"></script>
+        <script type="text/javascript">
+            var obj = {}
+            ko.cleanNode(document.getElementById("partial-render"));
+
+            obj = new ownerReportController('@DateTime.Now.ToString("yyyy/MM/dd")');
+            ko.applyBindings(obj, document.getElementById("partial-render"));
+        </script>
+
+    }
+}
+
+

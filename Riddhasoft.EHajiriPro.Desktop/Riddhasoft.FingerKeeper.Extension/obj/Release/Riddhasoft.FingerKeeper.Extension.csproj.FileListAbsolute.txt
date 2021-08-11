@@ -1,0 +1,77 @@
+D:\project\RiddhaERP\trunk\Riddhasoft.AttendanceManagement.Dekstop\Riddhasoft.FingerKeeper.Extension\bin\Release\Riddhasoft.FingerKeeper.Extension.dll
+D:\project\RiddhaERP\trunk\Riddhasoft.AttendanceManagement.Dekstop\Riddhasoft.FingerKeeper.Extension\bin\Release\Riddhasoft.FingerKeeper.Extension.pdb
+D:\project\RiddhaERP\trunk\Riddhasoft.AttendanceManagement.Dekstop\Riddhasoft.FingerKeeper.Extension\obj\Release\Riddhasoft.FingerKeeper.Extension.csprojResolveAssemblyReference.cache
+D:\project\RiddhaERP\trunk\Riddhasoft.AttendanceManagement.Dekstop\Riddhasoft.FingerKeeper.Extension\obj\Release\Riddhasoft.FingerKeeper.Extension.dll
+D:\project\RiddhaERP\trunk\Riddhasoft.AttendanceManagement.Dekstop\Riddhasoft.FingerKeeper.Extension\obj\Release\Riddhasoft.FingerKeeper.Extension.pdb
+E:\projects\riddhaELP\trunk\Riddhasoft.AttendanceManagement.Dekstop\Riddhasoft.FingerKeeper.Extension\bin\Release\Riddhasoft.FingerKeeper.Extension.dll
+E:\projects\riddhaELP\trunk\Riddhasoft.AttendanceManagement.Dekstop\Riddhasoft.FingerKeeper.Extension\bin\Release\Riddhasoft.FingerKeeper.Extension.pdb
+E:\projects\riddhaELP\trunk\Riddhasoft.AttendanceManagement.Dekstop\Riddhasoft.FingerKeeper.Extension\bin\Release\Interop.zkemkeeper.dll
+E:\projects\riddhaELP\trunk\Riddhasoft.AttendanceManagement.Dekstop\Riddhasoft.FingerKeeper.Extension\obj\Release\Riddhasoft.FingerKeeper.Extension.csprojResolveAssemblyReference.cache
+E:\projects\riddhaELP\trunk\Riddhasoft.AttendanceManagement.Dekstop\Riddhasoft.FingerKeeper.Extension\obj\Release\Interop.zkemkeeper.dll
+E:\projects\riddhaELP\trunk\Riddhasoft.AttendanceManagement.Dekstop\Riddhasoft.FingerKeeper.Extension\obj\Release\Riddhasoft.FingerKeeper.Extension.csproj.ResolveComReference.cache
+E:\projects\riddhaELP\trunk\Riddhasoft.AttendanceManagement.Dekstop\Riddhasoft.FingerKeeper.Extension\obj\Release\Riddhasoft.FingerKeeper.Extension.dll
+E:\projects\riddhaELP\trunk\Riddhasoft.AttendanceManagement.Dekstop\Riddhasoft.FingerKeeper.Extension\obj\Release\Riddhasoft.FingerKeeper.Extension.pdb
+D:\projects\StartupAttendance\trunk\Riddhasoft.AttendanceManagement.Dekstop\Riddhasoft.FingerKeeper.Extension\bin\Release\Riddhasoft.FingerKeeper.Extension.dll
+D:\projects\StartupAttendance\trunk\Riddhasoft.AttendanceManagement.Dekstop\Riddhasoft.FingerKeeper.Extension\bin\Release\Riddhasoft.FingerKeeper.Extension.pdb
+D:\projects\StartupAttendance\trunk\Riddhasoft.AttendanceManagement.Dekstop\Riddhasoft.FingerKeeper.Extension\bin\Release\Interop.zkemkeeper.dll
+D:\projects\StartupAttendance\trunk\Riddhasoft.AttendanceManagement.Dekstop\Riddhasoft.FingerKeeper.Extension\obj\Release\Interop.zkemkeeper.dll
+D:\projects\StartupAttendance\trunk\Riddhasoft.AttendanceManagement.Dekstop\Riddhasoft.FingerKeeper.Extension\obj\Release\Riddhasoft.FingerKeeper.Extension.csproj.ResolveComReference.cache
+D:\projects\StartupAttendance\trunk\Riddhasoft.AttendanceManagement.Dekstop\Riddhasoft.FingerKeeper.Extension\obj\Release\Riddhasoft.FingerKeeper.Extension.dll
+D:\projects\StartupAttendance\trunk\Riddhasoft.AttendanceManagement.Dekstop\Riddhasoft.FingerKeeper.Extension\obj\Release\Riddhasoft.FingerKeeper.Extension.pdb
+D:\projects\StartupAttendance\trunk\Riddhasoft.AttendanceManagement.Dekstop\Riddhasoft.FingerKeeper.Extension\obj\Release\Riddhasoft.FingerKeeper.Extension.csprojResolveAssemblyReference.cache
+F:\Development\RiddhaELP\trunk\Riddhasoft.AttendanceManagement.Dekstop\Riddhasoft.FingerKeeper.Extension\bin\Release\Riddhasoft.FingerKeeper.Extension.dll
+F:\Development\RiddhaELP\trunk\Riddhasoft.AttendanceManagement.Dekstop\Riddhasoft.FingerKeeper.Extension\bin\Release\Riddhasoft.FingerKeeper.Extension.pdb
+F:\Development\RiddhaELP\trunk\Riddhasoft.AttendanceManagement.Dekstop\Riddhasoft.FingerKeeper.Extension\bin\Release\Interop.zkemkeeper.dll
+F:\Development\RiddhaELP\trunk\Riddhasoft.AttendanceManagement.Dekstop\Riddhasoft.FingerKeeper.Extension\obj\Release\Interop.zkemkeeper.dll
+F:\Development\RiddhaELP\trunk\Riddhasoft.AttendanceManagement.Dekstop\Riddhasoft.FingerKeeper.Extension\obj\Release\Riddhasoft.FingerKeeper.Extension.csproj.ResolveComReference.cache
+F:\Development\RiddhaELP\trunk\Riddhasoft.AttendanceManagement.Dekstop\Riddhasoft.FingerKeeper.Extension\obj\Release\Riddhasoft.FingerKeeper.Extension.dll
+F:\Development\RiddhaELP\trunk\Riddhasoft.AttendanceManagement.Dekstop\Riddhasoft.FingerKeeper.Extension\obj\Release\Riddhasoft.FingerKeeper.Extension.pdb
+F:\Development\RiddhaELP\trunk\Riddhasoft.AttendanceManagement.Dekstop\Riddhasoft.FingerKeeper.Extension\obj\Release\Riddhasoft.FingerKeeper.Extension.csprojResolveAssemblyReference.cache
+D:\project\NewELP\trunk\Riddhasoft.AttendanceManagement.Dekstop\Riddhasoft.FingerKeeper.Extension\bin\Release\Riddhasoft.FingerKeeper.Extension.dll
+D:\project\NewELP\trunk\Riddhasoft.AttendanceManagement.Dekstop\Riddhasoft.FingerKeeper.Extension\bin\Release\Riddhasoft.FingerKeeper.Extension.pdb
+D:\project\NewELP\trunk\Riddhasoft.AttendanceManagement.Dekstop\Riddhasoft.FingerKeeper.Extension\bin\Release\Interop.zkemkeeper.dll
+D:\project\NewELP\trunk\Riddhasoft.AttendanceManagement.Dekstop\Riddhasoft.FingerKeeper.Extension\obj\Release\Interop.zkemkeeper.dll
+D:\project\NewELP\trunk\Riddhasoft.AttendanceManagement.Dekstop\Riddhasoft.FingerKeeper.Extension\obj\Release\Riddhasoft.FingerKeeper.Extension.csproj.ResolveComReference.cache
+D:\project\NewELP\trunk\Riddhasoft.AttendanceManagement.Dekstop\Riddhasoft.FingerKeeper.Extension\obj\Release\Riddhasoft.FingerKeeper.Extension.dll
+D:\project\NewELP\trunk\Riddhasoft.AttendanceManagement.Dekstop\Riddhasoft.FingerKeeper.Extension\obj\Release\Riddhasoft.FingerKeeper.Extension.pdb
+D:\project\NewELP\trunk\Riddhasoft.AttendanceManagement.Dekstop\Riddhasoft.FingerKeeper.Extension\obj\Release\Riddhasoft.FingerKeeper.Extension.csprojResolveAssemblyReference.cache
+D:\project\Riddha Hrmpl\trunk\Riddhasoft.AttendanceManagement.Dekstop\Riddhasoft.FingerKeeper.Extension\obj\Release\Riddhasoft.FingerKeeper.Extension.csprojResolveAssemblyReference.cache
+D:\project\Riddha Hrmpl\trunk\Riddhasoft.AttendanceManagement.Dekstop\Riddhasoft.FingerKeeper.Extension\obj\Release\Riddhasoft.FingerKeeper.Extension.csproj.ResolveComReference.cache
+D:\project\Riddha Hrmpl\trunk\Riddhasoft.AttendanceManagement.Dekstop\Riddhasoft.FingerKeeper.Extension\obj\Release\Riddhasoft.FingerKeeper.Extension.dll
+D:\project\Riddha Hrmpl\trunk\Riddhasoft.AttendanceManagement.Dekstop\Riddhasoft.FingerKeeper.Extension\obj\Release\Riddhasoft.FingerKeeper.Extension.pdb
+D:\project\Riddha Hrmpl\trunk\Riddhasoft.AttendanceManagement.Dekstop\Riddhasoft.FingerKeeper.Extension\bin\Release\Riddhasoft.FingerKeeper.Extension.dll
+D:\project\Riddha Hrmpl\trunk\Riddhasoft.AttendanceManagement.Dekstop\Riddhasoft.FingerKeeper.Extension\bin\Release\Riddhasoft.FingerKeeper.Extension.pdb
+D:\project\Riddha Hrmpl\trunk\Riddhasoft.AttendanceManagement.Dekstop\Riddhasoft.FingerKeeper.Extension\bin\Release\Interop.zkemkeeper.dll
+D:\project\Riddha Hrmpl\trunk\Riddhasoft.AttendanceManagement.Dekstop\Riddhasoft.FingerKeeper.Extension\obj\Release\Interop.zkemkeeper.dll
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\bin\Release\Riddhasoft.FingerKeeper.Extension.dll
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\bin\Release\Riddhasoft.FingerKeeper.Extension.pdb
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\bin\Release\Interop.zkemkeeper.dll
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\obj\Release\Interop.zkemkeeper.dll
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\obj\Release\Riddhasoft.FingerKeeper.Extension.csproj.ResolveComReference.cache
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\obj\Release\Riddhasoft.FingerKeeper.Extension.dll
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\obj\Release\Riddhasoft.FingerKeeper.Extension.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\bin\Release\Riddhasoft.FingerKeeper.Extension.dll
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\bin\Release\Riddhasoft.FingerKeeper.Extension.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\bin\Release\Interop.zkemkeeper.dll
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\obj\Release\Interop.zkemkeeper.dll
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\obj\Release\Riddhasoft.FingerKeeper.Extension.csproj.ResolveComReference.cache
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\obj\Release\Riddhasoft.FingerKeeper.Extension.dll
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\obj\Release\Riddhasoft.FingerKeeper.Extension.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\obj\Release\Riddhasoft.FingerKeeper.Extension.csprojResolveAssemblyReference.cache
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\bin\Release\Riddhasoft.FingerKeeper.Extension.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\bin\Release\Riddhasoft.FingerKeeper.Extension.pdb
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\bin\Release\Interop.zkemkeeper.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\obj\Release\Riddhasoft.FingerKeeper.Extension.csprojResolveAssemblyReference.cache
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\obj\Release\Interop.zkemkeeper.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\obj\Release\Riddhasoft.FingerKeeper.Extension.csproj.ResolveComReference.cache
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\obj\Release\Riddhasoft.FingerKeeper.Extension.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\obj\Release\Riddhasoft.FingerKeeper.Extension.pdb
+F:\SVN Server\87 Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\bin\Release\Riddhasoft.FingerKeeper.Extension.dll
+F:\SVN Server\87 Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\bin\Release\Riddhasoft.FingerKeeper.Extension.pdb
+F:\SVN Server\87 Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\bin\Release\Interop.zkemkeeper.dll
+F:\SVN Server\87 Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\obj\Release\Riddhasoft.FingerKeeper.Extension.csprojAssemblyReference.cache
+F:\SVN Server\87 Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\obj\Release\Interop.zkemkeeper.dll
+F:\SVN Server\87 Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\obj\Release\Riddhasoft.FingerKeeper.Extension.csproj.ResolveComReference.cache
+F:\SVN Server\87 Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\obj\Release\Riddhasoft.FingerKeeper.Extension.csproj.CoreCompileInputs.cache
+F:\SVN Server\87 Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\obj\Release\Riddhasoft.FingerKeeper.Extension.dll
+F:\SVN Server\87 Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\obj\Release\Riddhasoft.FingerKeeper.Extension.pdb

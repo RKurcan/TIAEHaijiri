@@ -1,0 +1,247 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Layout_Adminlte.cshtml";
+}
+<section class="content-header">
+    <h1>
+        @T("Notice")
+        <sup class="text-green">@T("List")</sup>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> @T("Home")</a></li>
+        <li class="text-green">@T("Notice")</li>
+    </ol>
+</section>
+<style>
+    #fixedtextarea {
+        resize: none;
+    }
+</style>
+<!-- Main content -->
+<section class="content">
+    <script type="text/html" id="mode-button-template">
+        <span class="glyphicon glyphicon-plus" data-bind="text:ModeOfButton"></span>
+    </script>
+    <!-- Notice Modal -->
+    <div class="modal" id="noticeViewModel" style="">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-success">@T("Notice") @T("Creation")</h4></header>
+                </div>
+                <div class="modal-body">
+                    <div class="" data-bind="with:Notice">
+                        <div class="form-group col-lg-4">
+                            <div class="required">
+                                <label class="col-lg-5 control-label" for="Number">@T("PublishOn")</label>
+                                <div class="col-lg-5">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" data-nepdate="#PublishOna" data-bind="mask:'date',value:PublishedOn,visible:DateVisibility('en')">
+                                        <input class="form-control nepDate" data-format="yyyy/MM/dd" name="date" type="text" id="PublishOna" data-bind="dateNp:{engDate:PublishedOn},visible:DateVisibility('ne')">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-4">
+                            <div class="required">
+                                <label class="col-lg-5 control-label" for="Number">@T("ExpiredOn")</label>
+                                <div class="col-lg-5">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" data-nepdate="#ExpiredOnb" data-bind="mask:'date',value:ExpiredOn,visible:DateVisibility('en')">
+                                        <input class="form-control nepDate" data-format="yyyy/MM/dd" name="date" type="text" id="ExpiredOnb" data-bind="dateNp:{engDate:ExpiredOn},visible:DateVisibility('ne')">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group  col-lg-4 ">
+                            <label class="col-lg-5 control-label" for="Number">@T("IsUrgent")</label>
+                            <div class="col-lg-1">
+                                <input type="checkbox" data-bind="checked:IsUrgent">
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-4">
+                            <label class="col-lg-5 control-label" for="Number">@T("NoticeLevel")</label>
+                            <div class="col-lg-6">
+                                <select class="form-control" required data-bind="options:$root.NoticeLevels,
+                                                                                                optionsText:'Name',optionsValue:'Id',value:NoticeLevel,
+                                                                                                event:{change:$root.GetTargets}"></select>
+                            </div>
+                        </div>
+                        @*<div class="form-group col-lg-8">
+                                <div class="required">
+                                    <label class="col-lg-2 control-label" for="Number">@T("Title")</label>
+                                    <div class="col-lg-8">
+                                        <input class="form-control" placeholder="" data-bind="value:Title">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-lg-12">
+                                <div class="required">
+                                    <label class="col-lg-2 control-label" for="Number">@T("Description")</label>
+                                    <div class="col-lg-9">
+                                        <textarea class="form-control" data-bind="value:Description"></textarea>
+                                    </div>
+                                </div>
+                            </div>*@
+                        <div class="form-group col-lg-12" data-bind="visible:NoticeLevel()!=0">
+                            <label class="col-lg-2 control-label" for="Number" data-bind="text:NoticeLevel()==1?'@T("Branch")':NoticeLevel()==2?'@T("Department")':'@T("Section")'"></label>
+                            <div class="col-lg-10">
+                                <div class="panel panel-success col">
+                                    <div class="box-header bg-green " data-bind="text:NoticeLevel()==1?'@T("Branch")':NoticeLevel()==2?'@T("Department")':'@T("Section")'">
+                                        <input class="pull-right" type="checkbox" data-bind="checked:$root.CheckAllTargets" />
+                                    </div>
+                                    <div class="panel-body">
+                                        <ul data-bind="foreach:$root.Targets" class="list-group list list-group-unbordered">
+                                            <li class="list-group-item">
+                                                <span data-bind="text:Name"></span>   <a class="pull-right"><input type="checkbox" data-bind="checked:$root.SelectedTargets,value:Id" /></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12" data-bind="with:Notice">
+                            <div class="box box-success">
+                                <div class="box-header with-border">
+
+                                </div>
+                                <!-- /.box-header -->
+                                <div class="box-body">
+                                    <div class="form-group">
+                                        <input class="form-control" placeholder=@T("Title") data-bind="value:Title">
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea class="form-control" data-bind="value:Description" style="height: 300px" placeholder=@T("Description")></textarea>
+                                    </div>
+                                </div>
+                                <!-- /.box-body -->
+                                <div class="box-footer">
+                                    <div class="pull-right">
+                                        <input type="button" data-bind="click:$root.Reset,enable:$root.EnableButtons()" name="Reset" value=@T("Reset") class="btn btn-warning" />
+                                        <input type="button" id="close" data-bind="click:$root.CloseModal" value=@T("Back") class="btn btn-default" />
+                                    </div>
+                                    <input type="submit" data-bind="click:$root.CreateUpdate,createUpdateText:$root.ModeOfButton" name="Save" class="btn btn-success" value=@T("Create") />
+                                </div>
+                                <!-- /.box-footer -->
+                            </div>
+                            <!-- /. box -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- Info boxes -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box box-success">
+                <div class="box-header with-border">
+                    <p id="message"></p>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool dropdown-toggle text-green action" data-toggle="dropdown" data-bind="click:ShowModal,actionVisibility:'2027'" style="">
+                            <i class="fa fa-plus-square"></i> @T("Create")
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <div class="btn-group">
+
+                            <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-wrench"></i>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                            </ul>
+                        </div>
+                        <button type="button" class="btn btn-box-tool text-red" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <table class="table table-condensed table-bordered table-striped no-padding table-hover">
+                        <thead class="success bg-green">
+                            <tr>
+                                <th>@T("SerialNo")</th>
+                                <th class="col-lg-4"> @T("Title")</th>
+                                <th class="col-lg-2">@T("PublishOn")</th>
+                                <th class="col-lg-2 ">@T("ExpiredOn")</th>
+                                <th class="col-lg-2">@T("NoticeLevel") </th>
+                                <th class="col-lg-2">@T("Action")</th>
+                            </tr>
+                        </thead>
+                        <tbody data-bind="foreach:Notices">
+                            <tr>
+                                <td data-bind="serialNo:$index()+1"></td>
+                                <td data-bind="text:Title"></td>
+                                <td data-bind="text:SuitableDate(PublishedOn())"></td>
+                                <td data-bind="text:SuitableDate(ExpiredOn())"></td>
+                                <td data-bind="text:NoticeLevel"></td>
+                                <td>
+                                    @*<button type="button" data-bind="click:$root.Publish" class="btn btn-default" title="Publish this notice"><span class="glyphicon glyphicon-share"></span></button>*@
+                                    <button type="button" data-bind="click:$root.Select,actionVisibility:'2028'" class="btn btn-xs btn-default btn-default action" title=@T("Edit")><span class="glyphicon glyphicon-pencil text-green"></span></button>
+                                    <button type="button" data-bind="click:$root.Delete,actionVisibility:'2029'" class="btn btn-xs btn-default action" title=@T("Remove")><span class="glyphicon glyphicon-trash text-red"></span></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/html" id="mode-button-add-template">
+        <span class="glyphicon glyphicon-plus"></span>
+    </script>
+    <script type="text/html" id="mode-button-update-template">
+        <span class="glyphicon glyphicon-arrow-up"></span>
+    </script>
+</section>
+
+@if (Request.IsAjaxRequest())
+{
+
+    
+    <script type="text/javascript">
+        Riddha.global.permission.action('2006').done(function (data) {
+            Riddha.global.permission.actions = data.Data;
+            ko.cleanNode(document.getElementById("partial-render"));
+            var obj = new noticeController();
+            ko.applyBindings(obj, document.getElementById("partial-render"));
+        });
+
+        function padLeft(value) {
+            return Riddha.util.padLeft(value, 5);
+        }
+    </script>
+}
+else
+{
+    @section scripts
+    {
+        
+        <script type="text/javascript">
+            Riddha.global.permission.action('2006').done(function (data) {
+                Riddha.global.permission.actions = data.Data;
+                ko.cleanNode(document.getElementById("partial-render"));
+                var obj = new noticeController();
+                ko.applyBindings(obj, document.getElementById("partial-render"));
+            });
+
+            function padLeft(value) {
+                return Riddha.util.padLeft(value, 5);
+            }
+        </script>
+    }
+}
+
+
+
+
+

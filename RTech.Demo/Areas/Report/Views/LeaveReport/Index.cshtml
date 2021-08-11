@@ -1,0 +1,279 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Layout_Adminlte.cshtml";
+}
+<section class="content-header">
+    <h1>
+        @T("Leave")
+        <sup class="text-green">@T("Report")</sup>
+
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> @T("Home")</a></li>
+        <li class="active">@T("Leave")@T("Report")</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <div class="modal" id="leaveReportModel" style="">
+        <div class="modal-dialog modal-lg ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-success" data-bind="text:$root.Report"></h4></header>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal" data-bind="">
+                        <div class="row">
+                            <div data-bind="visible:VisibleEndDate" class="col-lg-8">
+                                <div class="row">
+                                    <div class="form-group col-lg-6">
+                                        <label class="col-lg-4 control-label" for="OnDate">@T("Year")</label>
+                                        <div class="col-lg-5">
+                                            <input type="text" class="form-control" data-bind="value:Year,mask:'number'" maxlength="4">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <label class="col-lg-4 control-label">Month</label>
+                                        <div class="col-lg-8">
+                                            <select class="form-control" data-bind="options:Months,optionsText:'Name',optionsValue:'Id',value:MonthId"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-lg-6">
+                                        <label class="col-lg-4 control-label" for="OnDate">@T("OnDate")</label>
+                                        <div class="col-lg-8">
+                                            <input type="text" class="form-control" data-nepdate="#nepaliDate" data-bind="mask:'date',value:OnDate,visible:DateVisibility('en')">
+                                            <input class="form-control nepDate" data-format="yyyy/MM/dd" name="date" type="text" id="nepaliOnDate" data-bind="dateNp:{engDate:OnDate},visible:DateVisibility('ne')">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-lg-6" data-bind="visible:VisibleEndDate">
+                                        <label class="col-lg-4 control-label" for="EndDate">@T("EndDate")</label>
+                                        <div class="col-lg-8">
+                                            <input type="text" class="form-control" data-nepdate="#nepaliDate" data-bind="mask:'date',value:EndDate,visible:DateVisibility('en')">
+                                            <input class="form-control nepDate" data-format="yyyy/MM/dd" name="date" type="text" id="nepaliEndDate" data-bind="dateNp:{engDate:EndDate},visible:DateVisibility('ne')">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group col-lg-5">
+                                    <p><input type="radio" name="monthly-active-inactive" value="0" data-bind="checked:ActiveInactiveMode"> &nbsp; @T("Active")</p>
+                                </div>
+                                <div class="form-group col-lg-7">
+                                    <p><input type="radio" name="monthly-active-inactive" value="1" data-bind="checked:ActiveInactiveMode">&nbsp; @T("IncludeInactive")</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="panel panel-success">
+                                    <div class="box-header bg-green ">@T("Department") <input class="pull-right" type="checkbox" data-bind="checked:CheckAllDepartments" /></div>
+                                    <div class="panel-body" style="height:250px; overflow-y:auto">
+                                        <ul data-bind="foreach:Departments" class="list-group list list-group-unbordered">
+                                            <li class="list-group-item">
+                                                <span data-bind="text:Name"></span>   <a class="pull-right"><input type="checkbox" data-bind="checked:Checked,event:{change:$root.GetSections}" /></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="panel panel-success">
+                                    <div class="box-header bg-green ">@T("Section") <input class="pull-right" type="checkbox" data-bind="checked:CheckAllSections" /></div>
+                                    <div class="panel-body" style="height:250px; overflow-y:auto">
+                                        <ul data-bind="foreach:Sections" class="list-group list list-group-unbordered">
+                                            <li class="list-group-item">
+                                                <span data-bind="text:Name"></span>   <a class="pull-right"><input type="checkbox" data-bind="checked:Checked,event:{change:$root.GetEmployee}" /></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="panel panel-success">
+                                    <div class="box-header bg-green ">@T("Employee") @*<input class="pull-right" type="checkbox" data-bind="checked:CheckAllEmployees" />*@</div>
+                                    <div class="panel-body" data-bind="" style="height:250px; overflow-y:auto">
+                                        <ul data-bind="foreach:Employees" class="list-group list list-group-unbordered">
+                                            <li class="list-group-item">
+                                                <span data-bind="text:Name"></span>   <input class="pull-right" type="checkbox" data-bind="value:Id,checked:Checked" />
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            @*<div class="col-lg-3">
+                                    <div class="panel panel-success">
+                                        <div class="box-header bg-green ">@T("Fiscal Year")</div>
+                                        <div class="panel-body" data-bind="" style="height:250px; overflow-y:auto">
+                                            <ul data-bind="foreach:FiscalYears" class="list-group list list-group-unbordered">
+                                                <li class="list-group-item">
+                                                    <span data-bind="text:Name"></span>   <input class="pull-right" type="checkbox" data-bind="value:Id,checked:Checked" />
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>*@
+
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <div class="col-lg-7">
+                            <input type="button" data-bind="kendoWindowGrid:$root.KendoGridOptionsForLeaveSummary('@T("EmployeeWiseLeaveReportDesc")'),visible:$root.ReportId()==30" name="Save" class="btn btn-success" value=@T("Generate") />
+                            <input type="button" data-bind="kendoWindowGrid:$root.KendoGridOptionsForLeaveWiseSummary('@T("LeaveWiseLeaveReportDesc")'),visible:$root.ReportId()==31" name="Save" class="btn btn-success" value=@T("Generate") />
+                            <input type="button" data-bind="kendoPivotGridInDialog:$root.KendoGridOptionsForLeaveReport('@T("LeaveWiseTakenLeaveReportDesc")'),visible:$root.ReportId()==32" name="Save" class="btn btn-success" value=@T("Generate") />
+                            <input type="button" data-bind="click:$root.Reset" name="Reset" value=@T("Reset") class="btn btn-default" />
+                            <input type="button" id="close" data-bind="click:$root.CloseModal" value=@T("Back") class="btn btn-default" />
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="leaveMasterWiseReportModal" style="">
+        <div class="modal-dialog modal-md ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-success" data-bind="text:$root.Report"></h4></header>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal" data-bind="">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group col-lg-5">
+                                    <p><input type="radio" name="monthly-active-inactive" value="0" data-bind="checked:ActiveInactiveMode"> &nbsp; @T("Active")</p>
+                                </div>
+                                <div class="form-group col-lg-7">
+                                    <p><input type="radio" name="monthly-active-inactive" value="1" data-bind="checked:ActiveInactiveMode">&nbsp; @T("IncludeInactive")</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="panel panel-success">
+                                    <div class="box-header bg-green ">@T("Leave Master") @*<input class="pull-right" type="checkbox" data-bind="checked:CheckAllEmployees" />*@</div>
+                                    <div class="panel-body" data-bind="" style="height:250px; overflow-y:auto">
+                                        <ul data-bind="foreach:LeaveMasters" class="list-group list list-group-unbordered">
+                                            <li class="list-group-item">
+                                                <span data-bind="text:Name"></span>   <input class="pull-right" type="checkbox" data-bind="value:Id,checked:Checked" />
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="col-lg-7">
+                            <input type="button" data-bind="kendoWindowGrid:$root.KendoGridOptionsForLeaveWiseSummary('@T("Leave Master Wise Leave Report")')" name="Save" class="btn btn-success" value=@T("Generate") />
+                            <input type="button" id="close" data-bind="click:$root.LeaveMasterWiseCloseModal " value=@T("Back") class="btn btn-default" />
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Info boxes -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box box-success">
+                <div class="box-header with-border">
+                    &nbsp;
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-wrench"></i>
+                            </button>
+                            <ul class="dropdown-menu" role="menu"></ul>
+                        </div>
+                        <button type="button" class="btn btn-box-tool text-red" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div class="col-lg-6">
+                        <div class="box">
+                            <div class="box-header">
+                                <h3 class="box-title">@T("Leave") @T("Report")</h3>
+                            </div>
+                            <div class="box-body">
+                                <a data-toggle="tooltip" title='@T("LeaveMasterWiseLeaveReportDesc")' class="btn btn-app appbtn" data-bind="click:function(){leaveMasterWiseReportShowModal(31,'@T("LeaveMasterWiseLeaveReportDesc")')},actionVisibility:'7154'"><i class="fa fa-2x text-red fa-bed"></i>@T("Leave Master")</a>
+                                <a data-toggle="tooltip" title='@T("EmployeeWiseLeaveReportDesc")' class="btn btn-app appbtn" data-bind="click:function(){ShowModal(30,'@T("EmployeeWiseLeaveReportDesc")')},actionVisibility:'7153'"><i class="fa fa-2x text-info fa-bed"></i>@T("EmployeeWiseLeaveReport")</a>
+                                <a data-toggle="tooltip" title='@T("LeaveWiseLeaveReportDesc")' class="btn btn-app appbtn" data-bind="click:function(){ShowModal(31,'@T("LeaveWiseLeaveReportDesc")')},actionVisibility:'7154'"><i class="fa fa-2x text-red fa-bed"></i>@T("LeaveWiseLeaveReport")</a>
+                                <a data-toggle="tooltip" title='@T("LeaveWiseTakenLeaveReportDesc")' class="btn btn-app appbtn" data-bind="click:function(){ShowModal(32,'@T("LeaveWiseTakenLeaveReportDesc")')},actionVisibility:'7154'"><i class="fa fa-2x text-success fa-bed"></i>@T("Leave") @T("Report")</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="kendoLeaveSummaryReportWindow">
+        <div>
+
+        </div>
+    </div>
+    <div id="kendoLeaveWiseSummaryReportWindow">
+        <div>
+
+        </div>
+    </div>
+    <div class="hidden-on-narrow" id="pivotgrid"></div>
+    <!-- /.row -->
+    <!-- /.row -->
+    <!-- Main row -->
+    <!-- /.row -->
+</section>
+
+
+
+
+@if (Request.IsAjaxRequest())
+{
+    <script src="~/Scripts/App/Globals/Riddha.Globals.ko.js"></script>
+    <script src="~/Areas/Report/Scripts/Riddha.Script.LeaveReport.Model.js"></script>
+    <script src="~/Areas/Report/Scripts/Riddha.Script.LeaveReport.Controller.js"></script>
+    <script type="text/javascript">
+        ko.cleanNode(document.getElementById("partial-render"));
+        var config = new Riddha.config();
+        var companyName = config.CurrentLanguage == "ne" && '@RTech.Demo.Utilities.RiddhaSession.CurrentUser.Branch.NameNp' != null ? '@RTech.Demo.Utilities.RiddhaSession.CurrentUser.Branch.NameNp' : '@RTech.Demo.Utilities.RiddhaSession.CurrentUser.Branch.Name';
+        var obj = {};
+        Riddha.global.permission.action('8009').done(function (data) {
+            Riddha.global.permission.actions = data.Data;
+            ko.cleanNode(document.getElementById("partial-render"));
+            obj = new leaveReportController('@DateTime.Now.ToString("yyyy/MM/dd")', companyName);
+            ko.applyBindings(obj, document.getElementById("partial-render"));
+        });
+    </script>
+}
+else
+{
+    @section scripts
+    {
+        <script src="~/Scripts/App/Globals/Riddha.Globals.ko.js"></script>
+        <script src="~/Areas/Report/Scripts/Riddha.Script.LeaveReport.Model.js"></script>
+        <script src="~/Areas/Report/Scripts/Riddha.Script.LeaveReport.Controller.js"></script>
+        <script type="text/javascript">
+            var config = new Riddha.config();
+            var obj = {};
+            var companyName = config.CurrentLanguage == "ne" && '@RTech.Demo.Utilities.RiddhaSession.CurrentUser.Branch.NameNp' != null ? '@RTech.Demo.Utilities.RiddhaSession.CurrentUser.Branch.NameNp' : '@RTech.Demo.Utilities.RiddhaSession.CurrentUser.Branch.Name';
+            Riddha.global.permission.action('8009').done(function (data) {
+                Riddha.global.permission.actions = data.Data;
+                ko.cleanNode(document.getElementById("partial-render"));
+                obj = new leaveReportController('@DateTime.Now.ToString("yyyy/MM/dd")', companyName);
+                ko.applyBindings(obj, document.getElementById("partial-render"));
+            });
+        </script>
+    }
+}
+
+
+
+

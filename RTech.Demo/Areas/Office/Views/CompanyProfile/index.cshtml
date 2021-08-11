@@ -1,0 +1,216 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Layout_Adminlte.cshtml";
+}
+<style>
+    input[type="checkbox"] {
+        margin: 6px;
+        padding: 0;
+    }
+</style>
+<section class="content-header">
+    <h1>
+        @T("Company")
+        <sup class="text-green">@T("Profile")</sup>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> @T("Home")</a></li>
+        <li class="active">@T("Company")</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <!-- Company Modal -->
+    <!-- Info boxes -->
+    <div class="row">
+        <div class="col-md-12">
+            <!-- Custom Tabs -->
+            <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#tab_1" data-toggle="tab">Information</a></li>
+                    <li><a href="#tab_2" data-toggle="tab">Configuration</a></li>
+                </ul>
+                <div class="tab-content" data-bind="with:Company">
+                    <div class="tab-pane active" id="tab_1">
+                        <div class="box-body table-responsive ">
+                            <div class="body">
+                                <div class="form">
+                                    <div class="form-group col-lg-6">
+                                        <label class="col-lg-4 control-label" for="Number">@T("Code")</label>
+                                        <div class="col-lg-4">
+                                            <input type="text" class="form-control" required data-bind="value:Code,event:{change:$root.CheckDuplicateSNo},enable:false" id="form-group-input " placeholder=@T("Code")>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <label class="col-lg-5 control-label" for="Number">@T("CompanyName")</label>
+                                        <div class="col-lg-6">
+                                            <input type="text" class="form-control" required data-bind="value:Name" id="form-group-input " placeholder=@T("Name")>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <label class="col-lg-4 control-label" for="Number">@T("CompanyNameNp")</label>
+                                        <div class="col-lg-6">
+                                            <input type="text" class="form-control" required data-bind="PreetiToUnicode:NameNp" id="form-group-input " placeholder=@T("NameNp")>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <label class="col-lg-5 control-label" for="Number">@T("Address")</label>
+                                        <div class="col-lg-6">
+                                            <input type="text" class="form-control" required data-bind="value:Address" id="form-group-input " placeholder=@T("Address")>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <label class="col-lg-4 control-label" for="Number">@T("AddressNp")</label>
+                                        <div class="col-lg-6">
+                                            <input type="text" class="form-control" required data-bind="PreetiToUnicode:AddressNp" id="form-group-input " placeholder=@T("AddressNp")>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <label class="col-lg-5 control-label" for="Number">@T("ContactNo")</label>
+                                        <div class="col-lg-6">
+                                            <input type="text" class="form-control" required data-bind="value:ContactNo" id="form-group-input " placeholder=@T("ContactNo")>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <label class="col-lg-4 control-label" for="Number">@T("ContactPerson")</label>
+                                        <div class="col-lg-6">
+                                            <input type="text" class="form-control" required data-bind="value:ContactPerson" id="form-group-input " placeholder=@T("ContactPerson")>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <label class="col-lg-5 control-label" for="Number">@T("ContactPersonNp")</label>
+                                        <div class="col-lg-6">
+                                            <input type="text" class="form-control" required data-bind="PreetiToUnicode:ContactPersonNp" id="form-group-input " placeholder=@T("ContactPersonNp")>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <label class="col-lg-4 control-label" for="Number">@T("Email")</label>
+                                        <div class="col-lg-6">
+                                            <input type="text" class="form-control" required data-bind="value:Email" id="form-group-input " placeholder=@T("Email")>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <label class="col-lg-5 control-label" for="Number">@T("Web")</label>
+                                        <div class="col-lg-6">
+                                            <input type="text" class="form-control" required data-bind="value:WebUrl" id="form-group-input " placeholder=@T("Web")>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <label class="col-lg-4 control-label" for="Number">@T("PAN")</label>
+                                        <div class="col-lg-6">
+                                            <input type="text" class="form-control" required data-bind="value:PAN" id="form-group-input " placeholder=@T("PAN")>
+                                        </div>
+                                    </div>
+                                    @*<div class="form-group col-lg-6">
+                                            <label class="col-lg-6 control-label" for="Number">@T("Allow Departmentwise Attendance")</label>
+                                            <div class="col-lg-4">
+                                                <input type="checkbox" data-bind="checked:AllowDepartmentwiseAttendance">
+                                            </div>
+                                        </div>*@
+                                    <div class="form-group col-lg-6">
+                                        <div class="col-lg-3"></div>
+                                        <div class="col-lg-8 text-center">
+                                            <img class="img-rounded " style="cursor:pointer" width="120" height="120" data-bind="attr: {src: LogoUrl() || '/Images/logo-default.png'}" />
+                                            <label class="btn btn-success btn-file col-lg-12">
+                                                @T("Browse") <input data-bind="fileUpload: {value:LogoUrl,type:'image'}" type="file" value=" " class="btn btn-flat btn-file btn-success" hidden />
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-lg-12">
+                                        <div class="col-lg-5"></div>
+                                        <div class="col-lg-7">
+                                            <input type="submit" data-bind="click:$root.UpdateCompanyProfile,actionVisibility:'1015'" name="Save" class="btn btn-success action" value=@T("Update") />
+                                            <input type="button" data-bind="click:$root.Reset" name=@T("Reset") value=@T("Reset") class="btn btn-default" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tab_2">
+                        <div class="modal-body">
+                            <div class="form-horizontal">
+                                <div class="form-group col-lg-12">
+                                    <label class="col-lg-3 control-label" for="Number">@T("Allow Departmentwise Attendance")</label>
+                                    <div class="col-lg-6">
+                                        <input type="checkbox" data-bind="checked:AllowDepartmentwiseAttendance">
+                                    </div>
+                                </div>
+                                <div class="form-group col-lg-12" data-bind="visible:$root.SoftwarePackage()=='3'">
+                                    <label class="col-lg-3 control-label" for="Number">@T("Employment Wise Leave Balance")</label>
+                                    <div class="col-lg-6">
+                                        <input type="checkbox" data-bind="checked:EmploymentStatusWiseLeave">
+                                    </div>
+                                </div>
+                                <div class="form-group col-lg-12" data-bind="visible:$root.SoftwarePackage()=='3'">
+                                    <label class="col-lg-3 control-label" for="Number">@T("Auto Leave Approved")</label>
+                                    <div class="col-lg-6">
+                                        <input type="checkbox" data-bind="checked:AutoLeaveApproved">
+                                    </div>
+                                </div>
+                                <div class="form-group col-lg-12">
+                                    <label class="col-lg-3 control-label" for="Number">@T("Minimum OT Hour")</label>
+                                    <div class="col-lg-1">
+                                        <input type="text" class="form-control" data-bind="value:MinimumOTHour, mask:'time'" />
+                                    </div>
+                                </div>
+                                <div class="form-group col-lg-12" data-bind="visible:$root.SoftwarePackage()=='3'">
+                                    <label class="col-lg-3 control-label" for="Number">@T("Organization Types")</label>
+                                    <div class="col-lg-2">
+                                        <select class="form-control" required data-bind="options:$root.OrganizationTypes,
+                                                                                                optionsText:'Name',optionsValue:'Id',value:OrganizationType"></select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-lg-12 text-center">
+                                    <input type="submit" data-bind="click:$root.UpdateCompanyProfile,actionVisibility:'1015'" name="Save" class="btn btn-success action" value=@T("Update") />
+                                    <input type="button" data-bind="click:$root.Reset" name=@T("Reset") value=@T("Reset") class="btn btn-default" />
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <!-- /.row -->
+</section>
+
+@if (Request.IsAjaxRequest())
+{
+    @*<script src="~/Areas/Scripts/Riddha.Script.Company.Model.js"></script>
+        <script src="~/Areas/Scripts/Riddha.Script.Company.Controller.js"></script>*@
+    <script type="text/javascript">
+        var obj = {};
+        Riddha.global.permission.action('1003').done(function (data) {
+            Riddha.global.permission.actions = data.Data;
+            ko.cleanNode(document.getElementById("partial-render"));
+            obj = new companyProfileController();
+
+            ko.applyBindings(obj, document.getElementById("partial-render"));
+        });
+    </script>
+}
+else
+{
+    @section scripts
+    {
+        @*<script src="~/Areas/Scripts/Riddha.Script.Company.Model.js"></script>
+            <script src="~/Areas/Scripts/Riddha.Script.Company.Controller.js"></script>*@
+        <script type="text/javascript">
+            var obj = {};
+            Riddha.global.permission.action('1003').done(function (data) {
+                Riddha.global.permission.actions = data.Data;
+                ko.cleanNode(document.getElementById("partial-render"));
+                obj = new companyProfileController();
+                ko.applyBindings(obj, document.getElementById("partial-render"));
+            });
+        </script>
+    }
+}
+
+

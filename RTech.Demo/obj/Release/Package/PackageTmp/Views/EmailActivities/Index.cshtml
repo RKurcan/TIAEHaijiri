@@ -1,0 +1,92 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+<link href="~/plugins/datepicker/datepicker3.css" rel="stylesheet" />
+<link href="~/Content/nepali.datepicker.v2.2.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+<link rel="stylesheet" href="/plugins/jvectormap/jquery-jvectormap-1.2.2.css">
+<link rel="stylesheet" href="/dist/css/AdminLTE.min.css">
+<link rel="stylesheet" href="/dist/css/skins/_all-skins.min.css">
+<link href="~/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" />
+<link href="~/plugins/pace/pace.css" rel="stylesheet" />
+<link href="~/Content/KoGrid.css" rel="stylesheet" />
+<link href="~/Content/page.css" rel="stylesheet" />
+<link href="~/Content/Site.css" rel="stylesheet" />
+<section class="content">
+
+    <div class="error-page">
+        <h2 class="headline text-red">  </h2>
+
+        <div class="error-content">
+            @if (TempData["Title"] != null)
+            {
+                <h3> <b> <i class="fa fa-info-circle text-green"></i>&nbsp;&nbsp; @TempData["Title"] </b></h3>
+              
+            }
+            <p>
+                @TempData["Message"]
+            </p>
+            <p>
+                Go to <a href="http://www.ehajiri.com.np/">ehajiri.com.np</a>
+            </p>
+
+            @*<form class="search-form">
+                    <div class="input-group">
+                        <input type="text" name="search" class="form-control" placeholder="Search">
+
+                        <div class="input-group-btn">
+                            <button type="submit" name="submit" class="btn btn-danger btn-flat">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>*@
+        </div>
+    </div>
+    <!-- /.error-page -->
+
+</section>
+
+<!-- Bootstrap 3.3.6 -->
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+<script src="/Scripts/bootstrap-dialog.js"></script>
+<script src="/plugins/datepicker/bootstrap-datepicker.js"></script>
+<script src="/plugins/input-mask/jquery.inputmask.js"></script>
+<script src="/plugins/input-mask/jquery.inputmask.extensions.js"></script>
+<script src="/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+<!-- FastClick -->
+<script src="/plugins/fastclick/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="/dist/js/app.min.js"></script>
+<!-- Sparkline -->
+<script src="/plugins/sparkline/jquery.sparkline.min.js"></script>
+<!-- jvectormap -->
+<script src="/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+<script src="/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+<!-- SlimScroll 1.3.0 -->
+<script src="/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<script src="/plugins/iCheck/icheck.js"></script>
+<script src="~/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.js"></script>
+<script src="~/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+<!--MomentJS-->
+<script src="/plugins/chartjs/moment.min.js"></script>
+<!-- ChartJS 1.0.1 -->
+<script src="/plugins/chartjs/Chart-2.0.4.min.js"></script>
+
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="/plugins/pace/pace.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="/dist/js/demo.js"></script>
+<script src="/Scripts/knockout-3.4.2.js"></script>
+<script src="/Scripts/toastr.js"></script>
+<script src="/Scripts/koGrid-2.1.1.js"></script>
+<script src="/Scripts/knockout.validation.js"></script>
+
+<script src="~/Scripts/kendo.all.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jszip/2.4.0/jszip.js"></script>
+<script src="~/Scripts/App/Preeti.js"></script>
+<script src="~/Controllers/Scripts/Riddhasoft.Home.Model.js"></script>
+<script src="~/Controllers/Scripts/Riddhasoft.Home.Controller.js"></script>

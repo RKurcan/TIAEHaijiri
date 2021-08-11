@@ -1,0 +1,109 @@
+﻿@model RTech.Demo.Areas.User.Controllers.LockScreenViewModel
+@{
+    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Layout_Adminlte.cshtml";
+}
+<style>
+    div.lockscreen-name {
+        text-align: center;
+        font-weight: 800;
+    }
+</style>
+
+<!-- Automatic element centering -->
+<div class="lockscreen-wrapper">
+    <div class="lockscreen-logo">
+        <a href="../../index2.html"><b>Hamro</b>hajiri</a>
+    </div>
+    <!-- User name -->
+    <div class="lockscreen-name">
+        <span>@Model.FullName </span>
+    </div>
+    <div class="lockscreen-name">
+        <span>@Model.UserName </span>
+    </div>
+    <!-- START LOCK SCREEN ITEM -->
+    <div class="lockscreen-item">
+        <!-- lockscreen image -->
+        <div class="lockscreen-image">
+            @{
+                var imgUrl = string.IsNullOrEmpty(Model.img) ? "/Images/men3.png" : Model.img;
+            }
+            <img src="@imgUrl" alt="User Image">
+        </div>
+        <!-- /.lockscreen-image -->
+        <!-- lockscreen credentials (contains the form) -->
+@if (Request.IsAjaxRequest())
+{
+        using (Ajax.BeginForm("lockscreen", "user", new { area = "user" }, new AjaxOptions { HttpMethod = "POST", OnSuccess = "lockScreenSuccess(data)" }, new { @class = "lockscreen-credentials" }))
+            {
+                <div class="input-group">
+                    <input type="hidden" name="UserId" value="@Model.UserId">
+                    <input type="password" class="form-control" placeholder="password" name="Password" autofocus id="box">
+                    <div class="input-group-btn">
+                        <button type="submit" class="btn"><i class="fa fa-arrow-right text-muted"></i></button>
+                    </div>
+                </div>
+            }
+}
+else
+{
+    
+
+        <form class="lockscreen-credentials" action="/User/User/LockScreen" method="post">
+            <div class="input-group">
+                <input type="hidden" name="UserId" value="@Model.UserId">
+                <input type="password" class="form-control" placeholder="password" name="Password" autofocus id="box">
+                <div class="input-group-btn">
+                    <button type="submit" class="btn"><i class="fa fa-arrow-right text-muted"></i></button>
+                </div>
+            </div>
+        </form>
+}
+        <!-- /.lockscreen credentials -->
+    </div>
+    <!-- /.lockscreen-item -->
+    <div class="help-block text-center">
+        Enter your password to retrieve your session
+    </div>
+    <div class="text-center">
+        <a href="/user/user/logout">Or sign in as a different user</a>
+    </div>
+</div>
+@if (Request.IsAjaxRequest())
+{
+    <script type="text/javascript">
+        function lockScreenSuccess(data) {
+            $("#partial-render").html(data);
+        }
+
+
+        $(document).ready(function () {
+            var input = $("#box");
+            var len = input.val().length;
+            input[0].focus();
+            input[0].setSelectionRange(len, len);
+
+        });
+    </script>
+}
+else
+{
+    @section scripts
+    {
+        <script type="text/javascript">
+            function lockScreenSuccess(data) {
+                $("#partial-render").html(data);
+            }
+
+
+            $(document).ready(function () {
+                var input = $("#box");
+                var len = input.val().length;
+                input[0].focus();
+                input[0].setSelectionRange(len, len);
+
+            });
+        </script>
+
+    }
+}

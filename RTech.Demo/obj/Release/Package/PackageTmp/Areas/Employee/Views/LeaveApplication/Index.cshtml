@@ -1,0 +1,275 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Layout_Adminlte.cshtml";
+}
+
+<style>
+    #custom {
+        padding: 3px 13px;
+    }
+
+    .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+        background-color: #fff;
+        opacity: 1;
+    }
+</style>
+
+<section class="content-header">
+    <h1>
+        @T("Leave")
+        <sup class="text-green">@T("Application")</sup>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> @T("Employee")</a></li>
+        <li class="active">@T("LeaveApplication")</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <!-- LeaveApplication Modal -->
+    <div class="modal" id="leaveApplicationCreationModel">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" data-bind="click:CloseModal" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-success">@T("LeaveApplication")</h4></header>
+                </div>
+                <div class="modal-body">
+                    <fieldset data-bind="enable:LeaveApplication().LeaveStatus()==0 || Riddha.config().RoleId==0">
+                        <div class="row">
+                            <div class="col-lg-7" data-bind="with:Employee">
+                                <div class="col-lg-12 form-group">
+                                    <label class="col-lg-4 control-label" for="Number">@T("EmployeeName") </label>
+                                    <div class="col-lg-8">
+                                        <div class="demo-section k-content">
+                                            <input type="text" data-bind="kendoAutocomplete:$root.EmpAutoCompleteOptions,value:Name" style="width: 100%;" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 form-group">
+                                    <label class="col-lg-4 control-label" for="Number">@T("EmployeeCode") </label>
+                                    <div class="col-lg-8">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" data-bind="value:Code,event:{'change':$root.GetEmployee}" />
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-default bg-green fa fa-search " id="custom" type="button" data-bind="kendoWindowGrid:$root.KendoAutoCompleteOptions"></button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12 form-group">
+                                    <label class="col-lg-4 control-label" for="Number">@T("Designation") </label>
+                                    <div class="col-lg-8">
+                                        <span class="form-control" data-bind="text:Designation"></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 form-group">
+                                    <label class="col-lg-4 control-label" for="Number">@T("Department") </label>
+                                    <div class="col-lg-8">
+                                        <span class="form-control" data-bind="text:Department"></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 form-group">
+                                    <label class="col-lg-4 control-label" for="Number">@T("Section") </label>
+                                    <div class="col-lg-8">
+                                        <span class="form-control" data-bind="text:Section"></span>
+                                    </div>
+
+                                </div>
+                                <div class="col-lg-12 form-group">
+                                    <div class="required">
+                                        <label class="col-lg-4 control-label" for="Number">@T("LeaveType") </label>
+                                        <div class="col-lg-7">
+                                            <select class="form-control" data-bind="options:$root.LeaveMasters,optionsText:'Name',optionsValue:'Id',
+                                                                            optionsCaption:Riddha.UI.getOptionCaption(),
+                                                                            value:$root.LeaveApplication().LeaveMasterId,event:{change:$root.GetRemLeave}"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 form-group">
+                                    <label class="col-lg-4 control-label" for="Number">@T("LeaveRemaining") </label>
+                                    <div class="col-lg-3">
+                                        <input type="text" disabled class="form-control" data-bind="value:$root.LeaveApplication().LeaveCount" />
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 form-group">
+                                    <div class="required">
+                                        <label class="col-lg-4 control-label" for="Number">@T("Description") </label>
+                                        <div class="col-lg-7">
+                                            <textarea class="form-control" maxlength="200" data-bind="value:$root.LeaveApplication().Description"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-5" data-bind="with:LeaveApplication">
+                                <div class="col-lg-12 form-group">
+                                    <img class="img-rounded " style="cursor:pointer" width="110" height="110" data-bind="attr: {src: $root.Employee().Photo() || '/Images/men3.png'}" />
+                                </div>
+                                
+                                <div class="col-lg-12 form-group">
+                                    <label class="col-lg-5 control-label" for="Number">@T("LeaveDay") </label>
+                                    <div class="col-lg-6">
+                                        <select class="form-control" required data-bind="options:$root.LeaveDay,optionsText:'Name',optionsValue:'Id',value:LeaveDay"></select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 form-group">
+                                    <label class="col-lg-5 control-label" for="Number">@T("From") </label>
+                                    <div class="col-lg-6">
+                                        <input type="text" class="form-control" data-nepdate="#nepaliDate" data-bind="mask:'date',value:$root.LeaveApplication().From,visible:DateVisibility('en')">
+                                        <input class="form-control nepDate" data-format="yyyy/MM/dd" name="date" type="text" id="nepaliFromDate" data-bind="dateNp:{engDate:$root.LeaveApplication().From},visible:DateVisibility('ne')">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 form-group">
+                                    <div class="required" data-bind="attr:{'class':LeaveDay() == 0?'required':''}">
+                                        <label class="col-lg-5 control-label" for="Number">@T("To") </label>
+                                        <div class="col-lg-6">
+                                            <input type="text" class="form-control" data-nepdate="#nepaliDate" data-bind="mask:'date',value:$root.LeaveApplication().To,visible:DateVisibility('en'),enable:LeaveDay()==0">
+                                            <input class="form-control nepDate" data-format="yyyy/MM/dd" name="date" type="text" id="nepaliToDate" data-bind="dateNp:{engDate:$root.LeaveApplication().To},visible:DateVisibility('ne'),enable:LeaveDay()==0">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 form-group">
+                                    <div class="required">
+                                        <label class="col-lg-5 control-label" for="Number">@T("ApprovedBy") </label>
+                                        <div class="col-lg-6">
+                                            <select class="form-control" data-bind="options:$root.ApproveBy,optionsText:'Name',optionsValue:'Id',
+                                                                            optionsCaption:Riddha.UI.getOptionCaption(),
+                                                                            value:ApprovedById"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="modal-footer">
+                        <div class="form-group col-lg-7" data-bind="visible:LeaveApplication().LeaveStatus()==0 || Riddha.config().RoleId==0">
+                            <input type="button" data-bind="click:$root.CreateUpdate,createUpdateText:$root.ModeOfButton" name="Save" class="btn btn-success" value=@T("Save") />
+                            <input type="button" name="Reset" value=@T("Reset") class="btn btn-default" data-bind="click:Reset" />
+                            <input type="button" value=@T("Back") class="btn btn-default" data-bind="click:CloseModal" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box box-success">
+                <div class="box-header with-border">
+                    &nbsp;
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <div class="btn-group">
+
+                            <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-wrench"></i>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#" data-bind="click:ShowModal">Add New Application</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                            </ul>
+                        </div>
+                        <button type="button" class="btn btn-box-tool text-red" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default action" data-bind="click:ShowModal,actionVisibility:'3010'" style="display: inline-block;"><i class="fa fa-plus-square text-green">&nbsp;@T("Create")</i></button>
+                        <button type="button" class="btn btn-default action" data-bind="click:Select,actionVisibility:'3011'" style="display: inline-block;"><i class="fa fa-pencil text-blue">&nbsp;@T("Edit")</i></button>
+                        <button type="button" class="btn btn-default action" data-bind="click:Delete,actionVisibility:'3012'" style="display: inline-block;"><i class="fa fa-trash text-red">&nbsp;@T("Delete")</i></button>
+                    </div>
+                </div>
+                @*<div class="box-body table-responsive no-padding">
+                        <table class="table table-condensed table-bordered table-striped no-padding table-hover">
+                            <thead class="success bg-green">
+                                <tr>
+                                    <th> @T("SerialNo")</th>
+                                    <th>@T("Employee") </th>
+                                    <th> @T("LeaveType")</th>
+                                    <th> @T("From")</th>
+                                    <th> @T("To")</th>
+                                    <th>@T("Days")</th>
+                                    <th>@T("LeaveDay")</th>
+                                    <th>@T("ApprovedBy")</th>
+                                    <th>@T("Status")</th>
+                                    <th>@T("Action")</th>
+                                </tr>
+                            </thead>
+                            <tbody data-bind="foreach:LeaveApplications">
+                                <tr>
+                                    <td data-bind="serialNo:$index()+1"></td>
+                                    <td data-bind="text:EmployeeName"></td>
+                                    <td data-bind="text:LeaveMaster"></td>
+                                    <td data-bind="text:SuitableDate(From())"></td>
+                                    <td data-bind="text:SuitableDate(To())"></td>
+                                    <td data-bind="text:Days"></td>
+                                    <td data-bind="text:LeaveDay"></td>
+                                    <td data-bind="text:$root.GetApproveUserName(ApprovedById)"></td>
+                                    <td><span data-bind="text:LeaveStatus,attr:{'class':LeaveStatus()=='Reject'?'label label-warning':LeaveStatus()=='Approve'?'label label-success':'label label-info'}" class="label label-info"></span></td>
+                                    <td>
+                                        <button type="button" data-bind="click:$root.Select,actionVisibility:'3011'" class="btn btn-xs btn-default action" title=@T("Edit")><span class="glyphicon glyphicon-pencil  text-success"></span> </button>
+                                        <button type="button" data-bind="click:$root.Delete,actionVisibility:'3012'" class="btn btn-xs btn-default action" title=@T("Remove")><span class="glyphicon glyphicon-trash  text-danger"></span></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                            </tfoot>
+                        </table>
+                    </div>*@
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-lg-12" data-bind="kendoGrid:KendoGridOptions">
+                            <div id="leaveApplicationKendoGrid">
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="empSearch">
+        <div>
+
+        </div>
+    </div>
+    <script type="text/html" id="mode-button-template">
+        <span class="glyphicon glyphicon-plus" data-bind="text:$root.ModeOfButton"></span>
+    </script>
+</section>
+@if (Request.IsAjaxRequest())
+{
+    <script type="text/javascript">
+        var obj = {};
+        Riddha.global.permission.action('3002').done(function (data) {
+            Riddha.global.permission.actions = data.Data;
+            ko.cleanNode(document.getElementById("partial-render"));
+            obj = new leaveApplicationController();
+
+            ko.applyBindings(obj, document.getElementById("partial-render"));
+        });
+    </script>
+}
+else
+{
+    @section scripts
+    {
+        <script type="text/javascript">
+            var obj = {};
+            Riddha.global.permission.action('3002').done(function (data) {
+                Riddha.global.permission.actions = data.Data;
+                ko.cleanNode(document.getElementById("partial-render"));
+                obj = new leaveApplicationController();
+
+                ko.applyBindings(obj, document.getElementById("partial-render"));
+            });
+        </script>
+    }
+}
+
+

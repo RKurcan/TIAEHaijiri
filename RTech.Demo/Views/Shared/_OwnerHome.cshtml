@@ -1,0 +1,132 @@
+﻿<div>
+    <style>
+        #Calander {
+            height: 340px;
+        }
+    </style>
+    <section class="content-header">
+        <h1>
+            @T("Dashboard")
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> @T("Home")</a></li>
+            <li class="active">@T("Dashboard")</li>
+        </ol>
+    </section>
+    <section class="content">
+        <div class="box box-default">
+            <div class="box-header with-border">
+                <h3 class="box-title">
+                    Stock Info
+                </h3>
+            </div>
+            <div class="box-body">
+                <div class="row" data-bind="with:DeviceInfo">
+                    @*<div class="col-lg-6">
+                            <canvas id="ownerChart" width="200" height="200"></canvas>
+                        </div>*@
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="info-box">
+                            <span class="info-box-icon bg-aqua"><i class="fa fa-home"></i></span>
+                            <div class="info-box-content">
+                                <span class="info-box-text">Stocks</span>
+                                <span class="info-box-number" data-bind="text:NewDeviceCount"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="info-box">
+                            <span class="info-box-icon bg-green"><i class="fa fa-server"></i></span>
+                            <div class="info-box-content">
+                                <span class="info-box-text">Partners</span>
+                                <span class="info-box-number" data-bind="text:ResellerDeviceCount"></span>
+                                <a class="text-blue" href="#" data-bind="kendoWindowGrid:$root.KendoGridOptionsPatners('@T("Partners")','#resellerWindow')">More info</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix visible-sm-block"></div>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="info-box">
+                            <span class="info-box-icon bg-yellow"><i class="fa fa-user"></i></span>
+                            <div class="info-box-content">
+                                <span class="info-box-text">Customer</span>
+                                <span class="info-box-number" data-bind="text:CustomerDeviceCount"></span>
+                                <a class="text-blue" href="#" data-bind="kendoWindowGrid:$root.KendoGridOptionsCustomer('@T("Customer")','#customerWindow')">More info</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="info-box">
+                            <span class="info-box-icon bg-red"><i class="fa fa-warning"></i></span>
+                            <div class="info-box-content">
+                                <span class="info-box-text">Damaged</span>
+                                <span class="info-box-number" data-bind="text:DamageDeviceCount"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">Partners</h3>
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                        <i class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>
+            </div>
+            <div class="box-body">
+                <div class="table-responsive">
+                    <table class="table no-margin">
+                        <thead>
+                            <tr>
+                                <th class="text-center">S.NO</th>
+                                <th class="text-center">Partners</th>
+                                <th class="text-center">Address</th>
+                                <th class="text-center">Stock</th>
+                                <th class="text-center">Customer</th>
+                                <th class="text-center">Damage/Return</th>
+                            </tr>
+                        </thead>
+                        <tbody data-bind="foreach:ResellerLst">
+                            <tr>
+                                <td class="text-center"  data-bind="text:$index()+1"></td>
+                                <td class="text-center" data-bind="text:Name"></td>
+                                <td class="text-center" data-bind="text:Address"></td>
+                                <td class="text-center" data-bind="text:ResellerStockDevice"></td>
+                                <td class="text-center" data-bind="text:ReselletCustomerDevice"></td>
+                                <td class="text-center" data-bind="text:ResellerDamageDevice"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id="resellerWindow">
+            <div>
+
+            </div>
+        </div>
+        <div id="customerWindow">
+            <div>
+
+            </div>
+        </div>
+
+    </section>
+</div>
+@section scripts{
+    <script src="~/Controllers/Scripts/Riddhasoft.Home.Model.js"></script>
+    <script src="~/Controllers/Scripts/Riddhasoft.Home.Controller.js"></script>
+    <script type="text/javascript">
+        ko.cleanNode(document.getElementById("partial-render"));
+        var ownerObj = new ownerHomeController();
+        ko.applyBindings(ownerObj, document.getElementById("partial-render"));
+    </script>
+}
+
+
+
+

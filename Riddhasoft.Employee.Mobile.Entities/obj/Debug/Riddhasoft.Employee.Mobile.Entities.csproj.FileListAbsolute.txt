@@ -1,0 +1,29 @@
+D:\project\EHajiri_2017.07.30\trunk\Riddhasoft.Employee.Mobile.Entities\bin\Debug\Riddhasoft.Employee.Mobile.Entities.dll
+D:\project\EHajiri_2017.07.30\trunk\Riddhasoft.Employee.Mobile.Entities\bin\Debug\Riddhasoft.Employee.Mobile.Entities.pdb
+D:\project\EHajiri_2017.07.30\trunk\Riddhasoft.Employee.Mobile.Entities\obj\Debug\Riddhasoft.Employee.Mobile.Entities.csprojResolveAssemblyReference.cache
+D:\project\EHajiri_2017.07.30\trunk\Riddhasoft.Employee.Mobile.Entities\obj\Debug\Riddhasoft.Employee.Mobile.Entities.dll
+D:\project\EHajiri_2017.07.30\trunk\Riddhasoft.Employee.Mobile.Entities\obj\Debug\Riddhasoft.Employee.Mobile.Entities.pdb
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.Employee.Mobile.Entities\bin\Debug\Riddhasoft.Employee.Mobile.Entities.dll
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.Employee.Mobile.Entities\bin\Debug\Riddhasoft.Employee.Mobile.Entities.pdb
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.Employee.Mobile.Entities\obj\Debug\Riddhasoft.Employee.Mobile.Entities.csprojAssemblyReference.cache
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.Employee.Mobile.Entities\obj\Debug\Riddhasoft.Employee.Mobile.Entities.csproj.CoreCompileInputs.cache
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.Employee.Mobile.Entities\obj\Debug\Riddhasoft.Employee.Mobile.Entities.dll
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.Employee.Mobile.Entities\obj\Debug\Riddhasoft.Employee.Mobile.Entities.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.Employee.Mobile.Entities\bin\Debug\Riddhasoft.Employee.Mobile.Entities.dll
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.Employee.Mobile.Entities\bin\Debug\Riddhasoft.Employee.Mobile.Entities.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.Employee.Mobile.Entities\obj\Debug\Riddhasoft.Employee.Mobile.Entities.csprojAssemblyReference.cache
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.Employee.Mobile.Entities\obj\Debug\Riddhasoft.Employee.Mobile.Entities.csproj.CoreCompileInputs.cache
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.Employee.Mobile.Entities\obj\Debug\Riddhasoft.Employee.Mobile.Entities.dll
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.Employee.Mobile.Entities\obj\Debug\Riddhasoft.Employee.Mobile.Entities.pdb
+D:\Projects\HamroHajiri\trunk\Riddhasoft.Employee.Mobile.Entities\bin\Debug\Riddhasoft.Employee.Mobile.Entities.dll
+D:\Projects\HamroHajiri\trunk\Riddhasoft.Employee.Mobile.Entities\bin\Debug\Riddhasoft.Employee.Mobile.Entities.pdb
+D:\Projects\HamroHajiri\trunk\Riddhasoft.Employee.Mobile.Entities\obj\Debug\Riddhasoft.Employee.Mobile.Entities.csprojAssemblyReference.cache
+D:\Projects\HamroHajiri\trunk\Riddhasoft.Employee.Mobile.Entities\obj\Debug\Riddhasoft.Employee.Mobile.Entities.csproj.CoreCompileInputs.cache
+D:\Projects\HamroHajiri\trunk\Riddhasoft.Employee.Mobile.Entities\obj\Debug\Riddhasoft.Employee.Mobile.Entities.dll
+D:\Projects\HamroHajiri\trunk\Riddhasoft.Employee.Mobile.Entities\obj\Debug\Riddhasoft.Employee.Mobile.Entities.pdb
+F:\Projects\HamroHajiri\trunk\Riddhasoft.Employee.Mobile.Entities\bin\Debug\Riddhasoft.Employee.Mobile.Entities.dll
+F:\Projects\HamroHajiri\trunk\Riddhasoft.Employee.Mobile.Entities\bin\Debug\Riddhasoft.Employee.Mobile.Entities.pdb
+F:\Projects\HamroHajiri\trunk\Riddhasoft.Employee.Mobile.Entities\obj\Debug\Riddhasoft.Employee.Mobile.Entities.csprojAssemblyReference.cache
+F:\Projects\HamroHajiri\trunk\Riddhasoft.Employee.Mobile.Entities\obj\Debug\Riddhasoft.Employee.Mobile.Entities.csproj.CoreCompileInputs.cache
+F:\Projects\HamroHajiri\trunk\Riddhasoft.Employee.Mobile.Entities\obj\Debug\Riddhasoft.Employee.Mobile.Entities.dll
+F:\Projects\HamroHajiri\trunk\Riddhasoft.Employee.Mobile.Entities\obj\Debug\Riddhasoft.Employee.Mobile.Entities.pdb

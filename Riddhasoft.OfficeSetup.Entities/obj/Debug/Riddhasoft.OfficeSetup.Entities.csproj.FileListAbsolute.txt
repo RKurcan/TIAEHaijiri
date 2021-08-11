@@ -1,0 +1,58 @@
+D:\project\EHajiri_2017.07.30\trunk\Riddhasoft.OfficeSetup.Entities\bin\Debug\Riddhasoft.OfficeSetup.Entities.dll.config
+D:\project\EHajiri_2017.07.30\trunk\Riddhasoft.OfficeSetup.Entities\bin\Debug\Riddhasoft.OfficeSetup.Entities.dll
+D:\project\EHajiri_2017.07.30\trunk\Riddhasoft.OfficeSetup.Entities\bin\Debug\Riddhasoft.OfficeSetup.Entities.pdb
+D:\project\EHajiri_2017.07.30\trunk\Riddhasoft.OfficeSetup.Entities\bin\Debug\EntityFramework.dll
+D:\project\EHajiri_2017.07.30\trunk\Riddhasoft.OfficeSetup.Entities\bin\Debug\EntityFramework.SqlServer.dll
+D:\project\EHajiri_2017.07.30\trunk\Riddhasoft.OfficeSetup.Entities\bin\Debug\EntityFramework.xml
+D:\project\EHajiri_2017.07.30\trunk\Riddhasoft.OfficeSetup.Entities\bin\Debug\EntityFramework.SqlServer.xml
+D:\project\EHajiri_2017.07.30\trunk\Riddhasoft.OfficeSetup.Entities\obj\Debug\Riddhasoft.OfficeSetup.Entities.csprojResolveAssemblyReference.cache
+D:\project\EHajiri_2017.07.30\trunk\Riddhasoft.OfficeSetup.Entities\obj\Debug\Riddhasoft.OfficeSetup.Entities.dll
+D:\project\EHajiri_2017.07.30\trunk\Riddhasoft.OfficeSetup.Entities\obj\Debug\Riddhasoft.OfficeSetup.Entities.pdb
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.OfficeSetup.Entities\bin\Debug\Riddhasoft.OfficeSetup.Entities.dll.config
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.OfficeSetup.Entities\bin\Debug\Riddhasoft.OfficeSetup.Entities.dll
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.OfficeSetup.Entities\bin\Debug\Riddhasoft.OfficeSetup.Entities.pdb
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.OfficeSetup.Entities\bin\Debug\EntityFramework.dll
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.OfficeSetup.Entities\bin\Debug\EntityFramework.SqlServer.dll
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.OfficeSetup.Entities\bin\Debug\EntityFramework.xml
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.OfficeSetup.Entities\bin\Debug\EntityFramework.SqlServer.xml
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.OfficeSetup.Entities\obj\Debug\Riddhasoft.OfficeSetup.Entities.csprojAssemblyReference.cache
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.OfficeSetup.Entities\obj\Debug\Riddhasoft.OfficeSetup.Entities.csproj.CoreCompileInputs.cache
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.OfficeSetup.Entities\obj\Debug\Riddhasoft.OfficeSetup.Entities.csproj.CopyComplete
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.OfficeSetup.Entities\obj\Debug\Riddhasoft.OfficeSetup.Entities.dll
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.OfficeSetup.Entities\obj\Debug\Riddhasoft.OfficeSetup.Entities.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.OfficeSetup.Entities\bin\Debug\Riddhasoft.OfficeSetup.Entities.dll.config
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.OfficeSetup.Entities\bin\Debug\Riddhasoft.OfficeSetup.Entities.dll
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.OfficeSetup.Entities\bin\Debug\Riddhasoft.OfficeSetup.Entities.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.OfficeSetup.Entities\bin\Debug\EntityFramework.dll
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.OfficeSetup.Entities\bin\Debug\EntityFramework.SqlServer.dll
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.OfficeSetup.Entities\bin\Debug\EntityFramework.xml
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.OfficeSetup.Entities\bin\Debug\EntityFramework.SqlServer.xml
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.OfficeSetup.Entities\obj\Debug\Riddhasoft.OfficeSetup.Entities.csprojAssemblyReference.cache
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.OfficeSetup.Entities\obj\Debug\Riddhasoft.OfficeSetup.Entities.csproj.CoreCompileInputs.cache
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.OfficeSetup.Entities\obj\Debug\Riddhasoft.OfficeSetup.Entities.csproj.CopyComplete
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.OfficeSetup.Entities\obj\Debug\Riddhasoft.OfficeSetup.Entities.dll
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.OfficeSetup.Entities\obj\Debug\Riddhasoft.OfficeSetup.Entities.pdb
+D:\Projects\HamroHajiri\trunk\Riddhasoft.OfficeSetup.Entities\bin\Debug\Riddhasoft.OfficeSetup.Entities.dll.config
+D:\Projects\HamroHajiri\trunk\Riddhasoft.OfficeSetup.Entities\bin\Debug\Riddhasoft.OfficeSetup.Entities.dll
+D:\Projects\HamroHajiri\trunk\Riddhasoft.OfficeSetup.Entities\bin\Debug\Riddhasoft.OfficeSetup.Entities.pdb
+D:\Projects\HamroHajiri\trunk\Riddhasoft.OfficeSetup.Entities\bin\Debug\EntityFramework.dll
+D:\Projects\HamroHajiri\trunk\Riddhasoft.OfficeSetup.Entities\bin\Debug\EntityFramework.SqlServer.dll
+D:\Projects\HamroHajiri\trunk\Riddhasoft.OfficeSetup.Entities\bin\Debug\EntityFramework.xml
+D:\Projects\HamroHajiri\trunk\Riddhasoft.OfficeSetup.Entities\bin\Debug\EntityFramework.SqlServer.xml
+D:\Projects\HamroHajiri\trunk\Riddhasoft.OfficeSetup.Entities\obj\Debug\Riddhasoft.OfficeSetup.Entities.csprojAssemblyReference.cache
+D:\Projects\HamroHajiri\trunk\Riddhasoft.OfficeSetup.Entities\obj\Debug\Riddhasoft.OfficeSetup.Entities.csproj.CoreCompileInputs.cache
+D:\Projects\HamroHajiri\trunk\Riddhasoft.OfficeSetup.Entities\obj\Debug\Riddhasoft.OfficeSetup.Entities.csproj.CopyComplete
+D:\Projects\HamroHajiri\trunk\Riddhasoft.OfficeSetup.Entities\obj\Debug\Riddhasoft.OfficeSetup.Entities.dll
+D:\Projects\HamroHajiri\trunk\Riddhasoft.OfficeSetup.Entities\obj\Debug\Riddhasoft.OfficeSetup.Entities.pdb
+F:\Projects\HamroHajiri\trunk\Riddhasoft.OfficeSetup.Entities\bin\Debug\Riddhasoft.OfficeSetup.Entities.dll.config
+F:\Projects\HamroHajiri\trunk\Riddhasoft.OfficeSetup.Entities\bin\Debug\Riddhasoft.OfficeSetup.Entities.dll
+F:\Projects\HamroHajiri\trunk\Riddhasoft.OfficeSetup.Entities\bin\Debug\Riddhasoft.OfficeSetup.Entities.pdb
+F:\Projects\HamroHajiri\trunk\Riddhasoft.OfficeSetup.Entities\bin\Debug\EntityFramework.dll
+F:\Projects\HamroHajiri\trunk\Riddhasoft.OfficeSetup.Entities\bin\Debug\EntityFramework.SqlServer.dll
+F:\Projects\HamroHajiri\trunk\Riddhasoft.OfficeSetup.Entities\bin\Debug\EntityFramework.xml
+F:\Projects\HamroHajiri\trunk\Riddhasoft.OfficeSetup.Entities\bin\Debug\EntityFramework.SqlServer.xml
+F:\Projects\HamroHajiri\trunk\Riddhasoft.OfficeSetup.Entities\obj\Debug\Riddhasoft.OfficeSetup.Entities.csprojAssemblyReference.cache
+F:\Projects\HamroHajiri\trunk\Riddhasoft.OfficeSetup.Entities\obj\Debug\Riddhasoft.OfficeSetup.Entities.csproj.CoreCompileInputs.cache
+F:\Projects\HamroHajiri\trunk\Riddhasoft.OfficeSetup.Entities\obj\Debug\Riddhasoft.OfficeSetup.Entities.csproj.CopyComplete
+F:\Projects\HamroHajiri\trunk\Riddhasoft.OfficeSetup.Entities\obj\Debug\Riddhasoft.OfficeSetup.Entities.dll
+F:\Projects\HamroHajiri\trunk\Riddhasoft.OfficeSetup.Entities\obj\Debug\Riddhasoft.OfficeSetup.Entities.pdb

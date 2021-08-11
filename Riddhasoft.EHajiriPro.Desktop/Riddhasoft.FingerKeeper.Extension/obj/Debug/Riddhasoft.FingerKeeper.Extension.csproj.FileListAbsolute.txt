@@ -1,0 +1,37 @@
+F:\Development\RiddhaELP\trunk\Riddhasoft.AttendanceManagement.Dekstop\Riddhasoft.FingerKeeper.Extension\obj\Debug\Riddhasoft.FingerKeeper.Extension.csproj.ResolveComReference.cache
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\bin\Debug\Riddhasoft.FingerKeeper.Extension.dll
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\bin\Debug\Riddhasoft.FingerKeeper.Extension.pdb
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\bin\Debug\Interop.zkemkeeper.dll
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\obj\Debug\Riddhasoft.FingerKeeper.Extension.csprojAssemblyReference.cache
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\obj\Debug\Interop.zkemkeeper.dll
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\obj\Debug\Riddhasoft.FingerKeeper.Extension.csproj.ResolveComReference.cache
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\obj\Debug\Riddhasoft.FingerKeeper.Extension.csproj.CoreCompileInputs.cache
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\obj\Debug\Riddhasoft.FingerKeeper.Extension.dll
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\obj\Debug\Riddhasoft.FingerKeeper.Extension.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\bin\Debug\Riddhasoft.FingerKeeper.Extension.dll
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\bin\Debug\Riddhasoft.FingerKeeper.Extension.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\bin\Debug\Interop.zkemkeeper.dll
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\obj\Debug\Interop.zkemkeeper.dll
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\obj\Debug\Riddhasoft.FingerKeeper.Extension.csproj.ResolveComReference.cache
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\obj\Debug\Riddhasoft.FingerKeeper.Extension.dll
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\obj\Debug\Riddhasoft.FingerKeeper.Extension.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\obj\Debug\Riddhasoft.FingerKeeper.Extension.csproj.CoreCompileInputs.cache
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\obj\Debug\Riddhasoft.FingerKeeper.Extension.csprojAssemblyReference.cache
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\bin\Debug\Riddhasoft.FingerKeeper.Extension.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\bin\Debug\Riddhasoft.FingerKeeper.Extension.pdb
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\bin\Debug\Interop.zkemkeeper.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\obj\Debug\Interop.zkemkeeper.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\obj\Debug\Riddhasoft.FingerKeeper.Extension.csproj.ResolveComReference.cache
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\obj\Debug\Riddhasoft.FingerKeeper.Extension.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\obj\Debug\Riddhasoft.FingerKeeper.Extension.pdb
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\obj\Debug\Riddhasoft.FingerKeeper.Extension.csprojAssemblyReference.cache
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\obj\Debug\Riddhasoft.FingerKeeper.Extension.csproj.CoreCompileInputs.cache
+F:\SVN Server\87 Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\bin\Debug\Riddhasoft.FingerKeeper.Extension.dll
+F:\SVN Server\87 Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\bin\Debug\Riddhasoft.FingerKeeper.Extension.pdb
+F:\SVN Server\87 Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\bin\Debug\Interop.zkemkeeper.dll
+F:\SVN Server\87 Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\obj\Debug\Interop.zkemkeeper.dll
+F:\SVN Server\87 Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\obj\Debug\Riddhasoft.FingerKeeper.Extension.csproj.ResolveComReference.cache
+F:\SVN Server\87 Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\obj\Debug\Riddhasoft.FingerKeeper.Extension.csproj.CoreCompileInputs.cache
+F:\SVN Server\87 Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\obj\Debug\Riddhasoft.FingerKeeper.Extension.dll
+F:\SVN Server\87 Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\obj\Debug\Riddhasoft.FingerKeeper.Extension.pdb
+F:\SVN Server\87 Server\Hamro-Hajiri\trunk\Riddhasoft.EHajiriPro.Desktop\Riddhasoft.FingerKeeper.Extension\obj\Debug\Riddhasoft.FingerKeeper.Extension.csprojAssemblyReference.cache

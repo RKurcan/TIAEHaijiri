@@ -1,0 +1,809 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D2DAC3CE-5CDE-49CB-81EE-DF7250B09BDC}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Riddhasoft.EHajiriPro.Desktop</RootNamespace>
+    <AssemblyName>Riddhasoft.EHajiriPro.Desktop</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>5561D38BA186CC78D26376D7C9B7ED395B8D1A74</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Riddhasoft.EHajiriPro.Desktop_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Interop.zkemkeeper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>Dependancy\Interop.zkemkeeper.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="RTech.Lib.ProductKey, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dependancy\RTech.Lib.ProductKey.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Areas\Device\DeviceDataManagementFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Areas\Device\DeviceDataManagementFrm.Designer.cs">
+      <DependentUpon>DeviceDataManagementFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Device\DeviceSetupFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Areas\Device\DeviceSetupFrm.Designer.cs">
+      <DependentUpon>DeviceSetupFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Leave\LeaveApplicationFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Areas\Leave\LeaveApplicationFrm.Designer.cs">
+      <DependentUpon>LeaveApplicationFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Leave\LeaveApprovalFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Areas\Leave\LeaveApprovalFrm.Designer.cs">
+      <DependentUpon>LeaveApprovalFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Leave\LeaveMasterSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Areas\Leave\LeaveMasterSetup.Designer.cs">
+      <DependentUpon>LeaveMasterSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Leave\LeaveOpeningBalanceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Areas\Leave\LeaveOpeningBalanceForm.Designer.cs">
+      <DependentUpon>LeaveOpeningBalanceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Leave\LeaveQuataFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Areas\Leave\LeaveQuataFrm.Designer.cs">
+      <DependentUpon>LeaveQuataFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Leave\LeaveSettlementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Areas\Leave\LeaveSettlementForm.Designer.cs">
+      <DependentUpon>LeaveSettlementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Office Management\EmployeeFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Areas\Office Management\EmployeeFrm.Designer.cs">
+      <DependentUpon>EmployeeFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Office Management\EmployeeViewDetailsFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Areas\Office Management\EmployeeViewDetailsFrm.Designer.cs">
+      <DependentUpon>EmployeeViewDetailsFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Office Management\HolidaySetupFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Areas\Office Management\HolidaySetupFrm.Designer.cs">
+      <DependentUpon>HolidaySetupFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Office Management\KajEntryFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Areas\Office Management\KajEntryFrm.Designer.cs">
+      <DependentUpon>KajEntryFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Office Management\OfficeVisitApprovalFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Areas\Office Management\OfficeVisitApprovalFrm.Designer.cs">
+      <DependentUpon>OfficeVisitApprovalFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Office Management\OfficeVisitFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Areas\Office Management\OfficeVisitFrm.Designer.cs">
+      <DependentUpon>OfficeVisitFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Office Management\ManualPunchFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Areas\Office Management\ManualPunchFrm.Designer.cs">
+      <DependentUpon>ManualPunchFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Office Management\MonthlyRosterSetupFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Areas\Office Management\MonthlyRosterSetupFrm.Designer.cs">
+      <DependentUpon>MonthlyRosterSetupFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Office Management\WeeklyRosterSetupFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Areas\Office Management\WeeklyRosterSetupFrm.Designer.cs">
+      <DependentUpon>WeeklyRosterSetupFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Payroll\PayrollSetupFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Areas\Payroll\PayrollSetupFrm.Designer.cs">
+      <DependentUpon>PayrollSetupFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Report\AttendanceReportFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Areas\Report\AttendanceReportFrm.Designer.cs">
+      <DependentUpon>AttendanceReportFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Report\DailyAttendanceReportDailougeFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Areas\Report\DailyAttendanceReportDailougeFrm.Designer.cs">
+      <DependentUpon>DailyAttendanceReportDailougeFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Report\LeaveReportDailougeFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Areas\Report\LeaveReportDailougeFrm.Designer.cs">
+      <DependentUpon>LeaveReportDailougeFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Report\MonthlyAttendanceReportDailougeFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Areas\Report\MonthlyAttendanceReportDailougeFrm.Designer.cs">
+      <DependentUpon>MonthlyAttendanceReportDailougeFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Report\PayrollReportFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Areas\Report\PayrollReportFrm.Designer.cs">
+      <DependentUpon>PayrollReportFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Report\ReportViewerFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Areas\Report\ReportViewerFrm.Designer.cs">
+      <DependentUpon>ReportViewerFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Setup\BranchFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Areas\Setup\BranchFrm.Designer.cs">
+      <DependentUpon>BranchFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Setup\CompanyProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Areas\Setup\CompanyProfile.Designer.cs">
+      <DependentUpon>CompanyProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Setup\DepartmentFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Areas\Setup\DepartmentFrm.Designer.cs">
+      <DependentUpon>DepartmentFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Setup\DesignationFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Areas\Setup\DesignationFrm.Designer.cs">
+      <DependentUpon>DesignationFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Setup\FiscalYearFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Areas\Setup\FiscalYearFrm.Designer.cs">
+      <DependentUpon>FiscalYearFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Setup\SectionFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Areas\Setup\SectionFrm.Designer.cs">
+      <DependentUpon>SectionFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Setup\ShiftFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Areas\Setup\ShiftFrm.Designer.cs">
+      <DependentUpon>ShiftFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\User Management\UserFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Areas\User Management\UserFrm.Designer.cs">
+      <DependentUpon>UserFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\ExcelEx.cs" />
+    <Compile Include="Common\GlobalParam.cs" />
+    <Compile Include="Common\NewProgressBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Common\RiddhaSession.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MailCommon.cs" />
+    <Compile Include="Migration\Configuration.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\ViewModel.cs" />
+    <Compile Include="Views\DashboardWidgetsMoreInfoFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DashboardWidgetsMoreInfoFrm.Designer.cs">
+      <DependentUpon>DashboardWidgetsMoreInfoFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EmployeeSearchFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\EmployeeSearchFrm.Designer.cs">
+      <DependentUpon>EmployeeSearchFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Home.Designer.cs">
+      <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProductKeyEntryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ProductKeyEntryForm.Designer.cs">
+      <DependentUpon>ProductKeyEntryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProductKeyRequestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ProductKeyRequestForm.Designer.cs">
+      <DependentUpon>ProductKeyRequestForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Areas\Device\DeviceDataManagementFrm.resx">
+      <DependentUpon>DeviceDataManagementFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Device\DeviceSetupFrm.resx">
+      <DependentUpon>DeviceSetupFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Leave\LeaveApplicationFrm.resx">
+      <DependentUpon>LeaveApplicationFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Leave\LeaveApprovalFrm.resx">
+      <DependentUpon>LeaveApprovalFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Leave\LeaveMasterSetup.resx">
+      <DependentUpon>LeaveMasterSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Leave\LeaveOpeningBalanceForm.resx">
+      <DependentUpon>LeaveOpeningBalanceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Leave\LeaveQuataFrm.resx">
+      <DependentUpon>LeaveQuataFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Leave\LeaveSettlementForm.resx">
+      <DependentUpon>LeaveSettlementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Office Management\EmployeeFrm.resx">
+      <DependentUpon>EmployeeFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Office Management\EmployeeViewDetailsFrm.resx">
+      <DependentUpon>EmployeeViewDetailsFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Office Management\HolidaySetupFrm.resx">
+      <DependentUpon>HolidaySetupFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Office Management\ManualPunchFrm.resx">
+      <DependentUpon>ManualPunchFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Office Management\MonthlyRosterSetupFrm.resx">
+      <DependentUpon>MonthlyRosterSetupFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Office Management\OfficeVisitApprovalFrm.resx">
+      <DependentUpon>OfficeVisitApprovalFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Office Management\OfficeVisitFrm.resx">
+      <DependentUpon>OfficeVisitFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Office Management\WeeklyRosterSetupFrm.resx">
+      <DependentUpon>WeeklyRosterSetupFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Payroll\PayrollSetupFrm.resx">
+      <DependentUpon>PayrollSetupFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Report\AttendanceReportFrm.resx">
+      <DependentUpon>AttendanceReportFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Report\DailyAttendanceReportDailougeFrm.resx">
+      <DependentUpon>DailyAttendanceReportDailougeFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Report\DailyEarlyInReport.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Report\DailyEmployeePerformanceReport.rdlc">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Report\DailyLateInReport.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Report\DailyLateOutReport.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Report\LeaveReportDailougeFrm.resx">
+      <DependentUpon>LeaveReportDailougeFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Report\MonthlyAttendanceReportDailougeFrm.resx">
+      <DependentUpon>MonthlyAttendanceReportDailougeFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Report\MonthlyEmployeeSummaryReport.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Report\MonthlyEmployeeTimeSHeet.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Report\EmployeeWiseLeaveReport.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Report\MonthlyWiseReport.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Report\ReportViewerfrm.resx">
+      <DependentUpon>ReportViewerFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Setup\BranchFrm.resx">
+      <DependentUpon>BranchFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Setup\CompanyProfile.resx">
+      <DependentUpon>CompanyProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Setup\DepartmentFrm.resx">
+      <DependentUpon>DepartmentFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Setup\DesignationFrm.resx">
+      <DependentUpon>DesignationFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Setup\FiscalYearFrm.resx">
+      <DependentUpon>FiscalYearFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Setup\SectionFrm.resx">
+      <DependentUpon>SectionFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Setup\ShiftFrm.resx">
+      <DependentUpon>ShiftFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\User Management\UserFrm.resx">
+      <DependentUpon>UserFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Views\DashboardWidgetsMoreInfoFrm.resx">
+      <DependentUpon>DashboardWidgetsMoreInfoFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\EmployeeSearchFrm.resx">
+      <DependentUpon>EmployeeSearchFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ProductKeyEntryForm.resx">
+      <DependentUpon>ProductKeyEntryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ProductKeyRequestForm.resx">
+      <DependentUpon>ProductKeyRequestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Riddhasoft.Attendance.Entities.FingerPrint.datasource" />
+    <None Include="Properties\DataSources\Riddhasoft.DB.EEmployeeLeaveSummary.datasource" />
+    <None Include="Properties\DataSources\Riddhasoft.EHajiriPro.Desktop.Areas.Report.AttendanceReportFrm.datasource" />
+    <None Include="Properties\DataSources\Riddhasoft.EHajiriPro.Desktop.Areas.Report.DailyAttendanceReportDailougeFrm.datasource" />
+    <None Include="Properties\DataSources\Riddhasoft.EHajiriPro.Desktop.Areas.Report.PayrollReportFrm.datasource" />
+    <None Include="Properties\DataSources\Riddhasoft.EHajiriPro.Desktop.Areas.Report.ReportViewerFrm.datasource" />
+    <None Include="Properties\DataSources\Riddhasoft.EHajiriPro.Desktop.Areas.Report.SummaryDaywiseReport.datasource" />
+    <None Include="Properties\DataSources\Riddhasoft.EHajiriPro.Desktop.ViewModel.BranchGridVm.datasource" />
+    <None Include="Properties\DataSources\Riddhasoft.EHajiriPro.Desktop.ViewModel.DashboarCountGridVm.datasource" />
+    <None Include="Properties\DataSources\Riddhasoft.EHajiriPro.Desktop.ViewModel.DashboardAbsentGridVm.datasource" />
+    <None Include="Properties\DataSources\Riddhasoft.EHajiriPro.Desktop.ViewModel.DesignationGridVm.datasource" />
+    <None Include="Properties\DataSources\Riddhasoft.EHajiriPro.Desktop.ViewModel.DeviceGridVm.datasource" />
+    <None Include="Properties\DataSources\Riddhasoft.EHajiriPro.Desktop.ViewModel.EmployeeGridVm.datasource" />
+    <None Include="Properties\DataSources\Riddhasoft.EHajiriPro.Desktop.ViewModel.EmployeeSearchVm.datasource" />
+    <None Include="Properties\DataSources\Riddhasoft.EHajiriPro.Desktop.ViewModel.HolidayDetailsVm.datasource" />
+    <None Include="Properties\DataSources\Riddhasoft.EHajiriPro.Desktop.ViewModel.HolidayGridVm.datasource" />
+    <None Include="Properties\DataSources\Riddhasoft.EHajiriPro.Desktop.ViewModel.LeaveApplicationGridVm.datasource" />
+    <None Include="Properties\DataSources\Riddhasoft.EHajiriPro.Desktop.ViewModel.LeaveMasterGridVm.datasource" />
+    <None Include="Properties\DataSources\Riddhasoft.EHajiriPro.Desktop.ViewModel.LeaveQuataGridVm.datasource" />
+    <None Include="Properties\DataSources\Riddhasoft.EHajiriPro.Desktop.ViewModel.ManualPunchGridVm.datasource" />
+    <None Include="Properties\DataSources\Riddhasoft.EHajiriPro.Desktop.ViewModel.OfficeVisitGridVm.datasource" />
+    <None Include="Properties\DataSources\Riddhasoft.EHajiriPro.Desktop.ViewModel.SectionGridVm.datasource" />
+    <None Include="Properties\DataSources\Riddhasoft.EHajiriPro.Desktop.ViewModel.ShiftGridVm.datasource" />
+    <None Include="Properties\DataSources\Riddhasoft.EHajiriPro.Desktop.ViewModel.UserGridVm.datasource" />
+    <None Include="Properties\DataSources\Riddhasoft.OfficeSetup.Entities.EBranch.datasource" />
+    <None Include="Properties\DataSources\Riddhasoft.OfficeSetup.Entities.EDepartment.datasource" />
+    <None Include="Properties\DataSources\Riddhasoft.OfficeSetup.Entities.EFiscalYear.datasource" />
+    <None Include="Properties\DataSources\Riddhasoft.OfficeSetup.Entities.ESection.datasource" />
+    <None Include="Properties\DataSources\Riddhasoft.Report.ReportViewModel.AttendanceReportDetailViewModel.datasource" />
+    <None Include="Properties\DataSources\Riddhasoft.Report.ReportViewModel.MonthlyEmployeeSummaryReport.datasource" />
+    <None Include="Properties\DataSources\Riddhasoft.Report.ReportViewModel.MonthlyRosterReport.datasource" />
+    <None Include="Properties\DataSources\Riddhasoft.Report.ReportViewModel.MonthlyWiseReport.datasource" />
+    <None Include="Properties\DataSources\Riddhasoft.Report.ReportViewModel.PayrollCalculationReportViewModel.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Riddhasoft.EHajiriPro.Desktop_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Areas\Dashboard\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Riddhasoft.Attendance.Entities\Riddhasoft.Attendance.Entities.csproj">
+      <Project>{eacae529-7242-47d0-810d-a29a675debfa}</Project>
+      <Name>Riddhasoft.Attendance.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Riddhasoft.Attendance.Services\Riddhasoft.Attendance.Services.csproj">
+      <Project>{ec4be94c-fbfb-4b48-b4fd-b90d2e956ce5}</Project>
+      <Name>Riddhasoft.Attendance.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Riddhasoft.Device.Entities\Riddhasoft.Device.Entities.csproj">
+      <Project>{a6f81f57-548e-4733-a0a8-76f6303f08b6}</Project>
+      <Name>Riddhasoft.Device.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Riddhasoft.Device.Services\Riddhasoft.Device.Services.csproj">
+      <Project>{073d73df-bbd5-4d93-a617-68ea81d3b82f}</Project>
+      <Name>Riddhasoft.Device.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Riddhasoft.Employee.Entities\Riddhasoft.Employee.Entities.csproj">
+      <Project>{83419054-271d-46b2-bf0b-668ee8186c87}</Project>
+      <Name>Riddhasoft.Employee.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Riddhasoft.Employee.Mobile.Entities\Riddhasoft.Employee.Mobile.Entities.csproj">
+      <Project>{bf43a36c-463c-4bc0-9247-7335a97d5d2d}</Project>
+      <Name>Riddhasoft.Employee.Mobile.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Riddhasoft.Employee.Services\Riddhasoft.Employee.Services.csproj">
+      <Project>{68cc8ade-5aa9-470c-b4a7-f91690fb38fe}</Project>
+      <Name>Riddhasoft.Employee.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Riddhasoft.Globlas\Riddhasoft.Globals.csproj">
+      <Project>{28b966b6-e414-42a2-8173-327dfc9d4a59}</Project>
+      <Name>Riddhasoft.Globals</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Riddhasoft.HRM.Entities\Riddhasoft.HRM.Entities.csproj">
+      <Project>{9217f2bd-b289-4c7f-9f73-a40684cc7e27}</Project>
+      <Name>Riddhasoft.HRM.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Riddhasoft.OfficeSetup.Entities\Riddhasoft.OfficeSetup.Entities.csproj">
+      <Project>{f01054a3-3157-4763-9daa-b350fca8f784}</Project>
+      <Name>Riddhasoft.OfficeSetup.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Riddhasoft.OfficeSetup.Services\Riddhasoft.OfficeSetup.Services.csproj">
+      <Project>{e45cd773-99b8-4d72-bd79-58189e1eb293}</Project>
+      <Name>Riddhasoft.OfficeSetup.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Riddhasoft.PayRoll.Entities\Riddhasoft.PayRoll.Entities.csproj">
+      <Project>{08710776-34f5-4669-bfc3-2d2632825697}</Project>
+      <Name>Riddhasoft.PayRoll.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Riddhasoft.Report\Riddhasoft.Report.csproj">
+      <Project>{415eec84-5525-4c83-b36a-25ae229fb894}</Project>
+      <Name>Riddhasoft.Report</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Riddhasoft.Services.Common\Riddhasoft.Services.Common.csproj">
+      <Project>{302eb62d-eb13-453e-a267-3ed06677e4b7}</Project>
+      <Name>Riddhasoft.Services.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RTech.Core.Repository\Riddhasoft.Core.Repository.csproj">
+      <Project>{9604fec8-726a-4731-afd2-0ee7a7dd5aea}</Project>
+      <Name>Riddhasoft.Core.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RTech.Entity.User\Riddhasoft.User.Entity.csproj">
+      <Project>{10857039-6d51-4c0b-9ba7-b3b9928f1fe3}</Project>
+      <Name>Riddhasoft.User.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RTech.Services.User\Riddhasoft.Services.User.csproj">
+      <Project>{fbe8e9ea-ed9a-4b2d-9276-c154b52a14b3}</Project>
+      <Name>Riddhasoft.Services.User</Name>
+    </ProjectReference>
+    <ProjectReference Include="Riddhasoft.FingerKeeper.Extension\Riddhasoft.FingerKeeper.Extension.csproj">
+      <Project>{a18654e5-14e2-4cec-a603-4c556831709a}</Project>
+      <Name>Riddhasoft.FingerKeeper.Extension</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-plus-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-pencil-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-pencil-241.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-edit-file-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-trash-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-cancel-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\excelIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Setting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fiscal Year.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Company Profile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Branch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Department.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Section.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Designation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Shift.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Device.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Device Setup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Data management.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Employees.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kaj.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add Kaj.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Approval.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ImagePlaceHolder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\View.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\resize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rsz_1zklogo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\men3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key-old-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-settings-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-smartphone-tablet-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-user-menu-male-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-clock-checked-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-visit-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-hand-cursor-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-occupied-bed-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-holiday-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-business-report-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-available-updates-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-export-400.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-export-48 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-shutdown-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-shutdown-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Webp.net-resizeimage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Dependancy\RTech.Lib.ProductKey.dll" />
+    <Content Include="favicon.ico" />
+    <None Include="Resources\icons8-admin-settings-male-32 - Copy.png" />
+    <None Include="Resources\icons8-remove-32.png" />
+    <None Include="Resources\icons8-name-32.png" />
+    <None Include="Resources\icons8-resume-32.png" />
+    <None Include="Resources\icons8-submit-resume-32.png" />
+    <None Include="Resources\icons8-download-resume-32.png" />
+    <None Include="Resources\icons8-desktop-download-32.png" />
+    <None Include="Resources\icons8-download-32.png" />
+    <None Include="Resources\icons8-remove-administrator-32.png" />
+    <None Include="Resources\icons8-admin-settings-male-32.png" />
+    <None Include="Resources\icons8-clock-32 %281%29.png" />
+    <None Include="Resources\icons8-clock-32.png" />
+    <None Include="Resources\icons8-clock-64 - Copy.png" />
+    <None Include="Resources\icons8-clock-64.png" />
+    <None Include="Resources\icons8-time-64 %281%29.png" />
+    <None Include="Resources\pie_chart_normal.png" />
+    <None Include="Resources\icons8-report-file-100.png" />
+    <None Include="Resources\icons8-calendar-48.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

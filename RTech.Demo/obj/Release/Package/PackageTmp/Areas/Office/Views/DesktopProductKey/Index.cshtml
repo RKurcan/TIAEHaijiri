@@ -1,0 +1,161 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Layout_Adminlte.cshtml";
+}
+<section class="content-header">
+    <h1>
+        @T("Desktop Key")
+        <sup class="text-green">@T("Creation")</sup>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> @T("Home")</a></li>
+        <li class="active">@T("Desktop Key")</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <div class="modal" id="productKeyCreationModel">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-success" data-bind="text:'Desktop Product Key for '+SelectedCompanyName()"></h4></header>
+                </div>
+                <div class="modal-body">
+                    <div class="row" data-bind="with:DesktopProductKey">
+                        <div class="form-group col-lg-12">
+                            <label class="col-lg-1 control-label" for="Number">MAC</label>
+                            <div class="col-lg-4">
+                                <input type="text" data-bind="value:MAC" class="form-control" />
+
+                            </div>
+                            <input type="button" class="btn btn-success" value="Generate Key" data-bind="click:$root.CreateUpdate" />
+                        </div>
+
+                        <div class="form-group col-lg-12" data-bind="">
+                            <label class="col-lg-1 control-label" for="Number"> Key</label>
+                            <div class="col-lg-8">
+                                <input type="text" data-bind="value:Key" class="form-control" readonly />
+                            </div>
+                        </div>
+                        @*<div class="form-group col-lg-2" data-bind="visible:Key().length!=0">
+                <button class="form-control btn btn-success" data-bind="click:$root.SendKeyToMail">Send Key to Mail</button>
+            </div>*@
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="box-body table-responsive no-padding">
+                                <table class="table table-condensed table-bordered table-striped no-padding table-hover">
+                                    <thead class="success bg-green">
+                                        <tr>
+                                            <th class="col-lg-1"> @T("SerialNo")</th>
+                                            <th class="6"> @T("Model")</th>
+                                            <th class="4"> @T("Serial Number") </th>
+                                            <th data-bind="visible:$root.ModeOfButton()=='Create'" class="col-lg-1">
+                                                <input type="checkbox" data-bind="checked:CheckAllDevices" />
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody data-bind="foreach:Devices">
+                                        <tr>
+                                            <td class="text-center" data-bind="serialNo:$index()+1"></td>
+                                            <td data-bind="text:Model"></td>
+                                            <td data-bind="text:DeviceSerialNo"></td>
+                                            <td data-bind="visible:$root.ModeOfButton()=='Create'">
+                                                <input type="checkbox" data-bind="checked:Checked" />
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="box-body table-responsive no-padding">
+                                <table class="table table-condensed table-bordered table-striped no-padding table-hover">
+                                    <thead class="success bg-green">
+                                        <tr>
+                                            <th colspan="6" class="bg-green">Keys</th>
+                                        </tr>
+                                        <tr>
+                                            <th class="col-lg-1"> @T("SerialNo")</th>
+                                            <th class="col-lg-2"> @T("MAC")</th>
+                                            <th class="col-lg-1"> @T("Device")</th>
+                                            <th class="col-lg-2"> @T("IssueDate") </th>
+                                            <th class="col-lg-3"> @T("Key") </th>
+                                            <th class="col-lg-2"> @T("Send to Mail") </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody data-bind="foreach:Keys">
+                                        <tr>
+                                            <td class="text-center" data-bind="serialNo:$index()+1"></td>
+                                            <td data-bind="text:MAC"></td>
+                                            <td data-bind="text:DeviceCount"></td>
+                                            <td data-bind="text:IssueDate"></td>
+                                            <td data-bind="text:Key"></td>
+                                            <td>
+                                                <button class="form-control btn btn-success" data-bind="click:$root.SendKeyToMail">Send</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="form-group col-lg-7">
+                            @*<input type="button" data-bind="click:$root.CreateUpdate,createUpdateText:$root.ModeOfButton,visible:$root.ModeOfButton()=='Create'" name="Save" class="btn btn-success" value=@T("Save") />*@
+                            <input type="button" id="close" data-bind="click:$root.CloseModal" value=@T("Back") class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Info boxes -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box box-success">
+                <div class="box-header">
+                    <h4 style="color:orange">NOTE: Please assign device to company before generating key. </h4>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-lg-12" data-bind="kendoGrid:KendoGridOptions">
+                            <div id="companyKendoGrid">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/html" id="mode-button-template">
+        <span class="glyphicon glyphicon-plus" data-bind="text:$root.ModeOfButton"></span>
+    </script>
+    <!-- Main row -->
+</section>
+
+@if (Request.IsAjaxRequest())
+{
+    <script type="text/javascript">
+        var obj = new desktopProductKeyController();
+        ko.cleanNode(document.getElementById("partial-render"));
+        ko.applyBindings(obj, document.getElementById("partial-render"));
+    </script>
+}
+else
+{
+    @section scripts
+    {
+        <script type="text/javascript">
+            var obj = new desktopProductKeyController();
+            ko.cleanNode(document.getElementById("partial-render"));
+            ko.applyBindings(obj, document.getElementById("partial-render"));
+        </script>
+    }
+}

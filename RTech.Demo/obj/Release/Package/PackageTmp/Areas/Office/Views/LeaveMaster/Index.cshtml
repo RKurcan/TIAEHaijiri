@@ -1,0 +1,294 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Layout_Adminlte.cshtml";
+}
+<section class="content-header">
+    <h1>
+        @T("LeaveMaster")
+        <sup class="text-green">@T("Creation")</sup>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> @T("Home")</a></li>
+        <li class="active">@T("LeaveMaster")</li>
+    </ol>
+    <style>
+        input[type="checkbox"] {
+            margin: 7px;
+            padding: 0;
+        }
+    </style>
+</section>
+<!-- Main content -->
+<section class="content">
+    <!-- LeaveMaster Modal -->
+    <div class="modal" id="leaveMasterCreationModel">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-green">@T("LeaveMaster") @T("Creation")</h4></header>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal" data-bind="with:LeaveMaster">
+
+                        <div class="form-group col-lg-6">
+                            <div class="required">
+                                <label class="col-lg-5 control-label" for="Number">@T("Code")</label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" required data-bind="value:Code" id="form-group-input " maxlength="10">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <div class="required">
+                                <label class="col-lg-5 control-label" for="Number">@T("LeaveName")</label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" required data-bind="value:Name" id="form-group-input " maxlength="100">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label class="col-lg-5 control-label" for="Number">@T("LeaveNameNp")</label>
+                            <div class="col-lg-6">
+                                <input type="text" class="form-control" required data-bind="PreetiToUnicode:NameNp" id="form-group-input " maxlength="200">
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label class="col-lg-5 control-label" for="Number">@T("Is Replacement Leave")</label>
+                            <div class="col-lg-6">
+                                <input type="checkbox" data-bind="checked:IsReplacementLeave" />
+                            </div>
+                        </div>
+                        <div data-bind="visible:$root.LeaveMaster().IsReplacementLeave()==false">
+                            <div class="form-group col-lg-6">
+                                <div class="required">
+                                    <label class="col-lg-5 control-label" for="Number">@T("NoOfDays")</label>
+                                    <div class="col-lg-6">
+                                        <input type="text" class="form-control" required data-bind="value:Balance,mask:'amount'" id="form-group-input ">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label class="col-lg-5 control-label" for="Number">@T("LeaveIncreamentPeriod")</label>
+                                <div class="col-lg-6 text-center">
+                                    <select class="form-control" data-bind="options:$root.LeaveIncreamentPeriods,optionsText:'Name',optionsValue:'Id',value:LeaveIncreamentPeriod"></select>
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label class="col-lg-5 control-label" for="Number">@T("ApplicableGender")</label>
+                                <div class="col-lg-6">
+                                    <select class="form-control" data-bind="options:$root.ApplicableGender,
+                                optionsValue:'Id',optionsText:'Name',value:ApplicableGender"></select>
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <div class="required">
+                                    <label class="col-lg-5 control-label" for="Number">@T("Description")</label>
+                                    <div class="col-lg-6">
+                                        <textarea class="form-control" required data-bind="value:Description" id="form-group-input" maxlength="500"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label class="col-lg-5 control-label" for="Number">@T("IsPaidLeave")</label>
+                                <div class="col-lg-1 text-center">
+                                    <input type="checkbox" data-bind="checked:IsPaidLeave" />
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label class="col-lg-5 control-label" for="Number">@T("IsLeaveCarryable")</label>
+                                <div class="col-lg-6 text-center">
+                                    <input type="checkbox" data-bind="checked:IsLeaveCarryable" />
+                                </div>
+                            </div>
+                            <div data-bind="visible:$root.LeaveMaster().IsLeaveCarryable()" class="form-group col-lg-6">
+                                <label class="col-lg-5 control-label" for="Number">@T("Maximum Leave Balance")</label>
+                                <div class="col-lg-6 text-center">
+                                    <input type="text" class="form-control" data-bind="value:MaximumLeaveBalance" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-12">
+                            <input type="submit" data-bind="click:$root.CreateUpdate,createUpdateText:$root.ModeOfButton" name="Save" class="btn btn-success" value=@T("Save") />
+                            <input type="button" data-bind="click:$root.Reset" name="Reset" value=@T("Reset") class="btn btn-default" />
+                            <input type="button" id="close" data-bind="click:$root.CloseModal" value=@T("Back") class="btn btn-default" />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Info boxes -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box box-success">
+                <div class="box-header with-border">
+                    &nbsp;
+                    <div class="box-tools pull-right">
+                        @*<button type="button" class="btn btn-box-tool dropdown-toggle text-green action" data-toggle="dropdown" data-bind="click:PullDefaultLeave,actionVisibility:'3006'" style="">
+                                <i class="fa fa-download"></i> @T("PullDefaltLeave")
+                            </button>
+                            <button type="button" class="btn btn-box-tool dropdown-toggle text-green action" data-toggle="dropdown" data-bind="click:ShowModal,actionVisibility:'3007'" style="">
+                                <i class="fa fa-plus-square"></i> @T("Create")
+                            </button>*@
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-wrench"></i>
+                            </button>
+                            <ul class="dropdown-menu" role="menu"></ul>
+                        </div>
+                        <button type="button" class="btn btn-box-tool text-red" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default action" data-bind="click:ShowModal,actionVisibility:'3007'" style="display: inline-block;"><i class="fa fa-plus-square text-green">&nbsp;@T("Create")</i></button>
+                        <button type="button" class="btn btn-default action" data-bind="click:Select,actionVisibility:'3008'" style="display: inline-block;"><i class="fa fa-pencil text-blue">&nbsp;@T("Edit")</i></button>
+                        <button type="button" class="btn btn-default action" data-bind="click:Delete,actionVisibility:'3009'" style="display: inline-block;"><i class="fa fa-trash text-red">&nbsp;@T("Delete")</i></button>
+                        <button type="button" class="btn btn-default action" data-bind="click:PullDefaultLeave,actionVisibility:'3006'" style="display: inline-block;"><i class="fa fa-download text-green">&nbsp;@T("PullDefaltLeave")</i></button>
+                    </div>
+                </div>
+                @*<div class="box-body table-responsive ">
+                        <table class="table table-condensed table-bordered table-striped no-padding table-hover">
+                            <thead class="success bg-green">
+                                <tr>
+                                    <th> @T("SerialNo")</th>
+                                    <th> @T("Code")</th>
+                                    <th>@T("LeaveName") </th>
+                                    <th>@T("NoOfDays") </th>
+                                    <th> @T("ApplicableGender") </th>
+                                    <th class="text-center">@T("IsPaidLeave") </th>
+                                    <th class="text-center"> @T("IsLeaveCarryable")</th>
+                                    <th>@T("Action")</th>
+                                </tr>
+                            </thead>
+                            <tbody data-bind="foreach:LeaveMasters">
+                                <tr>
+                                    <td class="hidden"><input type="hidden" data-bind="value:Id" /></td>
+                                    <td data-bind="serialNo:$index()+1"></td>
+                                    <td data-bind="text:Code"></td>
+                                    <td data-bind="text:NameNp()==''?Name():Name()+'('+NameNp()+')'"></td>
+                                    <td data-bind="text:Balance"></td>
+                                    <td data-bind="text:Description"></td>
+                                    <td data-bind="text:ApplicableGender"></td>
+                                    <td class="text-center">
+                                        <input type="checkbox" disabled data-bind="checked:IsPaidLeave">
+                                    </td>
+                                    <td class="text-center">
+                                        <input type="checkbox" disabled data-bind="checked:IsLeaveCarryable">
+                                    </td>
+                                    <td>
+                                        <button type="button" data-bind="click:$root.Select,actionVisibility:'3008'" class="btn btn-xs  btn-default action" title=@T("Edit")><span class="glyphicon glyphicon-pencil text-success"></span> </button>
+                                        <button type="button" data-bind="click:$root.Delete,actionVisibility:'3009'" class="btn btn-xs btn-default action" title=@T("Remove")><span class="glyphicon glyphicon-trash text-danger"></span></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot data-bind="with:LeaveMaster">
+                                <tr>
+                                        <td></td>
+                                        <td>
+                                            <div class="">
+                                                <input type="text" class="form-control " id="form-group-input" data-bind="value:Code" placeholder=@T("Code")>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="">
+                                                <input type="text" class="form-control " id="form-group-input" data-bind="value:Name" placeholder=@T("Name")>
+                                                <input type="text" class="form-control " id="form-group-input" data-bind="value:NameNp" placeholder=@T("NameNp")>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="">
+                                                <input type="text" class="form-control " id="form-group-input" data-bind="value:Balance,mask:'number'" placeholder=@T("NoOfDays")>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="">
+                                                <input type="text" class="form-control " id="form-group-input" data-bind="value:Description" placeholder=@T("Description")>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="">
+                                                <select class="form-control" data-bind="options:$root.ApplicableGender,
+                                        optionsValue:'Id',optionsText:'Name',value:ApplicableGender"></select>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class=" text-center">
+                                                <input type="checkbox" data-bind="checked:IsPaidLeave" />
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class=" text-center">
+                                                <input type="checkbox" data-bind="checked:IsLeaveCarryable" />
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <button type="button" data-bind="click:$root.CreateUpdate,template:{name:$root.ModeOfButton()=='Create'?'mode-button-add-template':'mode-button-update-template'}" class="btn btn-success" title=@T("Create")></button>
+                                            <button type="button" data-bind="click:$root.Reset" class="btn btn-default" title=@T("Reset")><span class="glyphicon glyphicon-refresh"></span></button>
+                                        </td>
+                                    </tr>
+                            </tfoot>
+                        </table>
+                    </div>*@
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-lg-12" data-bind="kendoGrid:KendoGridOptions">
+                            <div id="leaveMasterKendoGrid">
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/html" id="mode-button-add-template">
+        <span class="glyphicon glyphicon-plus"></span>
+    </script>
+    <script type="text/html" id="mode-button-update-template">
+        <span class="glyphicon glyphicon-arrow-up"></span>
+    </script>
+    <!-- /.row -->
+    <!-- /.row -->
+    <!-- Main row -->
+    <!-- /.row -->
+</section>
+
+@if (Request.IsAjaxRequest())
+{
+    @*<script src="~/Areas/Scripts/Riddha.Script.Company.Model.js"></script>
+        <script src="~/Areas/Scripts/Riddha.Script.Company.Controller.js"></script>*@
+    <script type="text/javascript">
+        var obj = {};
+        Riddha.global.permission.action('3001').done(function (data) {
+            Riddha.global.permission.actions = data.Data;
+            ko.cleanNode(document.getElementById("partial-render"));
+            obj = new leaveMasterController();
+
+            ko.applyBindings(obj, document.getElementById("partial-render"));
+        });
+    </script>
+}
+else
+{
+    @section scripts
+    {
+        @*<script src="~/Areas/Scripts/Riddha.Script.Company.Model.js"></script>
+            <script src="~/Areas/Scripts/Riddha.Script.Company.Controller.js"></script>*@
+        <script type="text/javascript">
+            var obj = {};
+            Riddha.global.permission.action('3001').done(function (data) {
+                Riddha.global.permission.actions = data.Data;
+                ko.cleanNode(document.getElementById("partial-render"));
+                obj = new leaveMasterController();
+
+                ko.applyBindings(obj, document.getElementById("partial-render"));
+            });
+        </script>
+    }
+}

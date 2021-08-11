@@ -1,0 +1,109 @@
+D:\project\EHajiri_2017.07.30\trunk\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.Attendance.Entities.dll.config
+D:\project\EHajiri_2017.07.30\trunk\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.Attendance.Entities.dll
+D:\project\EHajiri_2017.07.30\trunk\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.Attendance.Entities.pdb
+D:\project\EHajiri_2017.07.30\trunk\Riddhasoft.Attendance.Entities\bin\Release\EntityFramework.dll
+D:\project\EHajiri_2017.07.30\trunk\Riddhasoft.Attendance.Entities\bin\Release\EntityFramework.SqlServer.dll
+D:\project\EHajiri_2017.07.30\trunk\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.Device.Entities.dll
+D:\project\EHajiri_2017.07.30\trunk\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.Employee.Entities.dll
+D:\project\EHajiri_2017.07.30\trunk\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.Entity.User.dll
+D:\project\EHajiri_2017.07.30\trunk\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.OfficeSetup.Entities.dll
+D:\project\EHajiri_2017.07.30\trunk\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.Device.Entities.pdb
+D:\project\EHajiri_2017.07.30\trunk\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.Employee.Entities.pdb
+D:\project\EHajiri_2017.07.30\trunk\Riddhasoft.Attendance.Entities\bin\Release\EntityFramework.xml
+D:\project\EHajiri_2017.07.30\trunk\Riddhasoft.Attendance.Entities\bin\Release\EntityFramework.SqlServer.xml
+D:\project\EHajiri_2017.07.30\trunk\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.Entity.User.pdb
+D:\project\EHajiri_2017.07.30\trunk\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.OfficeSetup.Entities.pdb
+D:\project\EHajiri_2017.07.30\trunk\Riddhasoft.Attendance.Entities\obj\Release\Riddhasoft.Attendance.Entities.csprojResolveAssemblyReference.cache
+D:\project\EHajiri_2017.07.30\trunk\Riddhasoft.Attendance.Entities\obj\Release\Riddhasoft.Attendance.Entities.Properties.Resources.resources
+D:\project\EHajiri_2017.07.30\trunk\Riddhasoft.Attendance.Entities\obj\Release\Riddhasoft.Attendance.Entities.csproj.GenerateResource.Cache
+D:\project\EHajiri_2017.07.30\trunk\Riddhasoft.Attendance.Entities\obj\Release\Riddhasoft.Attendance.Entities.dll
+D:\project\EHajiri_2017.07.30\trunk\Riddhasoft.Attendance.Entities\obj\Release\Riddhasoft.Attendance.Entities.pdb
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.Attendance.Entities.dll.config
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.Attendance.Entities.dll
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.Attendance.Entities.pdb
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.Attendance.Entities\bin\Release\EntityFramework.dll
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.Attendance.Entities\bin\Release\EntityFramework.SqlServer.dll
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.Device.Entities.dll
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.Employee.Entities.dll
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.Entity.User.dll
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.OfficeSetup.Entities.dll
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.Device.Entities.pdb
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.Employee.Entities.pdb
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.Attendance.Entities\bin\Release\EntityFramework.xml
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.Attendance.Entities\bin\Release\EntityFramework.SqlServer.xml
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.Entity.User.pdb
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.OfficeSetup.Entities.pdb
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.Attendance.Entities\obj\Release\Riddhasoft.Attendance.Entities.csprojResolveAssemblyReference.cache
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.Attendance.Entities\obj\Release\Riddhasoft.Attendance.Entities.Properties.Resources.resources
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.Attendance.Entities\obj\Release\Riddhasoft.Attendance.Entities.csproj.GenerateResource.Cache
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.Attendance.Entities\obj\Release\Riddhasoft.Attendance.Entities.dll
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.Attendance.Entities\obj\Release\Riddhasoft.Attendance.Entities.pdb
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.Attendance.Entities.dll.config
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.Attendance.Entities.dll
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.Attendance.Entities.pdb
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.Attendance.Entities\bin\Release\EntityFramework.dll
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.Attendance.Entities\bin\Release\EntityFramework.SqlServer.dll
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.Device.Entities.dll
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.Employee.Entities.dll
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.Entity.User.dll
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.OfficeSetup.Entities.dll
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.Device.Entities.pdb
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.Employee.Entities.pdb
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.Attendance.Entities\bin\Release\EntityFramework.xml
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.Attendance.Entities\bin\Release\EntityFramework.SqlServer.xml
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.Entity.User.pdb
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.OfficeSetup.Entities.pdb
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.Attendance.Entities\obj\Release\Riddhasoft.Attendance.Entities.Properties.Resources.resources
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.Attendance.Entities\obj\Release\Riddhasoft.Attendance.Entities.csproj.GenerateResource.Cache
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.Attendance.Entities\obj\Release\Riddhasoft.Attendance.Entities.dll
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.Attendance.Entities\obj\Release\Riddhasoft.Attendance.Entities.pdb
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.OfficeSetup.Entities.dll.config
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.Attendance.Entities\obj\Release\Riddhasoft.Attendance.Entities.csprojAssemblyReference.cache
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.Attendance.Entities\obj\Release\Riddhasoft.Attendance.Entities.csproj.CoreCompileInputs.cache
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.Attendance.Entities\obj\Release\Riddhasoft.Attendance.Entities.csproj.CopyComplete
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.Attendance.Entities.dll.config
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.Attendance.Entities.dll
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.Attendance.Entities.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.Attendance.Entities\bin\Release\EntityFramework.dll
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.Attendance.Entities\bin\Release\EntityFramework.SqlServer.dll
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.Device.Entities.dll
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.Employee.Entities.dll
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.Entity.User.dll
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.OfficeSetup.Entities.dll
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.Device.Entities.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.Employee.Entities.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.Attendance.Entities\bin\Release\EntityFramework.xml
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.Attendance.Entities\bin\Release\EntityFramework.SqlServer.xml
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.Entity.User.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.OfficeSetup.Entities.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.Attendance.Entities\obj\Release\Riddhasoft.Attendance.Entities.Properties.Resources.resources
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.Attendance.Entities\obj\Release\Riddhasoft.Attendance.Entities.csproj.GenerateResource.cache
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.Attendance.Entities\obj\Release\Riddhasoft.Attendance.Entities.dll
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.Attendance.Entities\obj\Release\Riddhasoft.Attendance.Entities.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.OfficeSetup.Entities.dll.config
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.Attendance.Entities\obj\Release\Riddhasoft.Attendance.Entities.csprojAssemblyReference.cache
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.Attendance.Entities\obj\Release\Riddhasoft.Attendance.Entities.csproj.CoreCompileInputs.cache
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.Attendance.Entities\obj\Release\Riddhasoft.Attendance.Entities.csproj.CopyComplete
+D:\Projects\HamroHajiri\trunk\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.Attendance.Entities.dll.config
+D:\Projects\HamroHajiri\trunk\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.Attendance.Entities.dll
+D:\Projects\HamroHajiri\trunk\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.Attendance.Entities.pdb
+D:\Projects\HamroHajiri\trunk\Riddhasoft.Attendance.Entities\bin\Release\EntityFramework.dll
+D:\Projects\HamroHajiri\trunk\Riddhasoft.Attendance.Entities\bin\Release\EntityFramework.SqlServer.dll
+D:\Projects\HamroHajiri\trunk\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.Device.Entities.dll
+D:\Projects\HamroHajiri\trunk\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.Employee.Entities.dll
+D:\Projects\HamroHajiri\trunk\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.Entity.User.dll
+D:\Projects\HamroHajiri\trunk\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.OfficeSetup.Entities.dll
+D:\Projects\HamroHajiri\trunk\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.Device.Entities.pdb
+D:\Projects\HamroHajiri\trunk\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.Employee.Entities.pdb
+D:\Projects\HamroHajiri\trunk\Riddhasoft.Attendance.Entities\bin\Release\EntityFramework.xml
+D:\Projects\HamroHajiri\trunk\Riddhasoft.Attendance.Entities\bin\Release\EntityFramework.SqlServer.xml
+D:\Projects\HamroHajiri\trunk\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.Entity.User.pdb
+D:\Projects\HamroHajiri\trunk\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.OfficeSetup.Entities.pdb
+D:\Projects\HamroHajiri\trunk\Riddhasoft.Attendance.Entities\bin\Release\Riddhasoft.OfficeSetup.Entities.dll.config
+D:\Projects\HamroHajiri\trunk\Riddhasoft.Attendance.Entities\obj\Release\Riddhasoft.Attendance.Entities.csprojAssemblyReference.cache
+D:\Projects\HamroHajiri\trunk\Riddhasoft.Attendance.Entities\obj\Release\Riddhasoft.Attendance.Entities.Properties.Resources.resources
+D:\Projects\HamroHajiri\trunk\Riddhasoft.Attendance.Entities\obj\Release\Riddhasoft.Attendance.Entities.csproj.GenerateResource.cache
+D:\Projects\HamroHajiri\trunk\Riddhasoft.Attendance.Entities\obj\Release\Riddhasoft.Attendance.Entities.csproj.CoreCompileInputs.cache
+D:\Projects\HamroHajiri\trunk\Riddhasoft.Attendance.Entities\obj\Release\Riddhasoft.Attendance.Entities.csproj.CopyComplete
+D:\Projects\HamroHajiri\trunk\Riddhasoft.Attendance.Entities\obj\Release\Riddhasoft.Attendance.Entities.dll
+D:\Projects\HamroHajiri\trunk\Riddhasoft.Attendance.Entities\obj\Release\Riddhasoft.Attendance.Entities.pdb

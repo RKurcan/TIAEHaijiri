@@ -1,0 +1,347 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Layout_Adminlte.cshtml";
+}
+<section class="content-header">
+    <h1>
+        @T("Payroll")
+        <sup class="text-green">@T("Verification")</sup>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> @T("Home")</a></li>
+        <li class="active">@T("Verification")</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <div class="modal" id="payrollViewModel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-green text-center" data-bind="text:'Salary For: '+SelectedPayroll().EmployeeName()"></h4> </header>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal" data-bind="with:Payroll">
+                        <div class="col-lg-1"></div>
+                        <div class="col-lg-11">
+                            <dl class="dl-horizontal">
+                                <dt>@T("Employee") :</dt>
+                                <dd data-bind="text:EmployeeName"></dd>
+                                <dt>@T("Basic Salry") :</dt>
+                                <dd data-bind="text:BasicSalry"></dd>
+                                <dt>@T("EffectedFrom") :</dt>
+                                <dd data-bind="text:SuitableDate(EffectedFrom())"></dd>
+                                <dt>@T("SalaryPaidPer") :</dt>
+                                <dd data-bind="text:SalaryPaidPer"></dd>
+                                @*<dt>@T("GrossAmount") :</dt>
+                                    <dd data-bind="text:GrossAmount"></dd>*@
+                                <dt>@T("OtRatePerHour") :</dt>
+                                <dd data-bind="text:OtRatePerHour() +'%'"></dd>
+                                <dt>@T("OtPayPer") :</dt>
+                                <dd data-bind="text:OtPayPer"></dd>
+                                <dt>@T("TDS") :</dt>
+                                <dd data-bind="text:TDS()+'%'"></dd>
+                                <dt>@T("TDSPaidBy") :</dt>
+                                <dd data-bind="text:TDSPaidBy"></dd>
+                                <dt>@T("CITRate") :</dt>
+                                <dd data-bind="text:CITRate() +'%'"></dd>
+                                <dt>@T("PFRate") :</dt>
+                                <dd data-bind="text:PFRate()+'%'"></dd>
+                            </dl>
+                        </div>
+                    </div>
+                    &nbsp;
+                    <div class="form-group col-lg-12 text-center">
+                        <input type="submit" data-bind="click:$root.PayrollApprove,actionVisibility:'7214'" name="Save" class="btn btn-success action" value=@T("Approve") />
+                        <input type="submit" data-bind="click:$root.PayRollRevert,actionVisibility:'7215'" name="Save" class="btn btn-danger action" value=@T("Revert") />
+                        <input type="button" data-bind="click:$root.PayrollCloseModal" value=@T("Back") class="btn btn-default" />
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="allowanceViewModel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-green text-center" data-bind="text:'Allowance For: '+SelectedAllowance().EmployeeName()"></h4> </header>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal" data-bind="with:Allowance">
+                        <div class="col-lg-1"></div>
+                        <div class="col-lg-11">
+                            <dl class="dl-horizontal">
+                                <dt>@T("Employee") :</dt>
+                                <dd data-bind="text:EmployeeName"></dd>
+                                <dt>@T("Allowance") :</dt>
+                                <dd data-bind="text:AllowanceName"></dd>
+                                <dt>@T("Allowance Calculated By") :</dt>
+                                <dd data-bind="text:AllowanceCalculatedBy"></dd>
+                                <dt>@T("Value") :</dt>
+                                <dd data-bind="text:Value"></dd>
+                                <dt>@T("Allowance Paid Per") :</dt>
+                                <dd data-bind="text:AllowancePaidPer"></dd>
+                            </dl>
+                        </div>
+                    </div>
+                    &nbsp;
+                    <div class="form-group col-lg-12 text-center">
+                        <input type="submit" data-bind="click:$root.AllowanceApprove,actionVisibility:'7214'" name="Save" class="btn btn-success action" value=@T("Approve") />
+                        <input type="submit" data-bind="click:$root.AllowanceRevert,actionVisibility:'7215'" name="Revert" class="btn btn-danger action" value=@T("Revert") />
+                        <input type="button" data-bind="click:$root.AllowanceCloseModal" value=@T("Back") class="btn btn-default action" />
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="deductionViewModel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-green text-center" data-bind="text:'Deduction For: '+SelectedDeduction().EmployeeName()"></h4> </header>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal" data-bind="with:Deduction">
+                        <div class="col-lg-1"></div>
+                        <div class="col-lg-11">
+                            <dl class="dl-horizontal">
+                                <dt>@T("Employee") :</dt>
+                                <dd data-bind="text:EmployeeName"></dd>
+                                <dt>@T("Deduction") :</dt>
+                                <dd data-bind="text:DeductionName"></dd>
+                                <dt>@T("Deduction Calculated By") :</dt>
+                                <dd data-bind="text:DeductionCalculatedBy"></dd>
+                                <dt>@T("Deduction Paid Per") :</dt>
+                                <dd data-bind="text:DeductionPaidPer"></dd>
+                            </dl>
+                        </div>
+                    </div>
+                    &nbsp;
+                    <div class="form-group col-lg-12 text-center">
+                        <input type="submit" data-bind="click:$root.DeductionApprove,actionVisibility:'7214'" name="Save" class="btn btn-success " value=@T("Approve") />
+                        <input type="button" data-bind="click:$root.DeductionCloseModal" value=@T("Back") class="btn btn-default" />
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="gradeGroupViewModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-green text-center" data-bind="text:'Grade Group For '+SelectedGradeGroup().EmployeeName()"></h4> </header>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal" data-bind="with:SelectedGradeGroup">
+                        <div class="col-lg-1"></div>
+                        <div class="col-lg-11">
+                            <dl class="dl-horizontal">
+                                <dt>@T("Employee") :</dt>
+                                <dd data-bind="text:EmployeeName"></dd>
+                                <dt>@T("GradeGroup") :</dt>
+                                <dd data-bind="text:GradeGroupName"></dd>
+                                <dt>@T("EffectedFrom") :</dt>
+                                <dd data-bind="text:SuitableDate(EffectedFrom())"></dd>
+                                <dt>@T("EffectedTo") :</dt>
+                                <dd data-bind="text:SuitableDate(EffectedTo())"></dd>
+                            </dl>
+                        </div>
+                    </div>
+                    &nbsp;
+                    <div class="form-group col-lg-12 text-center">
+                        <input type="submit" data-bind="click:$root.GradeGroupApprove,actionVisibility:'7214'" name="Save" class="btn btn-success action" value=@T("Approve") />
+                        <input type="submit" data-bind="click:$root.GradeGroupRevert,actionVisibility:'7215'" name="Revert" class="btn btn-danger action" value=@T("Revert") />
+                        <input type="button" data-bind="click:$root.GradeGroupCloseModal" value=@T("Back") class="btn btn-default" />
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Info boxes -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box box-success">
+                <div class="box-header with-border">
+                    &nbsp;
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-wrench"></i>
+                            </button>
+                            <ul class="dropdown-menu" role="menu"></ul>
+                        </div>
+                        <button type="button" class="btn btn-box-tool text-red" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="box-body ">
+                    <ul id="tabList" class="nav nav-tabs" data-bind="with:UnapprovedCount">
+                        <li class="active"><a href="#salary" data-toggle="tab">@T("Salary") &nbsp;<span class="badge bg-aqua-gradient" data-bind="text:Payroll"></span></a></li>
+                        <li><a href="#allowance" data-toggle="tab" data-bind="click:$root.TabClickLock.Allowance?function(){return}: function(){$root.TabClickLock.Allowance=true; $root.GetOnDemandKendoGrid.Allowance();}">@T("Allowance") &nbsp;<span class="badge bg-black-gradient" data-bind="text:Allowance"></span></a></li>
+                        <li><a href="#deduction" data-toggle="tab" data-bind="click:$root.TabClickLock.Deduction?function(){return}: function(){$root.TabClickLock.Deduction=true; $root.GetOnDemandKendoGrid.Deduction();}">@T("Deduction") &nbsp;<span class="badge bg-blue-gradient" data-bind="text:Deduction"></span></a></li>
+                        <li><a href="#gradeGroup" data-toggle="tab" data-bind="click:$root.TabClickLock.GradeGroup?function(){return}: function(){$root.TabClickLock.GradeGroup=true; $root.GetOnDemandKendoGrid.GradeGroup();}">@T("GradeGroup") &nbsp;<span class="badge bg-black-gradient" data-bind="text:GradeGroup"></span></a></li>
+                    </ul>
+                    <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane fade active in " id="salary">
+                            <br />
+                            <div class="col-lg-12">
+                                <div class="box box-default">
+                                    <div class="box-header with-border">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-default action" data-bind="click:PayrollShowModal,actionVisibility:'7216'"><i class="fa fa-eye text-blue">&nbsp;@T("View")</i></button>
+                                            <button type="button" class="btn btn-default action" data-bind="click:PayrollApprove,actionVisibility:'7214'"><i class="fa fa-check text-green">&nbsp;@T("Approve")</i></button>
+                                            <button type="button" class="btn btn-default action" data-bind="click:PayrollRevert,actionVisibility:'7215'"><i class="fa fa-undo text-red">&nbsp;@T("Revert")</i></button>
+                                            <button type="button" class="btn btn-default " data-bind="click:RefreshPayrollKendoGrid"><i class="fa fa-refresh text-aqua">&nbsp;@T("RefreshGrid")</i></button>
+                                        </div>
+                                    </div>
+                                    <div class="box-body">
+                                        <div class="row">
+                                            <div class="col-lg-12" data-bind="kendoGrid:KendoGridOptionForSalary">
+                                                <div id="salaryKendoGrid">
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade  " id="allowance">
+                            <br />
+                            <div class="col-lg-12">
+                                <div class="box box-default">
+                                    <div class="box-header with-border">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-default action" data-bind="click:AllowanceShowModal,actionVisibility:'7216'"><i class="fa fa-eye text-blue">&nbsp;@T("View")</i></button>
+                                            <button type="button" class="btn btn-default action" data-bind="click:AllowanceApprove,actionVisibility:'7214'"><i class="fa fa-check text-green">&nbsp;@T("Approve")</i></button>
+                                            <button type="button" class="btn btn-default action" data-bind="click:AllowanceRevert,actionVisibility:'7215'"><i class="fa fa-undo text-red">&nbsp;@T("Revert")</i></button>
+                                            <button type="button" class="btn btn-default " data-bind="click:RefreshAllowanceKendoGrid"><i class="fa fa-refresh text-aqua">&nbsp;@T("RefreshGrid")</i></button>
+                                        </div>
+                                    </div>
+                                    <div class="box-body">
+                                        <div class="row">
+                                            <div class="col-lg-12" data-bind="kendoGrid:KendoGridOptionForAllowance">
+                                                <div id="allowanceKendoGrid">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade " id="deduction">
+                            <br />
+                            <div class="col-lg-12">
+                                <div class="box box-default">
+                                    <div class="box-header with-border">
+                                        <button type="button" class="btn btn-default action" data-bind="click:DeductionShowModal,actionVisibility:'7216'"><i class="fa fa-eye text-blue">&nbsp;@T("View")</i></button>
+                                        <button type="button" class="btn btn-default action" data-bind="click:DeductionApprove,actionVisibility:'7214'"><i class="fa fa-check text-green">&nbsp;@T("Approve")</i></button>
+                                        <button type="button" class="btn btn-default action" data-bind="click:DeductionRevert,actionVisibility:'7215'"><i class="fa fa-undo text-red">&nbsp;@T("Revert")</i></button>
+                                        <button type="button" class="btn btn-default " data-bind="click:RefreshDeductionKendoGrid"><i class="fa fa-refresh text-aqua">&nbsp;@T("RefreshGrid")</i></button>
+                                    </div>
+                                    <div class="box-body ">
+                                        <div class="row">
+                                            <div class="col-lg-12" data-bind="kendoGrid:KendoGridOptionForDeduction">
+                                                <div id="deductionKendoGrid">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade  " id="gradeGroup">
+                            <br />
+                            <div class="col-lg-12">
+                                <div class="box box-default">
+                                    <div class="box-header with-border">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-default action" data-bind="click:GradeGroupShowModal,actionVisibility:'7216'"><i class="fa fa-eye text-blue">&nbsp;@T("View")</i></button>
+                                            <button type="button" class="btn btn-default action" data-bind="click:GradeGroupApprove,actionVisibility:'7214'"><i class="fa fa-check text-green">&nbsp;@T("Approve")</i></button>
+                                            <button type="button" class="btn btn-default action" data-bind="click:GradeGroupRevert,actionVisibility:'7215'"><i class="fa fa-undo text-red">&nbsp;@T("Revert")</i></button>
+                                            <button type="button" class="btn btn-default " data-bind="click:RefreshGradeGroupKendoGrid"><i class="fa fa-refresh text-aqua">&nbsp;@T("RefreshGrid")</i></button>
+                                        </div>
+                                    </div>
+                                    <div class="box-body">
+                                        <div class="row">
+                                            <div class="col-lg-12" data-bind="kendoGrid:KendoGridOptionForGradeGroup">
+                                                <div id="gradeGroupKendoGrid">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/html" id="mode-button-add-template">
+        <span class="glyphicon glyphicon-plus"></span>
+    </script>
+    <script type="text/html" id="mode-button-update-template">
+        <span class="glyphicon glyphicon-arrow-up"></span>
+    </script>
+    <!-- /.row -->
+    <!-- /.row -->
+    <!-- Main row -->
+    <!-- /.row -->
+</section>
+
+@if (Request.IsAjaxRequest())
+{
+    <script src="~/Areas/PayRoll/Scripts/Riddha.Script.PayRoll.Model.js"></script>
+    <script src="~/Areas/PayRoll/Scripts/Riddha.Script.PayRoll.Controller.js"></script>
+    <script type="text/javascript">
+        var obj = {};
+        Riddha.global.permission.action('8005').done(function (data) {
+            Riddha.global.permission.actions = data.Data;
+            ko.cleanNode(document.getElementById("partial-render"));
+            obj = new payRollVerificaitonController();
+
+            ko.applyBindings(obj, document.getElementById("partial-render"));
+        });
+    </script>
+}
+else
+{
+    @section scripts
+    {
+        <script src="~/Areas/PayRoll/Scripts/Riddha.Script.PayRoll.Model.js"></script>
+        <script src="~/Areas/PayRoll/Scripts/Riddha.Script.PayRoll.Controller.js"></script>
+        <script type="text/javascript">
+            var obj = {};
+            Riddha.global.permission.action('8005').done(function (data) {
+                Riddha.global.permission.actions = data.Data;
+                ko.cleanNode(document.getElementById("partial-render"));
+                obj = new payRollVerificaitonController();
+
+                ko.applyBindings(obj, document.getElementById("partial-render"));
+            });
+        </script>
+    }
+}
+
+

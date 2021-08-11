@@ -1,0 +1,3 @@
+company.IsSuspended = !company.IsSuspended;
+steam wallet=4H19Y-BIDF0-6NMBP-XXXXX
+netflix =XM5JS-QS4VS-LERZK-XXXXX

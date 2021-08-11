@@ -1,0 +1,293 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Layout_Adminlte.cshtml";
+}
+<style>
+    .panel-body {
+        padding: 7.5px;
+    }
+
+    .list-group-item {
+        position: relative;
+        display: block;
+        padding: 4px;
+        margin-bottom: -1px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+    }
+
+        .list-group-item:first-child {
+            margin-top: 0;
+            border-top: 0px;
+            border-bottom-right-radius: 4px;
+            /* border-bottom-left-radius: 4px; */
+        }
+
+    .btn-app {
+        border-radius: 3px;
+        position: relative;
+        padding: 15px 5px;
+        margin: 2px 1px 19px 80px;
+        min-width: 80px;
+        height: 60px;
+        text-align: center;
+        color: #666;
+        border: 1px solid #ddd;
+        background-color: #f4f4f4;
+        font-size: 12px;
+    }
+</style>
+<section class="content-header">
+    <h1>
+        @T("Roaster")
+        <sup class="text-green">@T("Creation")</sup>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> @T("Creation")</a></li>
+        <li class="active">@T("Roaster")</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <!-- Info boxes -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box box-success">
+                <div class="box-header with-border">
+                    <div class="row">
+                        <div class="form-group col-lg-2">
+                            <label class="col-lg-4 control-label" for="Number">@T("Year")</label>
+                            <div class="col-lg-6">
+                                <input type="text" class="form-control" required id="form-group-input" data-bind="value:Year,mask:'number'" title="This field allow only numbers">
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-3">
+                            <label class="col-lg-4 control-label" for="Number">@T("Month")</label>
+                            <div class="col-lg-8">
+                                <select class="form-control" data-bind="options:Months,optionsValue:'Id',optionsText:'Name',optionsCaption:Riddha.UI.getOptionCaption(),value:MonthId"></select>
+                            </div>
+                        </div>
+                        @*<div class="form-group col-lg-3">
+                                <label class="col-lg-8 control-label" for="Number">@T("Include Fixed Shift")</label>
+                                <div class="col-lg-2">
+                                    <input type="checkbox" />
+                                </div>
+                            </div>*@
+
+                        <div class="form-group col-lg-4">
+                            <div class="col-lg-12">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default action" data-bind="click:$root.RefreshRoster,actionVisibility:'2037'"><i class="fa fa-refresh text-green">&nbsp;@T("RefreshRoster")</i></button>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-default"><i class="fa fa-file-excel-o text-blue">&nbsp;@T("Excel")</i></button>
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                            <span class="caret"></span>
+                                        </button>
+                                        <input type="file" name="UploadedFile" id="UploadedFile" data-bind="event:{change:UploadClick}" class="hidden" />
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a data-bind="click:$root.ExportRosterExcel,actionVisibility:'2045'">@T("Export")</a></li>
+                                            <li><a data-bind="click:$root.trigerFileBrowse,actionVisibility:'2045'">@T("UploadExcelFile")</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <div class="btn-group">
+
+                            <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-wrench"></i>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">Add New Roster</a></li>
+                                    <li><a href="#">Something else here</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                </ul>
+                            </button>
+
+                        </div>
+                        <button type="button" class="btn btn-box-tool text-red" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="row" data-bind="visible:Riddha.DataVisibilityLevel=='4'">
+                    <br>
+                    <div class="col-lg-12">
+                        <div class="form-horizontal">
+                            <div class="row">
+                                <div class="form-group col-lg-12">
+                                    <label class="col-lg-1 control-label" for="Number">@T("Branch")</label>
+                                    <div class="col-lg-3">
+                                        <select class="form-control " required data-bind="options:Branches,optionsText:'Name',optionsValue:'Id',value:$root.BranchId,event:{change:$root.Search}"></select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="col-lg-4">
+                                <div class="panel panel-success">
+                                    <div class="box-header bg-green ">@T("Department") <input class="pull-right" type="checkbox" data-bind="checked:CheckAllDepartments" /><input type="text" name="name" data-bind="value:$root.SearchDepartmentText,valueUpdate:'keyup',visible:langVisibility('en')" class="form-control pull-right custom-dep" placeholder="Search" /><input type="text" data-bind="PreetiToUnicode:SearchDepartmentText,visible:langVisibility('ne')" class="form-control  pull-right custom-dep" placeholder="खोज्नुहोस्" /></div>
+                                    <div class="panel-body" style="height:250px; overflow-y:auto">
+                                        <ul data-bind="foreach:FilteredDepartment" class="list-group list list-group-unbordered">
+                                            <li class="list-group-item">
+                                                <span data-bind="text:Name"></span>   <a class="pull-right"><input type="checkbox" data-bind="checked:Checked,event:{change:$root.GetSections}" /></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="panel panel-success">
+                                    <div class="box-header bg-green ">@T("Section") <input class="pull-right" type="checkbox" data-bind="checked:CheckAllSections" /><input type="text" name="name" data-bind="value:$root.SearchSectionText,valueUpdate:'keyup',visible:langVisibility('en')" class="form-control pull-right custom-dep" placeholder="Search" /><input type="text" data-bind="PreetiToUnicode:SearchSectionText,visible:langVisibility('ne')" class="form-control  pull-right custom-dep" placeholder="खोज्नुहोस्" /></div>
+                                    <div class="panel-body" style="height:250px; overflow-y:auto">
+                                        <ul data-bind="foreach:FilteredSection" class="list-group list list-group-unbordered">
+                                            <li class="list-group-item">
+                                                <span data-bind="text:Name"></span>   <a class="pull-right"><input type="checkbox" data-bind="checkedValue: Id, checked: $parent.CheckedSections,event:{change:$root.GetEmployee}" /></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="panel panel-success">
+                                    <div class="box-header bg-green ">@T("Employee")<input type="text" name="name" data-bind="value:$root.SearchEmployeeText,valueUpdate:'keyup',visible:langVisibility('en')" class="form-control pull-right custom-dep" placeholder="Search" /><input type="text" data-bind="PreetiToUnicode:SearchEmployeeText,visible:langVisibility('ne')" class="form-control  pull-right custom-dep" placeholder="खोज्नुहोस्" /></div>
+                                    <div class="panel-body" data-bind="" style="height:250px; overflow-y:auto">
+                                        <ul data-bind="foreach:FilteredEmployee" class="list-group list list-group-unbordered">
+                                            <li class="list-group-item">
+                                                <span data-bind="text:Name"></span>   <input class="pull-right" type="checkbox" data-bind="value:Id,checked:Checked" />
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="rosterWindowtest">
+        <div class="no-padding">
+            <div class="col-lg-2 no-padding" data-bind="with:$root.RosterViewModel">
+                <table style="font-size:12px;" class="table table-bordered table-hover table-condensed table-responsive table-striped no-padding roster">
+                    <thead class="success">
+                        <tr>
+                            <th>@T("Employee")</th>
+                        </tr>
+                        <tr>
+                            <th>@T("DayName") -></th>
+                        </tr>
+                        <tr><th id="applyShiftColumnHeader">@T("ApplyShiftColumnHeader")</th></tr>
+                    </thead>
+                    <tbody data-bind="foreach:RosterRows">
+                        <tr>
+                            <td>
+                                <select style="width:100%;" disabled>
+                                    <option data-bind="text:EmployeeName"></option>
+                                </select>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot data-bind="foreach:$root.Shifts">
+                        <tr>
+                            <td data-bind="text:ShiftCode() + ':'+ ShiftName()"></td>
+
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <div style="overflow-x:scroll" class="col-lg-10 no-padding" data-bind="with:$root.RosterViewModel">
+
+                <table style="font-size:12px;border:1px;" class="table table-bordered table-hover table-condensed table-responsive table-striped no-padding roster">
+                    <thead class="success">
+                        <tr>
+                            <!-- ko foreach: Headers-->
+                            <th data-bind="text:Day"></th>
+                            <!-- /ko -->
+                        </tr>
+                        <tr>
+                            @*<th>Employee</th>*@
+                            <!-- ko foreach: Headers-->
+                            <th data-bind="text:DayName.substr(0,3)"></th>
+                            <!-- /ko -->
+                        </tr>
+                        <tr data-bind="foreach:$root.HeaderShifts">
+                            <th> <select class="" data-bind="options:$root.Shifts,optionsValue:'Id',optionsText:'ShiftCode',optionsCaption:'Shift',value:ShiftId,attr:{'data-day':Day },event:{change:$root.ChangeHeadSelection}"></select></th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach:RosterRows">
+                        <tr>
+                            @*<td data-bind="text:EmployeeName"></td>*@
+                            <!-- ko foreach: Columns-->
+                            <td data-bind="">
+                                <select class="" data-bind="options:$root.Shifts,optionsValue:'Id',optionsText:'ShiftCode',value:ShiftId,optionsCaption:'Shift',attr:{'data-day':Day() },event:{change:$root.CalculateTotal}"></select>
+                            </td>
+                            <!-- /ko -->
+                        </tr>
+                    </tbody>
+                    <tfoot data-bind="foreach:$root.Shifts">
+                        <tr data-bind="attr:{'data-shift' :Id}">
+                            @*<td data-bind="text:ShiftCode() + ':'+ ShiftName()"></td>*@
+                            <!-- ko foreach: $root.RosterViewModel.Headers-->
+                            <td data-bind="attr:{'data-day':Day}"></td>
+                            <!-- /ko -->
+                        </tr>
+                    </tfoot>
+                </table>
+
+            </div>
+        </div>
+        <div class="box-footer">
+            <button type="button" class="btn btn-success" title=@T("Save") data-bind="click:$root.CreateUpdate"><span class="glyphicon glyphicon-save"></span> @T("Save") </button>
+            @*<button type="button" class="btn btn-default "><span class="glyphicon glyphicon-remove-sign"></span>@T("Exit")  </button>*@
+        </div>
+    </div>
+    <script type="text/html" id="mode-button-template">
+        <span class="glyphicon glyphicon-plus" data-bind="text:$root.ModeOfButton"></span>
+    </script>
+    <!-- /.row -->
+    <!-- /.row -->
+    <!-- Main row -->
+    <!-- /.row -->
+</section>
+
+@if (Request.IsAjaxRequest())
+{
+
+    <script type="text/javascript">
+        $("#applyShiftColumnHeader").height("30px");
+        var obj = {};
+        Riddha.global.permission.action('2002').done(function (data) {
+            Riddha.global.permission.actions = data.Data;
+            ko.cleanNode(document.getElementById("partial-render"));
+            obj = new rosterController();
+            ko.applyBindings(obj, document.getElementById("partial-render"));
+            obj.Search();
+        });
+    </script>
+}
+else
+{
+    @section scripts
+    {
+        <script type="text/javascript">
+            $("#applyShiftColumnHeader").height("30px");
+            var obj = {};
+            Riddha.global.permission.action('2002').done(function (data) {
+                Riddha.global.permission.actions = data.Data;
+                ko.cleanNode(document.getElementById("partial-render"));
+                obj = new rosterController();
+                ko.applyBindings(obj, document.getElementById("partial-render"));
+                obj.Search();
+            });
+        </script>
+    }
+}

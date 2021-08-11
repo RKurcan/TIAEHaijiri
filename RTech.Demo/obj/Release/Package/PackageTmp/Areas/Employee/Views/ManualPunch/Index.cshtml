@@ -1,0 +1,223 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Layout_Adminlte.cshtml";
+}
+<link href="~/Content/nepali.datepicker.v2.2.min.css" rel="stylesheet" />
+<style>
+    .custom-button {
+        padding: 2px 12px;
+    }
+</style>
+<section class="content-header">
+    <h1>
+        @T("Manual")
+        <sup class="text-green">@T("Punch")</sup>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> @T("Employee")</a></li>
+        <li class="active">@T("ManualPunch")</li>
+    </ol>
+</section>
+<section class="content">
+    <!-- Manual Punch Modal -->
+    <div class="modal" id="ManualPunchCreationModel">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-success">@T("ManualPunch") </h4></header>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-7" data-bind="with:Employee">
+                            <div class="col-lg-12 form-group">
+                                <label class="col-lg-4 control-label" for="Number">@T("EmployeeName") </label>
+                                <div class="col-lg-8">
+                                    <div class="demo-section k-content">
+                                        <input data-bind="kendoAutocomplete:$root.EmpAutoCompleteOptions,value:Name" style="width: 100%;" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 form-group">
+                                <div class="">
+                                    <label class="col-lg-4 control-label" for="Number">@T("EmployeeCode")</label>
+                                    <div class="col-lg-8">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" data-bind="value:Code" />
+                                            <span class="input-group-btn">
+                                                <span class="input-group-btn" data-bind="template: { name: 'Search', data: $root, as: 'root' }">
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 form-group">
+                                <label class="col-lg-4 control-label" for="Number">@T("Designation") </label>
+                                <div class="col-lg-8">
+                                    <input type="text" disabled class="form-control" data-bind="value:Designation" />
+                                </div>
+                            </div>
+                            <div class="col-lg-12 form-group">
+                                <label class="col-lg-4 control-label" for="Number">@T("Department") </label>
+                                <div class="col-lg-8">
+                                    <input type="text" disabled class="form-control" data-bind="value:Department" />
+                                </div>
+                            </div>
+                            <div class="col-lg-12 form-group">
+                                <label class="col-lg-4 control-label" for="Number">@T("Section") </label>
+                                <div class="col-lg-8">
+                                    <input type="text" disabled class="form-control" data-bind="value:Section" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5" data-bind="with:ManualPunch">
+                            <div class="col-lg-12 form-group">
+                                <img class="img-rounded " style="cursor:pointer" width="110" height="110" data-bind="attr: {src: $root.Employee().Photo() || '/Images/men3.png'}" />
+                            </div>
+                            <div class="col-lg-12 form-group">
+                                <div class="required">
+                                    <label class="col-lg-5 control-label" for="Number">@T("DateTime") </label>
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-6 col-sm-6 col-md-6 no-padding">
+                                            <input type="text" class="form-control" data-nepdate="#nepaliDate" data-bind="mask:'date',value:DateTime,visible:DateVisibility('en')">
+                                            <input class="form-control nepDate" data-format="yyyy/MM/dd" name="date" type="text" id="nepaliDate" data-bind="dateNp:{engDate:DateTime},visible:DateVisibility('ne')">
+                                        </div>
+                                        <div class="col-lg-6 col-sm-6 col-md-6 no-padding">
+                                            @*<input type="time" class="form-control" data-bind="value:Time" placeholder="hh:mm">*@
+                                            <input type="text" class="form-control" data-bind="value:Time,mask:'time'" placeholder="hh:mm" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 form-group">
+                                <div class="required">
+                                    <label class="col-lg-5 control-label" for="Number">@T("Remark")  </label>
+                                    <div class="col-lg-6">
+                                        <textarea class="form-control" data-bind="value:Remark"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="form-group col-lg-7">
+                            <input type="button" data-bind="click:$root.CreateUpdate,createUpdateText:$root.ModeOfButton" name="Save" class="btn btn-success" value="Save" />
+                            <input type="button" name="Reset" value=@T("Reset") class="btn btn-default" data-bind="click:Reset" />
+                            <input type="button" value=@T("Back") class="btn btn-default" data-bind="click:CloseModal" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box box-success">
+                <div class="box-header with-border">
+                    &nbsp;
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <div class="btn-group">
+
+                            <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-wrench"></i>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Add New Application</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                            </ul>
+                        </div>
+                        <button type="button" class="btn btn-box-tool text-red" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default action" data-bind="click:ShowModal,actionVisibility:'2024'" style="display: inline-block;"><i class="fa fa-plus-square text-green">&nbsp;@T("Create")</i></button>
+                        <button type="button" class="btn btn-default action" data-bind="click:Select,actionVisibility:'2025'" style="display: inline-block;"><i class="fa fa-pencil text-blue">&nbsp;@T("Edit")</i></button>
+                        <button type="button" class="btn btn-default action" data-bind="click:Delete,actionVisibility:'2026'" style="display: inline-block;"><i class="fa fa-trash text-red">&nbsp;@T("Delete")</i></button>
+                    </div>
+                </div>
+                @*<div class="box-body table-responsive ">
+                        <table class="table table-condensed table-bordered table-striped no-padding table-hover">
+                            <thead class="success bg-green">
+                                <tr>
+                                    <th class="col-lg-1"> @T("SerialNo")</th>
+                                    <th class="col-lg-3"> @T("Employee")</th>
+                                    <th class="col-lg-3"> @T("DateTime")</th>
+                                    <th class="col-lg-3"> @T("Remark")</th>
+                                    <th class="col-lg-2">@T("Action")</th>
+                                </tr>
+                            </thead>
+                            <tbody data-bind="foreach:ManualPunches">
+                                <tr>
+                                    <td data-bind="serialNo:($index()+1)"></td>
+                                    <td data-bind="text:EmployeeName"></td>
+                                    <td data-bind="text:SuitableDate(DateTime())"></td>
+                                    <td data-bind="text:Remark"></td>
+
+                                    <td>
+                                        <button type="button" class="btn btn-xs btn-default action " title=@T("Edit") data-bind="click:$root.Select,actionVisibility:'2025'"><span class="glyphicon glyphicon-pencil text-success "></span> </button>
+                                        <button type="button" class="btn btn-xs btn-default action" title=@T("Remove") data-bind="click:$root.Delete,actionVisibility:'2026'"><span class="glyphicon glyphicon-trash text-danger"></span></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                            </tfoot>
+                        </table>
+                    </div>*@
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-lg-12" data-bind="kendoGrid:KendoGridOptions">
+                            <div id="manualPunchKendoGrid">
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script type="text/html" id="Search">
+
+    <button class="btn btn-success custom-button" type="button" data-bind="click:root.GetEmployee">
+        <i class="fa fa-search"></i>
+    </button>
+
+</script>
+@if (Request.IsAjaxRequest())
+{
+
+    <script src="~/Areas/Scripts/Riddha.Script.Company.Model.js"></script>
+
+    <script type="text/javascript">
+        Riddha.global.permission.action('2005').done(function (data) {
+            Riddha.global.permission.actions = data.Data;
+            ko.cleanNode(document.getElementById("partial-render"));
+            var manualPUnchObj = new manualPunchController();
+            ko.applyBindings(manualPUnchObj, document.getElementById("partial-render"));
+        });
+
+    </script>
+}
+else
+{
+    @section scripts
+    {
+
+        <script src="~/Areas/Scripts/Riddha.Script.Company.Model.js"></script>
+
+        <script type="text/javascript">
+            Riddha.global.permission.action('2005').done(function (data) {
+                Riddha.global.permission.actions = data.Data;
+                ko.cleanNode(document.getElementById("partial-render"));
+                var manualPUnchObj = new manualPunchController();
+                ko.applyBindings(manualPUnchObj, document.getElementById("partial-render"));
+            });
+        </script>
+    }
+}

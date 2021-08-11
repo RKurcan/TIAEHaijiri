@@ -1,0 +1,539 @@
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\obj\Release\RTech.Demo.csprojResolveAssemblyReference.cache
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\obj\Release\RTech.Demo.Resources.Resource.resources
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\obj\Release\RTech.Demo.Resources.Resource.ne.resources
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\obj\Release\RTech.Demo.csproj.GenerateResource.Cache
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\obj\Release\RdlCompile.cache
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\obj\Release\RdlCompile.compiled
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\SqlServerTypes\x64\msvcr120.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\SqlServerTypes\x64\SqlServerSpatial140.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\SqlServerTypes\x86\msvcr120.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\SqlServerTypes\x86\SqlServerSpatial140.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\u.dll.config
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\u.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\u.pdb
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\ne\u.resources.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\Antlr3.Runtime.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\EntityFramework.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\EntityFramework.SqlServer.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\EPPlus.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\Ionic.Zip.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\Microsoft.ReportViewer.WebForms.DLL
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\Microsoft.SqlServer.Types.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\Microsoft.Web.Infrastructure.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\Newtonsoft.Json.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\ReportViewerForMvc.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\Riddhasoft.Attendance.Entities.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\Riddhasoft.Attendance.Services.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\Riddhasoft.DB.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\Riddhasoft.Device.Entities.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\Riddhasoft.Device.Services.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\Riddhasoft.Employee.Entities.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\Riddhasoft.Employee.Mobile.Entities.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\Riddhasoft.Employee.Mobile.Services.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\Riddhasoft.Employee.Services.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\Riddhasoft.Entity.User.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\Riddhasoft.HRM.Entities.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\Riddhasoft.HRM.Services.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\Riddhasoft.OfficeSetup.Entities.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\Riddhasoft.OfficeSetup.Services.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\Riddhasoft.PayRoll.Entities.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\Riddhasoft.PayRoll.Services.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\Riddhasoft.Report.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\Riddhasoft.Services.Common.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\Riddhasoft.Services.User.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\System.Net.Http.Formatting.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\System.Web.Cors.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\System.Web.Helpers.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\System.Web.Http.Cors.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\System.Web.Http.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\System.Web.Http.WebHost.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\System.Web.Mvc.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\System.Web.Optimization.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\System.Web.Razor.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\System.Web.WebPages.Deployment.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\System.Web.WebPages.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\System.Web.WebPages.Razor.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\WebGrease.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\Riddhasoft.Globlas.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\Riddhasoft.Attendance.Entities.pdb
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\Riddhasoft.Attendance.Services.pdb
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\Riddhasoft.Device.Entities.pdb
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\Riddhasoft.Device.Services.pdb
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\Riddhasoft.Employee.Entities.pdb
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\Riddhasoft.Employee.Mobile.Entities.pdb
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\Riddhasoft.Employee.Mobile.Services.pdb
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\Riddhasoft.Employee.Services.pdb
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\Riddhasoft.HRM.Entities.pdb
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\Riddhasoft.HRM.Services.pdb
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\Riddhasoft.OfficeSetup.Entities.pdb
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\Riddhasoft.OfficeSetup.Services.pdb
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\Riddhasoft.PayRoll.Entities.pdb
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\Riddhasoft.PayRoll.Services.pdb
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\Riddhasoft.Report.pdb
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\Riddhasoft.Services.Common.pdb
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\Riddhasoft.DB.pdb
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\Riddhasoft.Entity.User.pdb
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\Riddhasoft.Services.User.pdb
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\EntityFramework.xml
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\EntityFramework.SqlServer.xml
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\EPPlus.xml
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\Ionic.Zip.xml
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\System.Web.Http.Cors.xml
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\Newtonsoft.Json.xml
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\System.Net.Http.Formatting.xml
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\System.Web.Helpers.xml
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\System.Web.Http.xml
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\System.Web.Http.WebHost.xml
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\System.Web.Mvc.xml
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\System.Web.Optimization.xml
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\System.Web.Razor.xml
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\System.Web.WebPages.xml
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\System.Web.WebPages.Deployment.xml
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\System.Web.WebPages.Razor.xml
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\Antlr3.Runtime.pdb
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\bin\Riddhasoft.Globlas.pdb
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\obj\Release\ne\u.resources.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\obj\Release\u.dll
+D:\project\EHajiri_2017.07.30\trunk\RTech.Demo\obj\Release\u.pdb
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\SqlServerTypes\x64\msvcr120.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\SqlServerTypes\x64\SqlServerSpatial140.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\SqlServerTypes\x86\msvcr120.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\SqlServerTypes\x86\SqlServerSpatial140.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\u.dll.config
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\u.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\u.pdb
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\ne\u.resources.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\Antlr3.Runtime.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\EntityFramework.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\EntityFramework.SqlServer.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\EPPlus.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\Ionic.Zip.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\Microsoft.ReportViewer.WebForms.DLL
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\Microsoft.SqlServer.Types.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\Microsoft.Web.Infrastructure.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\Newtonsoft.Json.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\ReportViewerForMvc.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\Riddhasoft.Attendance.Entities.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\Riddhasoft.Attendance.Services.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\Riddhasoft.DB.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\Riddhasoft.Device.Entities.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\Riddhasoft.Device.Services.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\Riddhasoft.Employee.Entities.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\Riddhasoft.Employee.Mobile.Entities.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\Riddhasoft.Employee.Mobile.Services.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\Riddhasoft.Employee.Services.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\Riddhasoft.Entity.User.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\Riddhasoft.HRM.Entities.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\Riddhasoft.HRM.Services.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\Riddhasoft.OfficeSetup.Entities.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\Riddhasoft.OfficeSetup.Services.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\Riddhasoft.PayRoll.Entities.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\Riddhasoft.PayRoll.Services.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\Riddhasoft.Report.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\Riddhasoft.Services.Common.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\Riddhasoft.Services.User.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\System.Net.Http.Formatting.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\System.Web.Cors.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\System.Web.Helpers.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\System.Web.Http.Cors.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\System.Web.Http.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\System.Web.Http.WebHost.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\System.Web.Mvc.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\System.Web.Optimization.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\System.Web.Razor.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\System.Web.WebPages.Deployment.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\System.Web.WebPages.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\System.Web.WebPages.Razor.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\WebGrease.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\Riddhasoft.Globlas.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\Riddhasoft.Attendance.Entities.pdb
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\Riddhasoft.Attendance.Services.pdb
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\Riddhasoft.Device.Entities.pdb
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\Riddhasoft.Device.Services.pdb
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\Riddhasoft.Employee.Entities.pdb
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\Riddhasoft.Employee.Mobile.Entities.pdb
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\Riddhasoft.Employee.Mobile.Services.pdb
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\Riddhasoft.Employee.Services.pdb
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\Riddhasoft.HRM.Entities.pdb
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\Riddhasoft.HRM.Services.pdb
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\Riddhasoft.OfficeSetup.Entities.pdb
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\Riddhasoft.OfficeSetup.Services.pdb
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\Riddhasoft.PayRoll.Entities.pdb
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\Riddhasoft.PayRoll.Services.pdb
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\Riddhasoft.Report.pdb
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\Riddhasoft.Services.Common.pdb
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\Riddhasoft.DB.pdb
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\Riddhasoft.Entity.User.pdb
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\Riddhasoft.Services.User.pdb
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\EntityFramework.xml
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\EntityFramework.SqlServer.xml
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\EPPlus.xml
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\Ionic.Zip.xml
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\System.Web.Http.Cors.xml
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\Newtonsoft.Json.xml
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\System.Net.Http.Formatting.xml
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\System.Web.Helpers.xml
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\System.Web.Http.xml
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\System.Web.Http.WebHost.xml
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\System.Web.Mvc.xml
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\System.Web.Optimization.xml
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\System.Web.Razor.xml
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\System.Web.WebPages.xml
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\System.Web.WebPages.Deployment.xml
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\System.Web.WebPages.Razor.xml
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\Antlr3.Runtime.pdb
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\bin\Riddhasoft.Globlas.pdb
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\obj\Release\RTech.Demo.csprojResolveAssemblyReference.cache
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\obj\Release\RTech.Demo.Resources.Resource.resources
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\obj\Release\RTech.Demo.Resources.Resource.ne.resources
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\obj\Release\RTech.Demo.csproj.GenerateResource.Cache
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\obj\Release\RdlCompile.cache
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\obj\Release\RdlCompile.compiled
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\obj\Release\ne\u.resources.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\obj\Release\u.dll
+D:\projects\NewRepos\HamroHajiri\RTech.Demo\obj\Release\u.pdb
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\SqlServerTypes\x64\msvcr120.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\SqlServerTypes\x64\SqlServerSpatial140.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\SqlServerTypes\x86\msvcr120.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\SqlServerTypes\x86\SqlServerSpatial140.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\u.dll.config
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\u.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\u.pdb
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\ne\u.resources.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Antlr3.Runtime.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\EntityFramework.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\EntityFramework.SqlServer.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\EPPlus.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Ionic.Zip.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Microsoft.ReportViewer.WebForms.DLL
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Microsoft.SqlServer.Types.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Microsoft.Web.Infrastructure.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Newtonsoft.Json.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\ReportViewerForMvc.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Attendance.Entities.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Attendance.Services.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.DB.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Device.Entities.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Device.Services.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Employee.Entities.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Employee.Mobile.Entities.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Employee.Mobile.Services.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Employee.Services.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Entity.User.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Globlas.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.HRM.Entities.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.HRM.Services.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.OfficeSetup.Entities.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.OfficeSetup.Services.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.PayRoll.Entities.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.PayRoll.Services.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Report.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Services.Common.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Services.User.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Net.Http.Formatting.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.Cors.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.Helpers.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.Http.Cors.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.Http.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.Http.WebHost.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.Mvc.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.Optimization.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.Razor.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.WebPages.Deployment.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.WebPages.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.WebPages.Razor.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\WebGrease.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Attendance.Entities.pdb
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Attendance.Services.pdb
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Device.Entities.pdb
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Device.Services.pdb
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Employee.Entities.pdb
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Employee.Mobile.Entities.pdb
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Employee.Mobile.Services.pdb
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Employee.Services.pdb
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Globlas.pdb
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.HRM.Entities.pdb
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.HRM.Services.pdb
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.OfficeSetup.Entities.pdb
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.OfficeSetup.Services.pdb
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.PayRoll.Entities.pdb
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.PayRoll.Services.pdb
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Report.pdb
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Services.Common.pdb
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.DB.pdb
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Entity.User.pdb
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Services.User.pdb
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\EntityFramework.xml
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\EntityFramework.SqlServer.xml
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\EPPlus.xml
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Ionic.Zip.xml
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.Http.Cors.xml
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Newtonsoft.Json.xml
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Net.Http.Formatting.xml
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.Helpers.xml
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.Http.xml
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.Http.WebHost.xml
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.Mvc.xml
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.Optimization.xml
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.Razor.xml
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.WebPages.xml
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.WebPages.Deployment.xml
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.WebPages.Razor.xml
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Antlr3.Runtime.pdb
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\obj\Release\RTech.Demo.Resources.Resource.resources
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\obj\Release\RTech.Demo.Resources.Resource.ne.resources
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\obj\Release\RTech.Demo.csproj.GenerateResource.Cache
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\obj\Release\ne\u.resources.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\obj\Release\u.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\obj\Release\u.pdb
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\RTech.Lib.ProductKey.dll
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Attendance.Entities.dll.config
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Attendance.Services.dll.config
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Employee.Mobile.Services.dll.config
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Employee.Services.dll.config
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.HRM.Entities.dll.config
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.HRM.Services.dll.config
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.OfficeSetup.Entities.dll.config
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.OfficeSetup.Services.dll.config
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.PayRoll.Entities.dll.config
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.PayRoll.Services.dll.config
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Report.dll.config
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.DB.dll.config
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\bin\RTech.Lib.ProductKey.pdb
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\obj\Release\RTech.Demo.csprojAssemblyReference.cache
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\obj\Release\RTech.Demo.csproj.CoreCompileInputs.cache
+D:\project\Hamro-Hajiri\trunk\RTech.Demo\obj\Release\RTech.Demo.csproj.CopyComplete
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\SqlServerTypes\x64\msvcr120.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\SqlServerTypes\x64\SqlServerSpatial140.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\SqlServerTypes\x86\msvcr120.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\SqlServerTypes\x86\SqlServerSpatial140.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\u.dll.config
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\u.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\u.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\ne\u.resources.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Antlr3.Runtime.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\EntityFramework.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\EntityFramework.SqlServer.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\EPPlus.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Ionic.Zip.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Microsoft.SqlServer.Types.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Microsoft.Web.Infrastructure.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Newtonsoft.Json.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Attendance.Entities.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Attendance.Services.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.DB.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Device.Entities.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Device.Services.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Employee.Entities.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Employee.Mobile.Entities.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Employee.Mobile.Services.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Employee.Services.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Entity.User.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Globlas.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.HRM.Entities.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.HRM.Services.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.OfficeSetup.Entities.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.OfficeSetup.Services.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.PayRoll.Entities.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.PayRoll.Services.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Report.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Services.Common.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Services.User.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\RTech.Lib.ProductKey.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Net.Http.Formatting.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.Cors.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.Helpers.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.Http.Cors.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.Http.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.Http.WebHost.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.Mvc.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.Optimization.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.Razor.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.WebPages.Deployment.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.WebPages.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.WebPages.Razor.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\WebGrease.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Attendance.Entities.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Attendance.Services.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Device.Entities.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Device.Services.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Employee.Entities.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Employee.Mobile.Entities.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Employee.Mobile.Services.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Employee.Services.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Globlas.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.HRM.Entities.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.HRM.Services.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.OfficeSetup.Entities.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.OfficeSetup.Services.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.PayRoll.Entities.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.PayRoll.Services.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Report.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Services.Common.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.DB.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Entity.User.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\RTech.Lib.ProductKey.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Services.User.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\EntityFramework.xml
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\EntityFramework.SqlServer.xml
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\EPPlus.xml
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Ionic.Zip.xml
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.Http.Cors.xml
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Newtonsoft.Json.xml
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Net.Http.Formatting.xml
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.Helpers.xml
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.Http.xml
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.Http.WebHost.xml
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.Mvc.xml
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.Optimization.xml
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.Razor.xml
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.WebPages.xml
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.WebPages.Deployment.xml
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.WebPages.Razor.xml
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Antlr3.Runtime.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\obj\Release\RTech.Demo.Resources.Resource.resources
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\obj\Release\RTech.Demo.Resources.Resource.ne.resources
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\obj\Release\RTech.Demo.csproj.GenerateResource.cache
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\obj\Release\ne\u.resources.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\obj\Release\u.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\obj\Release\u.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Attendance.Entities.dll.config
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Attendance.Services.dll.config
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Employee.Mobile.Services.dll.config
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Employee.Services.dll.config
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.HRM.Entities.dll.config
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.HRM.Services.dll.config
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.OfficeSetup.Entities.dll.config
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.OfficeSetup.Services.dll.config
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.PayRoll.Entities.dll.config
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.PayRoll.Services.dll.config
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Report.dll.config
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.DB.dll.config
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\obj\Release\RTech.Demo.csprojAssemblyReference.cache
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\obj\Release\RTech.Demo.csproj.CoreCompileInputs.cache
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\obj\Release\RTech.Demo.csproj.CopyComplete
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Areas\Report\RDLS\MonthlyWiseReport.rdlc
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Microsoft.ReportViewer.WebForms.DLL
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\ReportViewerForMvc.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Microsoft.ReportViewer.Common.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Microsoft.ReportViewer.DataVisualization.dll
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\obj\Release\RdlCompile.cache
+D:\SVN Server\Hamro-Hajiri\trunk\RTech.Demo\obj\Release\RdlCompile.compiled
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\SqlServerTypes\x64\msvcr120.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\SqlServerTypes\x64\SqlServerSpatial140.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\SqlServerTypes\x86\msvcr120.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\SqlServerTypes\x86\SqlServerSpatial140.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Areas\Report\RDLS\MonthlyWiseReport.rdlc
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\u.dll.config
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\u.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\u.pdb
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\ne\u.resources.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Antlr3.Runtime.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\EntityFramework.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\EntityFramework.SqlServer.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\EPPlus.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Ionic.Zip.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Microsoft.ReportViewer.Common.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Microsoft.ReportViewer.DataVisualization.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Microsoft.ReportViewer.WebForms.DLL
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Microsoft.SqlServer.Types.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Microsoft.Web.Infrastructure.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Newtonsoft.Json.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\ReportViewerForMvc.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Attendance.Entities.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Attendance.Services.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.DB.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Device.Entities.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Device.Services.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Employee.Entities.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Employee.Mobile.Entities.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Employee.Mobile.Services.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Employee.Services.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Entity.User.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Globlas.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.HRM.Entities.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.HRM.Services.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.OfficeSetup.Entities.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.OfficeSetup.Services.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.PayRoll.Entities.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.PayRoll.Services.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Report.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Services.Common.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Services.User.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\RTech.Lib.ProductKey.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Net.Http.Formatting.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.Cors.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.Helpers.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.Http.Cors.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.Http.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.Http.WebHost.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.Mvc.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.Optimization.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.Razor.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.WebPages.Deployment.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.WebPages.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.WebPages.Razor.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\WebGrease.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Attendance.Entities.pdb
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Attendance.Entities.dll.config
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Attendance.Services.pdb
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Attendance.Services.dll.config
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Device.Entities.pdb
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Device.Services.pdb
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Employee.Entities.pdb
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Employee.Mobile.Entities.pdb
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Employee.Mobile.Services.pdb
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Employee.Mobile.Services.dll.config
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Employee.Services.pdb
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Employee.Services.dll.config
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Globlas.pdb
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.HRM.Entities.pdb
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.HRM.Entities.dll.config
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.HRM.Services.pdb
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.HRM.Services.dll.config
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.OfficeSetup.Entities.pdb
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.OfficeSetup.Entities.dll.config
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.OfficeSetup.Services.pdb
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.OfficeSetup.Services.dll.config
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.PayRoll.Entities.pdb
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.PayRoll.Entities.dll.config
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.PayRoll.Services.pdb
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.PayRoll.Services.dll.config
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Report.pdb
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Report.dll.config
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Services.Common.pdb
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.DB.pdb
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.DB.dll.config
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Entity.User.pdb
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\RTech.Lib.ProductKey.pdb
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Riddhasoft.Services.User.pdb
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\EntityFramework.xml
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\EntityFramework.SqlServer.xml
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\EPPlus.xml
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Ionic.Zip.xml
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.Http.Cors.xml
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Newtonsoft.Json.xml
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Net.Http.Formatting.xml
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.Helpers.xml
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.Http.xml
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.Http.WebHost.xml
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.Mvc.xml
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.Optimization.xml
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.Razor.xml
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.WebPages.xml
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.WebPages.Deployment.xml
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\System.Web.WebPages.Razor.xml
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\bin\Antlr3.Runtime.pdb
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\obj\Release\RTech.Demo.csprojAssemblyReference.cache
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\obj\Release\RTech.Demo.Resources.Resource.resources
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\obj\Release\RTech.Demo.Resources.Resource.ne.resources
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\obj\Release\RTech.Demo.csproj.GenerateResource.cache
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\obj\Release\RdlCompile.cache
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\obj\Release\RdlCompile.compiled
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\obj\Release\RTech.Demo.csproj.CoreCompileInputs.cache
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\obj\Release\ne\u.resources.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\obj\Release\RTech.Demo.csproj.CopyComplete
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\obj\Release\u.dll
+D:\SVN Server\87 Server\Hamro-Hajiri\trunk\RTech.Demo\obj\Release\u.pdb

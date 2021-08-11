@@ -1,0 +1,39 @@
+﻿@using ReportViewerForMvc;
+@using System.Web.UI.WebControls;
+@{
+    Layout = null;
+}
+
+<body style="text-align:center;">
+
+    @Html.ReportViewer(
+new
+{
+  ProcessingMode = 0, //ProcessingMode.Local
+  SizeToReportContent = true,
+  Width = System.Web.UI.WebControls.Unit.Percentage(100),
+  Height = System.Web.UI.WebControls.Unit.Percentage(100)
+},
+new
+{
+  ReportPath = Server.MapPath(ViewBag.ReportPath as string)
+},
+new
+{
+  CompanyName = ViewBag.CompanyName as string,
+  ReportTitle = ViewBag.ReportTitle as string
+},
+new
+{
+  Name = "DataSet1",
+  Value = ViewBag.ReportData as System.Data.DataTable
+},
+null)
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script>
+        $(document).ready(function () {
+           // $('iframe').width('100%');
+        });
+    </script>
+</body>
+

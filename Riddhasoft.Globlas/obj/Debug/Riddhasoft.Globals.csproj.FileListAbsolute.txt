@@ -1,0 +1,34 @@
+D:\project\EHajiri_2017.07.30\trunk\Riddhasoft.Globlas\bin\Debug\Riddhasoft.Globlas.dll
+D:\project\EHajiri_2017.07.30\trunk\Riddhasoft.Globlas\bin\Debug\Riddhasoft.Globlas.pdb
+D:\project\EHajiri_2017.07.30\trunk\Riddhasoft.Globlas\obj\Debug\Riddhasoft.Globals.csprojResolveAssemblyReference.cache
+D:\project\EHajiri_2017.07.30\trunk\Riddhasoft.Globlas\obj\Debug\Riddhasoft.Globlas.dll
+D:\project\EHajiri_2017.07.30\trunk\Riddhasoft.Globlas\obj\Debug\Riddhasoft.Globlas.pdb
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.Globlas\bin\Debug\Riddhasoft.Globlas.dll
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.Globlas\bin\Debug\Riddhasoft.Globlas.pdb
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.Globlas\obj\Debug\Riddhasoft.Globlas.dll
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.Globlas\obj\Debug\Riddhasoft.Globlas.pdb
+D:\projects\NewRepos\HamroHajiri\Riddhasoft.Globlas\obj\Debug\Riddhasoft.Globals.csprojResolveAssemblyReference.cache
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.Globlas\bin\Debug\Riddhasoft.Globlas.dll
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.Globlas\bin\Debug\Riddhasoft.Globlas.pdb
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.Globlas\obj\Debug\Riddhasoft.Globals.csprojAssemblyReference.cache
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.Globlas\obj\Debug\Riddhasoft.Globals.csproj.CoreCompileInputs.cache
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.Globlas\obj\Debug\Riddhasoft.Globlas.dll
+D:\project\Hamro-Hajiri\trunk\Riddhasoft.Globlas\obj\Debug\Riddhasoft.Globlas.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.Globlas\bin\Debug\Riddhasoft.Globlas.dll
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.Globlas\bin\Debug\Riddhasoft.Globlas.pdb
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.Globlas\obj\Debug\Riddhasoft.Globals.csprojAssemblyReference.cache
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.Globlas\obj\Debug\Riddhasoft.Globals.csproj.CoreCompileInputs.cache
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.Globlas\obj\Debug\Riddhasoft.Globlas.dll
+D:\SVN Server\Hamro-Hajiri\trunk\Riddhasoft.Globlas\obj\Debug\Riddhasoft.Globlas.pdb
+D:\Projects\HamroHajiri\trunk\Riddhasoft.Globlas\bin\Debug\Riddhasoft.Globlas.dll
+D:\Projects\HamroHajiri\trunk\Riddhasoft.Globlas\bin\Debug\Riddhasoft.Globlas.pdb
+D:\Projects\HamroHajiri\trunk\Riddhasoft.Globlas\obj\Debug\Riddhasoft.Globals.csprojAssemblyReference.cache
+D:\Projects\HamroHajiri\trunk\Riddhasoft.Globlas\obj\Debug\Riddhasoft.Globals.csproj.CoreCompileInputs.cache
+D:\Projects\HamroHajiri\trunk\Riddhasoft.Globlas\obj\Debug\Riddhasoft.Globlas.dll
+D:\Projects\HamroHajiri\trunk\Riddhasoft.Globlas\obj\Debug\Riddhasoft.Globlas.pdb
+F:\Projects\HamroHajiri\trunk\Riddhasoft.Globlas\bin\Debug\Riddhasoft.Globlas.dll
+F:\Projects\HamroHajiri\trunk\Riddhasoft.Globlas\bin\Debug\Riddhasoft.Globlas.pdb
+F:\Projects\HamroHajiri\trunk\Riddhasoft.Globlas\obj\Debug\Riddhasoft.Globals.csprojAssemblyReference.cache
+F:\Projects\HamroHajiri\trunk\Riddhasoft.Globlas\obj\Debug\Riddhasoft.Globals.csproj.CoreCompileInputs.cache
+F:\Projects\HamroHajiri\trunk\Riddhasoft.Globlas\obj\Debug\Riddhasoft.Globlas.dll
+F:\Projects\HamroHajiri\trunk\Riddhasoft.Globlas\obj\Debug\Riddhasoft.Globlas.pdb

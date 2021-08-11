@@ -1,0 +1,458 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Layout_Adminlte.cshtml";
+}
+
+<section class="content-header">
+    <h1>
+        @T("Shift")
+        <sup class="text-green">@T("Creation")</sup>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> @T("Home")</a></li>
+        <li class="active">@T("Shift")</li>
+    </ol>
+</section>
+<style>
+    fieldset {
+        border: 1px solid silver;
+        border-radius: 5px;
+        padding: 13px;
+    }
+
+        fieldset legend {
+            color: black;
+            padding: 5px 10px;
+            font-size: 15px;
+            border-radius: 3px;
+            box-shadow: 0 0 0 1px silver;
+            margin-left: 0px;
+            background-color: #ECF0F5;
+            /*background-color: #00A65A;*/
+        }
+
+    .font26 {
+        font-size: 80px;
+    }
+
+    #custome {
+        border-radius: 50% !important;
+        border-top-left-radius: 50% !important;
+        border-bottom-left-radius: 50% !important;
+    }
+
+    input[type="checkbox"] {
+        margin: 5px;
+        padding: 0;
+    }
+
+    .form-custom {
+        display: block;
+        outline: 0;
+        width: 100%;
+        height: 28px;
+        padding: 2px 3px;
+        font-size: 13px;
+        line-height: 1.4;
+    }
+</style>
+<!-- Main content -->
+<section class="content">
+    <!-- Shift Modal -->
+    <div class="modal" id="shiftCreationModel">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" data-bind="click:$root.CloseModal">&times;</button>
+                    <header><h4 class="text-green">@T("Shift") @T("Creation") </h4></header>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal" data-bind="with:Shift">
+                        <div class="row">
+                            <div class="form-group col-lg-4">
+                                <div class="required">
+                                    <label class="col-lg-5 control-label" for="Number">@T("Code") </label>
+                                    <div class="col-lg-5">
+                                        <input type="text" class="form-control" required data-bind="value:ShiftCode" id="form-group-input ">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-4">
+                                <div class="required">
+                                    <label class="col-lg-5 control-label" for="Number">@T("ShiftName")</label>
+                                    <div class="col-lg-6">
+                                        <input type="text" class="form-control" required data-bind="value:ShiftName" id="form-group-input ">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-4">
+                                <label class="col-lg-5 control-label" for="Number">@T("ShiftNameNp")</label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" required data-bind="PreetiToUnicode:NameNp" id="form-group-input ">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-lg-4">
+                                <label class="col-lg-5 control-label" for="Number">@T("ShiftType")</label>
+                                <div class="col-lg-6">
+                                    <select class="form-control" data-bind="options:$root.ShiftType,
+                                optionsValue:'Id',optionsText:'Name',value:ShiftType"></select>
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-4">
+                                <div data-bind="attr:{'class':ShiftType()!=4?'required':''}">
+                                    <label class="col-lg-5 control-label" for="Number">@T("ShiftStartTime")</label>
+                                    <div class="col-lg-4">
+                                        <input type="text" class="form-control" data-bind="value:ShiftStartTime,mask:'time',enable:ShiftType()<4" placeholder="hh:mm" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-4">
+                                <div data-bind="attr:{'class':ShiftType()!=4?'required':''}">
+                                    <label class="col-lg-5 control-label" for="Number">@T("ShiftEndTime") </label>
+                                    <div class="col-lg-4">
+                                        <input type="text" class="form-control" data-bind="value:ShiftEndTime,mask:'time',enable:ShiftType()<4" placeholder="hh:mm" />
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-lg-4">
+                                <label class="col-lg-5 control-label" for="Number">@T("LunchStartTime")</label>
+                                <div class="col-lg-4">
+                                    <input type="text" class="form-control" data-bind="value:LunchStartTime,mask:'time',enable:ShiftType()<4" placeholder="hh:mm" />
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-4">
+                                <label class="col-lg-5 control-label" for="Number">@T("LunchEnd")</label>
+                                <div class="col-lg-4">
+                                    <input type="text" class="form-control" data-bind="value:LunchEndTime,mask:'time',enable:ShiftType()<4" placeholder="hh:mm" />
+                                </div>
+                            </div>
+
+                            <div class="form-group col-lg-4">
+                                <label class="col-lg-5 control-label" for="Number">@T("NoOfStaff")</label>
+                                <div class="col-lg-4">
+                                    <input type="text" class="form-control" data-bind="value:NumberOfStaff,mask:'number',enable:ShiftType()<4" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-lg-4">
+                                <label class="col-lg-5 control-label" for="Number">@T("EarlyGrace")</label>
+                                <div class="col-lg-4">
+                                    <input type="text" class="form-control" data-bind="value:EarlyGrace,mask:'time',enable:ShiftType()<4" placeholder="hh:mm" />
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-4">
+                                <label class="col-lg-5 control-label" for="Number">@T("LateGrace")</label>
+                                <div class="col-lg-4">
+                                    <input type="text" class="form-control" data-bind="value:LateGrace,mask:'time',enable:ShiftType()<4" placeholder="hh:mm" />
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-4">
+                                <div data-bind="attr:{'class':ShiftType()==4?'required':''}">
+                                    <label class="col-lg-5 control-label" for="Number">@T("ShiftHours")</label>
+                                    <div class="col-lg-4">
+                                        <input type="text" class="form-control" data-bind="value:$root.ShiftHours,mask:'time',visible:ShiftType()<4,enable:false" placeholder="hh:mm" />
+                                        <input type="text" class="form-control" data-bind="value:$root.ShiftHours,mask:'time',visible:ShiftType()==4,enable:true" placeholder="hh:mm" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <fieldset class="col-lg-12">
+                                    <legend>@T("AttendanceRules")</legend>
+                                    <div class="row">
+                                        <div class="form-group col-lg-4">
+                                            <label class="col-lg-8 control-label" for="Number">@T("HalfDayWorkingHour")</label>
+                                            <div class="col-lg-4">
+                                                <input type="text" class="form-control" data-bind="value:HalfDayWorkingHour,mask:'time',enable:ShiftType()!=4" placeholder="hh:mm" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-lg-8">
+                                            <label class="col-lg-4 control-label" for="Number">@T("DeclareAbsentFor")</label>
+                                            <div class="col-lg-8">
+                                                <div class="checkbox">
+                                                    <label><input type="checkbox" data-bind="checked:DeclareAbsentForLateIn">@T("LateIn")</label>
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label><input type="checkbox" data-bind="checked:DeclareAbsentForEarlyOut">@T("EarlyOut")</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <fieldset class="col-lg-12" data-bind="enable:ShortDayWorkingEnable">
+                                    <legend>@T("ShortDayWorking")<input type="checkbox" data-bind="checked:ShortDayWorkingEnable" /></legend>
+                                    <div>
+                                        <div class="row">
+                                            <div class="form-group col-lg-4">
+                                                <label class="col-lg-7 control-label" for="Number">@T("ShiftStartGrace")</label>
+                                                <div class="col-lg-4">
+                                                    <input type="text" class="form-control" data-bind="value:ShiftStartGrace,mask:'time'" placeholder="hh:mm" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-lg-4">
+                                                <label class="col-lg-7 control-label" for="Number">@T("StartMonth")</label>
+                                                <div class="col-lg-5">
+                                                    <select class="form-control" data-bind="options:$root.StartMonth,
+                                optionsValue:'Id',optionsText:'Name',value:StartMonth"></select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-lg-4">
+                                                <label class="col-lg-5 control-label" for="Number">@T("Days")</label>
+                                                <div class="col-lg-6">
+                                                    <input type="number" class="form-control" data-bind="value:StartDays" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-lg-4">
+                                                <label class="col-lg-7 control-label" for="Number">@T("ShiftEndGrace")</label>
+                                                <div class="col-lg-4">
+                                                    <input type="text" class="form-control" data-bind="value:ShiftEndGrace,mask:'time'" placeholder="hh:mm" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-lg-4">
+                                                <label class="col-lg-7 control-label" for="Number">@T("EndMonth")</label>
+                                                <div class="col-lg-5">
+                                                    <select class="form-control" data-bind="options:$root.EndMonth,
+                                optionsValue:'Id',optionsText:'Name',value:EndMonth"></select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-lg-4">
+                                                <label class="col-lg-5 control-label" for="Number">@T("Days")</label>
+                                                <div class="col-lg-6">
+                                                    <input type="number" class="form-control" data-bind="value:EndDays" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-lg-4">
+                                                <label class="col-lg-7 control-label" for="Number">@T("Shift")</label>
+                                                <div class="col-lg-4">
+                                                    <h5 class="label label-default" data-bind="text:$root.TimeDeff"> </h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </fieldset>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="form-group col-lg-12">
+                            <input type="submit" data-bind="click:$root.CreateUpdate,createUpdateText:$root.ModeOfButton" name="Save" class="btn btn-success" value="@T("Create")" />
+                            <input type="button" data-bind="click:$root.Reset" name="Reset" value=@T("Reset") class="btn btn-default" />
+                            <input type="button" id="close" data-bind="click:$root.CloseModal" value=@T("Back") class="btn btn-default" />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Info boxes -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box box-success">
+                <div class="box-header with-border">
+                    &nbsp;
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool dropdown-toggle text-green action" data-toggle="dropdown" data-bind="click:ShowModal,actionVisibility:'1032'" style="">
+                            <i class="fa fa-plus-square"></i> @T("Create")
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <div class="btn-group">
+
+                            <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-wrench"></i>
+                            </button>
+                        </div>
+                        <button type="button" class="btn btn-box-tool text-red" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+
+
+                </div>
+                <div class="row" data-bind="visible:Riddha.DataVisibilityLevel=='4'">
+                    <br>
+                    <div class="col-lg-12">
+                        <div class="form-horizontal">
+                            <div class="row">
+                                <div class="form-group col-lg-12 ">
+                                    <label class="col-lg-1 control-label" for="Number">@T("Branch")</label>
+                                    <div class="col-lg-3">
+                                        <select class="form-control " required data-bind="options:Branches,optionsText:'Name',optionsValue:'Id',value:$root.BranchId,event:{change:$root.Search}"></select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-body table-responsive ">
+                    <table class="table table-condensed table-bordered table-striped no-padding table-hover">
+                        <thead class="success bg-green">
+                            <tr>
+                                <th> @T("SerialNo")</th>
+
+                                <th class="col-lg-1"> @T("Code")</th>
+
+                                @*<th class="col-lg-2"> @T("Name") </th>*@
+
+                                <th class="col-lg-2" data-bind="visible:config.CurrentLanguage=='en'" style="display:none;">@T("Name")</th>
+
+                                <th class="col-lg-2" data-bind="visible:config.CurrentLanguage=='ne'" style="display:none;">@T("Name")</th>
+
+                                <th class="col-lg-1"> @T("ShiftStartTime")</th>
+
+                                <th class="col-lg-1"> @T("ShiftEndTime")</th>
+
+                                <th class="col-lg-1"> @T("LunchStartTime")</th>
+
+                                <th class="col-lg-1"> @T("LunchEnd")</th>
+
+                                <th class="col-lg-1"> @T("ShiftType")</th>
+
+                                <th class="col-lg-2"> @T("NumberOfStaff")</th>
+
+                                <th class="col-lg-1">@T("Action")</th>
+                            </tr>
+                        </thead>
+                        <tbody data-bind="foreach:Shifts">
+                            <tr>
+                                <td class="hidden"><input type="hidden" data-bind="value:Id" /></td>
+                                <td data-bind="serialNo:$index()+1"></td>
+                                <td data-bind="text:ShiftCode"></td>
+                                @*<td data-bind="text:NameNp()==''?ShiftName():ShiftName()+'('+NameNp()+')'"></td>*@
+                                <td data-bind="text:ShiftName,visible:config.CurrentLanguage=='en'" style="display:none;"></td>
+                                <td data-bind="text:NameNp()==''?ShiftName():NameNp,visible:config.CurrentLanguage=='ne'" style="display:none;"></td>
+                                <td data-bind="text:SuitableNumber(ShiftStartTime)"></td>
+                                <td data-bind="text:SuitableNumber(ShiftEndTime)"></td>
+                                <td data-bind="text:SuitableNumber(LunchStartTime)"></td>
+                                <td data-bind="text:SuitableNumber(LunchEndTime)"></td>
+                                <td data-bind="text:ShiftType"></td>
+                                <td data-bind="text:SuitableNumber(NumberOfStaff)"></td>
+                                <td>
+                                    <button type="button" data-bind="click:$root.Select,actionVisibility:'1033'" class="btn btn-xs btn-default action" title=@T("Edit")><span class="glyphicon glyphicon-pencil  text-green"></span> </button>
+                                    <button type="button" data-bind="click:$root.Delete,actionVisibility:'1034'" class="btn btn-xs btn-default action" title=@T("Remove")><span class="glyphicon glyphicon-trash  text-danger"></span></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot data-bind="with:Shift">
+                            @*<tr>
+                                    <td></td>
+                                    <td>
+                                        <div class="">
+                                            <input type="text" class="form-control " id="form-group-input" data-bind="value:ShiftCode" placeholder=@T("Code")>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="">
+                                            <input type="text" class="form-control " id="form-group-input" data-bind="value:ShiftName" placeholder=@T("Name")>
+                                            <input type="text" class="form-control " id="form-group-input" data-bind="value:NameNp" placeholder=@T("NameNp")>
+
+                                        </div>
+                                    </td>
+
+                                    <td>
+                                        <div class="">
+                                            <input type="time" class="form-control " id="form-group-input" data-bind="value:ShiftStartTime">
+                                        </div>
+                                    </td>
+
+                                    <td>
+                                        <div class="">
+                                            <input type="time" class="form-control " id="form-group-input" data-bind="value:ShiftEndTime">
+                                        </div>
+                                    </td>
+
+                                    <td>
+                                        <div class="">
+                                            <input type="time" class="form-control " id="form-group-input" data-bind="value:LunchStartTime">
+                                        </div>
+                                    </td>
+
+                                    <td>
+                                        <div class="">
+                                            <input type="time" class="form-control " id="form-group-input" data-bind="value:LunchEndTime">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="">
+                                            <select class="form-control" data-bind="options:$root.ShiftType,
+                                        optionsText:'Name',optionsValue:'Id',value:ShiftType,
+                                       optionsCaption:Riddha.UI.getOptionCaption()"></select>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="">
+                                            <input type="number" class="form-control" data-bind="value:NumberOfStaff" />
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <button type="button" data-bind="click:$root.CreateUpdate,template:{name:$root.ModeOfButton()=='Create'?'mode-button-add-template':'mode-button-update-template'}" class="btn btn-success" title=@T("Create")></button>
+                                        <button type="button" data-bind="click:$root.Reset" class="btn btn-default" title=@T("Reset")><span class="glyphicon glyphicon-refresh"></span></button>
+                                    </td>
+                                </tr>*@
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/html" id="mode-button-add-template">
+        <span class="glyphicon glyphicon-plus"></span>
+    </script>
+    <script type="text/html" id="mode-button-update-template">
+        <span class="glyphicon glyphicon-arrow-up"></span>
+    </script>
+    <!-- /.row -->
+    <!-- /.row -->
+    <!-- Main row -->
+    <!-- /.row -->
+</section>
+
+@if (Request.IsAjaxRequest())
+{
+    @*<script src="~/Areas/Scripts/Riddha.Script.Company.Model.js"></script>
+        <script src="~/Areas/Scripts/Riddha.Script.Company.Controller.js"></script>*@
+    <script type="text/javascript">
+        var obj = new shiftController();
+        Riddha.global.permission.action('1009').done(function (data) {
+            Riddha.global.permission.actions = data.Data;
+            ko.cleanNode(document.getElementById("partial-render"));
+            ko.applyBindings(obj, document.getElementById("partial-render"));
+            obj.Search();
+        });
+    </script>
+}
+else
+{
+    @section scripts
+    {
+        @*<script src="~/Areas/Scripts/Riddha.Script.Company.Model.js"></script>
+            <script src="~/Areas/Scripts/Riddha.Script.Company.Controller.js"></script>*@
+        <script type="text/javascript">
+            var obj = new shiftController();
+            Riddha.global.permission.action('1009').done(function (data) {
+                Riddha.global.permission.actions = data.Data;
+                ko.cleanNode(document.getElementById("partial-render"));
+                ko.applyBindings(obj, document.getElementById("partial-render"));
+                obj.Search();
+            });
+        </script>
+    }
+}

@@ -1,0 +1,193 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Layout_Adminlte.cshtml";
+}
+<style>
+    .panel-body {
+        padding: 7.5px;
+    }
+
+    .list-group-item {
+        position: relative;
+        display: block;
+        padding: 4px;
+        margin-bottom: -1px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+    }
+
+        .list-group-item:first-child {
+            margin-top: 0;
+            border-top: 0px;
+            border-bottom-right-radius: 4px;
+            /* border-bottom-left-radius: 4px; */
+        }
+</style>
+<section class="content-header">
+    <h1>
+        @T("EmpLeaveOpeningBal")
+        <sup class="text-green">@T("Creation")</sup>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> @T("Creation")</a></li>
+        <li class="active">@T("EmpLeaveOpeningBal")</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <!-- Info boxes -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box box-success">
+                <div class="box-header with-border">
+                    <div class="row">
+                        <div class="form-group col-lg-3">
+                            <div class="col-lg-12">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default action" data-bind="click:RefreshGrid,actionVisibility:'7233'"><i class="fa fa-refresh text-green">&nbsp;@T("Refresh")</i></button>
+                                    @*<button type="button" class="btn btn-default" data-bind="click:RefreshGrid"><i class="fa fa-refresh text-green">&nbsp;@T("Refresh")</i></button>*@
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse" id="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool text-red" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="row" data-bind="visible:Riddha.DataVisibilityLevel=='4'">
+                    <br>
+                    <div class="col-lg-12">
+                        <div class="form-horizontal">
+                            <div class="row">
+                                <div class="form-group col-lg-12">
+                                    <label class="col-lg-1 control-label" for="Number">@T("Branch")</label>
+                                    <div class="col-lg-3">
+                                        <select class="form-control " required data-bind="options:Branches,optionsText:'Name',optionsValue:'Id',value:$root.BranchId,event:{change:$root.Search}"></select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="col-lg-4">
+                                <div class="panel panel-success col">
+                                    <div class="box-header bg-green ">@T("Department") <input class="pull-right" type="checkbox" data-bind="checked:CheckAllDepartments" /></div>
+                                    <div class="panel-body" style="height:250px; overflow-y:auto">
+                                        <ul data-bind="foreach:Departments" class="list-group list list-group-unbordered">
+                                            <li class="list-group-item">
+                                                <span data-bind="text:Name"></span>   <a class="pull-right"><input type="checkbox" data-bind="checked:Checked,event:{change:$root.GetSections}" /></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="panel panel-success">
+                                    <div class="box-header bg-green ">@T("Section") <input class="pull-right" type="checkbox" data-bind="checked:CheckAllSections" /></div>
+                                    <div class="panel-body" style="height:250px; overflow-y:auto">
+                                        <ul data-bind="foreach:Sections" class="list-group list list-group-unbordered">
+                                            <li class="list-group-item">
+                                                <span data-bind="text:Name"></span>   <a class="pull-right"><input type="checkbox" data-bind="checked:Checked,event:{change:$root.GetEmployee}" /></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="panel panel-success">
+                                    <div class="box-header bg-green ">@T("Employee") </div>
+                                    <div class="panel-body" data-bind="" style="height:250px; overflow-y:auto">
+                                        <ul data-bind="foreach:Employees" class="list-group list list-group-unbordered">
+                                            <li class="list-group-item">
+                                                <span data-bind="text:Name"></span>   <input class="pull-right" type="checkbox" data-bind="value:Id,checked:Checked" />
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="rosterWindowtest">
+        <div class="no-padding">
+            <div class="col-lg-2 no-padding" data-bind="with:OpBalViewModel">
+                <table style="font-size:12px;" class="table table-bordered table-hover table-condensed table-responsive table-striped no-padding roster">
+                    <thead class="success">
+                        <tr>
+                            <th>@T("Employee")</th>
+                        </tr>
+                        @*<tr>
+                                <th>@T("Leave") =></th>
+                            </tr>*@
+                    </thead>
+                    <tbody data-bind="foreach:EmpLeaveBalRows">
+                        <tr>
+                            <td>
+                                <span class="form-control" data-bind="text:EmployeeName"></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div style="overflow-x: scroll;" class="col-lg-10 no-padding" data-bind="with:OpBalViewModel">
+                <table style="font-size:12px;border:1px;" class="table table-bordered table-hover table-condensed table-responsive table-striped no-padding roster">
+                    <thead>
+                        <tr>
+                            <!-- ko foreach: Headers-->
+                            <th data-bind="text:LeaveCode"></th>
+                            <!-- /ko -->
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach:EmpLeaveBalRows">
+                        <tr>
+                            <!-- ko foreach: EmpLeaveBalColumns-->
+                            <td data-bind="">
+                                <input type="text" class="form-control" data-bind="value:OpBal,enable:IsMapped,mask:'amount'" />
+                            </td>
+                            <!-- /ko -->
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="box-footer">
+            <button type="button" class="btn btn-success action" title=@T("Save") data-bind="click:$root.Save,actionVisibility:'7234'"><span class="glyphicon glyphicon-save"></span> @T("Save") </button>
+        </div>
+    </div>
+</section>
+@if (Request.IsAjaxRequest())
+{
+    <script type="text/javascript">
+        var leaveOpBalObj = new empLeaveOpeningBalController();
+        Riddha.global.permission.action('8023').done(function (data) {
+            Riddha.global.permission.actions = data.Data;
+            ko.cleanNode(document.getElementById("partial-render"));
+            ko.applyBindings(leaveOpBalObj, document.getElementById("partial-render"));
+            leaveOpBalObj.Search();
+        });
+    </script>
+}
+else
+{
+    @section scripts
+    {
+        <script type="text/javascript">
+            var leaveOpBalObj = new empLeaveOpeningBalController();
+            Riddha.global.permission.action('8023').done(function (data) {
+                Riddha.global.permission.actions = data.Data;
+                ko.cleanNode(document.getElementById("partial-render"));
+                ko.applyBindings(leaveOpBalObj, document.getElementById("partial-render"));
+                leaveOpBalObj.Search();
+            });
+        </script>
+    }
+}

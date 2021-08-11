@@ -1,0 +1,251 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Layout_Adminlte.cshtml";
+}
+<style>
+    input[type="checkbox"] {
+        margin: 4px;
+        padding: 0;
+    }
+
+    .modal-custom {
+        width: 1000px;
+    }
+    .btn {
+        display: inline-block;
+        padding: 3px 8px !important;
+        margin-bottom: 0;
+        font-size: 13px;
+        font-weight: normal;
+        line-height: 1.428571429;
+    }
+    .col-lg-custom {
+        width: 51.666667%;
+    }
+</style>
+<section class="content-header">
+    <h1>
+        @T("Client")
+        <sup class="text-green">@T("Search")</sup>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> @T("Owner")</a></li>
+        <li class="active">@T("Client Search")</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <!-- Company Modal -->
+    <div class="modal" id="clientDetailModal">
+        <div class="modal-dialog modal-custom ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header><h4 class="text-green text-center" data-bind="text:'Client Details of '+$root.ClientName()"></h4></header>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="box-body table-responsive ">
+                            <table class="table table-condensed table-bordered table-striped no-padding table-hover">
+                                <thead class="col"></thead>
+                                <thead class="success bg-green">
+                                    <tr>
+                                        <th colspan="7">Reseller Information</th>
+                                    </tr>
+                                    <tr>
+                                        <th class="col-lg-2">@T("Name")</th>
+                                        <th class="col-lg-2">@T("Address")</th>
+                                        <th class="col-lg-2">@T("Contact No.")</th>
+                                        <th class="col-lg-2">@T("Contact Person")</th>
+                                        <th class="col-lg-1">@T("Pan")</th>
+                                        <th class="col-lg-2">@T("User Name")</th>
+                                        <th class="col-lg-1">@T("Password")</th>
+                                    </tr>
+                                </thead>
+                                <tbody data-bind="with:CompanyReseller">
+                                    <tr>
+                                        <td data-bind="text:Name"></td>
+                                        <td data-bind="text:Address"></td>
+                                        <td data-bind="text:ContactNo"></td>
+                                        <td data-bind="text:ContactPerson"></td>
+                                        <td data-bind="text:Pan"></td>
+                                        <td data-bind="text:UserName"></td>
+                                        <td data-bind="text:Password"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="box-body table-responsive ">
+                            <table class="table table-condensed table-bordered table-striped no-padding table-hover">
+                                <thead class="col"></thead>
+                                <thead class="success bg-green">
+                                    <tr>
+                                        <th colspan="4">Login Information</th>
+                                    </tr>
+                                    <tr>
+                                        <th class="col-lg-2">@T("FullName")</th>
+                                        <th class="col-lg-2">@T("User Name")</th>
+                                        <th class="col-lg-2">@T("Password")</th>
+                                        <th class="col-lg-2">@T("UserType")</th>
+                                    </tr>
+                                </thead>
+                                <tbody data-bind="foreach:CompanyLoginArray">
+                                    <tr>
+                                        <td data-bind="text:FullName"></td>
+                                        <td data-bind="text:Name"></td>
+                                        <td data-bind="text:Password"></td>
+                                        <td data-bind="text:UserType"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="box-body table-responsive ">
+                            <table class="table table-condensed table-bordered table-striped no-padding table-hover">
+                                <thead class="col"></thead>
+                                <thead class="success bg-green">
+                                    <tr>
+                                        <th colspan="10">License Information</th>
+                                    </tr>
+                                    <tr>
+                                        <th class="">@T("Isse Date")</th>
+                                        <th class="">@T("Period")</th>
+                                        <th class="">@T("IsPaid")</th>
+                                        <th class="col-lg-1">@T("Rate")</th>
+                                        <th class="col-lg-1">@T("Paid")</th>
+                                        <th class="col-lg-1">@T("Due")</th>
+                                        <th class="">@T("PaymentMethod")</th>
+                                        <th class="">@T("Attachment")</th>
+                                        <th class="">@T("Remark")</th>
+                                        <th class="">@T("Action")</th>
+                                    </tr>
+                                </thead>
+                                <tbody data-bind="foreach:CompanyLicenseArray">
+                                    <tr data-bind="visible:$root.UserType()=='1'">
+                                        <td data-bind="text:SuitableDate(IsseDate())"></td>
+                                        <td data-bind="text:LicensePeriod"></td>
+                                        <td>
+                                            <input type="checkbox" data-bind="checked:IsPaid" disabled />
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control" data-bind="value:Rate" />
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control" data-bind="value:PaidAmount" />
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control" data-bind="value:DueAmount" readonly />
+                                        </td>
+                                        <td>
+                                            <select class="form-control" data-bind="options:$root.PaymentMethods,
+                                    optionsText:'Name',optionsValue:'Id',value:PaymentMethod,
+                                    optionsCaption:Riddha.UI.getOptionCaption()"></select>
+                                        </td>
+                                        <td>
+                                            <input type="file" data-bind="fileUpload:{value:FileAttachment}" name="name" title="Please upload file having extensions Image &amp; PDF only.">
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control" data-bind="value:Remark" />
+                                        </td>
+                                        <td>
+                                            <input class="form-control btn btn-success" type="button" name="name" value="Update" data-bind="click:$root.UpdateCompanyLicense" />
+                                        </td>
+                                    </tr>
+                                    <tr data-bind="visible:$root.UserType()=='0'">
+                                        <td data-bind="text:SuitableDate(IsseDate())"></td>
+                                        <td data-bind="text:LicensePeriod"></td>
+                                        <td>
+                                            <input type="checkbox" data-bind="checked:IsPaid" disabled />
+                                        </td>
+                                        <td data-bind="text:Rate"></td>
+                                        <td data-bind="text:PaidAmount"></td>
+                                        <td data-bind="text:DueAmount"></td>
+                                        <td data-bind="text:PaymentMethodName"></td>
+                                        <td>
+                                            <a data-bind="attr:{href:FileAttachment},visible:FileAttachment()!=''" href=""><img style="width:40px;height:45px;" src="/Images/file-logo.png"></a>
+                                            <a data-bind="visible:FileAttachment()==''" style="display: none;"><img style="width:40px;height:45px;" src="/Images/NoFIle1.png"></a>
+                                        </td>
+                                        <td data-bind="text:Remark">
+                                        </td>
+                                        <td>
+                                            <input class="form-control btn btn-success" type="button" name="name" value="Verify" data-bind="click:$root.VerifyCompanyLicense" />
+                                        </td>
+                                    </tr>
+                                </tbody>
+
+                            </table>
+                        </div>
+
+                    </div>
+                    <div class="text-center">
+                        <input type="button" id="close" data-bind="click:$root.CloseModal" value=@T("Back") class="text-center  btn btn-default bg-black" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Info boxes -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box box-success">
+                <div class="box-header with-border">
+                    &nbsp;
+                    <div class="box-tools pull-right">
+                        <input type="text" class="col-lg-custom" placeholder="Device SN" data-bind="value:$root.SearchText" /><a class="btn btn-default btn-search" data-bind="click:$root.Search"><i class="fa fa-search"></i> Search</a>
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool text-red" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                    
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-lg-12" data-bind="kendoGrid:KendoGridOptions">
+                            <div id="companyKendoGrid">
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/html" id="mode-button-add-template">
+        <span class="glyphicon glyphicon-plus"></span>
+    </script>
+    <script type="text/html" id="mode-button-update-template">
+        <span class="glyphicon glyphicon-arrow-up"></span>
+    </script>
+    <!-- /.row -->
+    <!-- /.row -->
+    <!-- Main row -->
+    <!-- /.row -->
+</section>
+
+@if (Request.IsAjaxRequest())
+{
+    <script type="text/javascript">
+        var obj = {};
+        ko.cleanNode(document.getElementById("partial-render"));
+        obj = new clientSearchController();
+        ko.applyBindings(obj, document.getElementById("partial-render"));
+    </script>
+}
+else
+{
+    @section scripts
+    {
+        <script type="text/javascript">
+            var obj = {};
+            ko.cleanNode(document.getElementById("partial-render"));
+            obj = new clientSearchController();
+            ko.applyBindings(obj, document.getElementById("partial-render"));
+        </script>
+    }
+}
