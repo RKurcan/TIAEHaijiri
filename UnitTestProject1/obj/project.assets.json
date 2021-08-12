@@ -5840,11 +5840,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Projects\\HamroHajiri\\trunk\\UnitTestProject1\\UnitTestProject1.csproj",
+      "projectUniqueName": "F:\\Projects\\GitHubProject\\TIAEHaijiri\\UnitTestProject1\\UnitTestProject1.csproj",
       "projectName": "UnitTestProject1",
-      "projectPath": "F:\\Projects\\HamroHajiri\\trunk\\UnitTestProject1\\UnitTestProject1.csproj",
+      "projectPath": "F:\\Projects\\GitHubProject\\TIAEHaijiri\\UnitTestProject1\\UnitTestProject1.csproj",
       "packagesPath": "C:\\Users\\Riddhasoft\\.nuget\\packages\\",
-      "outputPath": "F:\\Projects\\HamroHajiri\\trunk\\UnitTestProject1\\obj\\",
+      "outputPath": "F:\\Projects\\GitHubProject\\TIAEHaijiri\\UnitTestProject1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Riddhasoft\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5861,8 +5861,8 @@
         "netcoreapp2.1": {
           "targetAlias": "netcoreapp2.1",
           "projectReferences": {
-            "F:\\Projects\\HamroHajiri\\trunk\\RTech.Lib.ProductKey\\RTech.Lib.ProductKey.csproj": {
-              "projectPath": "F:\\Projects\\HamroHajiri\\trunk\\RTech.Lib.ProductKey\\RTech.Lib.ProductKey.csproj"
+            "F:\\Projects\\GitHubProject\\TIAEHaijiri\\RTech.Lib.ProductKey\\RTech.Lib.ProductKey.csproj": {
+              "projectPath": "F:\\Projects\\GitHubProject\\TIAEHaijiri\\RTech.Lib.ProductKey\\RTech.Lib.ProductKey.csproj"
             }
           }
         }

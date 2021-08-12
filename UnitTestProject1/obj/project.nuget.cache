@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "G5JvhoRZPf+d1n8UeZuXdA3g+rhzyAcHOb/7DUrr+VJgN6lZ3/Q6wMRXxFgoUm1T8KG6BKFsPPFeAtSkByvMmQ==",
+  "dgSpecHash": "4xGr7/XQPlMJMpHJXIwONgcneAUCD8JDWtggCMK6FobNXKfIR3SfA6Cyu7XDaS7IU4Xi7HhnyIUiQA3F5j2aeA==",
   "success": true,
-  "projectFilePath": "F:\\Projects\\HamroHajiri\\trunk\\UnitTestProject1\\UnitTestProject1.csproj",
+  "projectFilePath": "F:\\Projects\\GitHubProject\\TIAEHaijiri\\UnitTestProject1\\UnitTestProject1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Riddhasoft\\.nuget\\packages\\microsoft.codecoverage\\15.9.0\\microsoft.codecoverage.15.9.0.nupkg.sha512",
     "C:\\Users\\Riddhasoft\\.nuget\\packages\\microsoft.csharp\\4.0.1\\microsoft.csharp.4.0.1.nupkg.sha512",
