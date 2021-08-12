@@ -186,7 +186,6 @@ namespace Riddhasoft.HumanResource.Management.Report
 
             //          select c
             //).ToList();
-
             int rowIndex = 0;
             foreach (var item in rptList)
             {
@@ -201,7 +200,7 @@ namespace Riddhasoft.HumanResource.Management.Report
                 rowIndex++;
             }
             ///get attlog for particulardays
-            ///
+
             return new ServiceResult<List<MonthlyWiseReport>>() { Data = rptList };
         }
 

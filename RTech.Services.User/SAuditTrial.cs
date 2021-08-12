@@ -38,11 +38,11 @@ namespace Riddhasoft.Services.User
 
             db = new DB.RiddhaDBContext();
         }
-        public ServiceResult<List<EAuditTrial>> List()
+        public ServiceResult<IQueryable<EAuditTrial>> List()
         {
-            return new ServiceResult<List<EAuditTrial>>()
+            return new ServiceResult<IQueryable<EAuditTrial>>()
             {
-                Data = db.AuditTrial.ToList(),
+                Data = db.AuditTrial,
                 Message = "",
                 Status = ResultStatus.Ok
             };

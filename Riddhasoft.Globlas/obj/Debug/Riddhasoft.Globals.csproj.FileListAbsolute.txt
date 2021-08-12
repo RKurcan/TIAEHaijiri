@@ -32,3 +32,8 @@ F:\Projects\HamroHajiri\trunk\Riddhasoft.Globlas\obj\Debug\Riddhasoft.Globals.cs
 F:\Projects\HamroHajiri\trunk\Riddhasoft.Globlas\obj\Debug\Riddhasoft.Globals.csproj.CoreCompileInputs.cache
 F:\Projects\HamroHajiri\trunk\Riddhasoft.Globlas\obj\Debug\Riddhasoft.Globlas.dll
 F:\Projects\HamroHajiri\trunk\Riddhasoft.Globlas\obj\Debug\Riddhasoft.Globlas.pdb
+C:\projects\TIAHajiri\TIAEHaijiri\Riddhasoft.Globlas\bin\Debug\Riddhasoft.Globlas.dll
+C:\projects\TIAHajiri\TIAEHaijiri\Riddhasoft.Globlas\bin\Debug\Riddhasoft.Globlas.pdb
+C:\projects\TIAHajiri\TIAEHaijiri\Riddhasoft.Globlas\obj\Debug\Riddhasoft.Globals.csproj.CoreCompileInputs.cache
+C:\projects\TIAHajiri\TIAEHaijiri\Riddhasoft.Globlas\obj\Debug\Riddhasoft.Globlas.dll
+C:\projects\TIAHajiri\TIAEHaijiri\Riddhasoft.Globlas\obj\Debug\Riddhasoft.Globlas.pdb

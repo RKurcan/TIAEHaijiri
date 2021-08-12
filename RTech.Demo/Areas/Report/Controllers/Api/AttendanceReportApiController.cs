@@ -315,7 +315,8 @@ namespace RTech.Demo.Areas.Report.Controllers.Api
                             {
                                 Id = c.Id,
                                 //Name = c.Name
-                                Name =c.Code+"-"+( language == "ne" && string.IsNullOrEmpty(c.NameNp) == false ? c.NameNp : c.Name)
+                                Name =c.Code+"-"+( language == "ne" && string.IsNullOrEmpty(c.NameNp) == false ? c.NameNp : c.Name),
+                                EmployeeName=c.Name,
                             }).ToList();
             }
             else
@@ -329,7 +330,8 @@ namespace RTech.Demo.Areas.Report.Controllers.Api
                                     {
                                         Id = c.Id,
                                         //Name = c.Name
-                                        Name = c.Code + "-" + (language == "ne" && string.IsNullOrEmpty(c.NameNp) == false ? c.NameNp : c.Name)
+                                        Name = c.Code + "-" + (language == "ne" && string.IsNullOrEmpty(c.NameNp) == false ? c.NameNp : c.Name),
+                                        EmployeeName = c.Name,
                                     }).ToList();
                         break;
                     case DataVisibilityLevel.Section:
@@ -343,7 +345,8 @@ namespace RTech.Demo.Areas.Report.Controllers.Api
                                     {
                                         Id = c.Id,
                                         //Name = c.Name
-                                        Name = c.Code + "-" + (language == "ne" && string.IsNullOrEmpty(c.NameNp) == false ? c.NameNp : c.Name)
+                                        Name = c.Code + "-" + (language == "ne" && string.IsNullOrEmpty(c.NameNp) == false ? c.NameNp : c.Name),
+                                        EmployeeName = c.Name,
                                     }).ToList();
                         break;
                     default:
@@ -352,7 +355,7 @@ namespace RTech.Demo.Areas.Report.Controllers.Api
             }
             return new ServiceResult<List<EmployeeGridVm>>()
             {
-                Data = employee,
+                Data = employee.OrderBy(x=>x.EmployeeName).ToList(),
                 Status = ResultStatus.Ok
             };
         }

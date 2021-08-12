@@ -49,7 +49,7 @@ namespace RTech.Demo.Areas.Report.Controllers.Api
             DateTime OnDate = DateTime.Parse(vm.OnDate).Date;
             SOfficeVisit officeVisitServices = new SOfficeVisit();
             int[] employees = Common.GetEmpIdsForReportParam(vm.DeptIds, vm.SectionIds, vm.EmpIds).Data;
-            var officeVisit = officeVisitServices.ListDetail().Data.Where(x => x.OfficeVisit.BranchId == BranchId && DbFunctions.TruncateTime(x.OfficeVisit.From) >= OnDate).ToList();
+            var officeVisit = officeVisitServices.ListDetail().Data.Where(x => x.OfficeVisit.BranchId == BranchId && (DbFunctions.TruncateTime(x.OfficeVisit.From)) >= OnDate).ToList();
             var result = (from c in officeVisit
                           join d in employees
                              on c.EmployeeId equals d
@@ -63,7 +63,7 @@ namespace RTech.Demo.Areas.Report.Controllers.Api
                           }).ToList();
             return new KendoGridResult<object>()
             {
-                Data = result,
+                Data = result.OrderBy(x => x.EmployeeName),
                 TotalCount = result.Count
             };
         }

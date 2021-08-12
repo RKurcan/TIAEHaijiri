@@ -36,7 +36,7 @@ namespace RTech.Demo.Areas.Report.Controllers.Api
                           }).ToList();
             return new KendoGridResult<object>()
             {
-                Data = result,
+                Data = result.OrderBy(x=>x.EmployeeName),
                 TotalCount = result.Count
             };
         }

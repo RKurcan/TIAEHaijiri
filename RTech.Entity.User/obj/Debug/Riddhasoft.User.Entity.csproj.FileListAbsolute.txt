@@ -52,3 +52,13 @@ F:\Projects\HamroHajiri\trunk\RTech.Entity.User\obj\Debug\Riddhasoft.User.Entity
 F:\Projects\HamroHajiri\trunk\RTech.Entity.User\obj\Debug\Riddhasoft.User.Entity.csproj.CopyComplete
 F:\Projects\HamroHajiri\trunk\RTech.Entity.User\obj\Debug\Riddhasoft.Entity.User.dll
 F:\Projects\HamroHajiri\trunk\RTech.Entity.User\obj\Debug\Riddhasoft.Entity.User.pdb
+C:\projects\TIAHajiri\TIAEHaijiri\RTech.Entity.User\bin\Debug\Riddhasoft.Entity.User.dll
+C:\projects\TIAHajiri\TIAEHaijiri\RTech.Entity.User\bin\Debug\Riddhasoft.Entity.User.pdb
+C:\projects\TIAHajiri\TIAEHaijiri\RTech.Entity.User\bin\Debug\Riddhasoft.OfficeSetup.Entities.dll
+C:\projects\TIAHajiri\TIAEHaijiri\RTech.Entity.User\bin\Debug\Riddhasoft.OfficeSetup.Entities.pdb
+C:\projects\TIAHajiri\TIAEHaijiri\RTech.Entity.User\bin\Debug\Riddhasoft.OfficeSetup.Entities.dll.config
+C:\projects\TIAHajiri\TIAEHaijiri\RTech.Entity.User\obj\Debug\Riddhasoft.User.Entity.csproj.AssemblyReference.cache
+C:\projects\TIAHajiri\TIAEHaijiri\RTech.Entity.User\obj\Debug\Riddhasoft.User.Entity.csproj.CoreCompileInputs.cache
+C:\projects\TIAHajiri\TIAEHaijiri\RTech.Entity.User\obj\Debug\Riddhasoft.User.Entity.csproj.CopyComplete
+C:\projects\TIAHajiri\TIAEHaijiri\RTech.Entity.User\obj\Debug\Riddhasoft.Entity.User.dll
+C:\projects\TIAHajiri\TIAEHaijiri\RTech.Entity.User\obj\Debug\Riddhasoft.Entity.User.pdb

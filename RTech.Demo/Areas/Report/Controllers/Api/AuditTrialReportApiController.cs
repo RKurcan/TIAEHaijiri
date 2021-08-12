@@ -27,7 +27,7 @@ namespace RTech.Demo.Areas.Report.Controllers.Api
         [HttpPost]
         public KendoGridResult<List<AuditTrialReportVm>> GenerateReport(AuditTrialRptArguments vm)
         {
-            var list = _auditTrialServices.List().Data.Where(x => DbFunctions.TruncateTime(x.LogTime) >= DbFunctions.TruncateTime(vm.OnDate) && DbFunctions.TruncateTime(x.LogTime) <= DbFunctions.TruncateTime(vm.ToDate)).ToList();
+            var list = _auditTrialServices.List().Data.Where(x => (DbFunctions.TruncateTime(x.LogTime)) >= (DbFunctions.TruncateTime(vm.OnDate)) && (DbFunctions.TruncateTime(x.LogTime)) <= (DbFunctions.TruncateTime(vm.ToDate))).AsEnumerable().ToList();
             var userList = _userServices.List().Data.Where(x => x.BranchId == RiddhaSession.BranchId);
             var menuList = _menuServices.MenuList().Data;
             var actionList = _menuServices.ActionList().Data;

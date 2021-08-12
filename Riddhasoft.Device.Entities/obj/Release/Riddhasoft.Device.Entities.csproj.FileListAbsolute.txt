@@ -53,3 +53,15 @@ D:\Projects\HamroHajiri\trunk\Riddhasoft.Device.Entities\obj\Release\Riddhasoft.
 D:\Projects\HamroHajiri\trunk\Riddhasoft.Device.Entities\obj\Release\Riddhasoft.Device.Entities.csproj.CopyComplete
 D:\Projects\HamroHajiri\trunk\Riddhasoft.Device.Entities\obj\Release\Riddhasoft.Device.Entities.dll
 D:\Projects\HamroHajiri\trunk\Riddhasoft.Device.Entities\obj\Release\Riddhasoft.Device.Entities.pdb
+C:\projects\TIAHajiri\TIAEHaijiri\Riddhasoft.Device.Entities\bin\Release\Riddhasoft.Device.Entities.dll
+C:\projects\TIAHajiri\TIAEHaijiri\Riddhasoft.Device.Entities\bin\Release\Riddhasoft.Device.Entities.pdb
+C:\projects\TIAHajiri\TIAEHaijiri\Riddhasoft.Device.Entities\bin\Release\Riddhasoft.Entity.User.dll
+C:\projects\TIAHajiri\TIAEHaijiri\Riddhasoft.Device.Entities\bin\Release\Riddhasoft.OfficeSetup.Entities.dll
+C:\projects\TIAHajiri\TIAEHaijiri\Riddhasoft.Device.Entities\bin\Release\Riddhasoft.OfficeSetup.Entities.pdb
+C:\projects\TIAHajiri\TIAEHaijiri\Riddhasoft.Device.Entities\bin\Release\Riddhasoft.OfficeSetup.Entities.dll.config
+C:\projects\TIAHajiri\TIAEHaijiri\Riddhasoft.Device.Entities\bin\Release\Riddhasoft.Entity.User.pdb
+C:\projects\TIAHajiri\TIAEHaijiri\Riddhasoft.Device.Entities\obj\Release\Riddhasoft.Device.Entities.csproj.AssemblyReference.cache
+C:\projects\TIAHajiri\TIAEHaijiri\Riddhasoft.Device.Entities\obj\Release\Riddhasoft.Device.Entities.csproj.CoreCompileInputs.cache
+C:\projects\TIAHajiri\TIAEHaijiri\Riddhasoft.Device.Entities\obj\Release\Riddhasoft.Device.Entities.csproj.CopyComplete
+C:\projects\TIAHajiri\TIAEHaijiri\Riddhasoft.Device.Entities\obj\Release\Riddhasoft.Device.Entities.dll
+C:\projects\TIAHajiri\TIAEHaijiri\Riddhasoft.Device.Entities\obj\Release\Riddhasoft.Device.Entities.pdb

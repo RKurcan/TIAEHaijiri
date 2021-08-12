@@ -27,3 +27,8 @@ F:\Projects\HamroHajiri\trunk\Riddhasoft.Employee.Mobile.Entities\obj\Debug\Ridd
 F:\Projects\HamroHajiri\trunk\Riddhasoft.Employee.Mobile.Entities\obj\Debug\Riddhasoft.Employee.Mobile.Entities.csproj.CoreCompileInputs.cache
 F:\Projects\HamroHajiri\trunk\Riddhasoft.Employee.Mobile.Entities\obj\Debug\Riddhasoft.Employee.Mobile.Entities.dll
 F:\Projects\HamroHajiri\trunk\Riddhasoft.Employee.Mobile.Entities\obj\Debug\Riddhasoft.Employee.Mobile.Entities.pdb
+C:\projects\TIAHajiri\TIAEHaijiri\Riddhasoft.Employee.Mobile.Entities\bin\Debug\Riddhasoft.Employee.Mobile.Entities.dll
+C:\projects\TIAHajiri\TIAEHaijiri\Riddhasoft.Employee.Mobile.Entities\bin\Debug\Riddhasoft.Employee.Mobile.Entities.pdb
+C:\projects\TIAHajiri\TIAEHaijiri\Riddhasoft.Employee.Mobile.Entities\obj\Debug\Riddhasoft.Employee.Mobile.Entities.csproj.CoreCompileInputs.cache
+C:\projects\TIAHajiri\TIAEHaijiri\Riddhasoft.Employee.Mobile.Entities\obj\Debug\Riddhasoft.Employee.Mobile.Entities.dll
+C:\projects\TIAHajiri\TIAEHaijiri\Riddhasoft.Employee.Mobile.Entities\obj\Debug\Riddhasoft.Employee.Mobile.Entities.pdb

@@ -2190,6 +2190,8 @@ function attendanceReportController(date, companyName) {
         }).done(function (result) {
             self.showLoading(false);
             var data = Riddha.ko.global.arrayMap(ko.toJS(result.Data), MonthlyMultiPunchReportModel);
+
+
             self.MonthlyMultiPunchReportData(data);
             Riddha.UI.groupArray(self.MonthlyMultiPunchReportDataGroupBy, { key: 'Name', list: self.Employees }, { key: 'Name', list: self.MonthlyMultiPunchReportData }, MonthlyMultiPunchReportModel, [])
             $("#multiPunchReportTitle").text(reportTitle);
