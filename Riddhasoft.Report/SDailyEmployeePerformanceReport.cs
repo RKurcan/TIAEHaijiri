@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Riddhasoft.Globals.Conversion;
+using System.Globalization;
 
 namespace Riddhasoft.HumanResource.Management.Report
 {
@@ -362,17 +363,20 @@ namespace Riddhasoft.HumanResource.Management.Report
         public ServiceResult<List<AttendanceReportDetailViewModel>> GetAttendanceReportFromSp(DateTime FromDate)
         {
             string emp = "";
-            if (FilteredEmployeeIDs!=null)
+            if (FilteredEmployeeIDs != null)
             {
                 emp = string.Join(",", FilteredEmployeeIDs);
             }
+            int timezone = 0;
             var result = db.SP_GET_ATTENDACE_REPORT(FromDate, FromDate, branchId, currentLanguage, emp);
             List<AttendanceReportDetailViewModel> rptList = new List<AttendanceReportDetailViewModel>();
-            rptList = (from c in result
+            rptList = (from c in result.ToList()
                        select new AttendanceReportDetailViewModel()
                        {
                            ActualTimeIn = c.PUNCHIN == null ? "00:00" : c.PUNCHIN.ToDateTime().ToString(@"HH\:mm"),
+                          
                            ActualTimeOut = c.PUNCHOUT == null ? "00:00" : (c.PUNCHIN == c.PUNCHOUT ? "00:00" : c.PUNCHOUT.ToDateTime().ToString(@"HH\:mm")),
+                         
                            ActualLunchIn = c.BREAKIN == null ? "00:00" : (c.BREAKIN == c.BREAKIN ? "00:00" : c.BREAKIN.ToDateTime().ToString(@"HH\:mm")),
                            ActualLunchOut = c.BREAKOUT == null ? "00:00" : (c.BREAKOUT == c.BREAKOUT ? "00:00" : c.BREAKOUT.ToDateTime().ToString(@"HH\:mm")),
                            EmployeeCode = c.EmployeeCode,
@@ -388,6 +392,7 @@ namespace Riddhasoft.HumanResource.Management.Report
                            OnLeave = string.IsNullOrEmpty(c.LEAVENAME) ? "No" : "Yes",
                            PlannedTimeIn = c.PlannedTimeIn == null ? "00:00" : c.PlannedTimeIn.ToString(@"hh\:mm"),
                            PlannedTimeOut = c.PlannedTimeOut == null ? "00:000" : c.PlannedTimeOut.ToString(@"hh\:mm"),
+                          
                            ShiftStartGrace = c.EarlyGrace == null ? "00:00" : c.EarlyGrace.ToString(@"hh\:mm"),
                            ShiftEndGrace = c.LateGrace == null ? "00:00" : c.LateGrace.ToString(@"hh\:mm"),
                            ShiftName = "",//to get from db

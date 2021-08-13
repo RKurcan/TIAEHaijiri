@@ -1097,8 +1097,10 @@
                                                     <td data-bind="text:SuitableDate(WorkDate)"></td>
                                                     <td data-bind="text:DayName.substr(0,3)"></td>
                                                     <!--ko if:$root.MonthlyAttendanceReport.Mplanned()==true-->
-                                                    <td data-bind="text:SuitableNumber(PlannedTimeIn)"></td>
-                                                    <td data-bind="text:SuitableNumber(PlannedTimeOut)"></td>
+                                                    @*<td data-bind="text:SuitableNumber(PlannedTimeIn)"></td>*@
+                                                    <td data-bind="text:SuitableNumber(PlannedTimeIn12Format)"></td>
+                                                   @* <td data-bind="text:SuitableNumber(PlannedTimeOut)"></td>*@
+                                                    <td data-bind="text:SuitableNumber(PlannedTimeOut12Format)"></td>
                                                     <td data-bind="text:SuitableNumber(Standard)"></td>
                                                     <!--/ko-->
                                                     <td data-bind="text:SuitableNumber(ActualTimeIn)"></td>
