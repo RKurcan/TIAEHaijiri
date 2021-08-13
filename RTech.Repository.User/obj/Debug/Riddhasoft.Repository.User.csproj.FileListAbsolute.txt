@@ -31,3 +31,9 @@ F:\Projects\HamroHajiri\trunk\RTech.Repository.User\obj\Debug\Riddhasoft.Reposit
 F:\Projects\HamroHajiri\trunk\RTech.Repository.User\obj\Debug\Riddhasoft.Repository.User.csproj.CoreCompileInputs.cache
 F:\Projects\HamroHajiri\trunk\RTech.Repository.User\obj\Debug\Riddhasoft.Repository.User.dll
 F:\Projects\HamroHajiri\trunk\RTech.Repository.User\obj\Debug\Riddhasoft.Repository.User.pdb
+C:\projects\TIAHajiri\TIAEHaijiri\RTech.Repository.User\bin\Debug\Riddhasoft.Repository.User.dll
+C:\projects\TIAHajiri\TIAEHaijiri\RTech.Repository.User\bin\Debug\Riddhasoft.Repository.User.pdb
+C:\projects\TIAHajiri\TIAEHaijiri\RTech.Repository.User\obj\Debug\Riddhasoft.Repository.User.csproj.AssemblyReference.cache
+C:\projects\TIAHajiri\TIAEHaijiri\RTech.Repository.User\obj\Debug\Riddhasoft.Repository.User.csproj.CoreCompileInputs.cache
+C:\projects\TIAHajiri\TIAEHaijiri\RTech.Repository.User\obj\Debug\Riddhasoft.Repository.User.dll
+C:\projects\TIAHajiri\TIAEHaijiri\RTech.Repository.User\obj\Debug\Riddhasoft.Repository.User.pdb

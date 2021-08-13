@@ -23,3 +23,8 @@ D:\Projects\HamroHajiri\trunk\Riddhasoft.Employee.Mobile.Entities\obj\Release\Ri
 D:\Projects\HamroHajiri\trunk\Riddhasoft.Employee.Mobile.Entities\obj\Release\Riddhasoft.Employee.Mobile.Entities.csproj.CoreCompileInputs.cache
 D:\Projects\HamroHajiri\trunk\Riddhasoft.Employee.Mobile.Entities\obj\Release\Riddhasoft.Employee.Mobile.Entities.dll
 D:\Projects\HamroHajiri\trunk\Riddhasoft.Employee.Mobile.Entities\obj\Release\Riddhasoft.Employee.Mobile.Entities.pdb
+C:\projects\TIAHajiri\TIAEHaijiri\Riddhasoft.Employee.Mobile.Entities\bin\Release\Riddhasoft.Employee.Mobile.Entities.dll
+C:\projects\TIAHajiri\TIAEHaijiri\Riddhasoft.Employee.Mobile.Entities\bin\Release\Riddhasoft.Employee.Mobile.Entities.pdb
+C:\projects\TIAHajiri\TIAEHaijiri\Riddhasoft.Employee.Mobile.Entities\obj\Release\Riddhasoft.Employee.Mobile.Entities.csproj.CoreCompileInputs.cache
+C:\projects\TIAHajiri\TIAEHaijiri\Riddhasoft.Employee.Mobile.Entities\obj\Release\Riddhasoft.Employee.Mobile.Entities.dll
+C:\projects\TIAHajiri\TIAEHaijiri\Riddhasoft.Employee.Mobile.Entities\obj\Release\Riddhasoft.Employee.Mobile.Entities.pdb

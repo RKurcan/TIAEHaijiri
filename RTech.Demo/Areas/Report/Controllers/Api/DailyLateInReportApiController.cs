@@ -40,12 +40,12 @@ namespace RTech.Demo.Areas.Report.Controllers.Api
                     case "startswith":
                         reportData = (from c in result
                                       where (c.EmployeeName.ToLower().StartsWith(vm.Filter.Filters[0].Value.ToLower()) || c.EmployeeCode.ToLower().StartsWith(vm.Filter.Filters[0].Value.ToLower()))
-                                      select c).Where(x => x.LateIn != "00:00" && x.LateIn != "").OrderBy(x => x.EmployeeCode).Skip(vm.Skip).Take(vm.Take).ToList();
+                                      select c).Where(x => x.LateIn != "00:00" && x.LateIn != "").OrderBy(x => x.EmployeeName).Skip(vm.Skip).Take(vm.Take).ToList();
                         break;
                     case "eq":
                         reportData = (from c in result
                                       where (c.EmployeeName.ToLower() == (vm.Filter.Filters[0].Value.ToLower()) || c.EmployeeCode.ToLower() == (vm.Filter.Filters[0].Value.ToLower()))
-                                      select c).Where(x => x.LateIn != "00:00" && x.LateIn != "").OrderBy(x => x.EmployeeCode).Skip(vm.Skip).Take(vm.Take).ToList();
+                                      select c).Where(x => x.LateIn != "00:00" && x.LateIn != "").OrderBy(x => x.EmployeeName).Skip(vm.Skip).Take(vm.Take).ToList();
                         break;
                     default:
                         reportData = result;
@@ -55,7 +55,7 @@ namespace RTech.Demo.Areas.Report.Controllers.Api
             else
             {
                 reportData = (from c in result
-                              select c).Where(x => x.LateIn != "00:00" && x.LateIn != "").OrderBy(x => x.EmployeeCode).Skip(vm.Skip).Take(vm.Take).ToList();
+                              select c).Where(x => x.LateIn != "00:00" && x.LateIn != "").OrderBy(x => x.EmployeeName).Skip(vm.Skip).Take(vm.Take).ToList();
             }
             if (vm.Sort.Count() > 0)
             {
@@ -68,22 +68,22 @@ namespace RTech.Demo.Areas.Report.Controllers.Api
                         }
                         else
                         {
-                            reportData = reportData.Where(x => x.LateIn != "00:00" && x.LateIn != "").OrderByDescending(x => x.EmployeeName).Skip(vm.Skip).Take(vm.Take).ToList();
+                            reportData = reportData.Where(x => x.LateIn != "00:00" && x.LateIn != "").OrderBy(x => x.EmployeeName).Skip(vm.Skip).Take(vm.Take).ToList();
                         }
                         break;
                     case "employeecode":
                         if (vm.Sort[0].Dir.ToLower() == "asc")
                         {
-                            reportData = reportData.Where(x => x.LateIn != "00:00" && x.LateIn != "").OrderBy(x => x.EmployeeCode).Skip(vm.Skip).Take(vm.Take).ToList();
+                            reportData = reportData.Where(x => x.LateIn != "00:00" && x.LateIn != "").OrderBy(x => x.EmployeeName).Skip(vm.Skip).Take(vm.Take).ToList();
                         }
                         else
                         {
-                            reportData = reportData.Where(x => x.LateIn != "00:00" && x.LateIn != "").OrderByDescending(x => x.EmployeeCode).Skip(vm.Skip).Take(vm.Take).ToList();
+                            reportData = reportData.Where(x => x.LateIn != "00:00" && x.LateIn != "").OrderBy(x => x.EmployeeName).Skip(vm.Skip).Take(vm.Take).ToList();
                         }
                         break;
                     default:
                         reportData = (from c in reportData
-                                      select c).Where(x => x.LateIn != "00:00" && x.LateIn != "").OrderBy(x => x.EmployeeCode).Skip(vm.Skip).Take(vm.Take).ToList();
+                                      select c).Where(x => x.LateIn != "00:00" && x.LateIn != "").OrderBy(x => x.EmployeeName).Skip(vm.Skip).Take(vm.Take).ToList();
                         break;
                 }
             }

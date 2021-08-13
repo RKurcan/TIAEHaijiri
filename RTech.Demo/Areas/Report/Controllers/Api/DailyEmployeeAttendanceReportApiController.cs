@@ -42,12 +42,12 @@ namespace RTech.Demo.Areas.Report.Controllers.Api
                     case "startswith":
                         reportData = (from c in result
                                       where (c.EmployeeName.ToLower().StartsWith(vm.Filter.Filters[0].Value.ToLower()) || c.EmployeeCode.ToLower().StartsWith(vm.Filter.Filters[0].Value.ToLower()))
-                                      select c).OrderBy(x => x.EmployeeCode).Skip(vm.Skip).Take(vm.Take).ToList();
+                                      select c).OrderBy(x => x.EmployeeName).Skip(vm.Skip).Take(vm.Take).ToList();
                         break;
                     case "eq":
                         reportData = (from c in result
                                       where (c.EmployeeName.ToLower() == (vm.Filter.Filters[0].Value.ToLower()) || c.EmployeeCode.ToLower() == (vm.Filter.Filters[0].Value.ToLower()))
-                                      select c).OrderBy(x => x.EmployeeCode).Skip(vm.Skip).Take(vm.Take).ToList();
+                                      select c).OrderBy(x => x.EmployeeName).Skip(vm.Skip).Take(vm.Take).ToList();
                         break;
                     default:
                         reportData = result;
@@ -57,7 +57,7 @@ namespace RTech.Demo.Areas.Report.Controllers.Api
             else
             {
                 reportData = (from c in result
-                              select c).OrderBy(x => x.EmployeeCode).Skip(vm.Skip).Take(vm.Take).ToList();
+                              select c).OrderBy(x => x.EmployeeName).Skip(vm.Skip).Take(vm.Take).ToList();
             }
             if (vm.Sort.Count() > 0)
             {
@@ -70,22 +70,22 @@ namespace RTech.Demo.Areas.Report.Controllers.Api
                         }
                         else
                         {
-                            reportData = reportData.OrderByDescending(x => x.EmployeeName).Skip(vm.Skip).Take(vm.Take).ToList();
+                            reportData = reportData.OrderBy(x => x.EmployeeName).Skip(vm.Skip).Take(vm.Take).ToList();
                         }
                         break;
                     case "employeecode":
                         if (vm.Sort[0].Dir.ToLower() == "asc")
                         {
-                            reportData = reportData.OrderBy(x => x.EmployeeCode).Skip(vm.Skip).Take(vm.Take).ToList();
+                            reportData = reportData.OrderBy(x => x.EmployeeName).Skip(vm.Skip).Take(vm.Take).ToList();
                         }
                         else
                         {
-                            reportData = reportData.OrderByDescending(x => x.EmployeeCode).Skip(vm.Skip).Take(vm.Take).ToList();
+                            reportData = reportData.OrderBy(x => x.EmployeeName).Skip(vm.Skip).Take(vm.Take).ToList();
                         }
                         break;
                     default:
                         reportData = (from c in reportData
-                                      select c).OrderBy(x => x.EmployeeCode).Skip(vm.Skip).Take(vm.Take).ToList();
+                                      select c).OrderBy(x => x.EmployeeName).Skip(vm.Skip).Take(vm.Take).ToList();
                         break;
                 }
             }

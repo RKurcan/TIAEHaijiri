@@ -45,3 +45,9 @@ D:\Projects\HamroHajiri\trunk\RTech.Lib.ProductKey\obj\Release\RTech.Lib.Product
 D:\Projects\HamroHajiri\trunk\RTech.Lib.ProductKey\obj\Release\RTech.Lib.ProductKey.csproj.CoreCompileInputs.cache
 D:\Projects\HamroHajiri\trunk\RTech.Lib.ProductKey\obj\Release\RTech.Lib.ProductKey.dll
 D:\Projects\HamroHajiri\trunk\RTech.Lib.ProductKey\obj\Release\RTech.Lib.ProductKey.pdb
+C:\projects\TIAHajiri\TIAEHaijiri\RTech.Lib.ProductKey\bin\Release\RTech.Lib.ProductKey.dll
+C:\projects\TIAHajiri\TIAEHaijiri\RTech.Lib.ProductKey\bin\Release\RTech.Lib.ProductKey.pdb
+C:\projects\TIAHajiri\TIAEHaijiri\RTech.Lib.ProductKey\obj\Release\RTech.Lib.ProductKey.csproj.AssemblyReference.cache
+C:\projects\TIAHajiri\TIAEHaijiri\RTech.Lib.ProductKey\obj\Release\RTech.Lib.ProductKey.csproj.CoreCompileInputs.cache
+C:\projects\TIAHajiri\TIAEHaijiri\RTech.Lib.ProductKey\obj\Release\RTech.Lib.ProductKey.dll
+C:\projects\TIAHajiri\TIAEHaijiri\RTech.Lib.ProductKey\obj\Release\RTech.Lib.ProductKey.pdb

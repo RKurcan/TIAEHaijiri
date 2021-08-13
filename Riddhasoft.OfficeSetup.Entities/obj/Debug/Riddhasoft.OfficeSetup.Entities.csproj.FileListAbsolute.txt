@@ -56,3 +56,15 @@ F:\Projects\HamroHajiri\trunk\Riddhasoft.OfficeSetup.Entities\obj\Debug\Riddhaso
 F:\Projects\HamroHajiri\trunk\Riddhasoft.OfficeSetup.Entities\obj\Debug\Riddhasoft.OfficeSetup.Entities.csproj.CopyComplete
 F:\Projects\HamroHajiri\trunk\Riddhasoft.OfficeSetup.Entities\obj\Debug\Riddhasoft.OfficeSetup.Entities.dll
 F:\Projects\HamroHajiri\trunk\Riddhasoft.OfficeSetup.Entities\obj\Debug\Riddhasoft.OfficeSetup.Entities.pdb
+C:\projects\TIAHajiri\TIAEHaijiri\Riddhasoft.OfficeSetup.Entities\bin\Debug\Riddhasoft.OfficeSetup.Entities.dll.config
+C:\projects\TIAHajiri\TIAEHaijiri\Riddhasoft.OfficeSetup.Entities\bin\Debug\Riddhasoft.OfficeSetup.Entities.dll
+C:\projects\TIAHajiri\TIAEHaijiri\Riddhasoft.OfficeSetup.Entities\bin\Debug\Riddhasoft.OfficeSetup.Entities.pdb
+C:\projects\TIAHajiri\TIAEHaijiri\Riddhasoft.OfficeSetup.Entities\bin\Debug\EntityFramework.dll
+C:\projects\TIAHajiri\TIAEHaijiri\Riddhasoft.OfficeSetup.Entities\bin\Debug\EntityFramework.SqlServer.dll
+C:\projects\TIAHajiri\TIAEHaijiri\Riddhasoft.OfficeSetup.Entities\bin\Debug\EntityFramework.xml
+C:\projects\TIAHajiri\TIAEHaijiri\Riddhasoft.OfficeSetup.Entities\bin\Debug\EntityFramework.SqlServer.xml
+C:\projects\TIAHajiri\TIAEHaijiri\Riddhasoft.OfficeSetup.Entities\obj\Debug\Riddhasoft.OfficeSetup.Entities.csproj.AssemblyReference.cache
+C:\projects\TIAHajiri\TIAEHaijiri\Riddhasoft.OfficeSetup.Entities\obj\Debug\Riddhasoft.OfficeSetup.Entities.csproj.CoreCompileInputs.cache
+C:\projects\TIAHajiri\TIAEHaijiri\Riddhasoft.OfficeSetup.Entities\obj\Debug\Riddhasoft.OfficeSetup.Entities.csproj.CopyComplete
+C:\projects\TIAHajiri\TIAEHaijiri\Riddhasoft.OfficeSetup.Entities\obj\Debug\Riddhasoft.OfficeSetup.Entities.dll
+C:\projects\TIAHajiri\TIAEHaijiri\Riddhasoft.OfficeSetup.Entities\obj\Debug\Riddhasoft.OfficeSetup.Entities.pdb

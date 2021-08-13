@@ -35,7 +35,7 @@ namespace RTech.Demo
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-           DbMigration();
+             DbMigration();
             configureCulture();
         }
 

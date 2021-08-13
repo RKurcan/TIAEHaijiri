@@ -258,7 +258,6 @@ namespace Riddhasoft.DB
                                                 new SqlParameter("@DEPT_IDS", ""),
                                                 new SqlParameter("@BRANCH_IDs", branches)
             ).ToList();
-
             //return //((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<AttendanceReportResult>("SP_GET_ATTENDACE_REPORT", branchIdParam, FROMDATEParam, TODATEParam);
         }
 

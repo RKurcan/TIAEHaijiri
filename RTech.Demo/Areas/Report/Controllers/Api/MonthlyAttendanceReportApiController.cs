@@ -78,7 +78,7 @@ namespace RTech.Demo.Areas.Report.Controllers.Api
             foreach (var item in employees)
             {
                 MOnthWiseEmployeeGroupReportVm model = new MOnthWiseEmployeeGroupReportVm();
-                var employeewisedata = reportData.Where(x => x.EmployeeId == item).ToList();
+                var employeewisedata = reportData.Where(x => x.EmployeeId == item).OrderBy(x=>x.EmployeeName).ToList();
                 model.EmployeeName = employeewisedata.Select(x => x.EmployeeCode).FirstOrDefault()+"-"+ employeewisedata.Select(x => x.EmployeeName).FirstOrDefault();
                 model.DepartmentCode = employeewisedata.Select(x => x.DepartmentCode).FirstOrDefault();
                 model.monthlyWiseReports = new List<MonthlyWiseReport>();
