@@ -206,11 +206,16 @@ namespace RTech.Demo.Controllers.Api
                                   EmployeeDeviceCode = c.EmployeeDeviceCode,
                                   DepartmentName = c.DepartmentName,
                                   ShiftName = c.ShiftName,
-                                  PlannedTimeIn = c.PlannedTimeIn,
-                                  PlannedTimeOut = c.PlannedTimeOut,
-                                  ActualTimeIn = c.ActualTimeIn,
-                                  ActualTimeOut = c.ActualTimeOut,
+                                  //PlannedTimeIn = c.PlannedTimeIn,
+                                  //PlannedTimeOut = c.PlannedTimeOut,
+                                  //ActualTimeIn = c.ActualTimeIn,
+                                  //ActualTimeOut = c.ActualTimeOut,
                                   Remark = c.Remark,
+                                  PlannedTimeIn12Format = c.PlannedTimeIn12Format,
+                                  ActualTimeIn12Format = c.ActualTimeIn12Format,
+                                  ActualTimeOut12Format = c.ActualTimeOut12Format,
+                                  PlannedTimeOut12Format = c.PlannedTimeOut12Format
+
                               }).ToList();
 
             }
@@ -223,13 +228,17 @@ namespace RTech.Demo.Controllers.Api
                                   EmployeeCode = c.EmployeeCode,
                                   EmployeeDeviceCode = c.EmployeeDeviceCode,
                                   ShiftName = c.ShiftName,
-                                  PlannedTimeIn = c.PlannedTimeIn,
-                                  PlannedTimeOut = c.PlannedTimeOut,
-                                  ActualTimeIn = c.ActualTimeIn,
-                                  ActualTimeOut = c.ActualTimeOut,
+                                  //PlannedTimeIn = c.PlannedTimeIn,
+                                  //PlannedTimeOut = c.PlannedTimeOut,
+                                  //ActualTimeIn = c.ActualTimeIn,
+                                  //ActualTimeOut = c.ActualTimeOut,
                                   LateTime = GetLateTime(c.ActualTimeIn, c.PlannedTimeIn),
                                   DepartmentName = c.DepartmentName,
                                   Remark = c.Remark,
+                                  PlannedTimeIn12Format = c.PlannedTimeIn12Format,
+                                  ActualTimeIn12Format = c.ActualTimeIn12Format,
+                                  ActualTimeOut12Format = c.ActualTimeOut12Format,
+                                  PlannedTimeOut12Format = c.PlannedTimeOut12Format
 
                               }).ToList();
 
@@ -243,12 +252,16 @@ namespace RTech.Demo.Controllers.Api
                                   EmployeeCode = c.EmployeeCode,
                                   EmployeeDeviceCode = c.EmployeeDeviceCode,
                                   ShiftName = c.ShiftName,
-                                  PlannedTimeIn = c.PlannedTimeIn,
-                                  PlannedTimeOut = c.PlannedTimeOut,
-                                  ActualTimeIn = c.ActualTimeIn,
-                                  ActualTimeOut = c.ActualTimeOut,
+                                  //PlannedTimeIn = c.PlannedTimeIn,
+                                  //PlannedTimeOut = c.PlannedTimeOut,
+                                  //ActualTimeIn = c.ActualTimeIn,
+                                  //ActualTimeOut = c.ActualTimeOut,
                                   DepartmentName = c.DepartmentName,
                                   Remark = c.Remark,
+                                  PlannedTimeIn12Format = c.PlannedTimeIn12Format,
+                                  ActualTimeIn12Format = c.ActualTimeIn12Format,
+                                  ActualTimeOut12Format = c.ActualTimeOut12Format,
+                                  PlannedTimeOut12Format = c.PlannedTimeOut12Format
                               }).ToList();
 
             }
@@ -262,10 +275,14 @@ namespace RTech.Demo.Controllers.Api
                                   EmployeeDeviceCode = c.EmployeeDeviceCode,
                                   DepartmentName = c.DepartmentName,
                                   ShiftName = c.ShiftName,
-                                  PlannedTimeIn = c.PlannedTimeIn,
-                                  PlannedTimeOut = c.PlannedTimeOut,
-                                  ActualTimeIn = c.ActualTimeIn,
-                                  ActualTimeOut = c.ActualTimeOut,
+                                  //PlannedTimeIn = c.PlannedTimeIn,
+                                  //PlannedTimeOut = c.PlannedTimeOut,
+                                  //ActualTimeIn = c.ActualTimeIn,
+                                  //ActualTimeOut = c.ActualTimeOut,
+                                  PlannedTimeIn12Format = c.PlannedTimeIn12Format,
+                                  ActualTimeIn12Format = c.ActualTimeIn12Format,
+                                  ActualTimeOut12Format = c.ActualTimeOut12Format,
+                                  PlannedTimeOut12Format = c.PlannedTimeOut12Format,
                                   Remark = c.Remark,
                               }).ToList();
 
@@ -280,11 +297,15 @@ namespace RTech.Demo.Controllers.Api
                                   EmployeeDeviceCode = c.EmployeeDeviceCode,
                                   DepartmentName = c.DepartmentName,
                                   ShiftName = c.ShiftName,
-                                  PlannedTimeIn = c.PlannedTimeIn,
-                                  PlannedTimeOut = c.PlannedTimeOut,
-                                  ActualTimeIn = c.ActualTimeIn,
-                                  ActualTimeOut = c.ActualTimeOut,
+                                  //PlannedTimeIn = c.PlannedTimeIn,
+                                  //PlannedTimeOut = c.PlannedTimeOut,
+                                  //ActualTimeIn = c.ActualTimeIn,
+                                  //ActualTimeOut = c.ActualTimeOut,
                                   Remark = c.Remark,
+                                  PlannedTimeIn12Format = c.PlannedTimeIn12Format,
+                                  ActualTimeIn12Format = c.ActualTimeIn12Format,
+                                  ActualTimeOut12Format = c.ActualTimeOut12Format,
+                                  PlannedTimeOut12Format = c.PlannedTimeOut12Format
                               }).ToList();
             }
             if (model.type == "officeVisit")
@@ -297,11 +318,15 @@ namespace RTech.Demo.Controllers.Api
                                   DepartmentName = c.DepartmentName,
                                   EmployeeDeviceCode = c.EmployeeDeviceCode,
                                   ShiftName = c.ShiftName,
-                                  PlannedTimeIn = c.PlannedTimeIn,
-                                  PlannedTimeOut = c.PlannedTimeOut,
-                                  ActualTimeIn = c.ActualTimeIn,
-                                  ActualTimeOut = c.ActualTimeOut,
-                                  Remark = c.Remark
+                                  //PlannedTimeIn = c.PlannedTimeIn,
+                                  //PlannedTimeOut = c.PlannedTimeOut,
+                                  //ActualTimeIn = c.ActualTimeIn,
+                                  //ActualTimeOut = c.ActualTimeOut,
+                                  Remark = c.Remark,
+                                  PlannedTimeIn12Format = c.PlannedTimeIn12Format,
+                                  ActualTimeIn12Format = c.ActualTimeIn12Format,
+                                  ActualTimeOut12Format = c.ActualTimeOut12Format,
+                                  PlannedTimeOut12Format = c.PlannedTimeOut12Format
                               }).ToList();
 
 
@@ -340,16 +365,16 @@ namespace RTech.Demo.Controllers.Api
                     case "employeecode":
                         if (model.Sort[0].Dir.ToLower() == "asc")
                         {
-                            reportList = reportList.OrderBy(x => x.EmployeeCode).ToList();
+                            reportList = reportList.OrderBy(x => x.EmployeeName).ToList();
                         }
                         else
                         {
-                            reportList = reportList.OrderByDescending(x => x.EmployeeCode).ToList();
+                            reportList = reportList.OrderByDescending(x => x.EmployeeName).ToList();
                         }
                         break;
                     default:
                         reportList = (from c in reportList
-                                      select c).OrderBy(x => x.EmployeeCode).ToList();
+                                      select c).OrderBy(x => x.EmployeeName).ToList();
                         break;
                 }
             }
@@ -922,6 +947,10 @@ namespace RTech.Demo.Controllers.Api
         public string PlannedTimeOut { get; set; }
         public string ActualTimeIn { get; set; }
         public string ActualTimeOut { get; set; }
+        public string PlannedTimeIn12Format { get; set; }
+        public string PlannedTimeOut12Format { get; set; }
+        public string ActualTimeIn12Format { get; set; }
+        public string ActualTimeOut12Format { get; set; }
         public int TotalCount { get; set; }
         public string LateTime { get; set; }
         public string DepartmentName { get; set; }
