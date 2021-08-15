@@ -21,7 +21,7 @@ namespace Riddhasoft.Report
         public ServiceResult<List<EmployeeMultiPunchReportVm>> GetMultiPunchAttendanceReport(DateTime fromDate, DateTime toDate, int branchId)
         {
             string emp = string.Join(",", FilteredEmployeeIDs);
-            var result = db.SP_Employee_MultiPunch_report(branchId, fromDate, toDate,currentLanguage);
+            var result = db.SP_Employee_MultiPunch_report(branchId, fromDate, toDate, currentLanguage);
             if (FilteredEmployeeIDs.Length > 0)
             {
                 result = (from c in result
@@ -40,7 +40,7 @@ namespace Riddhasoft.Report
                               HolidayId = c.HolidayId,
                               HoliodayName = c.HoliodayName,
                               LeaveName = c.LeaveName,
-                              Name = c.Code+"-"+c.Name,
+                              Name = c.Code + "-" + c.Name,
                               PunchTime = c.PunchTime,
                               Day = c.Day
                           }).ToList();
@@ -61,9 +61,66 @@ namespace Riddhasoft.Report
         public string Date { get; set; }
         public string Day { get; set; }
         public string PunchTime { get; set; }
+        public string PunchTime12Format { get { return ConvertTimeSpan(this.PunchTime); } }
         public int? HolidayId { get; set; }
         public string HoliodayName { get; set; }
         public string LeaveName { get; set; }
+        private string ConvertTimeSpan(string timeSpan)
+        {
+            if (timeSpan != null)
+            {
+                try
+                {
+                    var manualPunchIn = timeSpan.Split(',')[0];
+                    var manualPunchOut = timeSpan.Split(',')[1];
+                    var hours = int.Parse(manualPunchIn.Split(':')[0]);
+                    var minutes = int.Parse(manualPunchIn.Split(':')[1]);
+                    var hoursOUt = int.Parse(manualPunchOut.Split(':')[0]);
+                    var minutesOUT = int.Parse(manualPunchOut.Split(':')[1]);
+                    var amPmDesignator = "AM";
+                    if (hours == 0)
+                        hours = 12;
+                    else if (hours == 12)
+                        amPmDesignator = "PM";
+                    else if (hours > 12)
+                    {
+                        hours -= 12;
+                        amPmDesignator = "PM";
+                    }
+                    var formattedTime =
+                      String.Format("{0}:{1:00} {2}", hours, minutes, amPmDesignator);
 
+                    formattedTime = formattedTime == "12:00 AM" ? "00:00" : formattedTime;
+
+                    if (hoursOUt == 0)
+                        hoursOUt = 12;
+                    else if (hoursOUt == 12)
+                        amPmDesignator = "PM";
+                    else if (hoursOUt > 12)
+                    {
+                        hoursOUt -= 12;
+                        amPmDesignator = "PM";
+                    }
+                    var formattedTimeOut =
+                      String.Format("{0}:{1:00} {2}", hoursOUt, minutesOUT, amPmDesignator);
+                    formattedTimeOut = formattedTimeOut == "12:00 AM" ? "00:00" : formattedTimeOut;
+                    return formattedTime + "," + formattedTimeOut;
+
+                }
+                catch (Exception)
+                {
+
+                    return "00:00";
+
+                }
+            }
+            else
+            {
+                return this.PunchTime;
+
+            }
+
+        }
     }
+
 }

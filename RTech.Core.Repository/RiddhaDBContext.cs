@@ -533,6 +533,8 @@ namespace Riddhasoft.DB
         public DateTime Date { get; set; }
         public string Day { get; set; }
         public string PunchTime { get; set; }
+
+     
         public int? HolidayId { get; set; }
         public string HoliodayName { get; set; }
         public string LeaveName { get; set; }

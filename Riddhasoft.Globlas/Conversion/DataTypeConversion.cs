@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 namespace Riddhasoft.Globals.Conversion
 {
@@ -52,6 +53,14 @@ namespace Riddhasoft.Globals.Conversion
 
                 return null;
             }
+        }
+        public static string ConvertFromToTime(this string timeHour, string inputFormat, string outputFormat)
+        {
+            var timeFromInput = DateTime.ParseExact(timeHour, inputFormat, null, DateTimeStyles.None);
+            string timeOutput = timeFromInput.ToString(
+                outputFormat,
+                CultureInfo.InvariantCulture);
+            return timeOutput;
         }
         public static int ToInt(this object obj)
         {

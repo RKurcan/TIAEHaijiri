@@ -984,7 +984,7 @@
                             @* <li><input data-report="MonthlyAttendanceReport" data-colname="Mlateout" onchange="setColumFilter(this)" type="checkbox" id="Mlateout" name="name" value="Mlateout" /> Late Out</li>*@
                             <li><input data-report="MonthlyAttendanceReport" data-colname="Mearly" onchange="setColumFilter(this)" type="checkbox" id="Mearly" name="name" value="Mearly" /> Early</li>
                             @* <li><input data-report="MonthlyAttendanceReport" data-colname="Mearlyout" onchange="setColumFilter(this)" type="checkbox" id="Mearlyout" name="name" value="Mearlyout" /> Early Out</li>*@
-                           @* <li><input data-report="MonthlyAttendanceReport" data-colname="Mremark" onchange="setColumFilter(this)" type="checkbox" id="Mremark" name="name" value="Mremark" /> Remark</li>*@
+                            @* <li><input data-report="MonthlyAttendanceReport" data-colname="Mremark" onchange="setColumFilter(this)" type="checkbox" id="Mremark" name="name" value="Mremark" /> Remark</li>*@
                         </ul>
                         <button type="button" class="btn btn-default " data-bind="click:function(){Print('#monthlyAttendanceReportId')}"><i class="fa fa-print text-green">&nbsp;@T("Print")</i></button>
                         <button type="button" class="btn btn-default " data-bind="click:function(){Generate('MonthlyAttendancereport','0')},visible:$root.ReportId()==10"><i class="fa fa-file-pdf-o text-green">&nbsp;@T("PDF")</i></button>
@@ -1097,14 +1097,20 @@
                                                     <td data-bind="text:SuitableDate(WorkDate)"></td>
                                                     <td data-bind="text:DayName.substr(0,3)"></td>
                                                     <!--ko if:$root.MonthlyAttendanceReport.Mplanned()==true-->
-                                                    <td data-bind="text:SuitableNumber(PlannedTimeIn)"></td>
-                                                    <td data-bind="text:SuitableNumber(PlannedTimeOut)"></td>
+                                                    @*<td data-bind="text:SuitableNumber(PlannedTimeIn)"></td>*@
+                                                    <td data-bind="text:SuitableNumber(PlannedTimeIn12Format)"></td>
+                                                    @* <td data-bind="text:SuitableNumber(PlannedTimeOut)"></td>*@
+                                                    <td data-bind="text:SuitableNumber(PlannedTimeOut12Format)"></td>
                                                     <td data-bind="text:SuitableNumber(Standard)"></td>
                                                     <!--/ko-->
-                                                    <td data-bind="text:SuitableNumber(ActualTimeIn)"></td>
-                                                    <td data-bind="text:SuitableNumber(ActualTimeOut)"></td>
-                                                    <td data-bind="visible:$root.MonthlyAttendanceReport.Mbreak(),text:SuitableNumber(ActualLunchOut)"></td>
-                                                    <td data-bind="visible:$root.MonthlyAttendanceReport.Mbreak(),text:SuitableNumber(ActualLunchIn)"></td>
+                                                    @*<td data-bind="text:SuitableNumber(ActualTimeIn)"></td>*@
+                                                    <td data-bind="text:SuitableNumber(ActualTimeIn12Format)"></td>
+                                                    @*<td data-bind="text:SuitableNumber(ActualTimeOut)"></td>*@
+                                                    <td data-bind="text:SuitableNumber(ActualTimeOut12Format)"></td>
+                                                    @*<td data-bind="visible:$root.MonthlyAttendanceReport.Mbreak(),text:SuitableNumber(ActualLunchOut)"></td>*@
+                                                    <td data-bind="visible:$root.MonthlyAttendanceReport.Mbreak(),text:SuitableNumber(ActualLunchOut12Format)"></td>
+                                                    @*<td data-bind="visible:$root.MonthlyAttendanceReport.Mbreak(),text:SuitableNumber(ActualLunchIn)"></td>*@
+                                                    <td data-bind="visible:$root.MonthlyAttendanceReport.Mbreak(),text:SuitableNumber(ActualLunchIn12Format)"></td>
                                                     <td data-bind="text:SuitableNumber(Actual)"></td>
                                                     <td data-bind="visible:$root.MonthlyAttendanceReport.Mot(),text:SuitableNumber(Ot),attr:{'data-sum-col-ot':$parents[0].EmployeeName},style: { 'backgroundColor': Ot != '' ? '#D2D6DE' : null }"></td>
                                                     <!--ko if:$root.MonthlyAttendanceReport.Mlate()==true-->
@@ -1149,9 +1155,9 @@
                                                     <td class="text-bold" data-bind="attr:{'data-result-col-EarlyIn':EmployeeName}"></td>
                                                     <td class="text-bold" data-bind="attr:{'data-result-col-EarlyOut':EmployeeName}"></td>
                                                     <!--/ko-->
-                                                  
+
                                                     <td></td>
-                                                   
+
 
                                                 </tr>
                                                 <tr class="page-break">
@@ -1232,7 +1238,7 @@
                             <tr>
                                 <td data-bind="text:SuitableDate(Date())"></td>
                                 <td data-bind="text:SuitableDay(Day())"></td>
-                                <td title="" data-bind="text:PunchTime"></td>
+                                <td title="" data-bind="text:PunchTime12Format"></td>
                             </tr>
                             <!--/ko-->
                         </tbody>
@@ -1574,11 +1580,15 @@
                                     <td data-bind="text:DayName"></td>
                                     <td data-bind="text:EmployeeCode"></td>
                                     <td data-bind="text:EmployeeName"></td>
-                                    <td data-bind="text:PlannedTimeIn"></td>
-                                    <td data-bind="text:PlannedTimeOut"></td>
+                                    @*<td data-bind="text:PlannedTimeIn"></td>*@
+                                    <td data-bind="text:PlannedTimeIn12Format"></td>
+                                    @*<td data-bind="text:PlannedTimeOut"></td>*@
+                                    <td data-bind="text:PlannedTimeOut12Format"></td>
                                     <td data-bind="text:Standard"></td>
-                                    <td data-bind="text:ActualTimeIn"></td>
-                                    <td data-bind="text:ActualTimeOut"></td>
+                                    @*<td data-bind="text:ActualTimeIn"></td>*@
+                                    <td data-bind="text:ActualTimeIn12Format"></td>
+                                    @*<td data-bind="text:ActualTimeOut"></td>*@
+                                    <td data-bind="text:ActualTimeOut12Format"></td>
                                     <td data-bind="text:Actual"></td>
                                     <td data-bind="text:EarlyIn,style: { 'backgroundColor': EarlyIn != '' ? '#D2D6DE' : null }"></td>
                                     <td data-bind="text:Remark"></td>
@@ -1681,11 +1691,15 @@
                                     <td data-bind="text:DayName"></td>
                                     <td data-bind="text:EmployeeCode"></td>
                                     <td data-bind="text:EmployeeName"></td>
-                                    <td data-bind="text:PlannedTimeIn"></td>
-                                    <td data-bind="text:PlannedTimeOut"></td>
+                                    @*<td data-bind="text:PlannedTimeIn"></td>*@
+                                    <td data-bind="text:PlannedTimeIn12Format"></td>
+                                    @*<td data-bind="text:PlannedTimeOut"></td>*@
+                                    <td data-bind="text:PlannedTimeOut12Format"></td>
                                     <td data-bind="text:Standard"></td>
-                                    <td data-bind="text:ActualTimeIn"></td>
-                                    <td data-bind="text:ActualTimeOut"></td>
+                                    @*<td data-bind="text:ActualTimeIn"></td>*@
+                                    <td data-bind="text:ActualTimeIn12Format"></td>
+                                    @*<td data-bind="text:ActualTimeOut"></td>*@
+                                    <td data-bind="text:ActualTimeOut12Format"></td>
                                     <td data-bind="text:Actual"></td>
                                     <td data-bind="text:EarlyOut,style: { 'backgroundColor': EarlyOut != '' ? '#D2D6DE' : null }"></td>
                                     <td data-bind="text:Remark"></td>
@@ -1785,11 +1799,15 @@
                                     <td data-bind="text:DayName"></td>
                                     <td data-bind="text:EmployeeCode"></td>
                                     <td data-bind="text:EmployeeName"></td>
-                                    <td data-bind="text:PlannedTimeIn"></td>
-                                    <td data-bind="text:PlannedTimeOut"></td>
+                                    @*<td data-bind="text:PlannedTimeIn"></td>*@
+                                    <td data-bind="text:PlannedTimeIn12Format"></td>
+                                    @*<td data-bind="text:PlannedTimeOut"></td>*@
+                                    <td data-bind="text:PlannedTimeOut12Format"></td>
                                     <td data-bind="text:Standard"></td>
-                                    <td data-bind="text:ActualTimeIn"></td>
-                                    <td data-bind="text:ActualTimeOut"></td>
+                                    @*<td data-bind="text:ActualTimeIn"></td>*@
+                                    <td data-bind="text:ActualTimeIn12Format"></td>
+                                    @*<td data-bind="text:ActualTimeOut"></td>*@
+                                    <td data-bind="text:ActualTimeOut12Format"></td>
                                     <td data-bind="text:Actual"></td>
                                     <td data-bind="text:LateIn,style: { 'backgroundColor': LateIn != '' ? '#D2D6DE' : null }"></td>
                                     <td data-bind="text:Remark"></td>
@@ -1884,11 +1902,15 @@
                                     <td data-bind="text:DayName"></td>
                                     <td data-bind="text:EmployeeCode"></td>
                                     <td data-bind="text:EmployeeName"></td>
-                                    <td data-bind="text:PlannedTimeIn"></td>
-                                    <td data-bind="text:PlannedTimeOut"></td>
+                                    @*<td data-bind="text:PlannedTimeIn"></td>*@
+                                    <td data-bind="text:PlannedTimeIn12Format"></td>
+                                    @*<td data-bind="text:PlannedTimeOut"></td>*@
+                                    <td data-bind="text:PlannedTimeOut12Format"></td>
                                     <td data-bind="text:Standard"></td>
-                                    <td data-bind="text:ActualTimeIn"></td>
-                                    <td data-bind="text:ActualTimeOut"></td>
+                                    @*<td data-bind="text:ActualTimeIn"></td>*@
+                                    <td data-bind="text:ActualTimeIn12Format"></td>
+                                    @*<td data-bind="text:ActualTimeOut"></td>*@
+                                    <td data-bind="text:ActualTimeOut12Format"></td>
                                     <td data-bind="text:Actual"></td>
                                     <td data-bind="text:LateOut,style: { 'backgroundColor': LateOut != '' ? '#D2D6DE' : null }"></td>
                                     <td data-bind="text:Remark"></td>
@@ -1985,10 +2007,15 @@
                                     <td data-bind="text:SuitableDate(WorkDate())"></td>
                                     <td data-bind="text:DayName"></td>
                                     <td data-bind="text:PlannedTimeIn"></td>
-                                    <td data-bind="text:PlannedTimeOut"></td>
+                                    @*<td data-bind="text:PlannedTimeIn"></td>*@
+                                    <td data-bind="text:PlannedTimeIn12Format"></td>
+                                    @*<td data-bind="text:PlannedTimeOut"></td>*@
+                                    <td data-bind="text:PlannedTimeOut12Format"></td>
                                     <td data-bind="text:Standard"></td>
-                                    <td data-bind="text:ActualTimeIn"></td>
-                                    <td data-bind="text:ActualTimeOut"></td>
+                                    @*<td data-bind="text:ActualTimeIn"></td>*@
+                                    <td data-bind="text:ActualTimeIn12Format"></td>
+                                    @*<td data-bind="text:ActualTimeOut"></td>*@
+                                    <td data-bind="text:ActualTimeOut12Format"></td>
                                     <td data-bind="text:Actual"></td>
                                     <td data-bind="text:Remark"></td>
                                 </tr>
@@ -2083,11 +2110,15 @@
                                     <td data-bind="text:DayName"></td>
                                     <td data-bind="text:EmployeeCode"></td>
                                     <td data-bind="text:EmployeeName"></td>
-                                    <td data-bind="text:PlannedTimeIn"></td>
-                                    <td data-bind="text:PlannedTimeOut"></td>
+                                    @*<td data-bind="text:PlannedTimeIn"></td>*@
+                                    <td data-bind="text:PlannedTimeIn12Format"></td>
+                                    @*<td data-bind="text:PlannedTimeOut"></td>*@
+                                    <td data-bind="text:PlannedTimeOut12Format"></td>
                                     <td data-bind="text:Standard"></td>
-                                    <td data-bind="text:ActualTimeIn"></td>
-                                    <td data-bind="text:ActualTimeOut"></td>
+                                    @*<td data-bind="text:ActualTimeIn"></td>*@
+                                    <td data-bind="text:ActualTimeIn12Format"></td>
+                                    @*<td data-bind="text:ActualTimeOut"></td>*@
+                                    <td data-bind="text:ActualTimeOut12Format"></td>
                                     <td data-bind="text:Actual"></td>
                                     <td data-bind="text:Remark"></td>
                                 </tr>
@@ -2180,11 +2211,17 @@
                                 <tr>
                                     <td data-bind="text:SuitableDate(WorkDate())"></td>
                                     <td data-bind="text:DayName"></td>
-                                    <td data-bind="text:PlannedTimeIn"></td>
-                                    <td data-bind="text:PlannedTimeOut"></td>
+                                    @*<td data-bind="text:PlannedTimeIn"></td>*@
+                                    <td data-bind="text:PlannedTimeIn12Format"></td>
+                                    @*<td data-bind="text:PlannedTimeOut"></td>*@
+                                    <td data-bind="text:PlannedTimeOut12Format"></td>
                                     <td data-bind="text:Standard"></td>
-                                    <td data-bind="text:ActualTimeIn,style: { 'backgroundColor': ActualTimeIn != '' ? '#D2D6DE' : null }"></td>
-                                    <td data-bind="text:ActualTimeOut"></td>
+                                    @*<td data-bind="text:ActualTimeIn"></td>*@
+                                    @*<td data-bind="text:ActualTimeIn12Format"></td>*@
+                                    @*<td data-bind="text:ActualTimeOut"></td>*@
+                                    <td data-bind="text:ActualTimeOut12Format"></td>
+                                    <td data-bind="text:ActualTimeIn12Format,style: { 'backgroundColor': ActualTimeIn != '' ? '#D2D6DE' : null }"></td>
+          
                                     <td data-bind="text:Actual"></td>
                                     <td data-bind="text:Remark"></td>
                                 </tr>
@@ -2279,11 +2316,15 @@
                                 <tr>
                                     <td data-bind="text:SuitableDate(WorkDate())"></td>
                                     <td data-bind="text:DayName"></td>
-                                    <td data-bind="text:PlannedTimeIn"></td>
-                                    <td data-bind="text:PlannedTimeOut"></td>
+                                    @*<td data-bind="text:PlannedTimeIn"></td>*@
+                                    <td data-bind="text:PlannedTimeIn12Format"></td>
+                                    @*<td data-bind="text:PlannedTimeOut"></td>*@
+                                    <td data-bind="text:PlannedTimeOut12Format"></td>
                                     <td data-bind="text:Standard"></td>
-                                    <td data-bind="text:ActualTimeIn"></td>
-                                    <td data-bind="text:ActualTimeOut"></td>
+                                    @*<td data-bind="text:ActualTimeIn"></td>*@
+                                    <td data-bind="text:ActualTimeIn12Format"></td>
+                                    @*<td data-bind="text:ActualTimeOut"></td>*@
+                                    <td data-bind="text:ActualTimeOut12Format"></td>
                                     <td data-bind="text:Actual"></td>
                                     <td data-bind="text:Ot,style: { 'backgroundColor': Ot != '' ? '#D2D6DE' : null }"></td>
                                 </tr>
@@ -2579,7 +2620,7 @@ else
             function setColumFilter(item) {
                 if (item.checked == true) {
                     setColumnVisible(item.dataset.report, item.dataset.colname, true);
-                 
+
                 }
                 else {
                     setColumnVisible(item.dataset.report, item.dataset.colname, false);

@@ -43,6 +43,7 @@ namespace Riddhasoft.Report.ReportViewModel
 
         public string ShiftEndGrace { get; set; }
         public string ActualTimeIn { get; set; }
+
         public string ActualTimeOut { get; set; }
         public string ActualLunchIn { get; set; }
         public string ActualLunchOut { get; set; }
@@ -322,7 +323,7 @@ namespace Riddhasoft.Report.ReportViewModel
 
                 // This code block is only for bir hospital
                 // remark should be absent if roster is not define
-                if (ShiftTypeId == 2 && Weekend=="Yes" && Absent == "Yes" && OnLeave != "Yes" && Holiday != "Yes")
+                if (ShiftTypeId == 2 && Weekend == "Yes" && Absent == "Yes" && OnLeave != "Yes" && Holiday != "Yes")
                 {
                     return "Absent";
                 }
@@ -374,7 +375,82 @@ namespace Riddhasoft.Report.ReportViewModel
 
         public string HolidayName { get; set; }
         public string DepartmentName { get; set; }
+        public string PlannedTimeOut12Format
+        {
+            get
+            {
+                return ConvertTimeSpan(this.PlannedTimeOut);
 
+            }
+        }
+        public string PlannedTimeIn12Format
+        {
+            get
+            {
+                return ConvertTimeSpan(this.PlannedTimeIn);
+
+            }
+        }
+        public string ActualTimeIn12Format
+        {
+            get
+            {
+                return ConvertTimeSpan(this.ActualTimeIn);
+            }
+        }
+        public string ActualTimeOut12Format
+        {
+            get
+            {
+                return ConvertTimeSpan(this.ActualTimeOut);
+            }
+        }
+
+        public string ActualLunchIn12Format
+        {
+            get
+            {
+                return ConvertTimeSpan(this.ActualLunchIn);
+            }
+        }
+        public string ActualLunchOut12Format
+        {
+            get
+            {
+                return ConvertTimeSpan(this.ActualLunchOut);
+            }
+        }
+        private string ConvertTimeSpan(string timeSpan)
+        {
+
+            try
+            {
+                var hours = int.Parse(timeSpan.Split(':')[0]);
+                var minutes = int.Parse(timeSpan.Split(':')[1]);
+                var amPmDesignator = "AM";
+                if (hours == 0)
+                    hours = 12;
+                else if (hours == 12)
+                    amPmDesignator = "PM";
+                else if (hours > 12)
+                {
+                    hours -= 12;
+                    amPmDesignator = "PM";
+                }
+                var formattedTime =
+                  String.Format("{0}:{1:00} {2}", hours, minutes, amPmDesignator);
+
+                return formattedTime=="12:00 AM"?"00:00": formattedTime;
+
+            }
+            catch (Exception)
+            {
+
+                return "00:00";
+
+            }
+
+        }
     }
     public class MultipunchReportViewModel
     {

@@ -110,16 +110,22 @@ function MonthlyEarlyInModel(item) {
     self.DayName = ko.observable(item.DayName || '');
     self.ShiftName = ko.observable(item.ShiftName || '');
     self.PlannedTimeIn = ko.observable(item.PlannedTimeIn || '');
+    self.PlannedTimeIn12Format = ko.observable(item.PlannedTimeIn12Format || '');
     self.PlannedTimeOut = ko.observable(item.PlannedTimeOut || '');
+    self.PlannedTimeOut12Format = ko.observable(item.PlannedTimeOut12Format || '');
     self.PlannedLunchIn = ko.observable(item.PlannedLunchIn || '');
     self.PlannedLunchOut = ko.observable(item.PlannedLunchOut || '');
     self.ShiftStartGrace = ko.observable(item.ShiftStartGrace || '');
     self.ShiftEndGrace = ko.observable(item.ShiftEndGrace || '');
     self.ActualTimeIn = ko.observable(item.ActualTimeIn || '');
+    self.ActualTimeIn12Format = ko.observable(item.ActualTimeIn12Format || '');
     self.ActualTimeOut = ko.observable(item.ActualTimeOut || '');
+    self.ActualTimeOut12Format = ko.observable(item.ActualTimeOut12Format || '');
     self.ActualLunchIn = ko.observable(item.ActualLunchIn || '');
+    self.ActualLunchIn12Format = ko.observable(item.ActualLunchIn12Format || '');
 
     self.ActualLunchOut = ko.observable(item.ActualLunchOut || '');
+    self.ActualLunchOut12Format = ko.observable(item.ActualLunchOut12Format || '');
     self.ShiftTypeId = ko.observable(item.ShiftTypeId || 0);
     self.Standard = ko.observable(item.Standard || '');
     self.Normal = ko.observable(item.Normal || '');
@@ -283,6 +289,7 @@ function MonthlyMultiPunchReportModel(item) {
     self.Date = ko.observable(item.Date || '');
     self.Day = ko.observable(item.Day || '');
     self.PunchTime = ko.observable(item.PunchTime || '');
+    self.PunchTime12Format = ko.observable(item.PunchTime12Format || '');
     self.HolidayId = ko.observable(item.HolidayId || 0);
     self.HoliodayName = ko.observable(item.HoliodayName || '');
     self.LeaveName = ko.observable(item.LeaveName || '');
